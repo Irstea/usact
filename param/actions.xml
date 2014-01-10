@@ -1,0 +1,97 @@
+<navigation>
+	<model action="index.php" droits="gestion" retourko="model"
+		retourok="model" retournull="model" loginrequis="1" menulevel="0" menuorder="0" 
+		menudroits="gestion" menuloginrequis="1" menuparent="0" menutitle="0" menuvalue="0" param="param1" ajax="0" droitko="droitko" modulebefore="module1,module2">
+	</model>
+	<default droits="gestion" droitko="droitko"></default>
+	<droitko action="framework/droitko.php"></droitko><loginliste action="framework/identification/loginliste.php" droits="admin" menulevel="1" menuorder="1" menudroits="admin" menuparent="3" menutitle="3" menuvalue="2" droitko="droitko"></loginliste>
+	<loginmodif action="framework/identification/loginmodif.php" droits="admin" retourko="loginliste" retourok="loginliste" retournull="loginliste"><droitko action="framework/droitko.php"></droitko></loginmodif>
+	<administration action="modules/administration/index.php" droits="admin"
+		retourko="" retourok="" retournull="" menuvalue="4" menutitle="5" menuorder="3" menulevel="0" droitko="droitko"></administration>
+	<gestion action="modules/gestion/index.php" droits="gestion" retourko=""
+		retournull="" retourok="" menuorder="1" menulevel="0" menuvalue="0" menutitle="1" droitko="droitko">
+	</gestion>
+	<errorbefore action="framework/errorbefore.php"></errorbefore>
+	<errorlogin action="framework/errorlogin.php"></errorlogin>
+	<test action="test/test.php" retourko=""
+		retournull="">
+	</test>
+	<identdisconnect action="framework/identification/disconnect.php" menutitle="7" menuvalue="6" menuorder="4" menulevel="0" menuloginrequis="1"></identdisconnect>
+	<apropos action="framework/apropos.php" menulevel="1" menuorder="99" menuvalue="8" menutitle="9" menuparent="99"></apropos>
+	<testcalendrier action="test/testcalendrier.php"></testcalendrier>
+	<gestiondroits action="framework/identification/gestiondroits.php" droits="admin" retourko=""
+		retourok="" retournull="" loginrequis="0" menulevel="1" menuorder="9" menudroits="admin" menuloginrequis="" menuparent="3" menutitle="13" menuvalue="12" droitko="droitko">
+	</gestiondroits>
+	<docindex menulevel="0" menuorder="99" menutitle="21" menuvalue="20" action="doc/index.php" param1="index.html"></docindex>
+	<docinstallation menulevel="1" menuorder="0" menutitle="23" menuvalue="22" action="doc/index.php" param1="Installation.html" menuparent="99"></docinstallation>
+	<docdroits menulevel="1" menuorder="1" menutitle="25" menuvalue="24" action="doc/index.php" param1="Gestion_droits.html" menuparent="99"></docdroits>
+	<docmodulelecture menulevel="1" menuorder="2" menutitle="27" menuvalue="26" action="doc/index.php" param1="module_lecture.html" menuparent="99"></docmodulelecture>
+	<docparammodule menulevel="1" menuorder="3" menutitle="29" menuvalue="28" action="doc/index.php" param1="Parametrage_module.html" menuparent="99"></docparammodule>
+	<docclasseaccess menulevel="1" menuorder="4" menutitle="31" menuvalue="30" action="doc/index.php" param1="classe_acces_donnees.html" menuparent="99"></docclasseaccess>
+	<docgestiondoc menulevel="1" menuorder="5" menutitle="33" menuvalue="32" action="doc/index.php" param1="Gestion_documentation.html" menuparent="99"></docgestiondoc>
+	<docinternationalisation menulevel="1" menuorder="6" menutitle="35" menuvalue="34" action="doc/index.php" param1="Internationalisation.html" menuparent="99"></docinternationalisation>
+	<docsmarty menulevel="1" menuorder="7" menutitle="37" menuvalue="36" action="doc/index.php" param1="Utiliser_SMARTY.html" menuparent="99"></docsmarty>
+	<docdescriptionorganisation menulevel="1" menuorder="7" menutitle="39" menuvalue="38" action="doc/index.php" param1="Organisation_application.html" menuparent="99"></docdescriptionorganisation>
+	<quoideneuf action="doc/quoideneuf.php" menulevel="1" menuparent="99" menutitle="41" menuvalue="40"></quoideneuf>
+	<setlanguage action='framework/setlanguage.php' />
+	
+	
+	
+	<!-- Paramétrage des différents modules de notre application -->
+	<P00accueilL action="modules/conflits/conflits/P00accueil.php" param="Liste" droits="gestion" loginrequis="1" menulevel="1" menuorder="1" menudroits="gestion" menuloginrequis="0" menuparent="1" menuvalue="42" menutitle="42" />
+	<P00accueilA action="modules/conflits/conflits/P00accueil.php" param="Ajax" ajax="1" droits="gestion" loginrequis="1" /> 
+	
+	<P01conflitsL action="modules/conflits/conflits/P01conflits.php" param="Liste" droits="gestion" loginrequis="1" />
+	<P01conflitsD action="modules/conflits/conflits/P01conflits.php" param="Detail" droits="gestion" loginrequis="1"/>
+	<P01conflitsM action="modules/conflits/conflits/P01conflits.php" param="Modif"  droits="gestion" loginrequis="1"/>	
+	<P01conflitsE action="modules/conflits/conflits/P01conflits.php" param="Ecrire"  retourok="P01conflitsL" retourko="P01conflitsM" modulebefore="P01conflitsM" droits="gestion" loginrequis="1" />
+	<P01conflitsA action="modules/conflits/conflits/P01conflits.php" param="Ajax" ajax="1" droits="gestion" loginrequis="1" /> 
+	
+	
+	<P02conflitsexprD action="modules/conflits/conflits/P02conflitsexpr.php" param="Detail"  droits="gestion" loginrequis="1"/>
+	<P02conflitsexprM action="modules/conflits/conflits/P02conflitsexpr.php" param="Modif"  droits="gestion" loginrequis="1"/>	
+	<P02conflitsexprE action="modules/conflits/conflits/P02conflitsexpr.php" param="Ecrire"  retourok="P01conflitsD" retourko="P02conflitsexprM" modulebefore="P02conflitsexprM" droits="gestion" loginrequis="1" />
+	
+	
+	<P03villeM action="modules/conflits/conflits/P03villelocal.php" param="Modifville" droits="gestion" loginrequis="1" />
+	<P03localisationM action="modules/conflits/conflits/P03villelocal.php" param="Modiflocalis" droits="gestion" loginrequis="1" />
+	<P03villeE action="modules/conflits/conflits/P03villelocal.php" param="Ecrireville" retourok="P01conflitsD" retourko="P03villeM" modulebefore="P03villeM" droits="gestion" loginrequis="1" />
+	<P03localisationE action="modules/conflits/conflits/P03villelocal.php" param="Ecrirelocalis" retourok="P01conflitsD" retourko="P03localisationM" modulebefore="P03localisationM" droits="gestion" loginrequis="1" />
+	<P03villelocalA action="modules/conflits/conflits/P03villelocal.php" param="Ajax" ajax="1" droits="gestion" loginrequis="1" /> 
+	
+	<P04acteursL action="modules/conflits/conflits/P04acteurs.php" param="Liste" droits="gestion" loginrequis="1" />
+	<P04acteursM action="modules/conflits/conflits/P04acteurs.php" param="Modif"  droits="gestion" loginrequis="1" />
+	<P04acteursE action="modules/conflits/conflits/P04acteurs.php" param="Ecrire"  retourok="P04acteursL" retourko="P04acteursM" modulebefore="P04acteursM" droits="gestion" loginrequis="1" />
+	<P04acteursA action="modules/conflits/conflits/P04acteurs.php" param="Ajax" ajax="1" droits="gestion" loginrequis="1" /> 
+	
+	<P05articlesL action="modules/conflits/conflits/P05articles.php" param="Liste" droits="gestion" loginrequis="1" />
+	<P05articlesM action="modules/conflits/conflits/P05articles.php" param="Modif"  droits="gestion" loginrequis="1" />
+	<P05articlesE action="modules/conflits/conflits/P05articles.php" param="Ecrire"  retourok="P02conflitsexprD" retourko="P05articlesM" modulebefore="P05articlesM" droits="gestion" loginrequis="1" />
+			
+	<P06interventionsL action="modules/conflits/conflits/P06interventions.php" param="Liste" droits="gestion" loginrequis="1" />
+	<P06interventionsL2 action="modules/conflits/conflits/P06interventions.php" param="Liste2" droits="gestion" loginrequis="1" />
+	<P06interventionsD action="modules/conflits/conflits/P06interventions.php" param="Detail" droits="gestion" loginrequis="1" />
+	<P06interventionsM action="modules/conflits/conflits/P06interventions.php" param="Modif"  droits="gestion" loginrequis="1" />
+	<P06interventionsE action="modules/conflits/conflits/P06interventions.php" param="Ecrire"  retourok="P06interventionsL" retourko="P06interventionsM" modulebefore="P06interventionsM" droits="gestion" loginrequis="1" />
+	<P06interventionsA action="modules/conflits/conflits/P06interventions.php" param="Ajax" ajax="1" droits="gestion" loginrequis="1" /> 
+	
+	
+	<P07modesactionM action="modules/conflits/conflits/P07modesaction.php" param="Modif"  droits="gestion" loginrequis="1" />
+	<P07modesactionE action="modules/conflits/conflits/P07modesaction.php" param="Ecrire"  retourok="P06interventionsD" retourko="P07modesactionM" modulebefore="P07modesactionM" droits="gestion" loginrequis="1" />
+	
+	
+	<P08revendicationsM action="modules/conflits/conflits/P08revendications.php" param="Modif"  droits="gestion" loginrequis="1" />
+	<P08revendicationsE action="modules/conflits/conflits/P08revendications.php" param="Ecrire"  retourok="P06interventionsD" retourko="P08revendicationsM" modulebefore="P08revendicationsM" droits="gestion" loginrequis="1" />
+	<P08revendicationsA action="modules/conflits/conflits/P08revendications.php" param="Ajax" ajax="1" droits="gestion" loginrequis="1" /> 
+	
+	
+	<P09solutionsM action="modules/conflits/conflits/P09solutions.php" param="Modif"  droits="gestion" loginrequis="1" />
+	<P09solutionsE action="modules/conflits/conflits/P09solutions.php" param="Ecrire"  retourok="P06interventionsD" retourko="P09solutionsM" modulebefore="P09solutionsM" droits="gestion" loginrequis="1" />
+	
+	<P10resolutionL action="modules/conflits/conflits/P10resolution.php" param="Liste" droits="gestion" loginrequis="1" />
+	<P10resolutionM action="modules/conflits/conflits/P10resolution.php" param="Modif"  droits="gestion" loginrequis="1" />
+	<P10resolutionE action="modules/conflits/conflits/P10resolution.php" param="Ecrire"  retourok="P10resolutionL" retourko="P10resolutionM" modulebefore="P10resolutionM" droits="gestion" loginrequis="1" />
+	<P10resolutionA action="modules/conflits/conflits/P10resolution.php" param="Ajax" ajax="1" droits="gestion" loginrequis="1" /> 
+	
+</navigation>
+	

@@ -1,0 +1,11 @@
+php_flag register_globals off
+php_flag magic_quotes_gpc true
+php_flag display_errors On
+    
+Order Deny,Allow
+Deny from all
+Allow from 193.49.239
+Allow from 127.0.0.1
+Allow from ::1
+Allow from localhost
+
