@@ -15,13 +15,34 @@
 
 include_once 'modules/example/example.class.php';
 $dataClass = new Example($bdd,$ObjetBDDParam);
-$id = $_REQUEST["idExample"];
+$keyName = "idExample";
+$id = $_REQUEST[$keyName];
 
 switch ($t_module["param"]) {
 	case "list":
 		/*
 		 * Display the list of all records of the table
 		 */
+		 /*
+		 * $searchExample must be defined into modules/beforesession.inc.php :
+		 * include_once 'modules/classes/searchParam.class.php';
+		 * and into modules/common.inc.php :
+		 * if (!isset($_SESSION["searchExample"])) {
+    	 * $searchExample = new SearchExample();
+		 *	$_SESSION["searchExample"] = $searchExample; 
+		 *	} else {
+		 *	$searchExample = $_SESSION["searchExample"];
+		 *	}
+		 * and, also, into modules/classes/searchParam.class.php...
+		 */
+		 $searchExample->setParam ( $_REQUEST );
+		 $dataSearch = $searchExample->getParam ();
+		if ($searchExample->isSearch () == 1) {
+			$data = $dataClass->getListeSearch ( $dataExample );		
+			$smarty->assign ( "data", $data );
+			$smarty->assign ("isSearch", 1);
+		}
+		$smarty->assign ("exampleSearch", $dataSearch);
 		$smarty->assign("data", $dataClass->getListe());
 		$smarty->assign("corps", "example/exampleList.tpl");
 		break;
@@ -45,7 +66,10 @@ switch ($t_module["param"]) {
 		/*
 		 * write record in database
 		 */
-		dataWrite($dataClass, $_REQUEST);
+		$id = dataWrite($dataClass, $_REQUEST);
+		if ($id > 0) {
+			$_REQUEST[$keyName] = $id;
+		}
 		break;
 	case "delete":
 		/*

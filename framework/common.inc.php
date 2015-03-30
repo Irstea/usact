@@ -18,6 +18,8 @@ include_once ("param/param.inc.php");
  * Gestion de la session
  */
 // ini_set('session.cookie_secure', 1);
+ini_set ( 'session.gc_probability', 1 );
+ini_set ( 'session.cookie_lifetime', $APPLI_session_ttl );
 ini_set ( 'session.gc_maxlifetime', $APPLI_session_ttl );
 // $session_path = ini_get('session.save_path').'/'.$APPLI_path_stockage_session;
 // if (!is_dir($session_path)) mkdir($session_path);
@@ -39,8 +41,8 @@ include_once ('plugins/Smarty-3.1.13/libs/Smarty.class.php');
 /**
  * integration de la classe ObjetBDD et des scripts associes
  */
-include_once ('plugins/objetBDD-2.3/ObjetBDD.php');
-include_once ('plugins/objetBDD-2.3/ObjetBDD_functions.php');
+include_once ('plugins/objetBDD-2.4.2/ObjetBDD.php');
+include_once ('plugins/objetBDD-2.4.2/ObjetBDD_functions.php');
 if ($APPLI_utf8 == true)
 	$ObjetBDDParam ["UTF8"] = true;
 
@@ -68,31 +70,20 @@ include_once "modules/beforesession.inc.php";
  * Demarrage de la session
  */
 @session_start ();
+/*
+ * Regeneration du cookie de session
+ */
+setcookie ( session_name (), session_id (), time () + $APPLI_session_ttl, '/' );
 $identification = new Identification ();
 $identification->setidenttype ( $ident_type );
 if ($ident_type == "CAS") {
 	$identification->init_CAS ( $CAS_address, $CAS_port, $CAS_uri );
-} elseif ($ident_type == "LDAP") {
+} elseif ($ident_type == "LDAP" || $ident_type == "LDAP-BDD") {
 	$identification->init_LDAP ( $LDAP_address, $LDAP_port, $LDAP_basedn, $LDAP_user_attrib, $LDAP_v3, $LDAP_tls );
-}
-/**
- * Verification du couple session/adresse IP
- */
-if (isset ( $_SESSION ["remoteIP"] )) {
-	if ($_SESSION ["remoteIP"] != $_SERVER ['REMOTE_ADDR']) {
-		// Tentative d'usurpation de session - on ferme la session
-		if ($identification->disconnect ( $APPLI_address ) == 1) {
-			$message = $LANG ["message"] [7];
-		} else {
-			$message = $LANG ["message"] [8];
-		}
-	}
-} else {
-	$_SESSION ["remoteIP"] = $_SERVER ['REMOTE_ADDR'];
 }
 /*
  * Chargement des fonction generiques
-*/
+ */
 include_once 'framework/fonctions.php';
 /*
  * Gestion de la langue a afficher
@@ -115,7 +106,22 @@ if (isset ( $_SESSION ["LANG"] ) && $APPLI_modeDeveloppement == false) {
 	/*
 	 * Mise a niveau du langage
 	 */
-	setlanguage($langue);
+	setlanguage ( $langue );
+}
+/**
+ * Verification du couple session/adresse IP
+ */
+if (isset ( $_SESSION ["remoteIP"] )) {
+	if ($_SESSION ["remoteIP"] != $_SERVER ['REMOTE_ADDR']) {
+		// Tentative d'usurpation de session - on ferme la session
+		if ($identification->disconnect ( $APPLI_address ) == 1) {
+			$message = $LANG ["message"] [7];
+		} else {
+			$message = $LANG ["message"] [8];
+		}
+	}
+} else {
+	$_SESSION ["remoteIP"] = $_SERVER ['REMOTE_ADDR'];
 }
 /*
  * Connexion a la base de donnees
@@ -164,6 +170,7 @@ $smarty->assign ( "entete", $SMARTY_entete );
 $smarty->assign ( "enpied", $SMARTY_enpied );
 $smarty->assign ( "corps", $SMARTY_corps );
 $smarty->assign ( "LANG", $LANG );
+$smarty->assign ( "ident_type", $ident_type );
 
 /*
  * Prepositionnement de idFocus, qui permet de positionner le focus automatiquement a l'ouverture d'une page web
@@ -180,26 +187,27 @@ if (isset ( $_SESSION ["navigation"] ) && $APPLI_modeDeveloppement == false) {
 	$_SESSION ['navigation'] = $navigation;
 }
 /*
+ * Activation de la classe d'enregistrement des traces
+ */
+$log = new Log ( $bdd_gacl, $ObjetBDDParam );
+/*
  * Preparation de la gestion des droits
  */
-if (isset ( $_SESSION ["gestionDroit"] ) && $APPLI_modeDeveloppement == false) {
+if (isset ( $_SESSION ["gestionDroit"] )) {
 	$gestionDroit = $_SESSION ["gestionDroit"];
-	$smarty->assign ( "droits", $gestionDroit->getDroits () );
 } else {
 	$gestionDroit = new GestionDroit ();
-	if ($APPLI_modeDeveloppement == false) {
-		$_SESSION ["gestionDroit"] = $gestionDroit;
-	} else {
-		/*
-		 * Traitement du mode developpement ; calcul a chaque appel
-		 */
-		include "framework/identification/setDroits.php";
-	}
+	$_SESSION["gestionDroit"] = $gestionDroit;
 }
+if ($APPLI_modeDeveloppementDroit == true)
+	include "framework/identification/setDroits.php";	
 /*
  * Chargement des fonctions specifiques
  */
 include_once 'modules/fonctions.php';
+if ($APPLI_modeDeveloppement == true) {
+	include_once 'framework/functionsDebug.php';
+}
 /*
  * Chargement des traitements communs specifiques a l'application
  */

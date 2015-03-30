@@ -1,7 +1,9 @@
 <h2>Liste EXEMPLE</h2>
+{include file="example/exampleSearch.tpl"}
+{if $isSearch == 1}
 {if $droits["gestion"] == 1}
 <a href="index.php?module=exampleModif&idExample=0">
-Nouveau...
+New...
 </a>
 {/if}
 <script>
@@ -11,7 +13,7 @@ setDataTables("exampleListe");
 <thead>
 <tr>
 <th>Date</th>
-<th>Commentaire</th>
+<th>Comments</th>
 <th>Origine</th>
 </tr>
 </thead><tdata>
@@ -31,3 +33,4 @@ setDataTables("exampleListe");
 {/section}
 </tdata>
 </table>
+{/if}

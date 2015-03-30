@@ -5,8 +5,8 @@
 * 
 * Parametres par defaut de l'application
 */
-$APPLI_version = "0.8";
-$APPLI_versiondate = "24/09/2013";
+$APPLI_version = "2.0";
+$APPLI_versiondate = "7/5/2014";
 $language = "fr";
 $DEFAULT_formatdate = "fr";
 /*
@@ -17,7 +17,10 @@ $navigationxml = "param/actions.xml";
  * Duree de la session par defaut
  * @var unknown_type
  */
-$APPLI_session_ttl = 7200;
+// 4 heures
+$APPLI_session_ttl = 14400;
+// 3 mois
+$APPLI_cookie_ttl = 7776000; 
 /*
  * 
  * Nom du chemin de stockage des sessions
@@ -25,11 +28,16 @@ $APPLI_session_ttl = 7200;
  */
 $APPLI_path_stockage_session = "prototypephp";
 /*
+ * Duree de conservation des traces (en jours) dans la table log
+ */
+$LOG_duree = 365;
+/*
  * Type d'identification
  * 
  * BDD : mot de passe en base de donnees
  * CAS : utilisation d'un serveur CAS
  * LDAP : utilisation d'un serveur LDAP
+ * LDAP-BDD : test d'abord aupres du serveur LDAP, puis du serveur BDD
  */
 $ident_type = "BDD";
 //$CAS_plugin="plugins/phpcas-simple/phpcas.php";
@@ -47,19 +55,19 @@ $LDAP_tls = false;
 /*
  * Parametres concernant la base de donnees
  */
-$BDD_type = "postgres7";
+$BDD_type = "mysql";
 $BDD_server = "localhost";
-$BDD_login = "adbxconflits";
-$BDD_passwd = "aekoor8Ael";
-$BDD_database = "adbxconflits";
+$BDD_login = "proto";
+$BDD_passwd = "proto";
+$BDD_database = "proto";
 /*
  * Base de donnees de developpement
 */
-$BDDDEV_type = "postgres7";
+$BDDDEV_type = "mysql";
 $BDDDEV_server = "localhost";
-$BDDDEV_login = "adbxconflits";
-$BDDDEV_passwd = "aekoor8Ael";
-$BDDDEV_database = "adbxconflits";
+$BDDDEV_login = "proto";
+$BDDDEV_passwd = "proto";
+$BDDDEV_database = "proto";
 /*
  * Parametres concernant SMARTY
  */
@@ -71,7 +79,7 @@ $SMARTY_cache = FALSE;
 $SMARTY_entete = "entete.tpl";
 $SMARTY_enpied = "enpied.tpl";
 $SMARTY_principal = "main.htm";
-$SMARTY_corps = "main.tpl";
+$SMARTY_corps = "clear.tpl";
 /*
  * Variables de base de l'application
  */ 
@@ -79,21 +87,22 @@ $APPLI_mail = "proto@proto.com";
 $APPLI_nom = "Prototype d'application";
 $APPLI_code = 'proto';
 $APPLI_fds = "display/CSS/blue.css";
-$APPLI_address = "http://localhost/PrototypePHP";
+$APPLI_address = "http://localhost/proto";
 $APPLI_modeDeveloppement = false;
+$APPLI_modeDeveloppementDroit = false;
 $APPLI_utf8 = true;
 
 /*
  * Variables liees a GACL et l'identification via base de donnees
  */
-$GACL_dbtype = "postgres7";
+$GACL_dbtype = "mysql";
 $GACL_dbserver = "localhost";
-$GACL_dblogin = "adbxconflits";
-$GACL_dbpasswd = "aekoor8Ael";
-$GACL_database = "adbxconflits";
+$GACL_dblogin = "proto";
+$GACL_dbpasswd = "proto";
+$GACL_database = "proto";
 $GACL_dbprefixe = "gacl";
 $GACL_aro = "login";
-$GACL_aco = "proto";
+$GACL_aco = "appli";
 $GACL_path = "param/gacl.ini.php";
 $GACL_listeDroitsGeres = "admin,gestion";
 /*

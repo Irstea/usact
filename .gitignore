@@ -1,0 +1,9 @@
+ *~
+param.inc.php
+gacl.ini.php
+templates_c/*
+.project
+.buildpath
+.settings
+.settings/*
+*/templates_c/* 
