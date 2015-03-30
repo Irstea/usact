@@ -1,7 +1,7 @@
 News
 ====
-Version 2.4.2.1 - 19/05/2014
-	* Correction of a bug within declaration key : if a new attribut is added into the table declaration, all of the fields with this new attribute were considered as a key
+Version 2.4.2.1 - 30/03/2015
+	* New parameter : transformComma = 1. If 1, all commas in numeric field are transformed to a decimal point (for french keyboards).
 
 Version 2.4.2 - 17/03/2014
 	* New parameter to getListe function : getListe($order = 0). If $order > 0, the list is sorted by $order.
