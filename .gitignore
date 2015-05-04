@@ -27,6 +27,8 @@ templates_c/*
 # algorithms
 *.loa
 
+*.architect~
+
 # achemso
 acs-*.bib
 

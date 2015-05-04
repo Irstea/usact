@@ -74,4 +74,15 @@ class SearchExample extends SearchParam {
 	}
 }
 
+/**
+ * Classe de gestion des parametres de recherche de la table Conflit
+ * @author Jeremy Damey
+ *
+ */
+class SearchConflit extends SearchParam {
+	function __construct() {
+		$this->param = array ("searchId" => "");
+		parent::__construct();
+	}
+}
 ?>
