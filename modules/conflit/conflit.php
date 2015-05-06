@@ -17,14 +17,15 @@ $dataClass = new conflit( $bdd, $ObjetBDDParam );
 $id = $_REQUEST ["id"];
 
 switch ($t_module ["param"]) {
+	
+	/*
+	 * Display the list of all records of the table
+	 */
+	/*
+	 * Gestion des criteres de recherche
+	 */
 	case "list":
-/*
-* Display the list of all records of the table
-*/
-/*
-* Gestion des criteres de recherche
-*/
-$searchConflit->setParam ( $_REQUEST );
+		$searchConflit->setParam ( $_REQUEST );
 		$dataRecherche = $searchConflit->getParam ();
 		if ($searchConflit->isSearch () == 1) {
 			$data = $dataClass->getListeSearch ( $dataRecherche );
@@ -34,37 +35,39 @@ $searchConflit->setParam ( $_REQUEST );
 		$smarty->assign ( "conflitSearch", $dataRecherche );
 		$smarty->assign ( "corps", "conflit/conflitListe.tpl" );
 		break;
+		
+	/*
+	 * Display the detail of the record
+	*/
 	case "display":
-/*
-* Display the detail of the record
-*/
-$data = $dataClass->lireDetail ( $id );
+		$data = $dataClass->lireDetail ( $id );
 		$smarty->assign ( "data", $data );
 		$smarty->assign ( "corps", "conflit/conflitDisplay.tpl" );
 		break;
+		
+	/*
+	* open the form to modify the record
+	* If is a new record, generate a new record with default value :
+	* $_REQUEST["idParent"] contains the identifiant of the parent record
+	*/
 	case "change":
-/*
-* open the form to modify the record
-* If is a new record, generate a new record with default value :
-* $_REQUEST["idParent"] contains the identifiant of the parent record
-*/
-$conflit = new conflit ( $bdd, $ObjetBDDParam );
-		$smarty->assign ( "conflit", $conflit->getListe () );
 		dataRead ( $dataClass, $id, "conflit/conflitChange.tpl" );
 		break;
-			
+
+	/*
+	* write record in database
+	*/
 	case "write":
-/*
-* write record in database
-*/
-dataWrite ( $dataClass, $_REQUEST );
+		dataWrite ( $dataClass, $_REQUEST );
 		break;
+		
+	/*
+	* delete record
+	*/
 	case "delete":
-/*
-* delete record
-*/
-dataDelete ( $dataClass, $id );
+		dataDelete ( $dataClass, $id );
 		break;
+		
 	case "pdf":
 /*
 * Generation de la liste au format PDF
@@ -118,7 +121,7 @@ include_once ("plugins/fpdf17/fpdf.php");
 		$nbLigne = 0;
 		$nbPage = 1;
 		/*
-		 * Traitement de chaque item de la liste des personnels
+		 * Traitement de chaque item de la liste des conflits
 		 */
 		foreach ( $data as $key => $value ) {
 			/*
@@ -165,4 +168,3 @@ include_once ("plugins/fpdf17/fpdf.php");
 		break;
 }
 ?>
-
