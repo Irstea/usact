@@ -19,7 +19,7 @@ $id = $_REQUEST ["id"];
 switch ($t_module ["param"]) {
 	
 	/*
-	 * Display the list of all records of the table
+	 * Display the list of all records of the table 
 	 */
 	/*
 	 * Gestion des criteres de recherche

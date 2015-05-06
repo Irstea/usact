@@ -1516,5 +1516,38 @@ class ObjetBDD {
 		}
 		return $data;
 	}
+	
+	function encodeData($data) {
+		if (is_array ( $data )) {
+			/*
+			 * Traitement des tableaux
+			 */
+			foreach ( $data as $key => $value ) {
+				if ($this->typeDatabase == 'postgre') {
+					if ($this->UTF8 == true) {
+						if (mb_detect_encoding ( $value ) != "UTF-8")
+							$data [$key] = mb_convert_encoding ( $value, 'UTF-8' );
+					}
+					$data [$key] = pg_escape_string ( $value );
+				} else {
+					$data [$key] = addslashes ( $value );
+				}
+			}
+		} else {
+			/*
+			 * Traitement des chaines individuelles
+			 */
+			if ($this->typeDatabase == 'postgre') {
+				if ($this->UTF8 == true) {
+					if (mb_detect_encoding ( $value ) != "UTF-8")
+						$data = mb_convert_encoding ( $data, 'UTF-8' );
+				}
+				$data = pg_escape_string ( $data );
+			} else {
+				$data = addslashes ( $data );
+			}
+		}
+		return $data;
+	}
 }
 ?>

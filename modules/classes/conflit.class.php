@@ -121,6 +121,7 @@ class conflit extends ObjetBDD {
 	 *
 	 */
 	function getListeSearch($param) {
+		$param = $this->encodeData($param);
 		$sql = 'select conflit_id,
 				conflit_date_debut,
 				conflit_date_fin,
@@ -149,6 +150,7 @@ class conflit extends ObjetBDD {
 	 * @return Ambigous <multitype:, boolean, $data>
 	 */
 	function lireDetail($id) {
+		$id = $this->encodeData($id);
 		$sql = 'select conflit_id,
 				conflit_date_debut,
 				conflit_date_fin,

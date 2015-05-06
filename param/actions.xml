@@ -54,6 +54,7 @@
 	<conflitListe action="modules/conflit/conflit.php" param="list" menulevel="1" menuorder="0" menuparent="1" menutitle="51" menuvalue="50" />
 	<conflitDisplay action="modules/conflit/conflit.php" param="display" />
 	<conflitChange action="modules/conflit/conflit.php" param="change" />
+	<conflitChangePersonne action="modules/conflit/conflit.php" param="change" />
 	<conflitWrite action="modules/conflit/conflit.php" param="write" retourok="conflitListe" retourko="conflitChange" modulebefore="conflitChange" />
 	<conflitDelete action="modules/conflit/conflit.php" param="delete" retoursuppr="conflitListe" retourko="conflitChange" modulebefore="conflitChange" />
 	<conflitPdf action="modules/conflit/conflit.php" param="pdf" ajax="1" />

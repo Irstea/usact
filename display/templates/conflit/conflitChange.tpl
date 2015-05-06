@@ -5,17 +5,10 @@
 <a href="index.php?module=conflitDisplay&id={$data.conflit_id}" style="padding-left:2em">Retour au détail de la fiche</a>
 <form method="post" action="index.php" onSubmit='return validerForm("nom:le nom est obligatoire,prenom:le prénom est obligatoire")'>
 <input type="hidden" name="action" value="M">
-<input type="hidden" name="conflit_id" value="{$data.conflit_id}">
+<input type="hidden" name="id" value="{$data.conflit_id}">
 <input type="hidden" name="module" value="conflitWrite">
 <table class="tablesaisie">
-<tr>
-<td>Nom<span class="red">*</span> :</td>
-<td><input name="personne_saisie_conflit_nom" value="{$data.personne_saisie_conflit_nom}" autofocus></td>
-</tr>
-<tr>
-<td>Prénom<span class="red">*</span> :</td>
-<td><input name="personne_saisie_conflit_prenom" value="{$data.personne_saisie_conflit_prenom}"></td>
-</tr>
+{include file="conflit/conflitChangePersonne.tpl"} 
 <td>Date de début :</td>
 <td><input name="conflit_date_debut" value="{$data.conflit_date_debut}"></td>
 </tr>
