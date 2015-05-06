@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-04-29 10:54:51
+<?php /* Smarty version Smarty-3.1.13, created on 2015-05-06 13:35:25
          compiled from "display\templates\conflit\conflitDisplay.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:5487553f71aa294763-02438770%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fce4335a51ea9fa0090234e939c82fae512d5411' => 
     array (
       0 => 'display\\templates\\conflit\\conflitDisplay.tpl',
-      1 => 1430297647,
+      1 => 1430911894,
       2 => 'file',
     ),
   ),
@@ -32,7 +32,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <td><?php echo $_smarty_tpl->tpl_vars['data']->value['conflit_id'];?>
 </td>
 </tr>
-<tr>
 <tr>
 <td class="libelleSaisie"> Nom :</td>
 <td><?php echo $_smarty_tpl->tpl_vars['data']->value['personne_saisie_conflit_nom'];?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2015-04-20 16:46:53
+<?php /* Smarty version Smarty-3.1.13, created on 2015-05-06 13:35:14
          compiled from "display\templates\entete.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:160895535115dee99f6-19668837%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fe1acf92c9be74e4eaf2f0f2906debfe63769cac' => 
     array (
       0 => 'display\\templates\\entete.tpl',
-      1 => 1429539974,
+      1 => 1430911894,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_5535115e024627_15298724',
   'variables' => 
   array (
     'LANG' => 0,
@@ -24,8 +26,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'message' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_5535115e024627_15298724',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5535115e024627_15298724')) {function content_5535115e024627_15298724($_smarty_tpl) {?><h1><img src="display/images/tux-lamp.jpg" width="40"><?php echo $_smarty_tpl->tpl_vars['LANG']->value['message'][1];?>
 
