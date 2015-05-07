@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architect-project version="1.0" appversion="1.0.7">
+ <project-name>usact_conflit</project-name>
+ <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
+ <project-data-sources>
+  <data-source id="DS0">
+   <property key="Logical" value="PlayPen Database" />
+  </data-source>
+ </project-data-sources>
+ <source-databases>
+ </source-databases>
+ <target-database id="ppdb" dbcs-ref="DS0">
+  <table id="TAB1" populated="true" UUID="a2d949bc-46e5-40f1-9cab-aef26950837d" name="conflit" objectType="TABLE" physicalName="conflit" >
+   <remarks>Table de description d&apos;un conflit</remarks>
+   <folder id="FOLTAB11" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL2" populated="true" UUID="48088fdf-6742-4c72-95e1-b4cb285b2ec9" autoIncrement="true" autoIncrementSequenceName="conflit_conflit_id_seq" defaultValue="" name="conflit_id" nullable="0" physicalName="conflit_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL3" populated="true" UUID="d1622b0a-1be6-459e-af3c-7f8e68d33319" autoIncrement="false" autoIncrementSequenceName="conflit_personne_saisie_conflit_id_seq" defaultValue="" name="personne_saisie_conflit_id" nullable="0" physicalName="personne_saisie_conflit_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL4" populated="true" UUID="583c61f4-2895-4319-8c96-dbc3120d0404" autoIncrement="false" autoIncrementSequenceName="conflit_conflit_date_debut_seq" defaultValue="" name="conflit_date_debut" nullable="1" physicalName="conflit_date_debut" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks>Date de début du conflit</remarks>
+    </column>
+    <column id="COL5" populated="true" UUID="ba70ec91-b214-43b6-8b27-7118353d1412" autoIncrement="false" autoIncrementSequenceName="conflit_conflit_date_fin_seq" defaultValue="" name="conflit_date_fin" nullable="1" physicalName="conflit_date_fin" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks>Date de fin du conflit</remarks>
+    </column>
+    <column id="COL6" populated="true" UUID="1ddef620-4dcb-463d-a85d-93917cd39d12" autoIncrement="false" autoIncrementSequenceName="conflit_conflit_date_saisie_seq" defaultValue="" name="conflit_date_saisie" nullable="1" physicalName="conflit_date_saisie" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks>Date où le conflit a été saisie</remarks>
+    </column>
+    <column id="COL7" populated="true" UUID="bcbc9136-e9cf-41e5-977a-03478d4ed5e1" autoIncrement="false" autoIncrementSequenceName="conflit_conflit_detail_seq" defaultValue="" name="conflit_detail" nullable="1" physicalName="conflit_detail" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Informations complémentaires sur le conflit</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB13" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB12" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB14" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX8" populated="true" UUID="9ffc495b-20d8-44c2-8370-803c86f350c4" clustered="false" name="conflit_pk" physicalName="conflit_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC9" populated="true" UUID="b02a278b-47d6-49be-b4cd-7c99c8322c2d" ascendingOrDescending="UNSPECIFIED" column-ref="COL2" name="conflit_id" physicalName="conflit_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB10" populated="true" UUID="c2f4d4c1-2f3b-4dae-8abe-3d0ff152a348" name="perimetre" objectType="TABLE" physicalName="perimetre" >
+   <remarks>Table de localisation d&apos;un conflit</remarks>
+   <folder id="FOLTAB101" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL11" populated="true" UUID="aefcb42f-1e93-4899-9825-ff85957b87cf" autoIncrement="true" autoIncrementSequenceName="perimetre_perimetre_id_seq" defaultValue="" name="perimetre_id" nullable="0" physicalName="perimetre_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL12" populated="true" UUID="c1d44390-5d7c-4b25-8883-77cb868bec22" autoIncrement="false" autoIncrementSequenceName="conflit_New Column_seq" defaultValue="" name="conflit_id" nullable="0" physicalName="conflit_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL13" populated="true" UUID="32ebd208-7700-4569-b4a5-d80399c5b4fc" autoIncrement="false" autoIncrementSequenceName="type_perimetre_type_perimetre_id_seq" defaultValue="" name="type_perimetre_id" nullable="0" physicalName="type_perimetre_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL14" populated="true" UUID="27957bbf-5efb-47ce-bd2f-90ad92ba05d7" autoIncrement="false" autoIncrementSequenceName="personne_saisie_perimetre_personne_saisie_perimetre_id_seq" defaultValue="" name="personne_saisie_perimetre_id" nullable="0" physicalName="personne_saisie_perimetre_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL15" populated="true" UUID="6f96c199-0957-4c42-a01e-8b42f23a7553" autoIncrement="false" autoIncrementSequenceName="echelle_echelle_id_seq" defaultValue="" name="echelle_id" nullable="0" physicalName="echelle_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL16" populated="true" UUID="f43d972e-45e5-4990-bf6f-8010aaf5dc52" autoIncrement="false" autoIncrementSequenceName="bien_support_niv2_bien_support_niv2_id_seq" defaultValue="" name="bien_support_niv2_id" nullable="0" physicalName="bien_support_niv2_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL17" populated="true" UUID="e2a6f661-de9c-4626-b27b-c50594dcbc54" autoIncrement="false" autoIncrementSequenceName="objet_niv2_objet_niv2_id_seq" defaultValue="" name="objet_niv2_id" nullable="0" physicalName="objet_niv2_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL18" populated="true" UUID="060665ff-c068-44f0-b1b7-d95818ecc6bf" autoIncrement="false" autoIncrementSequenceName="perimetre_recurrence_seq" defaultValue="" name="recurrence" nullable="0" physicalName="recurrence" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>Recurrence du perimetre</remarks>
+    </column>
+    <column id="COL19" populated="true" UUID="3c27bca7-1e19-4918-a8e7-da6a0b376c89" autoIncrement="false" autoIncrementSequenceName="perimetre_perimetre_date_saisie_seq" defaultValue="" name="perimetre_date_saisie" nullable="0" physicalName="perimetre_date_saisie" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks>Date de saisie du perimetre</remarks>
+    </column>
+    <column id="COL20" populated="true" UUID="8edfd377-06ac-4965-85c3-0e97943da4ca" autoIncrement="false" autoIncrementSequenceName="perimetre_perimetre_detail_seq" defaultValue="" name="perimetre_detail" nullable="1" physicalName="perimetre_detail" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Informations complémentaires sur le perimetre</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB103" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB102" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB104" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX21" populated="true" UUID="4bdfd8d9-fae4-49f3-a916-52d2b309d0df" clustered="false" name="perimetre_pk" physicalName="perimetre_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC22" populated="true" UUID="54f81ecb-3ea1-4888-94eb-8f9f51ceb2a0" ascendingOrDescending="UNSPECIFIED" column-ref="COL11" name="perimetre_id" physicalName="perimetre_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB23" populated="true" UUID="9ad2336b-2bc4-4a65-a591-fa72d2eddcc4" name="personne_saisie_conflit" objectType="TABLE" physicalName="personne_saisie_conflit" >
+   <remarks>Personne pouvant saisir un conflit</remarks>
+   <folder id="FOLTAB231" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL24" populated="true" UUID="dcf19c12-e97f-473e-88e6-8a43682bd343" autoIncrement="true" autoIncrementSequenceName="personne_saisie_conflit_personne_saisie_conflit_id_seq" defaultValue="" name="personne_saisie_conflit_id" nullable="0" physicalName="personne_saisie_conflit_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL25" populated="true" UUID="cba583d5-a861-4d0c-a3b6-7d2bf852e5f3" autoIncrement="false" autoIncrementSequenceName="personne_saisie_conflit_personne_saisie_conflit_non_seq" defaultValue="" name="personne_saisie_conflit_non" nullable="0" physicalName="personne_saisie_conflit_non" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Nom de la personne qui saisie le conflit</remarks>
+    </column>
+    <column id="COL26" populated="true" UUID="9202460d-47c6-4f34-b910-8cea97700356" autoIncrement="false" autoIncrementSequenceName="personne_saisie_conflit_personne_saisie_conflit_prenom_seq" defaultValue="" name="personne_saisie_conflit_prenom" nullable="0" physicalName="personne_saisie_conflit_prenom" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Prénom de la personne qui saisie le conflit</remarks>
+    </column>
+    <column id="COL27" populated="true" UUID="644e1539-35a7-469b-8a9e-24bf748f58cf" autoIncrement="false" autoIncrementSequenceName="personne_saisie_conflit_personne_saisie_conflit_mail_seq" defaultValue="" name="personne_saisie_conflit_mail" nullable="0" physicalName="personne_saisie_conflit_mail" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Mail de la personne qui saisie le conflit</remarks>
+    </column>
+    <column id="COL28" populated="true" UUID="1e7c548e-5e85-4c97-96ee-bd6c0146f903" autoIncrement="false" autoIncrementSequenceName="personne_saisie_conflit_personnes_saisie_conflit_date_naissance_seq" defaultValue="" name="personnes_saisie_conflit_date_naissance" nullable="1" physicalName="personnes_saisie_conflit_date_naissance" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks>Date de naissance de la personne qui saisie le conflit</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB233" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB232" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB234" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX29" populated="true" UUID="c6209dfa-0a55-46c3-ae99-0bda6e276db1" clustered="false" name="personne_saisie_conflit_pk" physicalName="personne_saisie_conflit_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC30" populated="true" UUID="881ff7f1-6397-4be3-900c-ee3d96ca6766" ascendingOrDescending="UNSPECIFIED" column-ref="COL24" name="personne_saisie_conflit_id" physicalName="personne_saisie_conflit_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB31" populated="true" UUID="02e04406-7269-4085-a0a1-94d8cee0bb14" name="type_perimetre" objectType="TABLE" physicalName="type_perimetre" >
+   <remarks>Type de perimetre du conflit</remarks>
+   <folder id="FOLTAB311" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL32" populated="true" UUID="7a9d6cf6-8538-4601-a2a3-3df5e8dd511d" autoIncrement="true" autoIncrementSequenceName="type_perimetre_type_perimetre_id_seq_1" defaultValue="" name="type_perimetre_id" nullable="0" physicalName="type_perimetre_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL33" populated="true" UUID="ae333111-f7d1-444d-93fc-56e3d1feed0a" autoIncrement="false" autoIncrementSequenceName="type_perimetre_type_perimetre_libelle_seq" defaultValue="" name="type_perimetre_libelle" nullable="1" physicalName="type_perimetre_libelle" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Libelle du type de perimetre</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB313" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB312" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB314" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX34" populated="true" UUID="6df3566f-ab07-416a-bb32-56ed22f30fb1" clustered="false" name="type_perimetre_pk" physicalName="type_perimetre_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC35" populated="true" UUID="dc811bde-efcb-4bc5-a3c2-4fe9b0e78f44" ascendingOrDescending="UNSPECIFIED" column-ref="COL32" name="type_perimetre_id" physicalName="type_perimetre_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB36" populated="true" UUID="01407bdc-6d5a-44f8-a540-11cf6e8b39f4" name="personne_saisie_perimetre" objectType="TABLE" physicalName="personne_saisie_perimetre" >
+   <remarks>Personne saisissant le perimetre</remarks>
+   <folder id="FOLTAB361" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL37" populated="true" UUID="bd0c62a0-05c0-4b0c-9a68-3132b02c37ad" autoIncrement="true" autoIncrementSequenceName="personne_saisie_perimetre_personne_saisie_perimetre_id_seq_1" defaultValue="" name="personne_saisie_perimetre_id" nullable="0" physicalName="personne_saisie_perimetre_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL38" populated="true" UUID="bd7c3974-23d8-43d1-be10-9ca6a1aab3d4" autoIncrement="false" autoIncrementSequenceName="personne_saisie_perimetre_personne_saisie_perimetre_nom_seq" defaultValue="" name="personne_saisie_perimetre_nom" nullable="0" physicalName="personne_saisie_perimetre_nom" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Nom de la personne qui a saisie le perimetre</remarks>
+    </column>
+    <column id="COL39" populated="true" UUID="48e378e8-d8e7-4c8c-a1ac-00934d41f927" autoIncrement="false" autoIncrementSequenceName="personne_saisie_perimetre_personne_saisie_perimetre_prenom_seq" defaultValue="" name="personne_saisie_perimetre_prenom" nullable="0" physicalName="personne_saisie_perimetre_prenom" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Prénom de la personne qui a saisie le perimetre</remarks>
+    </column>
+    <column id="COL40" populated="true" UUID="ae91a319-63af-45ab-b4f5-f730e28fb7d6" autoIncrement="false" autoIncrementSequenceName="personne_saisie_perimetre_personne_saisie_perimetre_mail_seq" defaultValue="" name="personne_saisie_perimetre_mail" nullable="0" physicalName="personne_saisie_perimetre_mail" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Mail de la personne qui a saisie le perimetre</remarks>
+    </column>
+    <column id="COL41" populated="true" UUID="a588a7da-dd01-4843-90f5-c1c349a7b292" autoIncrement="false" autoIncrementSequenceName="personne_saisie_perimetre_personne_saisie_perimetre_date_naissance_seq" defaultValue="" name="personne_saisie_perimetre_date_naissance" nullable="0" physicalName="personne_saisie_perimetre_date_naissance" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks>Date de naissance de la personne qui a saisie le perimetre</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB363" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB362" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB364" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX42" populated="true" UUID="63bcfae0-0e7e-463e-82eb-cb7bacfebed9" clustered="false" name="personne_saisie_perimetre_pk" physicalName="personne_saisie_perimetre_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC43" populated="true" UUID="8f7f5c4c-3473-4750-9713-ea4459411587" ascendingOrDescending="UNSPECIFIED" column-ref="COL37" name="personne_saisie_perimetre_id" physicalName="personne_saisie_perimetre_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB44" populated="true" UUID="46ff6e59-5c83-4159-9ea0-6ad03ee493b4" name="echelle" objectType="TABLE" physicalName="echelle" >
+   <remarks>Echelle du perimetre</remarks>
+   <folder id="FOLTAB441" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL45" populated="true" UUID="a9d332c5-5f59-4724-aaf9-2844b17e926d" autoIncrement="true" autoIncrementSequenceName="echelle_echelle_id_seq_1" defaultValue="" name="echelle_id" nullable="0" physicalName="echelle_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL46" populated="true" UUID="e7ebcd89-4670-4f1e-b917-4dc70a85b875" autoIncrement="false" autoIncrementSequenceName="echelle_echelle_libelle_seq" defaultValue="" name="echelle_libelle" nullable="1" physicalName="echelle_libelle" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Indique le type d&apos;échelle</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB443" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB442" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB444" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX47" populated="true" UUID="9f1daa27-d21d-44e2-afdf-ba0e71b85054" clustered="false" name="echelle_pk" physicalName="echelle_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC48" populated="true" UUID="7c13aca4-a39d-454c-a84a-1258dbffada2" ascendingOrDescending="UNSPECIFIED" column-ref="COL45" name="echelle_id" physicalName="echelle_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB49" populated="true" UUID="fd9e72ad-b974-49ea-b581-e34427bda4a5" name="objet_niv1" objectType="TABLE" physicalName="objet_niv1" >
+   <remarks></remarks>
+   <folder id="FOLTAB491" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL50" populated="true" UUID="f983dce1-1d85-4251-b9c6-aed47fe6f6ae" autoIncrement="true" autoIncrementSequenceName="objet_niv1_objet_niv1_id_seq" defaultValue="" name="objet_niv1_id" nullable="0" physicalName="objet_niv1_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL51" populated="true" UUID="8f1d6584-f46d-4bcd-9b07-684051996447" autoIncrement="false" autoIncrementSequenceName="objet_niv1_objet_niv1_libelle_seq" defaultValue="" name="objet_niv1_libelle" nullable="1" physicalName="objet_niv1_libelle" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Libelle du type de secteur touché</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB493" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB492" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB494" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX52" populated="true" UUID="3bafb25d-7bc8-4b09-a83f-796fda66d975" clustered="false" name="objet_niv1_pk" physicalName="objet_niv1_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC53" populated="true" UUID="851f6a8c-8183-4f80-bece-a7a3a725262d" ascendingOrDescending="UNSPECIFIED" column-ref="COL50" name="objet_niv1_id" physicalName="objet_niv1_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB54" populated="true" UUID="2aa77f38-371f-451c-a680-bd0d10776d33" name="objet_niv2" objectType="TABLE" physicalName="objet_niv2" >
+   <remarks></remarks>
+   <folder id="FOLTAB541" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL55" populated="true" UUID="4d2e07fd-1278-4f35-81a7-bb4992be5b83" autoIncrement="true" autoIncrementSequenceName="objet_niv2_objet_niv2_id_seq_1" defaultValue="" name="objet_niv2_id" nullable="0" physicalName="objet_niv2_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL56" populated="true" UUID="265f3bcf-9997-449c-8b5a-7db9f50aa7d5" autoIncrement="false" autoIncrementSequenceName="objet_niv1_objet_niv1_id_seq_1" defaultValue="" name="objet_niv1_id" nullable="0" physicalName="objet_niv1_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL57" populated="true" UUID="036d779b-1b30-40e2-aac7-96cb54e44143" autoIncrement="false" autoIncrementSequenceName="objet_niv2_objet_niv2_libelle_seq" defaultValue="" name="objet_niv2_libelle" nullable="1" physicalName="objet_niv2_libelle" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Libelle correspondant au type d&apos;objet étant à la base du conflit</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB543" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB542" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB544" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX58" populated="true" UUID="fbb3d53b-7c9e-4353-82e2-73f1025df54a" clustered="false" name="objet_niv2_pk" physicalName="objet_niv2_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC59" populated="true" UUID="cc29f088-aa63-42e1-8dae-85bac573b242" ascendingOrDescending="UNSPECIFIED" column-ref="COL55" name="objet_niv2_id" physicalName="objet_niv2_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB60" populated="true" UUID="4e9d4e28-f54d-4ef4-9e7a-1cf916b545a0" name="bien_support_niv2" objectType="TABLE" physicalName="bien_support_niv2" >
+   <remarks></remarks>
+   <folder id="FOLTAB601" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL61" populated="true" UUID="26aa4609-6b6e-465e-8630-2c84f16dd992" autoIncrement="true" autoIncrementSequenceName="bien_support_niv2_bien_support_niv2_id_seq_1" defaultValue="" name="bien_support_niv2_id" nullable="0" physicalName="bien_support_niv2_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL62" populated="true" UUID="84498d07-35ad-45ea-81fe-6bd676fa4ffd" autoIncrement="false" autoIncrementSequenceName="bien_support_niv1_bien_support_niv1_id_seq" defaultValue="" name="bien_support_niv1_id" nullable="0" physicalName="bien_support_niv1_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL63" populated="true" UUID="ad324f90-26d4-4be1-85a0-3c8af36af1ba" autoIncrement="false" autoIncrementSequenceName="bien_support_niv2_bien_support_niv2_libelle_seq" defaultValue="" name="bien_support_niv2_libelle" nullable="1" physicalName="bien_support_niv2_libelle" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Libelle du type de bien support touché par le conflit</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB603" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB602" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB604" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX64" populated="true" UUID="e919a580-02fc-4e63-a0c8-82841ae1d38c" clustered="false" name="bien_support_niv2_pk" physicalName="bien_support_niv2_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC65" populated="true" UUID="f4b42546-320a-47a7-9ca9-958bc868c6b7" ascendingOrDescending="UNSPECIFIED" column-ref="COL61" name="bien_support_niv2_id" physicalName="bien_support_niv2_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB66" populated="true" UUID="2c09f872-f3f1-419a-9066-02650fea0a49" name="bien_support_niv1" objectType="TABLE" physicalName="bien_support_niv1" >
+   <remarks></remarks>
+   <folder id="FOLTAB661" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL67" populated="true" UUID="2d1a24a1-fe55-49de-b243-c41d69e81323" autoIncrement="true" autoIncrementSequenceName="bien_support_niv1_bien_support_niv1_id_seq_1" defaultValue="" name="bien_support_niv1_id" nullable="0" physicalName="bien_support_niv1_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL68" populated="true" UUID="7c4b7e16-bdcb-4608-b685-d7a74186a3a9" autoIncrement="false" autoIncrementSequenceName="bien_support_niv1_bien_support_niv1_libelle_seq" defaultValue="" name="bien_support_niv1_libelle" nullable="1" physicalName="bien_support_niv1_libelle" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Libelle du type de bien étant à l&apos;origine du conflit</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB663" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB662" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB664" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX69" populated="true" UUID="c3a435b2-5046-4d69-89cc-aaee595a9e44" clustered="false" name="bien_support_niv1_pk" physicalName="bien_support_niv1_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC70" populated="true" UUID="dfd1d5f9-5466-4b71-92ba-320a5e08cd76" ascendingOrDescending="UNSPECIFIED" column-ref="COL67" name="bien_support_niv1_id" physicalName="bien_support_niv1_id" />
+    </index>
+   </folder>
+  </table>
+  <relationships>
+   <relationship id="REL71" populated="true" UUID="0befd46c-899a-4caf-a1ed-81e34959a76b" deferrability="7" deleteRule="3" fk-table-ref="TAB10" fkCardinality="7" identifying="false" name="conflit_perimetre_fk" physicalName="conflit_perimetre_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP72" populated="true" UUID="bdeacb87-19d8-452b-901e-e82250473ffd" fk-column-ref="COL12" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
+   </relationship>
+   <relationship id="REL73" populated="true" UUID="346f4fc2-46db-478a-bf7f-fef9060e94bb" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="personne_saisie_conflit_conflit_fk" physicalName="personne_saisie_conflit_conflit_fk" pk-table-ref="TAB23" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP74" populated="true" UUID="d9c15ac4-9aa1-4eee-b50c-7cd91108408f" fk-column-ref="COL3" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL24" />
+   </relationship>
+   <relationship id="REL75" populated="true" UUID="6ae95d11-c0e3-448d-be33-755c4a56deb2" deferrability="7" deleteRule="3" fk-table-ref="TAB10" fkCardinality="7" identifying="false" name="type_perimetre_perimetre_fk" physicalName="type_perimetre_perimetre_fk" pk-table-ref="TAB31" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP76" populated="true" UUID="2737d8a3-6469-44f1-9a2d-4a9119541824" fk-column-ref="COL13" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL32" />
+   </relationship>
+   <relationship id="REL77" populated="true" UUID="9b47e8d4-e2f7-48f9-8cb1-cf35378aba57" deferrability="7" deleteRule="3" fk-table-ref="TAB10" fkCardinality="7" identifying="false" name="personne_saisie_perimetre_perimetre_fk" physicalName="personne_saisie_perimetre_perimetre_fk" pk-table-ref="TAB36" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP78" populated="true" UUID="1cba4f00-e319-4556-bc7d-8f2f34442ea7" fk-column-ref="COL14" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL37" />
+   </relationship>
+   <relationship id="REL79" populated="true" UUID="0ac4cfe4-c8d1-4b90-8814-429eb9ffd5d6" deferrability="7" deleteRule="3" fk-table-ref="TAB10" fkCardinality="7" identifying="false" name="echelle_perimetre_fk" physicalName="echelle_perimetre_fk" pk-table-ref="TAB44" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP80" populated="true" UUID="266f039d-1ecb-4d21-a457-28292cba0f1f" fk-column-ref="COL15" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL45" />
+   </relationship>
+   <relationship id="REL81" populated="true" UUID="13415d2a-fa92-4b83-b5d0-645ece9965b8" deferrability="7" deleteRule="3" fk-table-ref="TAB54" fkCardinality="7" identifying="false" name="objet_niv1_objet_niv2_fk" physicalName="objet_niv1_objet_niv2_fk" pk-table-ref="TAB49" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP82" populated="true" UUID="24793c1f-bdd8-4745-97c4-cfbde67150f0" fk-column-ref="COL56" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL50" />
+   </relationship>
+   <relationship id="REL83" populated="true" UUID="f1cb4f65-b104-40e9-bf71-cac2cab3af00" deferrability="7" deleteRule="3" fk-table-ref="TAB10" fkCardinality="7" identifying="false" name="objet_niv2_perimetre_fk" physicalName="objet_niv2_perimetre_fk" pk-table-ref="TAB54" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP84" populated="true" UUID="f71dbc1e-3590-4d3d-8c0b-8f7bb117d5c3" fk-column-ref="COL17" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL55" />
+   </relationship>
+   <relationship id="REL85" populated="true" UUID="32b814be-6bb5-406e-89cb-3e6797743520" deferrability="7" deleteRule="3" fk-table-ref="TAB10" fkCardinality="7" identifying="false" name="bien_support_niv2_perimetre_fk" physicalName="bien_support_niv2_perimetre_fk" pk-table-ref="TAB60" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP86" populated="true" UUID="07abc4ca-6a08-4d38-ad89-beee97f86f9b" fk-column-ref="COL16" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL61" />
+   </relationship>
+   <relationship id="REL87" populated="true" UUID="269a2e2e-45e2-4859-a819-81298460d6d6" deferrability="7" deleteRule="3" fk-table-ref="TAB60" fkCardinality="7" identifying="false" name="bien_support_niv1_bien_support_niv2_fk" physicalName="bien_support_niv1_bien_support_niv2_fk" pk-table-ref="TAB66" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP88" populated="true" UUID="6add4ade-449c-4402-a6f9-f017f6df416a" fk-column-ref="COL62" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL67" />
+   </relationship>
+  </relationships>
+ </target-database>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="true" target-schema="arcachon"> </ddl-generator>
+ <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
+ <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
+ <play-pen zoom="1.0" viewportX="135" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+  <table-pane table-ref="TAB1" x="150" y="170" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB10" x="730" y="127" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB23" x="110" y="392" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB31" x="669" y="427" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB36" x="769" y="556" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB44" x="955" y="448" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB49" x="1112" y="496" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB54" x="1116" y="358" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB60" x="443" y="352" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB66" x="440" y="490" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL71" pkConnection="0.5172413793103449" fkConnection="0.1870967741935484" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL73" pkConnection="0.41729323308270677" fkConnection="0.4339622641509434" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL75" pkConnection="0.4885057471264368" fkConnection="0.10919540229885058" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL77" pkConnection="0.3930131004366812" fkConnection="0.5502183406113537" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL79" pkConnection="0.3533834586466165" fkConnection="0.7641921397379913" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL85" pkConnection="0.7407407407407407" fkConnection="0.567741935483871" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="40"/>
+  <table-link relationship-ref="REL87" pkConnection="0.5026455026455027" fkConnection="0.48677248677248675" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL83" pkConnection="0.37748344370860926" fkConnection="0.8757396449704142" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="24"/>
+  <table-link relationship-ref="REL81" pkConnection="0.5099337748344371" fkConnection="0.48344370860927155" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+ </play-pen>
+ <critic-manager>
+  <critic-grouping platformType="Generic" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PrimaryKeyCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.RelationshipMappingTypeCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.EmptyRelationshipCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericSequenceNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetDefaultOnColumnWithNoDefaultCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetNullOnNonNullableColumnCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DuplicateNameCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="DB2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DB2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="H2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.H2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="HSQLDB" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.HSQLDBUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="MySQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLCommentCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="Oracle" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OraclePhysicalNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="PostgreSQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PostgreSQLReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerUnsupportedFeaturesCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2000" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2000UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2005" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2005UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+ </critic-manager>
+ <profiles topNCount="10">
+  </profiles>
+  <olap>
+  </olap>
+  <olap-gui>
+  </olap-gui>
+</architect-project>
