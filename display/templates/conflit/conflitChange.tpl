@@ -8,7 +8,14 @@
 <input type="hidden" name="id" value="{$data.conflit_id}">
 <input type="hidden" name="module" value="conflitWrite">
 <table class="tablesaisie">
-{include file="conflit/conflitChangePersonne.tpl"} 
+<tr>
+<td>Nom<span class="red">*</span> :</td>
+<td><input name="personne_saisie_conflit_nom" value="{$data.personne_saisie_conflit_nom}"autofocus></td>
+</tr>
+<tr>
+<td>Prénom<span class="red">*</span> :</td>
+<td><input name="personne_saisie_conflit_prenom" value="{$data.personne_saisie_conflit_prenom}"></td>
+</tr>
 <td>Date de début :</td>
 <td><input name="conflit_date_debut" value="{$data.conflit_date_debut}"></td>
 </tr>
@@ -23,6 +30,10 @@
 <tr>
 <td>Détail sur le conflit :</td>
 <td><input name="conflit_detail" value="{$data.conflit_detail}"></td>
+</tr>
+<tr>
+<td>Récurrence :</td>
+<td><input name="recurrence" value="{$data.recurrence}"></td>
 </tr>
 <tr>
 <td colspan=2>
