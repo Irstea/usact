@@ -8,23 +8,15 @@
 <input type="hidden" name="id" value="{$data.conflit_id}">
 <input type="hidden" name="module" value="conflitWrite">
 <table class="tablesaisie">
-<tr>
-<td>Nom<span class="red">*</span> :</td>
-<td><input name="personne_saisie_conflit_nom" value="{$data.personne_saisie_conflit_nom}"autofocus></td>
-</tr>
-<tr>
-<td>Prénom<span class="red">*</span> :</td>
-<td><input name="personne_saisie_conflit_prenom" value="{$data.personne_saisie_conflit_prenom}"></td>
-</tr>
-<td>Date de début :</td>
+<td>Date de début (JJ/MM/AAAA):</td>
 <td><input name="conflit_date_debut" value="{$data.conflit_date_debut}"></td>
 </tr>
 <tr>
-<td>Date de fin :</td>
+<td>Date de fin (JJ/MM/AAAA):</td>
 <td><input name="conflit_date_fin" value="{$data.conflit_date_fin}"></td>
 </tr>
 <tr>
-<td>Date de saisie<span class="red">*</span> :</td>
+<td>Date de saisie (JJ/MM/AAAA)<span class="red">*</span> :</td>
 <td><input name="conflit_date_saisie" value="{$data.conflit_date_saisie}"></td>
 </tr>
 <tr>
@@ -32,9 +24,14 @@
 <td><input name="conflit_detail" value="{$data.conflit_detail}"></td>
 </tr>
 <tr>
-<td>Récurrence :</td>
-<td><input name="recurrence" value="{$data.recurrence}"></td>
+<td>Login<span class="red">*</span> :</td>
+<select name="conflit_id" id="conflit_id">
+{if $data.conflit_id > 0}
+<option value="{$data.conflit_id}" selected>{$data.conflit_login_saisie}</option>
+{/if}
+</select>
 </tr>
+
 <tr>
 <td colspan=2>
 <div style="text-align:center;">
