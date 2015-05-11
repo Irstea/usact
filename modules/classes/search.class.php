@@ -85,4 +85,11 @@ class SearchConflit extends SearchParam {
 		parent::__construct();
 	}
 }
+
+class SearchEchelle extends SearchParam {
+	function __construct() {
+		$this->param = array ("searchId" => "");
+		parent::__construct();
+	}
+}
 ?>

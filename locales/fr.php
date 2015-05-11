@@ -43,6 +43,8 @@ $LANG["menu"][42] = "Module de recherche";
 $LANG["menu"][43] = "Intégrer un module de recherche";
 $LANG["menu"][50] = "Liste des conflits";
 $LANG["menu"][51] = "Liste de l'ensemble des conflits";
+$LANG["menu"][52] = "Liste des périmetres";
+$LANG["menu"][53] = "Liste de l'ensemble des périmetres";
 
 $LANG["menu"]["phpinfo"] = "PHP info";
 $LANG["menu"]["phpinfotitle"] = "configuration générale du serveur PHP";

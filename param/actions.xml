@@ -59,6 +59,12 @@
 	<conflitDelete action="modules/conflit/conflit.php" param="delete" retoursuppr="conflitListe" retourko="conflitChange" modulebefore="conflitChange" />
 	<conflitPdf action="modules/conflit/conflit.php" param="pdf" ajax="1" />
 	
-
+	<echelleListe action="modules/echelle/echelle.php" param="list" menulevel="1" menuorder="1" menuparent="1" menutitle="53" menuvalue="52" />
+	<echelleDisplay action="modules/echelle/echelle.php" param="display" />
+	<echelleChange action="modules/echelle/echelle.php" param="change" />
+	<echelleChangePersonne action="modules/echelle/echelle.php" param="change" />
+	<echelleWrite action="modules/echelle/echelle.php" param="write" retourok="echelleListe" retourko="echelleChange" modulebefore="echelleChange" />
+	<echelleDelete action="modules/echelle/echelle.php" param="delete" retoursuppr="echelleListe" retourko="echelleChange" modulebefore="echelleChange" />
+	
 </navigation>
 	

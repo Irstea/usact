@@ -16,4 +16,12 @@ else {
 	$searchConflit = $_SESSION["searchConflit"];
 }
 
+if (!isset($_SESSION["searchEchelle"])) {
+	$searchEchelle = new SearchEchelle();
+	$_SESSION["searchEchelle"] = $searchEchelle;
+}
+else {
+	$searchEchelle = $_SESSION["searchEchelle"];
+}
+
 ?>

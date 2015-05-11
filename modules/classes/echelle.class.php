@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Classe de manipulation de la table conflit
+ * Classe de manipulation de la table echelle
  * 
  * @author jeremy.damey
  *
  */
-class conflit extends ObjetBDD {
+class echelle extends ObjetBDD {
 	/**
 	 * instanciation de la classe, et initialisation des parametres
 	 *
@@ -18,30 +18,16 @@ class conflit extends ObjetBDD {
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
 			$param = array ();
-		$this->table = "conflit";
+		$this->table = "echelle";
 		$this->id_auto = 1;
 		$this->colonnes = array (
-				"conflit_id" => array (
+				"echelle_id" => array (
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
 						"defaultValue" => 1 
 				),
-				"conflit_login_saisie" => array (
-						"type" => 0,
-						"requis" => 1
-				),
-				"conflit_date_debut" => array (
-						"type" => 3 
-				),
-				"conflit_date_fin" => array (
-						"type" => 3 
-				),
-				"conflit_date_saisie" => array (
-						"type" => 3,
-						"requis" => 1
-				),
-				"conflit_detail" => array (
+				"echelle_libelle" => array (
 						"type" => 0,
 						"longueur" => 30
 				)
@@ -52,7 +38,7 @@ class conflit extends ObjetBDD {
 	}
 	
 	/**
-	 * Retourne la liste des conflits en fonction des critères de recherche fournis
+	 * Retourne la liste des echelles en fonction des critères de recherche fournis
 	 *
 	 * @param unknown $param        	
 	 *
@@ -61,44 +47,35 @@ class conflit extends ObjetBDD {
 		if (! is_array ( $param ))
 			$param = array ();
 		$param = $this->encodeData($param);
-		$sql = 'select conflit_id,
-				conflit_login_saisie,
-				conflit_date_debut,
-				conflit_date_fin,
-				conflit_date_saisie,
-				conflit_detail 
+		$sql = 'select echelle_id,
+				echelle_libelle
 				from ' .$this->table;
 				
 		/*
 		 * Rajout des parametres de recherche
 		 */
 		if (strlen ( $param ["searchId"] ) > 0)
-			$where .= ' where conflit_id ='.$param["searchId"];
+			$where .= ' where echelle_id ='.$param["searchId"];
 		
-		$order = ' order by conflit_id';
+		$order = ' order by echelle_id';
 		
 		return parent::getListeParam ( $sql . $where . $order);
 	}
 	
 	/**
-	 * Retourne le detail de la fiche du conflit selectionné du conflit
+	 * Retourne le detail de la fiche du echelle selectionné du echelle
 	 * 
 	 * @param unknown $id
 	 * @return Ambigous <multitype:, boolean, $data>
 	 */
 	function lireDetail($id) {		
 		$id = $this->encodeData($id);
-		$sql = 'select conflit_id,
-				conflit_login_saisie,
-				conflit_date_debut,
-				conflit_date_fin,
-				conflit_date_saisie,
-				conflit_detail 
+		$sql = 'select echelle_id,
+				echelle_libelle
 				from ' .$this->table
-				.' where conflit_id = '.$id
-				.' order by conflit_id';
+				.' where echelle_id = '.$id
+				.' order by echelle_id';
 		return parent::lireParam ( $sql );
 	}
 }
 ?>
-

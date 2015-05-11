@@ -3,10 +3,12 @@
 {/if}
 <a href="index.php?module=conflitListe">Retour à la liste</a>
 <a href="index.php?module=conflitDisplay&id={$data.conflit_id}" style="padding-left:2em">Retour au détail de la fiche</a>
+
 <form method="post" action="index.php" onSubmit='return validerForm("nom:le nom est obligatoire,prenom:le prénom est obligatoire")'>
 <input type="hidden" name="action" value="M">
 <input type="hidden" name="id" value="{$data.conflit_id}">
 <input type="hidden" name="module" value="conflitWrite">
+
 <table class="tablesaisie">
 <td>Date de début (JJ/MM/AAAA):</td>
 <td><input name="conflit_date_debut" value="{$data.conflit_date_debut}"></td>
@@ -25,11 +27,20 @@
 </tr>
 <tr>
 <td>Login<span class="red">*</span> :</td>
-<select name="conflit_id" id="conflit_id">
-{if $data.conflit_id > 0}
-<option value="{$data.conflit_id}" selected>{$data.conflit_login_saisie}</option>
-{/if}
+<td>
+<select name="conflit_id">
+{section name=lst loop=$conflit}
+{strip}
+<option value="{$data.conflit_id}" selected>
+{$data.conflit_login_saisie} 
+</option>
+<option value="{$conflit[lst].conflit_id}">
+{$conflit[lst].conflit_login_saisie}
+</option>
+{/strip}
+{/section}
 </select>
+</td>
 </tr>
 
 <tr>
