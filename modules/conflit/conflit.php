@@ -51,8 +51,7 @@ switch ($t_module ["param"]) {
 	* $_REQUEST["idParent"] contains the identifiant of the parent record
 	*/
 	case "change":
-		$conflit = new conflit ( $bdd, $ObjetBDDParam );
-		$smarty->assign ( "conflit", $conflit->getListe () );		
+		$smarty->assign ( "conflit", $dataClass->getListe () );		
 		dataRead ( $dataClass, $id, "conflit/conflitChange.tpl" );
 		break;
 
