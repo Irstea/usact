@@ -1,5 +1,5 @@
 <a href="index.php?module=echelleListe">Retour à la liste </a>
-<a href="index.php?module=echelleChange&id={$data.echelle_id}" style="padding-left:6em;">Modifier...</a>
+<a href="index.php?module=echelleChange&id={$data.echelle_id}">Modifier...</a>
 <table class="tableaffichage">
 <tr>
 <td class="libelleSaisie"> ID de l'echelle :</td>

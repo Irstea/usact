@@ -9,6 +9,10 @@
 
 <table class="tablesaisie">
 <dl>
+<dt>ID:</dt>
+<dd><input name="conflit_id" value="{$data.conflit_id}"></dd>
+</dl>
+<dl>
 <dt>Date de début (JJ/MM/AAAA):</dt>
 <dd><input name="conflit_date_debut" value="{$data.conflit_date_debut}"></dd>
 </dl>
@@ -33,7 +37,7 @@
 <dt colspan=2>
 <div style="text-align:center;">
 <input type="submit" name="valid" value="{$LANG.message.19}"/>
-</form>
+
 <form action="index.php" method="post" onSubmit='return confirmSuppression("Confirmez-vous la suppression ?")'>
 <input type="hidden" name="conflit_id" value="{$data.conflit_id}">
 <input type="hidden" name="module" value="conflitDelete">

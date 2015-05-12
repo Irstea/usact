@@ -92,4 +92,11 @@ class SearchEchelle extends SearchParam {
 		parent::__construct();
 	}
 }
+
+class SearchTypePerimetre extends SearchParam {
+	function __construct() {
+		$this->param = array ("searchId" => "");
+		parent::__construct();
+	}
+}
 ?>

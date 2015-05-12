@@ -24,4 +24,12 @@ else {
 	$searchEchelle = $_SESSION["searchEchelle"];
 }
 
+if (!isset($_SESSION["searchTypePerimetre"])) {
+	$searchTypePerimetre = new SearchTypePerimetre();
+	$_SESSION["searchTypePerimetre"] = $searchTypePerimetre;
+}
+else {
+	$searchTypePerimetre = $_SESSION["searchTypePerimetre"];
+}
+
 ?>

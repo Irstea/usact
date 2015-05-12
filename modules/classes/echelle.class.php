@@ -6,7 +6,7 @@
  * @author jeremy.damey
  *
  */
-class echelle extends ObjetBDD {
+class Echelle extends ObjetBDD {
 	/**
 	 * instanciation de la classe, et initialisation des parametres
 	 *
@@ -25,11 +25,10 @@ class echelle extends ObjetBDD {
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
-						"defaultValue" => 1 
+						"defaultValue" => 0 
 				),
 				"echelle_libelle" => array (
-						"type" => 0,
-						"longueur" => 30
+						"type" => 0
 				)
 		);
 		$param ["fullDescription"] = 1;
@@ -68,14 +67,17 @@ class echelle extends ObjetBDD {
 	 * @param unknown $id
 	 * @return Ambigous <multitype:, boolean, $data>
 	 */
-	function lireDetail($id) {		
-		$id = $this->encodeData($id);
-		$sql = 'select echelle_id,
-				echelle_libelle
-				from ' .$this->table
-				.' where echelle_id = '.$id
-				.' order by echelle_id';
-		return parent::lireParam ( $sql );
+	function lireDetail($id) {	
+		if($id > 0)	
+		{
+			$id = $this->encodeData($id);
+			$sql = 'select echelle_id,
+					echelle_libelle
+					from ' .$this->table
+					.' where echelle_id = '.$id
+					.' order by echelle_id';
+			return parent::lireParam ( $sql );
+		}
 	}
 }
 ?>
