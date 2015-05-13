@@ -99,4 +99,18 @@ class SearchTypePerimetre extends SearchParam {
 		parent::__construct();
 	}
 }
+
+class SearchObjetNiv1 extends SearchParam {
+	function __construct() {
+		$this->param = array ("searchId" => "");
+		parent::__construct();
+	}
+}
+
+class SearchBienSupportNiv1 extends SearchParam {
+	function __construct() {
+		$this->param = array ("searchId" => "");
+		parent::__construct();
+	}
+}
 ?>

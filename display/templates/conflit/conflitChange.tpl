@@ -4,6 +4,7 @@
 <a href="index.php?module=conflitListe">Retour à la liste</a>
 <a href="index.php?module=conflitDisplay&id={$data.conflit_id}">Retour au détail de la fiche</a>
 
+<form method="post" action="index.php">
 <input type="hidden" name="conflit_id" value="{$data.conflit_id}">
 <input type="hidden" name="module" value="conflitWrite">
 
@@ -37,7 +38,7 @@
 <dt colspan=2>
 <div style="text-align:center;">
 <input type="submit" name="valid" value="{$LANG.message.19}"/>
-
+</form>
 <form action="index.php" method="post" onSubmit='return confirmSuppression("Confirmez-vous la suppression ?")'>
 <input type="hidden" name="conflit_id" value="{$data.conflit_id}">
 <input type="hidden" name="module" value="conflitDelete">

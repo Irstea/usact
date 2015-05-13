@@ -12,8 +12,8 @@
  *
  * menu items are declared in locales/fr.php
  */
-include_once 'modules/classes/echelle.class.php';
-$dataClass = new echelle( $bdd, $ObjetBDDParam );
+include_once 'modules/classes/bien_support_niv1.class.php';
+$dataClass = new bienSupportNiv1( $bdd, $ObjetBDDParam );
 $id = $_REQUEST ["id"];
 
 switch ($t_module ["param"]) {
@@ -25,15 +25,15 @@ switch ($t_module ["param"]) {
 	 * Gestion des criteres de recherche
 	 */
 	case "list":
-		$searchEchelle->setParam ( $_REQUEST );
-		$dataRecherche = $searchEchelle->getParam ();
-		if ($searchConflit->isSearch () == 1) {
+		$searchBienSupportNiv1->setParam ( $_REQUEST );
+		$dataRecherche = $searchBienSupportNiv1->getParam ();
+		if ($searchBienSupportNiv1->isSearch () == 1) {
 			$data = $dataClass->getListeSearch ( $dataRecherche );
 			$smarty->assign ( "data", $data );
 			$smarty->assign ( "isSearch", 1 );
 		}
-		$smarty->assign ( "echelleSearch", $dataRecherche );
-		$smarty->assign ( "corps", "echelle/echelleListe.tpl" );
+		$smarty->assign ( "bienSupportNiv1Search", $dataRecherche );
+		$smarty->assign ( "corps", "perimetre/bienSupportNiv1Liste.tpl" );
 		break;
 		
 	/*
@@ -42,7 +42,7 @@ switch ($t_module ["param"]) {
 	case "display":
 		$data = $dataClass->lireDetail ( $id );
 		$smarty->assign ( "data", $data );
-		$smarty->assign ( "corps", "echelle/echelleDisplay.tpl" );
+		$smarty->assign ( "corps", "perimetre/bienSupportNiv1Display.tpl" );
 		break;
 		
 	/*
@@ -51,9 +51,9 @@ switch ($t_module ["param"]) {
 	* $_REQUEST["idParent"] contains the identifiant of the parent record
 	*/
 	case "change":
-		$echelle = new echelle ( $bdd, $ObjetBDDParam );
-		$smarty->assign ( "echelle", $echelle->getListe () );		
-		dataRead ( $dataClass, $id, "echelle/echelleChange.tpl" );
+		$bienSupportNiv1 = new bienSupportNiv1 ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "bienSupportNiv1", $bienSupportNiv1->getListe () );		
+		dataRead ( $dataClass, $id, "perimetre/bienSupportNiv1Change.tpl" );
 		break;
 
 	/*

@@ -25,5 +25,4 @@
 <dt class="libelleSaisie"> Login :</dt>
 <dd>{$data.conflit_login_saisie}</dd>
 </dl>
-
 </table>

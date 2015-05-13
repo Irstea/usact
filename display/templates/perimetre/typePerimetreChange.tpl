@@ -4,8 +4,7 @@
 <a href="index.php?module=typePerimetreListe">Retour à la liste</a>
 <a href="index.php?module=typePerimetreDisplay&id={$data.type_perimetre_id}" >Retour au détail de la fiche</a>
 
-<form method="post" action="index.php" onSubmit='return validerForm("nom:le nom est obligatoire,prenom:le prénom est obligatoire")'>
-<input type="hidden" name="action" value="M">
+<form method="post" action="index.php">
 <input type="hidden" name="type_perimetre_id" value="{$data.type_perimetre_id}">
 <input type="hidden" name="module" value="typePerimetreWrite">
 
@@ -13,7 +12,7 @@
 
 <tr>
 <td>Libelle du type de périmetre<span class="red">*</span> :</td>
-<td><input name="type_perimetre_libelle" value="{$data.type_perimetre_libelle}"></td>
+<td><input name="type_perimetre_libelle" value="{$data.type_perimetre_libelle}" required autofocus></td>
 </tr>
 
 <tr>

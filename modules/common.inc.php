@@ -32,4 +32,20 @@ else {
 	$searchTypePerimetre = $_SESSION["searchTypePerimetre"];
 }
 
+if (!isset($_SESSION["searchObjetNiv1"])) {
+	$searchObjetNiv1 = new SearchObjetNiv1();
+	$_SESSION["searchObjetNiv1"] = $searchObjetNiv1;
+}
+else {
+	$searchObjetNiv1 = $_SESSION["searchObjetNiv1"];
+}
+
+if (!isset($_SESSION["searchBienSupportNiv1"])) {
+	$searchBienSupportNiv1 = new SearchBienSupportNiv1();
+	$_SESSION["searchBienSupportNiv1"] = $searchBienSupportNiv1;
+}
+else {
+	$searchBienSupportNiv1 = $_SESSION["searchBienSupportNiv1"];
+}
+
 ?>

@@ -4,8 +4,7 @@
 <a href="index.php?module=echelleListe">Retour à la liste</a>
 <a href="index.php?module=echelleDisplay&id={$data.echelle_id}" >Retour au détail de la fiche</a>
 
-<form method="post" action="index.php" onSubmit='return validerForm("nom:le nom est obligatoire,prenom:le prénom est obligatoire")'>
-<input type="hidden" name="action" value="M">
+<form method="post" action="index.php">
 <input type="hidden" name="echelle_id" value="{$data.echelle_id}">
 <input type="hidden" name="module" value="echelleWrite">
 
