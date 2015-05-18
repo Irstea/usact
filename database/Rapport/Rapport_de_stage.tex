@@ -45,7 +45,7 @@
 {\color{stitreColor}\thesubsection}{1em}{}
 
 %Données de titre et d'auteur pour la page de garde
-\newcommand{\titre}{Développement de l'application USACT}
+\newcommand{\titre}{Développement de l'application web USACT}
 \newcommand{\sousTitre}{Stage de DUT Informatique réalisé par \newline Jérémy DAMEY \newline Du 7 avril au 12 juin 2015}
 \newcommand{\auteur}{Jérémy DAMEY}
 \newcommand{\dateModif}{\today}
@@ -58,6 +58,8 @@
 
 % Integre la page de garde
 %\input{title.tex}
+Maître de stage : Eric QUINTON \newline
+Enseignant referent : Franck RUBI \newline
 \input{Page_de_garde}
 % Définition des entêtes
 \fancyhead{}
@@ -80,15 +82,31 @@
 % \cleardoublepage permet de générer une page vide 
 % si le chapitre ne commence pas sur la page de droite
 \cleardoublepage
-\chapter{Introduction}
-\section{Première section}
-\subsection{sous-section}
+\vspace{1cm}
+\begin{center}
+\bf 
+\color{titreColor}
+\LARGE{Remerciements}
+\end{center}
+Tout d'abord, je tiens à remercier mon maître de stage Eric QUINTON pour m'avoir accepté au sein de l'IRSTEA et pour tout ce qu'il m'a apporté durant la durée de ce stage. \newline\newline
+Je remercie également les chercheuses Sandrine LYSER et Clarisse pour leurs disponibilités et les éclaircissements qu'elles m'ont apportés pendant ces 10 semaines. \newline\newline
+Je tenais également à remercier l'IRSTEA pour l'accueil chaleureux que j'ai reçu. \newline\newline
+Enfin, je remercie mes professeurs pour tout ce qu'ils m'ont apporté au cours de ces 2 années de formation. 
+
+\setcounter{tocdepth}{4}
+\tableofcontents
+\cleardoublepage
+\chapter{Présentation de l'IRSTEA}
+\section{L'IRSTEA de manière général}
+\section{L'IRSTEA à Bordeaux}
 Exemple de texte
-\subsection{autre sous-section}
+
+
+
+
 % Second chapitre
 \cleardoublepage
 \chapter{Second chapitre}
 % \input{chapitre2}
-% Table des matières
-\tableofcontents
+
 \end{document}

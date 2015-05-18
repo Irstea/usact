@@ -9,8 +9,8 @@
 <table id="idListe" class="tableaffichage">
 	<thead>
 		<tr>
-			<th>ID du type de perimetre</th>
-			<th>Libellé du type de perimetre</th>
+			<th>ID de l'objet niv1</th>
+			<th>Libellé de l'objet niv1</th>
 		</tr>
 	</thead>
 	<tdata> {section name=lst loop=$data}

@@ -86,6 +86,11 @@ class SearchConflit extends SearchParam {
 	}
 }
 
+/**
+ * Classe de gestion des parametres de recherche de la table Echelle
+ * @author Jeremy Damey
+ *
+ */
 class SearchEchelle extends SearchParam {
 	function __construct() {
 		$this->param = array ("searchId" => "");
@@ -93,6 +98,11 @@ class SearchEchelle extends SearchParam {
 	}
 }
 
+/**
+ * Classe de gestion des parametres de recherche de la table TypePerimetre
+ * @author Jeremy Damey
+ *
+ */
 class SearchTypePerimetre extends SearchParam {
 	function __construct() {
 		$this->param = array ("searchId" => "");
@@ -100,6 +110,11 @@ class SearchTypePerimetre extends SearchParam {
 	}
 }
 
+/**
+ * Classe de gestion des parametres de recherche de la table ObjetNiv1
+ * @author Jeremy Damey
+ *
+ */
 class SearchObjetNiv1 extends SearchParam {
 	function __construct() {
 		$this->param = array ("searchId" => "");
@@ -107,6 +122,23 @@ class SearchObjetNiv1 extends SearchParam {
 	}
 }
 
+/**
+ * Classe de gestion des parametres de recherche de la table ObjetNiv2
+ * @author Jeremy Damey
+ *
+ */
+class SearchObjetNiv2 extends SearchParam {
+	function __construct() {
+		$this->param = array ("searchId" => "");
+		parent::__construct();
+	}
+}
+
+/**
+ * Classe de gestion des parametres de recherche de la table BienSupportNiv1
+ * @author Jeremy Damey
+ *
+ */
 class SearchBienSupportNiv1 extends SearchParam {
 	function __construct() {
 		$this->param = array ("searchId" => "");
