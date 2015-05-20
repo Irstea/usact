@@ -56,4 +56,12 @@ else {
 	$searchBienSupportNiv1 = $_SESSION["searchBienSupportNiv1"];
 }
 
+if (!isset($_SESSION["searchBienSupportNiv2"])) {
+	$searchBienSupportNiv2 = new SearchBienSupportNiv2();
+	$_SESSION["searchBienSupportNiv2"] = $searchBienSupportNiv2;
+}
+else {
+	$searchBienSupportNiv2 = $_SESSION["searchBienSupportNiv2"];
+}
+
 ?>

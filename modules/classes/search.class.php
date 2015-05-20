@@ -145,4 +145,16 @@ class SearchBienSupportNiv1 extends SearchParam {
 		parent::__construct();
 	}
 }
+
+/**
+ * Classe de gestion des parametres de recherche de la table BienSupportNiv2
+ * @author Jeremy Damey
+ *
+ */
+class SearchBienSupportNiv2 extends SearchParam {
+	function __construct() {
+		$this->param = array ("searchId" => "");
+		parent::__construct();
+	}
+}
 ?>
