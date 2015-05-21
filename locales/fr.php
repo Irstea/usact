@@ -45,6 +45,13 @@ $LANG["menu"][50] = "Liste des conflits";
 $LANG["menu"][51] = "Liste de l'ensemble des conflits";
 $LANG["menu"][52] = "Liste des périmetres";
 $LANG["menu"][53] = "Liste de l'ensemble des périmetres";
+$LANG["menu"][60] = "Paramètre";
+$LANG["menu"][61] = "Echelle";
+$LANG["menu"][62] = "Type de périmetre";
+$LANG["menu"][63] = "Objet niv1";
+$LANG["menu"][64] = "Objet niv2";
+$LANG["menu"][64] = "Bien support niv1";
+$LANG["menu"][64] = "Bien support niv2";
 
 $LANG["menu"]["phpinfo"] = "PHP info";
 $LANG["menu"]["phpinfotitle"] = "configuration générale du serveur PHP";
