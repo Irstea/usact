@@ -1,6 +1,3 @@
-{if $isSearch == 2}
-<h2>Déclaration du type de périmetre</h2>
-{/if}
 <a href="index.php?module=objetNiv2Liste">Retour à la liste</a>
 <a href="index.php?module=objetNiv2Display&id={$data.objet_niv2_id}" >Retour au détail de la fiche</a>
 

@@ -82,17 +82,17 @@
 	<objetNiv2Write action="modules/perimetre/objet_niv2.php" param="write" retourok="objetNiv2Liste" retourko="objetNiv2Change" modulebefore="objetNiv2Change" />
 	<objetNiv2Delete action="modules/perimetre/objet_niv2.php" param="delete" retoursuppr="objetNiv2Liste" retourko="objetNiv2Change" modulebefore="objetNiv2Change" /> -->
 	
-	<!--  <bienSupportNiv1Liste action="modules/perimetre/bien_support_niv1.php" param="list" menulevel="1" menuorder="1" menuparent="1" menutitle="53" menuvalue="52" />
+	<bienSupportNiv1Liste action="modules/perimetre/bien_support_niv1.php" param="list" menulevel="1" menuorder="1" menuparent="1" menutitle="53" menuvalue="52" />
 	<bienSupportNiv1Display action="modules/perimetre/bien_support_niv1.php" param="display" />
 	<bienSupportNiv1Change action="modules/perimetre/bien_support_niv1.php" param="change" />
 	<bienSupportNiv1Write action="modules/perimetre/bien_support_niv1.php" param="write" retourok="bienSupportNiv1Liste" retourko="bienSupportNiv1Change" modulebefore="bienSupportNiv1Change" />
-	<bienSupportNiv1Delete action="modules/perimetre/bien_support_niv1.php" param="delete" retoursuppr="bienSupportNiv1Liste" retourko="bienSupportNiv1Change" modulebefore="bienSupportNiv1Change" /> -->
+	<bienSupportNiv1Delete action="modules/perimetre/bien_support_niv1.php" param="delete" retoursuppr="bienSupportNiv1Liste" retourko="bienSupportNiv1Change" modulebefore="bienSupportNiv1Change" />
 	
-	<bienSupportNiv2Liste action="modules/perimetre/bien_support_niv2.php" param="list" menulevel="1" menuorder="1" menuparent="1" menutitle="53" menuvalue="52" />
+	<!--  <bienSupportNiv2Liste action="modules/perimetre/bien_support_niv2.php" param="list" menulevel="1" menuorder="1" menuparent="1" menutitle="53" menuvalue="52" />
 	<bienSupportNiv2Display action="modules/perimetre/bien_support_niv2.php" param="display" />
 	<bienSupportNiv2Change action="modules/perimetre/bien_support_niv2.php" param="change" />
 	<bienSupportNiv2Write action="modules/perimetre/bien_support_niv2.php" param="write" retourok="bienSupportNiv2Liste" retourko="bienSupportNiv2Change" modulebefore="bienSupportNiv2Change" />
-	<bienSupportNiv2Delete action="modules/perimetre/bien_support_niv2.php" param="delete" retoursuppr="bienSupportNiv2Liste" retourko="bienSupportNiv2Change" modulebefore="bienSupportNiv2Change" />
+	<bienSupportNiv2Delete action="modules/perimetre/bien_support_niv2.php" param="delete" retoursuppr="bienSupportNiv2Liste" retourko="bienSupportNiv2Change" modulebefore="bienSupportNiv2Change" /> -->
 	
 </navigation>
 	

@@ -99,13 +99,13 @@ class BienSupportNiv2 extends ObjetBDD {
 			/*
 			 * declenchement de la recherche
 			 */
-			var url = "index.php?module=especeTypeSearchAjax";
-			$.getJSON ( url, { "libelle": texte } , function( data ) {
+			var url = "index.php?module=bienSupportNiv2Search";
+			$.getJSON ( url, { "bien_support_niv2_libelle": texte } , function( data ) {
 				var options = '';
 				for (var i = 0; i < data.length; i++) {
 					options += '<option value="' + data[i].id + '">' + data[i].val + '</option>';
 				};
-				$("#espece_type_id").html(options);
+				$("#bien_support_niv2_id").html(options);
 			} ) ;
 		};
 	} );
