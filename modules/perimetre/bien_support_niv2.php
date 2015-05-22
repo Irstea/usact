@@ -25,7 +25,7 @@ switch ($t_module ["param"]) {
 	 * Gestion des criteres de recherche
 	 */
 	case "list":
-		$searchBienSupportNiv2->setParam ( $_REQUEST );
+		/*$searchBienSupportNiv2->setParam ( $_REQUEST );
 		$dataRecherche = $searchBienSupportNiv2->getParam ();
 		if ($searchBienSupportNiv2->isSearch () == 1) {
 			$data = $dataClass->getListeSearch ( $dataRecherche );
@@ -34,6 +34,35 @@ switch ($t_module ["param"]) {
 		}
 		$smarty->assign ( "bienSupportNiv2Search", $dataRecherche );
 		$smarty->assign ( "corps", "perimetre/bienSupportNiv2Liste.tpl" );
+		break;*/
+		
+		/*
+		 * Recherche la liste et la retourne au format Ajax
+		 */
+		if (strlen($_REQUEST["bien_support_niv2_libelle"]) > 0) {
+			$data = $dataClass->getListByName($_REQUEST["bien_support_niv2_libelle"]);
+			$dataJson = array();
+			$i = 0;
+			/*
+			 * Mise en forme du tableau pour etre facile a manipuler cote client
+			 */
+			foreach ($data as $key => $value) {
+				$dataJson[$i]["id"] = $value["bien_support_niv2_id"];
+				$valeur = $value["bien_support_niv2_libelle"];
+				if (strlen($value["bien_support_niv2_id"]) > 0 ) {
+					$valeur .= " - ".$value["bien_support_niv2_id"];
+				}
+				if (strlen($value["bien_support_niv1_id"]) > 0 ) {
+					$valeur .= " - ".$value["bien_support_niv1_id"];
+				}
+				if (strlen($value["bien_support_niv2_libelle"]) > 0 ) {
+					$valeur .= " - ".$value["bien_support_niv2_libelle"];
+				}
+				$dataJson[$i]["val"] = $valeur;
+				$i ++;
+			}
+			echo json_encode ($dataJson) ;
+		}
 		break;
 		
 	/*
@@ -51,33 +80,9 @@ switch ($t_module ["param"]) {
 	* $_REQUEST["idParent"] contains the identifiant of the parent record
 	*/
 	case "change":
-        /*
-         * Recherche la liste et la retourne au format Ajax
-         */
-        if (strlen($_REQUEST["bien_support_niv2_libelle"]) > 0) {
-            $data = $dataClass->getListByName($_REQUEST["bien_support_niv2_libelle"]);
-            $dataJson = array();
-            $i = 0;
-            /*
-             * Mise en forme du tableau pour etre facile a manipuler cote client
-            */
-            foreach ($data as $key => $value) {
-                $dataJson[$i]["id"] = $value["bien_support_niv2_id"];
-                $valeur = $value["bien_support_niv2_libelle"];
-                if (strlen($value["bien_support_niv2_id"]) > 0 ) {
-                    $valeur .= " - ".$value["bien_support_niv2_id"];
-                }
-                if (strlen($value["bien_support_niv1_id"]) > 0 ) {
-                    $valeur .= " - ".$value["bien_support_niv1_id"];
-                }
-                if (strlen($value["bien_support_niv2_libelle"]) > 0 ) {
-                    $valeur .= " - ".$value["bien_support_niv2_libelle"];
-                }
-                $dataJson[$i]["val"] = $valeur;
-                $i ++;
-            }
-            echo json_encode ($dataJson) ;
-        }		
+		$bienSupportNiv2 = new bienSupportNiv2 ( $bdd, $bienSupportBDDParam );
+		$smarty->assign ( "bienSupportNiv2", $bienSupportNiv2->getListe () );
+		dataRead ( $dataClass, $id, "perimetre/bienSupportNiv2Change.tpl" );
 		break;
 
 	/*

@@ -8,7 +8,7 @@
 <input class="text10" id="recherche" autocomplete="off" autofocus placeholder="espèce à chercher" title="Tapez au moins 3 caractères...">
 <select name="bien_support_niv2_id" id="bien_support_niv2_id">
 {if $data.bien_support_niv2_id > 0}
-<option value="{$data.bien_support_niv2_id}" selected>{$data.bien_support_libelle}</option>
+<option value="{$data.bien_support_niv2_id}" selected>{$data.bien_support_niv2_libelle}</option>
 {/if}
 </select>
 </dd>
