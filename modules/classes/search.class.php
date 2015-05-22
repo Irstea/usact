@@ -87,6 +87,18 @@ class SearchConflit extends SearchParam {
 }
 
 /**
+ * Classe de gestion des parametres de recherche de la table Perimetre
+ * @author Jeremy Damey
+ *
+ */
+class SearchPerimetre extends SearchParam {
+	function __construct() {
+		$this->param = array ("searchId" => "");
+		parent::__construct();
+	}
+}
+
+/**
  * Classe de gestion des parametres de recherche de la table Echelle
  * @author Jeremy Damey
  *

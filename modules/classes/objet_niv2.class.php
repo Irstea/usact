@@ -70,7 +70,7 @@ class ObjetNiv2 extends ObjetBDD {
 	}
 	
 	/**
-	 * Retourne le detail de la fiche du objet_niv2 selectionné du objet_niv2
+	 * Retourne le detail de la fiche de l'objet niveau 2 selectionné
 	 * 
 	 * @param unknown $id
 	 * @return Ambigous <multitype:, boolean, $data>

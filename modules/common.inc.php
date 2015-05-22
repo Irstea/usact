@@ -16,6 +16,14 @@ else {
 	$searchConflit = $_SESSION["searchConflit"];
 }
 
+if (!isset($_SESSION["searchPerimetre"])) {
+	$searchPerimetre = new SearchPerimetre();
+	$_SESSION["searchPerimetre"] = $searchPerimetre;
+}
+else {
+	$searchPerimetre = $_SESSION["searchPerimetre"];
+}
+
 if (!isset($_SESSION["searchEchelle"])) {
 	$searchEchelle = new SearchEchelle();
 	$_SESSION["searchEchelle"] = $searchEchelle;

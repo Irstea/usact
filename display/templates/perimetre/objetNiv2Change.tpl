@@ -1,21 +1,21 @@
 <a href="index.php?module=objetNiv2Liste">Retour à la liste</a>
+&nbsp
 <a href="index.php?module=objetNiv2Display&id={$data.objet_niv2_id}" >Retour au détail de la fiche</a>
 
+<div class="formSaisie">
 <form method="post" action="index.php">
 <input type="hidden" name="objet_niv2_id" value="{$data.objet_niv2_id}">
 <input type="hidden" name="module" value="objetNiv2Write">
 
-<table class="tablesaisie">
-
-<tr>
-<td>Libelle du type d'objet niv2<span class="red">*</span> :</td>
-<td><input name="objet_niv2_libelle" value="{$data.objet_niv2_libelle}" required autofocus></td>
-</tr>
+<dl>
+<dt>Libelle du type d'objet niv2<span class="red">*</span> :</dt>
+<dd><input name="objet_niv2_libelle" value="{$data.objet_niv2_libelle}" required autofocus></dd>
+</dl>
 
 <tr>
 <td colspan=2>
-<div style="text-align:center;">
-<input type="submit" name="valid" value="{$LANG.message.19}"/>
+<div class="formBouton">
+<input class="submit" type="submit" value="Enregistrer">
 </form>
 <form action="index.php" method="post" onSubmit='return confirmSuppression("Confirmez-vous la suppression ?")'>
 <input type="hidden" name="objet_niv2_id" value="{$data.objet_niv2_id}">
@@ -25,5 +25,5 @@
 </div>
 </td>
 </tr>
-</table>
+</div>
 <span class="red">*</span><span class="messagebas">Champ obligatoire</span>

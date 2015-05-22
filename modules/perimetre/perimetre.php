@@ -12,8 +12,8 @@
  *
  * menu items are declared in locales/fr.php
  */
-include_once 'modules/classes/type_perimetre.class.php';
-$dataClass = new typePerimetre( $bdd, $ObjetBDDParam );
+include_once 'modules/classes/perimetre.class.php';
+$dataClass = new perimetre( $bdd, $ObjetBDDParam );
 $id = $_REQUEST ["id"];
 
 switch ($t_module ["param"]) {
@@ -25,15 +25,15 @@ switch ($t_module ["param"]) {
 	 * Gestion des criteres de recherche
 	 */
 	case "list":
-		$searchTypePerimetre->setParam ( $_REQUEST );
-		$dataRecherche = $searchTypePerimetre->getParam ();
-		if ($searchTypePerimetre->isSearch () == 1) {
+		$searchPerimetre->setParam ( $_REQUEST );
+		$dataRecherche = $searchPerimetre->getParam ();
+		if ($searchPerimetre->isSearch () == 1) {
 			$data = $dataClass->getListeSearch ( $dataRecherche );
 			$smarty->assign ( "data", $data );
 			$smarty->assign ( "isSearch", 1 );
 		}
-		$smarty->assign ( "typePerimetreSearch", $dataRecherche );
-		$smarty->assign ( "corps", "perimetre/typePerimetreListe.tpl" );
+		$smarty->assign ( "perimetreSearch", $dataRecherche );
+		$smarty->assign ( "corps", "perimetre/perimetreListe.tpl" );
 		break;
 		
 	/*
@@ -42,7 +42,7 @@ switch ($t_module ["param"]) {
 	case "display":
 		$data = $dataClass->lireDetail ( $id );
 		$smarty->assign ( "data", $data );
-		$smarty->assign ( "corps", "perimetre/typePerimetreDisplay.tpl" );
+		$smarty->assign ( "corps", "perimetre/perimetreDisplay.tpl" );
 		break;
 		
 	/*
@@ -51,9 +51,9 @@ switch ($t_module ["param"]) {
 	* $_REQUEST["idParent"] contains the identifiant of the parent record
 	*/
 	case "change":
-		$typePerimetre = new typePerimetre ( $bdd, $ObjetBDDParam );
-		$smarty->assign ( "typePerimetre", $typePerimetre->getListe () );		
-		dataRead ( $dataClass, $id, "perimetre/typePerimetreChange.tpl" );
+		$perimetre = new perimetre ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "perimetre", $perimetre->getListe () );		
+		dataRead ( $dataClass, $id, "perimetre/perimetreChange.tpl" );
 		break;
 
 	/*

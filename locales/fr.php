@@ -46,12 +46,13 @@ $LANG["menu"][51] = "Liste de l'ensemble des conflits";
 $LANG["menu"][52] = "Liste des périmetres";
 $LANG["menu"][53] = "Liste de l'ensemble des périmetres";
 $LANG["menu"][60] = "Paramètre";
-$LANG["menu"][61] = "Echelle";
-$LANG["menu"][62] = "Type de périmetre";
-$LANG["menu"][63] = "Objet niv1";
-$LANG["menu"][64] = "Objet niv2";
-$LANG["menu"][64] = "Bien support niv1";
-$LANG["menu"][64] = "Bien support niv2";
+$LANG["menu"][61] = "Liste des périmètres";
+$LANG["menu"][62] = "Echelle";
+$LANG["menu"][63] = "Type de périmetre";
+$LANG["menu"][64] = "Objet niv1";
+$LANG["menu"][65] = "Objet niv2";
+$LANG["menu"][66] = "Bien support niv1";
+$LANG["menu"][67] = "Bien support niv2";
 
 $LANG["menu"]["phpinfo"] = "PHP info";
 $LANG["menu"]["phpinfotitle"] = "configuration générale du serveur PHP";
@@ -96,6 +97,7 @@ $LANG["message"][30] = "Champ obligatoire";
 $LANG["message"][31] = "Confirmez-vous la suppression ?";
 $LANG["message"][32] = "Mode développement - base de données";
 $LANG["message"][33] = "Vous êtes connect";
+$LANG["message"][34] = "Module parametre";
 $LANG["message"]["yes"] = "oui";
 $LANG["message"]["no"] = "non";
 

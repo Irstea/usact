@@ -24,7 +24,8 @@
 <dd><input name="conflit_detail" value="{$data.conflit_detail}"></dd>
 </dl>
 
-
+<tr>
+<td colspan=2>
 <div class="formBouton">
 <input class="submit" type="submit" value="Enregistrer">
 </form>
@@ -34,6 +35,8 @@
 <input type="submit" value="Supprimer">
 </form>
 </div>
+</td>
+</tr>
 </div>
 
 <span class="red">*</span><span class="messagebas">Champ obligatoire</span>

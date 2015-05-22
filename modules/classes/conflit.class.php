@@ -28,8 +28,7 @@ class Conflit extends ObjetBDD {
 						"defaultValue" => 0 
 				),
 				"conflit_login_saisie" => array (
-						"type" => 0,
-						"requis" => 1
+						"type" => 0
 				),
 				"conflit_date_debut" => array (
 						"type" => 2 
