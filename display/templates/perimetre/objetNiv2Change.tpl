@@ -12,6 +12,25 @@
 <dd><input name="objet_niv2_libelle" value="{$data.objet_niv2_libelle}" required autofocus></dd>
 </dl>
 
+<dl>
+<dt>Libelle du type d'objet niv1 :</dt>
+<dd>
+<div align="left">
+<select name="objet_niv1">
+{section name=lst loop=$objet_niv1}
+{strip}
+<option value="{$objet_niv1[lst].objet_niv1_id}"
+{if $objet_niv1[lst].objet_niv1_id == $data.objet_niv1} selected{/if}
+>test 
+{$objet_niv1[lst].objet_niv1_libelle}
+</option>{/strip}
+{/section}
+</select>
+</div>
+</dd>
+</dl>
+
+
 <tr>
 <td colspan=2>
 <div class="formBouton">

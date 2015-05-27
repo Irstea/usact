@@ -3,7 +3,6 @@
 </script>
 <h2>{$LANG.gestion.0}</h2>
 <a href="index.php?module=bienSupportNiv2Change&id=0">{$LANG.gestion.7}</a>
-&nbsp
 {if $isSearch == 1}
 <a href="index.php?module=bienSupportNiv2Change&id=0">Nouveau bien support de niveau 2</a>
 <table id="idListe" class="tableaffichage">

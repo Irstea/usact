@@ -24,27 +24,22 @@ class perimetre extends ObjetBDD {
 						"type" => 1,
 						"requis" => 1,
 						"key" => 1,
-						"defaultValue" => 1
+						"defaultValue" => 0
 				),
 				"conflit_id" => array (
-						"type" => 1,
-						"defaultValue" => 1
+						"type" => 1
 				),
 				"type_perimetre_id" => array (
-						"type" => 1,
-						"defaultValue" => 1
+						"type" => 1
 				),
 				"echelle_id" => array (
-						"type" => 1,
-						"defaultValue" => 1
+						"type" => 1
 				),
 				"bien_support_niv2_id" => array (
-						"type" => 1,
-						"defaultValue" => 1
+						"type" => 1
 				),
 				"objet_niv2_id" => array (
-						"type" => 1,
-						"defaultValue" => 1
+						"type" => 1
 				),
 				"recurrence" => array (
 						"type" => 1,
@@ -58,7 +53,7 @@ class perimetre extends ObjetBDD {
 						"type" => 0
 				),
 				"perimetre_login_saisie" => array (
-						"type" => 3
+						"type" => 0
 				)
 		);
 		$param ["fullDescription"] = 1;
@@ -77,26 +72,26 @@ class perimetre extends ObjetBDD {
 			$param = array ();
 		$param = $this->encodeData($param);
 		$sql = 'select perimetre_id,
-				type_perimetre.type_perimetre_id,
-				echelle.echelle_id,
-				bien_support_niv2.bien_support_niv2_id,
-				objet_niv2.objet_niv2_id,
+				perimetre.type_perimetre_id,
+				perimetre.echelle_id,
+				perimetre.bien_support_niv2_id,
+				perimetre.objet_niv2_id,
 				recurrence,
 				perimetre_date_saisie,
 				perimetre_detail,
 				perimetre_login_saisie				
-				from perimetre, conflit, bien_support_niv2, objet_niv2, type_perimetre, echelle
-				where perimetre.conflit_id = conflit.conflit_id
-				and perimetre.bien_support_niv2_id = bien_support_niv2.bien_support_niv2_id
-				and perimetre.type_perimetre_id = type_perimetre.type_perimetre_id
-				and perimetre.echelle_id = echelle.echelle_id
-				and perimetre.objet_niv2_id = objet_niv2.objet_niv2_id';
+				from perimetre
+				left outer join conflit on perimetre.conflit_id = conflit.conflit_id
+				left outer join bien_support_niv2 on perimetre.bien_support_niv2_id = bien_support_niv2.bien_support_niv2_id
+				left outer join type_perimetre on perimetre.type_perimetre_id = type_perimetre.type_perimetre_id
+				left outer join echelle on perimetre.echelle_id = echelle.echelle_id
+				left outer join objet_niv2 on perimetre.objet_niv2_id = objet_niv2.objet_niv2_id';
 		
 		/*
 		 * Rajout des parametres de recherche
 		 */
 		if (strlen ( $param ["searchId"] ) > 0)
-			$where .= ' and perimetre_id ='.$param["searchId"];
+			$where .= ' where perimetre_id ='.$param["searchId"];
 		
 		$order = ' order by perimetre_id';
 		
@@ -114,21 +109,21 @@ class perimetre extends ObjetBDD {
 		{
 			$id = $this->encodeData($id);
 			$sql = 'select perimetre_id,
-				type_perimetre.type_perimetre_id,
-				echelle.echelle_id,
-				bien_support_niv2.bien_support_niv2_id,
-				objet_niv2.objet_niv2_id,
+				perimetre.type_perimetre_id,
+				perimetre.echelle_id,
+				perimetre.bien_support_niv2_id,
+				perimetre.objet_niv2_id,
 				recurrence,
 				perimetre_date_saisie,
 				perimetre_detail,
 				perimetre_login_saisie				
-				from perimetre, conflit, bien_support_niv2, objet_niv2, type_perimetre, echelle
-				where perimetre.conflit_id = conflit.conflit_id
-				and perimetre.bien_support_niv2_id = bien_support_niv2.bien_support_niv2_id
-				and perimetre.type_perimetre_id = type_perimetre.type_perimetre_id
-				and perimetre.echelle_id = echelle.echelle_id
-				and perimetre.objet_niv2_id = objet_niv2.objet_niv2_id							
-				and perimetre_id = '.$id
+				from perimetre
+				left outer join conflit on perimetre.conflit_id = conflit.conflit_id
+				left outer join bien_support_niv2 on perimetre.bien_support_niv2_id = bien_support_niv2.bien_support_niv2_id
+				left outer join type_perimetre on perimetre.type_perimetre_id = type_perimetre.type_perimetre_id
+				left outer join echelle on perimetre.echelle_id = echelle.echelle_id
+				left outer join objet_niv2 on perimetre.objet_niv2_id = objet_niv2.objet_niv2_id'							
+				.' where perimetre_id = '.$id
 				.' order by perimetre_id';
 			return parent::lireParam ( $sql );
 		}

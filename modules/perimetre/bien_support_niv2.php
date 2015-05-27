@@ -25,28 +25,26 @@ switch ($t_module ["param"]) {
 	 * Gestion des criteres de recherche
 	 */
 	case "list":
-		/*$searchBienSupportNiv2->setParam ( $_REQUEST );
+		$searchBienSupportNiv2->setParam ( $_REQUEST );
 		$dataRecherche = $searchBienSupportNiv2->getParam ();
-		if ($searchBienSupportNiv2->isSearch () == 1) {
-			$data = $dataClass->getListeSearch ( $dataRecherche );
-			$smarty->assign ( "data", $data );
-			$smarty->assign ( "isSearch", 1 );
-		}
+		$data = $dataClass->getListeSearch ( $dataRecherche );
+		$smarty->assign ( "data", $data );
+		$smarty->assign ( "isSearch", 1 );
 		$smarty->assign ( "bienSupportNiv2Search", $dataRecherche );
 		$smarty->assign ( "corps", "perimetre/bienSupportNiv2Liste.tpl" );
-		break;*/
+		break;
 		
 		/*
 		 * Recherche la liste et la retourne au format Ajax
 		 */
-		if (strlen($_REQUEST["bien_support_niv2_libelle"]) > 0) {
+		/*if (strlen($_REQUEST["bien_support_niv2_libelle"]) > 0) {
 			$data = $dataClass->getListByName($_REQUEST["bien_support_niv2_libelle"]);
 			$dataJson = array();
-			$i = 0;
+			$i = 0;*/
 			/*
 			 * Mise en forme du tableau pour etre facile a manipuler cote client
 			 */
-			foreach ($data as $key => $value) {
+			/*foreach ($data as $key => $value) {
 				$dataJson[$i]["id"] = $value["bien_support_niv2_id"];
 				$valeur = $value["bien_support_niv2_libelle"];
 				if (strlen($value["bien_support_niv2_id"]) > 0 ) {
@@ -63,7 +61,7 @@ switch ($t_module ["param"]) {
 			}
 			echo json_encode ($dataJson) ;
 		}
-		break;
+		break;*/
 		
 	/*
 	 * Display the detail of the record

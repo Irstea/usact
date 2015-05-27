@@ -27,11 +27,9 @@ switch ($t_module ["param"]) {
 	case "list":
 		$searchTypePerimetre->setParam ( $_REQUEST );
 		$dataRecherche = $searchTypePerimetre->getParam ();
-		if ($searchTypePerimetre->isSearch () == 1) {
-			$data = $dataClass->getListeSearch ( $dataRecherche );
-			$smarty->assign ( "data", $data );
-			$smarty->assign ( "isSearch", 1 );
-		}
+		$data = $dataClass->getListeSearch ( $dataRecherche );
+		$smarty->assign ( "data", $data );
+		$smarty->assign ( "isSearch", 1 );		
 		$smarty->assign ( "typePerimetreSearch", $dataRecherche );
 		$smarty->assign ( "corps", "perimetre/typePerimetreListe.tpl" );
 		break;

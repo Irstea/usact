@@ -27,11 +27,9 @@ switch ($t_module ["param"]) {
 	case "list":
 		$searchObjetNiv1->setParam ( $_REQUEST );
 		$dataRecherche = $searchObjetNiv1->getParam ();
-		if ($searchObjetNiv1->isSearch () == 1) {
-			$data = $dataClass->getListeSearch ( $dataRecherche );
-			$smarty->assign ( "data", $data );
-			$smarty->assign ( "isSearch", 1 );
-		}
+		$data = $dataClass->getListeSearch ( $dataRecherche );
+		$smarty->assign ( "data", $data );
+		$smarty->assign ( "isSearch", 1 );
 		$smarty->assign ( "objetNiv1Search", $dataRecherche );
 		$smarty->assign ( "corps", "perimetre/objetNiv1Liste.tpl" );
 		break;

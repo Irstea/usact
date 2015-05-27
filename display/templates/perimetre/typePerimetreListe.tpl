@@ -3,7 +3,6 @@
 </script>
 <h2>{$LANG.gestion.0}</h2>
 <a href="index.php?module=typePerimetreChange&id=0">{$LANG.gestion.7}</a>
-&nbsp
 {if $isSearch == 1}
 <a href="index.php?module=typePerimetreChange&id=0">Nouveau type de perimetre</a>
 <table id="idListe" class="tableaffichage">

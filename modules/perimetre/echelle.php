@@ -27,11 +27,9 @@ switch ($t_module ["param"]) {
 	case "list":
 		$searchEchelle->setParam ( $_REQUEST );
 		$dataRecherche = $searchEchelle->getParam ();
-		if ($searchEchelle->isSearch () == 1) {
-			$data = $dataClass->getListeSearch ( $dataRecherche );
-			$smarty->assign ( "data", $data );
-			$smarty->assign ( "isSearch", 1 );
-		}
+		$data = $dataClass->getListeSearch ( $dataRecherche );
+		$smarty->assign ( "data", $data );
+		$smarty->assign ( "isSearch", 1 );		
 		$smarty->assign ( "echelleSearch", $dataRecherche );
 		$smarty->assign ( "corps", "perimetre/echelleListe.tpl" );
 		break;

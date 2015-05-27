@@ -3,7 +3,6 @@
 </script>
 <h2>{$LANG.gestion.0}</h2>
 <a href="index.php?module=perimetreChange&id=0">{$LANG.gestion.7}</a>
-&nbsp 
 {include file="perimetre/perimetreSearch.tpl"}
 {if $isSearch == 1}
 <a href="index.php?module=perimetreChange&id=0">Nouveau perimetre</a>

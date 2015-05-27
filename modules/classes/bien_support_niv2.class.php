@@ -29,9 +29,7 @@ class BienSupportNiv2 extends ObjetBDD {
 				),
 				"bien_support_niv1_id" => array (
 						"type" => 1,
-						"requis" => 0,
-						"key" => 1,
-						"defaultValue" => 0
+						"requis" => 0
 				),
 				"bien_support_niv2_libelle" => array (
 						"type" => 0
@@ -90,16 +88,16 @@ class BienSupportNiv2 extends ObjetBDD {
 		}
 	}
 	
-	$("#recherche").keyup(function() {
+	/*$("#recherche").keyup(function() {*/
 		/*
 		 * Traitement de la recherche d'une espèce/type
 		 */
-		var texte = $(this).val();
-		if (texte.length > 2) {
+		/*var texte = $(this).val();
+		if (texte.length > 2) {*/
 			/*
 			 * declenchement de la recherche
 			 */
-			var url = "index.php?module=bienSupportNiv2Search";
+			/*var url = "index.php?module=bienSupportNiv2Search";
 			$.getJSON ( url, { "bien_support_niv2_libelle": texte } , function( data ) {
 				var options = '';
 				for (var i = 0; i < data.length; i++) {
@@ -108,7 +106,7 @@ class BienSupportNiv2 extends ObjetBDD {
 				$("#bien_support_niv2_id").html(options);
 			} ) ;
 		};
-	} );
+	} );*/
 	
 }
 ?>
