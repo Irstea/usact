@@ -1,3 +1,4 @@
+<h2>Nouveau/Modification bien support niv1 :</h2>
 <a href="index.php?module=bienSupportNiv1Liste">Retour à la liste</a>
 &nbsp
 <a href="index.php?module=bienSupportNiv1Display&id={$data.bien_support_niv1_id}" >Retour au détail de la fiche</a>

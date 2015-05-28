@@ -1,6 +1,4 @@
-{if $isSearch == 1}
-<h2>Déclaration du type de périmetre</h2>
-{/if}
+<h2>Nouveau/Modification type perimetre :</h2>
 <a href="index.php?module=typePerimetreListe">Retour à la liste</a>
 &nbsp
 <a href="index.php?module=typePerimetreDisplay&id={$data.type_perimetre_id}" >Retour au détail de la fiche</a>
@@ -12,7 +10,7 @@
 
 
 <dl>
-<dt>Libelle du type de périmetre<span class="red">*</span> :</dt>
+<dt>Type<span class="red">*</span> :</dt>
 <dd><input name="type_perimetre_libelle" value="{$data.type_perimetre_libelle}" required autofocus></dd>
 </dl>
 

@@ -1,3 +1,4 @@
+<h2>Conflit :</h2>
 <table id="conflitSearch" class="tableaffichage">
 <form method="GET" action="index.php">
 <input type="hidden" name="module" value="conflitListe">

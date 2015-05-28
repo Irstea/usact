@@ -1,3 +1,4 @@
+<h2>Type perimetre :</h2>
 <script>
 	setDataTables("idListe");
 </script>
@@ -5,15 +6,15 @@
 <a href="index.php?module=typePerimetreChange&id=0">{$LANG.gestion.7}</a>
 {if $isSearch == 1}
 <a href="index.php?module=typePerimetreChange&id=0">Nouveau type de perimetre</a>
-<table id="idListe" class="tableaffichage">
+<table id="idListe" class="tableListe">
 	<thead>
 		<tr>
-			<th>Libellé du type de perimetre</th>
+			<th>Type</th>
 		</tr>
 	</thead>
 	<tdata> {section name=lst loop=$data}
 	<tr>
-		<td><a href="index.php?module=typePerimetreDisplay&id={$data[lst].type_perimetre_id}">{$data[lst].type_perimetre_libelle}</td>
+		<td><a href="index.php?module=typePerimetreChange&id={$data[lst].type_perimetre_id}">{$data[lst].type_perimetre_libelle}</td>
 	</tr>
 	{/section} </tdata>		
 </table>

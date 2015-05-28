@@ -56,15 +56,15 @@ switch ($t_module ["param"]) {
 	*/
 	case "change":
 		$perimetre = new perimetre ( $bdd, $ObjetBDDParam );
-		$smarty->assign ( "perimetre", $perimetre->getListe () );		
+		$smarty->assign ( "perimetre", $perimetre->getListe (2) );		
 		$echelle = new echelle ( $bdd, $ObjetBDDParam );
-		$smarty->assign ( "echelle", $echelle->getListe () );		
+		$smarty->assign ( "echelle", $echelle->getListe (2) );		
 		$type_perimetre = new typePerimetre ( $bdd, $ObjetBDDParam );
-		$smarty->assign ( "type_perimetre", $type_perimetre->getListe () );		
+		$smarty->assign ( "type_perimetre", $type_perimetre->getListe (2) );		
 		$bien_support_niv2 = new bienSupportNiv2 ( $bdd, $ObjetBDDParam );
-		$smarty->assign ( "bien_support_niv2", $bien_support_niv2->getListe () );		
+		$smarty->assign ( "bien_support_niv2", $bien_support_niv2->getListe (2) );		
 		$objet_niv2 = new objetNiv2 ( $bdd, $ObjetBDDParam );
-		$smarty->assign ( "objet_niv2", $objet_niv2->getListe () );		
+		$smarty->assign ( "objet_niv2", $objet_niv2->getListe (2) );		
 		dataRead ( $dataClass, $id, "perimetre/perimetreChange.tpl" );
 		break;
 

@@ -51,7 +51,7 @@ switch ($t_module ["param"]) {
 	* $_REQUEST["idParent"] contains the identifiant of the parent record
 	*/
 	case "change":
-		$smarty->assign ( "conflit", $dataClass->getListe () );		
+		$smarty->assign ( "conflit", $dataClass->getListe (2) );		
 		dataRead ( $dataClass, $id, "conflit/conflitChange.tpl" );
 		break;
 

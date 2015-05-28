@@ -1,3 +1,4 @@
+<h2>Echelle :</h2>
 <script>
 	setDataTables("idListe");
 </script>
@@ -6,15 +7,15 @@
 &nbsp
 {if $isSearch == 1}
 <a href="index.php?module=echelleChange&id=0">Nouvelle echelle</a>
-<table id="idListe" class="tableaffichage">
+<table id="idListe" class="tableListe">
 	<thead>
 		<tr>
-			<th>Libellé de l'echelle</th>
+			<th>Echelle</th>
 		</tr>
 	</thead>
 	<tdata> {section name=lst loop=$data}
 	<tr>
-		<td><a href="index.php?module=echelleDisplay&id={$data[lst].echelle_id}">{$data[lst].echelle_libelle}</td>
+		<td><a href="index.php?module=echelleChange&id={$data[lst].echelle_id}">{$data[lst].echelle_libelle}</td>
 	</tr>
 	{/section} </tdata>		
 </table>

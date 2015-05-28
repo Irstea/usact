@@ -46,11 +46,12 @@ class perimetre extends ObjetBDD {
 						"requis" => 1
 				),
 				"perimetre_date_saisie" => array (
-						"type" => 3,
+						"type" => 2,
 						"requis" => 1
 				),
 				"perimetre_detail" => array (
-						"type" => 0
+						"type" => 0,
+						"requis" => 1
 				),
 				"perimetre_login_saisie" => array (
 						"type" => 0

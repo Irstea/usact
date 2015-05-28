@@ -1,6 +1,4 @@
-{if $isSearch == 1}
-<h2>Déclaration de l'échelle d'un périmetre</h2>
-{/if}
+<h2>Nouveau/Modification echelle :</h2>
 <a href="index.php?module=echelleListe">Retour à la liste</a>
 &nbsp
 <a href="index.php?module=echelleDisplay&id={$data.echelle_id}" >Retour au détail de la fiche</a>
@@ -11,7 +9,7 @@
 <input type="hidden" name="module" value="echelleWrite">
 
 <dl>
-<dt>Libelle de l'échelle<span class="red">*</span> :</dt>
+<dt>Echelle<span class="red">*</span> :</dt>
 <dd><input name="echelle_libelle" value="{$data.echelle_libelle}"></dd>
 </dl>
 

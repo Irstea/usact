@@ -1,3 +1,4 @@
+<h2>Nouveau/Modification perimetre :</h2>
 <a href="index.php?module=perimetreListe">Retour à la liste</a>
 &nbsp
 <a href="index.php?module=perimetreDisplay&id={$data.perimetre_id}" >Retour au détail de la fiche</a>
@@ -8,20 +9,20 @@
 <input type="hidden" name="module" value="perimetreWrite">
 
 <dl>
-<dt>Récurrence du périmetre<span class="red">*</span> :</dt>
+<dt>Description<span class="red">*</span> :</dt>
+<dd><input name="perimetre_detail" value="{$data.perimetre_detail}" autofocus></dd>
+</dl>
+<dl>
+<dt>Récurrence<span class="red">*</span> :</dt>
 <dd><input name="recurrence" value="{$data.recurrence}" required autofocus></dd>
 </dl>
 <dl>
-<dt>Date de saisie du périmetre<span class="red">*</span> :</dt>
-<dd><input name="perimetre_date_saisie" value="{$data.perimetre_date_saisie}" required autofocus></dd>
-</dl>
-<dl>
-<dt>Détail sur le périmetre :</dt>
-<dd><input name="perimetre_detail" value="{$data.perimetre_detail}" autofocus></dd>
+<dt>Date de saisie<span class="red">*</span> :</dt>
+<dd><input class="date" name="perimetre_date_saisie" value="{$data.perimetre_date_saisie}" required autofocus></dd>
 </dl>
 
 <dl>
-<dt>Type de perimetre :</dt>
+<dt>Type :</dt>
 <dd>
 <div align="left">
 <select name="type_perimetre">
@@ -39,7 +40,7 @@
 </dl>
 
 <dl>
-<dt>Echelle du perimetre :</dt>
+<dt>Echelle :</dt>
 <dd>
 <div align="left">
 <select name="echelle">

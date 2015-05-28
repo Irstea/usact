@@ -1,3 +1,4 @@
+<h2>Perimetre :</h2>
 <table id="perimetreSearch" class="tableaffichage">
 <form method="GET" action="index.php">
 <input type="hidden" name="module" value="perimetreListe">

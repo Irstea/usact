@@ -41,7 +41,8 @@ class Conflit extends ObjetBDD {
 						"requis" => 0
 				),
 				"conflit_detail" => array (
-						"type" => 0
+						"type" => 0,
+						"requis" => 1
 				)
 		);
 		$param ["fullDescription"] = 1;

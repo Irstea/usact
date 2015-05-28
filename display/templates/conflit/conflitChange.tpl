@@ -1,3 +1,4 @@
+<h2>Nouveau/Modification conflit :</h2>
 <a href="index.php?module=conflitListe">Retour à la liste</a>
 &nbsp
 <a href="index.php?module=conflitDisplay&id={$data.conflit_id}">Retour au détail de la fiche</a>
@@ -8,20 +9,20 @@
 <input type="hidden" name="module" value="conflitWrite">
 
 <dl>
+<dt>Description :</dt>
+<dd><input name="conflit_detail" value="{$data.conflit_detail}"></dd>
+</dl>
+<dl>
 <dt>Date de début :</dt>
-<dd><input name="conflit_date_debut" value="{$data.conflit_date_debut}"></dd>
+<dd><input class="date" name="conflit_date_debut" value="{$data.conflit_date_debut}"></dd>
 </dl>
 <dl>
 <dt>Date de fin :</dt>
-<dd><input name="conflit_date_fin" value="{$data.conflit_date_fin}"></dd>
+<dd><input class="date" name="conflit_date_fin" value="{$data.conflit_date_fin}"></dd>
 </dl>
 <dl>
 <dt>Date de saisie<span class="red">*</span> :</dt>
-<dd><input name="conflit_date_saisie" value="{$data.conflit_date_saisie}"></dd>
-</dl>
-<dl>
-<dt>Détail sur le conflit :</dt>
-<dd><input name="conflit_detail" value="{$data.conflit_detail}"></dd>
+<dd><input class="date" name="conflit_date_saisie" value="{$data.conflit_date_saisie}"></dd>
 </dl>
 
 <tr>
