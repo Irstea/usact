@@ -13,6 +13,10 @@
  * menu items are declared in locales/fr.php
  */
 include_once 'modules/classes/perimetre.class.php';
+include_once 'modules/classes/echelle.class.php';
+include_once 'modules/classes/type_perimetre.class.php';
+include_once 'modules/classes/bien_support_niv2.class.php';
+include_once 'modules/classes/objet_niv2.class.php';
 $dataClass = new perimetre( $bdd, $ObjetBDDParam );
 $id = $_REQUEST ["id"];
 
@@ -53,6 +57,14 @@ switch ($t_module ["param"]) {
 	case "change":
 		$perimetre = new perimetre ( $bdd, $ObjetBDDParam );
 		$smarty->assign ( "perimetre", $perimetre->getListe () );		
+		$echelle = new echelle ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "echelle", $echelle->getListe () );		
+		$type_perimetre = new typePerimetre ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "type_perimetre", $type_perimetre->getListe () );		
+		$bien_support_niv2 = new bienSupportNiv2 ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "bien_support_niv2", $bien_support_niv2->getListe () );		
+		$objet_niv2 = new objetNiv2 ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "objet_niv2", $objet_niv2->getListe () );		
 		dataRead ( $dataClass, $id, "perimetre/perimetreChange.tpl" );
 		break;
 

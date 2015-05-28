@@ -16,13 +16,13 @@
 <dt>Bien support niv1 :</dt>
 <dd>
 <div align="left">
-<select name="bien_support_niv2">
-{section name=lst loop=$bien_support_niv2}
+<select name="bien_support_niv1">
+{section name=lst loop=$bien_support_niv1}
 {strip}
-<option value="{$bien_support_niv2[lst].bien_support_niv2_id}"
-{if $bien_support_niv2[lst].bien_support_niv2_id == $data.bien_support_niv2} selected{/if}
->test 
-{$bien_support_niv2[lst].bien_support_niv2_libelle}
+<option value="{$bien_support_niv1[lst].bien_support_niv1_id}"
+{if $bien_support_niv1[lst].bien_support_niv1_id == $data.bien_support_niv1} selected{/if}
+> 
+{$bien_support_niv1[lst].bien_support_niv1_libelle}
 </option>{/strip}
 {/section}
 </select>

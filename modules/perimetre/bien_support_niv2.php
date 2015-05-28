@@ -13,6 +13,7 @@
  * menu items are declared in locales/fr.php
  */
 include_once 'modules/classes/bien_support_niv2.class.php';
+include_once 'modules/classes/bien_support_niv1.class.php';
 $dataClass = new bienSupportNiv2( $bdd, $bien_supportBDDParam );
 $id = $_REQUEST ["id"];
 
@@ -79,7 +80,9 @@ switch ($t_module ["param"]) {
 	*/
 	case "change":
 		$bienSupportNiv2 = new bienSupportNiv2 ( $bdd, $bienSupportBDDParam );
-		$smarty->assign ( "bienSupportNiv2", $bienSupportNiv2->getListe () );
+		$smarty->assign ( "bien_support_niv2", $bienSupportNiv2->getListe () );
+		$bienSupportNiv1 = new bienSupportNiv1 ( $bdd, $bienSupportBDDParam );
+		$smarty->assign ( "bien_support_niv1", $bienSupportNiv1->getListe () );
 		dataRead ( $dataClass, $id, "perimetre/bienSupportNiv2Change.tpl" );
 		break;
 

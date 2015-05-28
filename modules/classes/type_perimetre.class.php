@@ -61,6 +61,15 @@ class TypePerimetre extends ObjetBDD {
 		return parent::getListeParam ( $sql . $where . $order);
 	}
 	
+	function getListe() {
+		$sql = 'select type_perimetre_id,
+				type_perimetre_libelle
+				from ' .$this->table
+				.' order by type_perimetre_id';
+	
+		return parent::getListeParam ( $sql );
+	}
+	
 	/**
 	 * Retourne le detail de la fiche du type_perimetre selectionné du type_perimetre
 	 * 
