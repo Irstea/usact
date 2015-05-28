@@ -14,6 +14,7 @@
  */
 include_once 'modules/classes/objet_niv2.class.php';
 $dataClass = new objetNiv2( $bdd, $ObjetBDDParam );
+include_once 'modules/classes/objet_niv1.class.php';
 $id = $_REQUEST ["id"];
 
 switch ($t_module ["param"]) {
@@ -50,7 +51,9 @@ switch ($t_module ["param"]) {
 	*/
 	case "change":
 		$objetNiv2 = new objetNiv2 ( $bdd, $ObjetBDDParam );
-		$smarty->assign ( "objetNiv2", $objetNiv2->getListe () );		
+		$smarty->assign ( "objetNiv2", $objetNiv2->getListe () );
+		$objetNiv1 = new objetNiv1 ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "objetNiv1", $objetNiv1->getListe () );
 		dataRead ( $dataClass, $id, "perimetre/objetNiv2Change.tpl" );
 		break;
 

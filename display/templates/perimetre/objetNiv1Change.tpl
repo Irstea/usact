@@ -8,7 +8,7 @@
 <input type="hidden" name="module" value="objetNiv1Write">
 
 <dl>
-<dt>Libelle du type d'objet niv1<span class="red">*</span> :</dt>
+<dt>Objet niv1<span class="red">*</span> :</dt>
 <dd><input name="objet_niv1_libelle" value="{$data.objet_niv1_libelle}" required autofocus></dd>
 </dl>
 

@@ -20,6 +20,80 @@
 <dd><input name="perimetre_detail" value="{$data.perimetre_detail}" autofocus></dd>
 </dl>
 
+<dl>
+<dt>Type de perimetre :</dt>
+<dd>
+<div align="left">
+<select name="type_perimetre">
+{section name=lst loop=$type_perimetre}
+{strip}
+<option value="{$type_perimetre[lst].type_perimetre_id}"
+{if $type_perimetre[lst].type_perimetre_id == $data.type_perimetre} selected{/if}
+>
+{$type_perimetre[lst].type_perimetre_libelle}
+</option>{/strip}
+{/section}
+</select>
+</div>
+</dd>
+</dl>
+
+<dl>
+<dt>Echelle du perimetre :</dt>
+<dd>
+<div align="left">
+<select name="echelle">
+{section name=lst loop=$echelle}
+{strip}
+<option value="{$echelle[lst].echelle_id}"
+{if $echelle[lst].echelle_id == $data.echelle} selected{/if}
+> 
+{$echelle[lst].echelle_libelle}
+</option>{/strip}
+{/section}
+</select>
+</div>
+</dd>
+</dl>
+
+<dl>
+<dt>Bien support niv2 :</dt>
+<dd>
+<div align="left">
+<select name="bien_support_niv2">
+{section name=lst loop=$bien_support_niv2}
+{strip}
+<option value="{$bien_support_niv2[lst].bien_support_niv2_id}"
+{if $bien_support_niv2[lst].bien_support_niv2_id == $data.bien_support_niv2} selected{/if}
+>
+{$bien_support_niv2[lst].bien_support_niv2_libelle}
+</option>{/strip}
+{/section}
+</select>
+</div>
+</dd>
+</dl>
+
+<dl>
+<dt>Objet niv2 :</dt>
+<dd>
+<div align="left">
+<select name="objet_niv2">
+{section name=lst loop=$objet_niv2}
+{strip}
+<option value="{$objet_niv2[lst].objet_niv2_id}"
+{if $objet_niv2[lst].objet_niv2_id == $data.objet_niv2} selected{/if}
+>
+{$objet_niv2[lst].objet_niv2_libelle}
+</option>{/strip}
+{/section}
+</select>
+</div>
+</dd>
+</dl>
+
+
+
 <tr>
 <td colspan=2>
 <div class="formBouton">

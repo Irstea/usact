@@ -68,6 +68,18 @@ class ObjetNiv2 extends ObjetBDD {
 		return parent::getListeParam ( $sql . $where . $order);
 	}
 	
+	function getListe() {
+		$sql = 'select objet_niv2_id,
+				objet_niv2.objet_niv1_id,
+				objet_niv2_libelle,
+				objet_niv1_libelle
+				from ' .$this->table
+				.' left outer join objet_niv1 on objet_niv2.objet_niv1_id = objet_niv1.objet_niv1_id
+				order by objet_niv2_id';
+	
+		return parent::getListeParam ( $sql );
+	}
+	
 	/**
 	 * Retourne le detail de la fiche de l'objet niveau 2 selectionné
 	 * 

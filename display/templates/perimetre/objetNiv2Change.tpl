@@ -8,22 +8,23 @@
 <input type="hidden" name="module" value="objetNiv2Write">
 
 <dl>
-<dt>Libelle du type d'objet niv2<span class="red">*</span> :</dt>
+<dt>Objet niv2<span class="red">*</span> :</dt>
 <dd><input name="objet_niv2_libelle" value="{$data.objet_niv2_libelle}" required autofocus></dd>
 </dl>
 
 <dl>
-<dt>Libelle du type d'objet niv1 :</dt>
+<dt>Objet niv1 :</dt>
 <dd>
 <div align="left">
 <select name="objet_niv1">
 {section name=lst loop=$objet_niv1}
 {strip}
 <option value="{$objet_niv1[lst].objet_niv1_id}"
-{if $objet_niv1[lst].objet_niv1_id == $data.objet_niv1} selected{/if}
->test 
+{if $objet_niv1[lst].objet_niv1_id == $data.objet_niv1_libelle} selected{/if}
+>
 {$objet_niv1[lst].objet_niv1_libelle}
-</option>{/strip}
+</option>
+{/strip}
 {/section}
 </select>
 </div>

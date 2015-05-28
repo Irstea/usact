@@ -8,8 +8,26 @@
 <input type="hidden" name="module" value="bienSupportNiv2Write">
 
 <dl>
-<dt>Libelle du type de bien support niv2<span class="red">*</span> :</dt>
+<dt>Bien support niv2<span class="red">*</span> :</dt>
 <dd><input name="bien_support_niv2_libelle" value="{$data.bien_support_niv2_libelle}" required autofocus></dd>
+</dl>
+
+<dl>
+<dt>Bien support niv1 :</dt>
+<dd>
+<div align="left">
+<select name="bien_support_niv2">
+{section name=lst loop=$bien_support_niv2}
+{strip}
+<option value="{$bien_support_niv2[lst].bien_support_niv2_id}"
+{if $bien_support_niv2[lst].bien_support_niv2_id == $data.bien_support_niv2} selected{/if}
+>test 
+{$bien_support_niv2[lst].bien_support_niv2_libelle}
+</option>{/strip}
+{/section}
+</select>
+</div>
+</dd>
 </dl>
 
 <tr>

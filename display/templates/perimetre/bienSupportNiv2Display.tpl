@@ -4,7 +4,11 @@
 
 <div class="formSaisie">
 <dl>
-<dt class="libelleSaisie"> Libellé du type de bien support niv2 :</dt>
+<dt class="libelleSaisie"> Bien support niv2 :</dt>
 <dd>{$data.bien_support_niv2_libelle}</dd>
+</dl>
+<dl>
+<dt class="libelleSaisie"> Bien support niv1 :</dt>
+<dd>{$data.bien_support_niv1_libelle}</dd>
 </dl>
 </div>

@@ -52,7 +52,8 @@ class BienSupportNiv2 extends ObjetBDD {
 		$param = $this->encodeData($param);
 		$sql = 'select bien_support_niv2_id,
 				bien_support_niv2.bien_support_niv1_id,
-				bien_support_niv2_libelle
+				bien_support_niv2_libelle,
+				bien_support_niv1_libelle
 				from ' .$this->table .',bien_support_niv1 
 				where bien_support_niv2.bien_support_niv1_id = bien_support_niv1.bien_support_niv1_id';
 				
@@ -67,6 +68,18 @@ class BienSupportNiv2 extends ObjetBDD {
 		return parent::getListeParam ( $sql . $where . $order);
 	}
 	
+	function getListe() {
+		$sql = 'select bien_support_niv2_id,
+				bien_support_niv2.bien_support_niv1_id,
+				bien_support_niv2_libelle,
+				bien_support_niv1_libelle
+				from ' .$this->table .',bien_support_niv1
+				where bien_support_niv2.bien_support_niv1_id = bien_support_niv1.bien_support_niv1_id
+				order by bien_support_niv2_id';
+	
+		return parent::getListeParam ( $sql );
+	}
+	
 	/**
 	 * Retourne le detail de la fiche du bien_support_niv2 selectionné du bien_support_niv2
 	 * 
@@ -79,7 +92,8 @@ class BienSupportNiv2 extends ObjetBDD {
 			$id = $this->encodeData($id);
 			$sql = 'select bien_support_niv2_id,
 					bien_support_niv2.bien_support_niv1_id,
-					bien_support_niv2_libelle
+					bien_support_niv2_libelle,
+					bien_support_niv1_libelle
 					from ' .$this->table .',bien_support_niv1
 					where bien_support_niv2.bien_support_niv1_id = bien_support_niv1.bien_support_niv1_id 
 					and bien_support_niv2_id = '.$id

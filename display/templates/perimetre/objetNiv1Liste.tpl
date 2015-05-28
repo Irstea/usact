@@ -8,7 +8,7 @@
 <table id="idListe" class="tableaffichage">
 	<thead>
 		<tr>
-			<th>Libellé de l'objet niv1</th>
+			<th>Objet niv1</th>
 		</tr>
 	</thead>
 	<tdata> {section name=lst loop=$data}

@@ -15,4 +15,20 @@
 <dt class="libelleSaisie"> Détail sur le périmetre :</dt>
 <dd>{$data.perimetre_detail}</dd>
 </dl>
+<dl>
+<dt class="libelleSaisie"> Type de perimetre :</dt>
+<dd>{$data.type_perimetre_libelle}</dd>
+</dl>
+<dl>
+<dt class="libelleSaisie"> Echelle du perimetre :</dt>
+<dd>{$data.echelle_libelle}</dd>
+</dl>
+<dl>
+<dt class="libelleSaisie"> Bien support niv2 :</dt>
+<dd>{$data.bien_support_niv2_libelle}</dd>
+</dl>
+<dl>
+<dt class="libelleSaisie"> Objet niv2 :</dt>
+<dd>{$data.objet_niv2_libelle}</dd>
+</dl>
 </div>

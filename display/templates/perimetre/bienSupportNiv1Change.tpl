@@ -9,7 +9,7 @@
 
 
 <dl>
-<dt>Libelle du bien support niv1<span class="red">*</span> :</dt>
+<dt>Bien support niv1<span class="red">*</span> :</dt>
 <dd><input name="bien_support_niv1_libelle" value="{$data.bien_support_niv1_libelle}" required autofocus></dd>
 </dl>
 

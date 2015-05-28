@@ -79,7 +79,11 @@ class perimetre extends ObjetBDD {
 				recurrence,
 				perimetre_date_saisie,
 				perimetre_detail,
-				perimetre_login_saisie				
+				perimetre_login_saisie,
+				type_perimetre_libelle,
+				echelle_libelle,
+				bien_support_niv2_libelle,
+				objet_niv2_libelle				
 				from perimetre
 				left outer join conflit on perimetre.conflit_id = conflit.conflit_id
 				left outer join bien_support_niv2 on perimetre.bien_support_niv2_id = bien_support_niv2.bien_support_niv2_id
@@ -116,7 +120,11 @@ class perimetre extends ObjetBDD {
 				recurrence,
 				perimetre_date_saisie,
 				perimetre_detail,
-				perimetre_login_saisie				
+				perimetre_login_saisie,
+				type_perimetre_libelle,
+				echelle_libelle,
+				bien_support_niv2_libelle,
+				objet_niv2_libelle				
 				from perimetre
 				left outer join conflit on perimetre.conflit_id = conflit.conflit_id
 				left outer join bien_support_niv2 on perimetre.bien_support_niv2_id = bien_support_niv2.bien_support_niv2_id
