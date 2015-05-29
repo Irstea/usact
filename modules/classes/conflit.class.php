@@ -64,13 +64,23 @@ class Conflit extends ObjetBDD {
 			$param = array ();
 		$param = $this->encodeData($param);
 		$sql = 'select conflit_id,
-				perimetre_id,
+				conflit.perimetre_id,
 				conflit_login_saisie,
 				conflit_date_debut,
 				conflit_date_fin,
 				conflit_date_saisie,
-				conflit_detail 
-				from ' .$this->table;
+				conflit_detail,
+				perimetre_detail,
+				bien_support_niv2_libelle,
+				type_perimetre_libelle,
+				echelle_libelle,
+				objet_niv2_libelle 
+				from ' .$this->table
+				.' left outer join perimetre on conflit.perimetre_id = perimetre.perimetre_id
+					left outer join bien_support_niv2 on perimetre.bien_support_niv2_id = bien_support_niv2.bien_support_niv2_id
+					left outer join type_perimetre on perimetre.type_perimetre_id = type_perimetre.type_perimetre_id
+					left outer join echelle on perimetre.echelle_id = echelle.echelle_id
+					left outer join objet_niv2 on perimetre.objet_niv2_id = objet_niv2.objet_niv2_id';
 				
 		/*
 		 * Rajout des parametres de recherche
@@ -94,14 +104,24 @@ class Conflit extends ObjetBDD {
 		{
 			$id = $this->encodeData($id);
 			$sql = 'select conflit_id,
-					perimetre_id,
+					conflit.perimetre_id,
 					conflit_login_saisie,
 					conflit_date_debut,
 					conflit_date_fin,
 					conflit_date_saisie,
-					conflit_detail 
+					conflit_detail,
+					perimetre_detail,
+					bien_support_niv2_libelle,
+					type_perimetre_libelle,
+					echelle_libelle,
+					objet_niv2_libelle
 					from ' .$this->table
-					.' where conflit_id = '.$id
+					.' left outer join perimetre on conflit.perimetre_id = perimetre.perimetre_id
+					left outer join bien_support_niv2 on perimetre.bien_support_niv2_id = bien_support_niv2.bien_support_niv2_id
+					left outer join type_perimetre on perimetre.type_perimetre_id = type_perimetre.type_perimetre_id
+					left outer join echelle on perimetre.echelle_id = echelle.echelle_id
+					left outer join objet_niv2 on perimetre.objet_niv2_id = objet_niv2.objet_niv2_id
+						where conflit_id = '.$id
 					.' order by conflit_id';
 			return parent::lireParam ( $sql );
 		}

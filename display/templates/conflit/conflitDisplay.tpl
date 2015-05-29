@@ -20,5 +20,25 @@
 <dt> Date saisie :</dt>
 <dd>{$data.conflit_date_saisie}</dd>
 </dl>
+<dl>
+<dt> Descritpion perimetre :</dt>
+<dd>{$data.perimetre_detail}</dd>
+</dl>
+<dl>
+<dt> Bien support niv2 :</dt>
+<dd>{$data.bien_support_niv2_libelle}</dd>
+</dl>
+<dl>
+<dt> Type perimetre :</dt>
+<dd>{$data.type_perimetre_libelle}</dd>
+</dl>
+<dl>
+<dt> Echelle perimetre :</dt>
+<dd>{$data.echelle_libelle}</dd>
+</dl>
+<dl>
+<dt> Objet niv2 :</dt>
+<dd>{$data.objet_niv2_libelle}</dd>
+</dl>
 </fieldset>
 </div>

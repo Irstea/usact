@@ -118,7 +118,7 @@ class perimetre extends ObjetBDD {
 				left outer join type_perimetre on perimetre.type_perimetre_id = type_perimetre.type_perimetre_id
 				left outer join echelle on perimetre.echelle_id = echelle.echelle_id
 				left outer join objet_niv2 on perimetre.objet_niv2_id = objet_niv2.objet_niv2_id
-				order by perimetre_id';
+				order by bien_support_niv2_libelle, type_perimetre_libelle, echelle_libelle, objet_niv2_libelle';
 	
 		return parent::getListeParam ( $sql );
 	}

@@ -13,6 +13,7 @@
  * menu items are declared in locales/fr.php
  */
 include_once 'modules/classes/conflit.class.php';
+include_once 'modules/classes/perimetre.class.php';
 $dataClass = new conflit( $bdd, $ObjetBDDParam );
 $id = $_REQUEST ["id"];
 
@@ -51,7 +52,9 @@ switch ($t_module ["param"]) {
 	* $_REQUEST["idParent"] contains the identifiant of the parent record
 	*/
 	case "change":
-		$smarty->assign ( "conflit", $dataClass->getListe (2) );		
+		$smarty->assign ( "conflit", $dataClass->getListe (2) );
+		$perimetre = new perimetre ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "perimetre", $perimetre->getListe (2) );
 		dataRead ( $dataClass, $id, "conflit/conflitChange.tpl" );
 		break;
 
