@@ -17,11 +17,11 @@
 <dt>Objet niv1 :</dt>
 <dd>
 <div align="left">
-<select name="objet_niv1">
+<select name="objet_niv1_id">
 {section name=lst loop=$objet_niv1}
 {strip}
 <option value="{$objet_niv1[lst].objet_niv1_id}"
-{if $objet_niv1[lst].objet_niv1_id == $data.objet_niv1_libelle} selected{/if}
+{if $objet_niv1[lst].objet_niv1_id == $data.objet_niv1_id} selected{/if}
 >
 {$objet_niv1[lst].objet_niv1_libelle}
 </option>

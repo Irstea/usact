@@ -25,11 +25,11 @@
 <dt>Type :</dt>
 <dd>
 <div align="left">
-<select name="type_perimetre">
+<select name="type_perimetre_id">
 {section name=lst loop=$type_perimetre}
 {strip}
 <option value="{$type_perimetre[lst].type_perimetre_id}"
-{if $type_perimetre[lst].type_perimetre_id == $data.type_perimetre} selected{/if}
+{if $type_perimetre[lst].type_perimetre_id == $data.type_perimetre_id} selected{/if}
 >
 {$type_perimetre[lst].type_perimetre_libelle}
 </option>{/strip}
@@ -43,11 +43,11 @@
 <dt>Echelle :</dt>
 <dd>
 <div align="left">
-<select name="echelle">
+<select name="echelle_id">
 {section name=lst loop=$echelle}
 {strip}
 <option value="{$echelle[lst].echelle_id}"
-{if $echelle[lst].echelle_id == $data.echelle} selected{/if}
+{if $echelle[lst].echelle_id == $data.echelle_id} selected{/if}
 > 
 {$echelle[lst].echelle_libelle}
 </option>{/strip}
@@ -61,11 +61,11 @@
 <dt>Bien support niv2 :</dt>
 <dd>
 <div align="left">
-<select name="bien_support_niv2">
+<select name="bien_support_niv2_id">
 {section name=lst loop=$bien_support_niv2}
 {strip}
 <option value="{$bien_support_niv2[lst].bien_support_niv2_id}"
-{if $bien_support_niv2[lst].bien_support_niv2_id == $data.bien_support_niv2} selected{/if}
+{if $bien_support_niv2[lst].bien_support_niv2_id == $data.bien_support_niv2_id} selected{/if}
 >
 {$bien_support_niv2[lst].bien_support_niv2_libelle}
 </option>{/strip}
@@ -79,11 +79,11 @@
 <dt>Objet niv2 :</dt>
 <dd>
 <div align="left">
-<select name="objet_niv2">
+<select name="objet_niv2_id">
 {section name=lst loop=$objet_niv2}
 {strip}
 <option value="{$objet_niv2[lst].objet_niv2_id}"
-{if $objet_niv2[lst].objet_niv2_id == $data.objet_niv2} selected{/if}
+{if $objet_niv2[lst].objet_niv2_id == $data.objet_niv2_id} selected{/if}
 >
 {$objet_niv2[lst].objet_niv2_libelle}
 </option>{/strip}

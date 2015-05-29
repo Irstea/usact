@@ -29,12 +29,12 @@
 <dt>Perimetre :</dt>
 <dd>
 <div align="left">
-<select name="perimetre">
+<select name="perimetre_id">
 <option placeholder="Selectionner ..." value = "Selectionner" selected="selected">Selectionner ...</option>
 {section name=lst loop=$perimetre}
 {strip}
 <option value="{$perimetre[lst].perimetre_id}"
-{if $perimetre[lst].perimetre_id == $data.perimetre} selected{/if}
+{if $perimetre[lst].perimetre_id == $data.perimetre_id} selected{/if}
 >
 {$perimetre[lst].perimetre_detail} - {$perimetre[lst].bien_support_niv2_libelle} - {$perimetre[lst].type_perimetre_libelle} - {$perimetre[lst].echelle_libelle} - {$perimetre[lst].objet_niv2_libelle}
 </option>{/strip}
