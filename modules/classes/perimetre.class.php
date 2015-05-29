@@ -26,9 +26,6 @@ class perimetre extends ObjetBDD {
 						"key" => 1,
 						"defaultValue" => 0
 				),
-				"conflit_id" => array (
-						"type" => 1
-				),
 				"type_perimetre_id" => array (
 						"type" => 1
 				),
@@ -86,7 +83,6 @@ class perimetre extends ObjetBDD {
 				bien_support_niv2_libelle,
 				objet_niv2_libelle				
 				from perimetre
-				left outer join conflit on perimetre.conflit_id = conflit.conflit_id
 				left outer join bien_support_niv2 on perimetre.bien_support_niv2_id = bien_support_niv2.bien_support_niv2_id
 				left outer join type_perimetre on perimetre.type_perimetre_id = type_perimetre.type_perimetre_id
 				left outer join echelle on perimetre.echelle_id = echelle.echelle_id
@@ -118,7 +114,6 @@ class perimetre extends ObjetBDD {
 				bien_support_niv2_libelle,
 				objet_niv2_libelle
 				from perimetre
-				left outer join conflit on perimetre.conflit_id = conflit.conflit_id
 				left outer join bien_support_niv2 on perimetre.bien_support_niv2_id = bien_support_niv2.bien_support_niv2_id
 				left outer join type_perimetre on perimetre.type_perimetre_id = type_perimetre.type_perimetre_id
 				left outer join echelle on perimetre.echelle_id = echelle.echelle_id
@@ -152,7 +147,6 @@ class perimetre extends ObjetBDD {
 				bien_support_niv2_libelle,
 				objet_niv2_libelle				
 				from perimetre
-				left outer join conflit on perimetre.conflit_id = conflit.conflit_id
 				left outer join bien_support_niv2 on perimetre.bien_support_niv2_id = bien_support_niv2.bien_support_niv2_id
 				left outer join type_perimetre on perimetre.type_perimetre_id = type_perimetre.type_perimetre_id
 				left outer join echelle on perimetre.echelle_id = echelle.echelle_id

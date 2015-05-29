@@ -65,7 +65,7 @@ class Echelle extends ObjetBDD {
 		$sql = 'select echelle_id,
 				echelle_libelle
 				from ' .$this->table
-				.' order by echelle_id';
+				.' order by echelle_libelle';
 	
 		return parent::getListeParam ( $sql . $where . $order);
 	}

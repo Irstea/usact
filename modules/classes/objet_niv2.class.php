@@ -75,7 +75,7 @@ class ObjetNiv2 extends ObjetBDD {
 				objet_niv1_libelle
 				from ' .$this->table
 				.' left outer join objet_niv1 on objet_niv2.objet_niv1_id = objet_niv1.objet_niv1_id
-				order by objet_niv2_id';
+				order by objet_niv2_libelle';
 	
 		return parent::getListeParam ( $sql );
 	}

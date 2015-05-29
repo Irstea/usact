@@ -65,7 +65,7 @@ class BienSupportNiv1 extends ObjetBDD {
 		$sql = 'select bien_support_niv1_id,
 				bien_support_niv1_libelle
 				from ' .$this->table
-				.' order by bien_support_niv1_id';
+				.' order by bien_support_niv1_libelle';
 	
 		return parent::getListeParam ( $sql );
 	}

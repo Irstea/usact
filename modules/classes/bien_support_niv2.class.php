@@ -77,7 +77,7 @@ class BienSupportNiv2 extends ObjetBDD {
 				from ' .$this->table 
 				.' left outer join bien_support_niv1 on
 				bien_support_niv2.bien_support_niv1_id = bien_support_niv1.bien_support_niv1_id
-				order by bien_support_niv2_id';
+				order by bien_support_niv2_libelle';
 	
 		return parent::getListeParam ( $sql );
 	}

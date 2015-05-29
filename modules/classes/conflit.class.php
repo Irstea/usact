@@ -27,6 +27,9 @@ class Conflit extends ObjetBDD {
 						"key" => 1,
 						"defaultValue" => 0 
 				),
+				"perimetre_id" => array (
+						"type" => 1
+				),
 				"conflit_login_saisie" => array (
 						"type" => 0
 				),
@@ -61,6 +64,7 @@ class Conflit extends ObjetBDD {
 			$param = array ();
 		$param = $this->encodeData($param);
 		$sql = 'select conflit_id,
+				perimetre_id,
 				conflit_login_saisie,
 				conflit_date_debut,
 				conflit_date_fin,
@@ -90,6 +94,7 @@ class Conflit extends ObjetBDD {
 		{
 			$id = $this->encodeData($id);
 			$sql = 'select conflit_id,
+					perimetre_id,
 					conflit_login_saisie,
 					conflit_date_debut,
 					conflit_date_fin,
