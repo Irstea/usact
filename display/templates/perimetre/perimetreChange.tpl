@@ -30,6 +30,7 @@
 {strip}
 <option value="{$type_perimetre[lst].type_perimetre_id}"
 {if $type_perimetre[lst].type_perimetre_id == $data.type_perimetre_id} selected{/if}
+{if $type_perimetre[lst].type_perimetre_libelle == null} hidden {/if}
 >
 {$type_perimetre[lst].type_perimetre_libelle}
 </option>{/strip}
@@ -48,6 +49,7 @@
 {strip}
 <option value="{$echelle[lst].echelle_id}"
 {if $echelle[lst].echelle_id == $data.echelle_id} selected{/if}
+{if $echelle[lst].echelle_libelle == null} hidden {/if}
 > 
 {$echelle[lst].echelle_libelle}
 </option>{/strip}
@@ -66,6 +68,7 @@
 {strip}
 <option value="{$bien_support_niv2[lst].bien_support_niv2_id}"
 {if $bien_support_niv2[lst].bien_support_niv2_id == $data.bien_support_niv2_id} selected{/if}
+{if $bien_support_niv2[lst].bien_support_niv2_libelle == null} hidden {/if}
 >
 {$bien_support_niv2[lst].bien_support_niv2_libelle}
 </option>{/strip}
@@ -84,6 +87,7 @@
 {strip}
 <option value="{$objet_niv2[lst].objet_niv2_id}"
 {if $objet_niv2[lst].objet_niv2_id == $data.objet_niv2_id} selected{/if}
+{if $objet_niv2[lst].objet_niv2_libelle == null} hidden {/if}
 >
 {$objet_niv2[lst].objet_niv2_libelle}
 </option>{/strip}

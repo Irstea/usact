@@ -35,6 +35,7 @@
 {strip}
 <option value="{$perimetre[lst].perimetre_id}"
 {if $perimetre[lst].perimetre_id == $data.perimetre_id} selected{/if}
+{if $perimetre[lst].perimetre_detail == null and $perimetre[lst].bien_support_niv2_libelle == null and $perimetre[lst].type_perimetre_libelle == null and $perimetre[lst].echelle_libelle == null and $perimetre[lst].objet_niv2_libelle == null} hidden {/if}
 >
 {$perimetre[lst].perimetre_detail} - {$perimetre[lst].bien_support_niv2_libelle} - {$perimetre[lst].type_perimetre_libelle} - {$perimetre[lst].echelle_libelle} - {$perimetre[lst].objet_niv2_libelle}
 </option>{/strip}

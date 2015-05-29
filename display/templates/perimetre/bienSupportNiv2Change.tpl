@@ -22,6 +22,7 @@
 {strip}
 <option value="{$bien_support_niv1[lst].bien_support_niv1_id}"
 {if $bien_support_niv1[lst].bien_support_niv1_id == $data.bien_support_niv1_id} selected{/if}
+{if $bien_support_niv1[lst].bien_support_niv1_libelle == null} hidden {/if}
 > 
 {$bien_support_niv1[lst].bien_support_niv1_libelle}
 </option>{/strip}
