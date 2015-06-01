@@ -53,6 +53,7 @@ $LANG["menu"][64] = "Objet niv1";
 $LANG["menu"][65] = "Objet niv2";
 $LANG["menu"][66] = "Bien support niv1";
 $LANG["menu"][67] = "Bien support niv2";
+$LANG["menu"][68] = "Recurrence";
 
 $LANG["menu"]["phpinfo"] = "PHP info";
 $LANG["menu"]["phpinfotitle"] = "configuration générale du serveur PHP";

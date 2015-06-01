@@ -14,7 +14,7 @@
  */
 include_once 'modules/classes/type_perimetre.class.php';
 $dataClass = new typePerimetre( $bdd, $ObjetBDDParam );
-$id = $_REQUEST ["id"];
+$id = $_REQUEST ["type_perimetre_id"];
 
 switch ($t_module ["param"]) {
 	
@@ -32,15 +32,6 @@ switch ($t_module ["param"]) {
 		$smarty->assign ( "isSearch", 1 );		
 		$smarty->assign ( "typePerimetreSearch", $dataRecherche );
 		$smarty->assign ( "corps", "perimetre/typePerimetreListe.tpl" );
-		break;
-		
-	/*
-	 * Display the detail of the record
-	*/
-	case "display":
-		$data = $dataClass->lireDetail ( $id );
-		$smarty->assign ( "data", $data );
-		$smarty->assign ( "corps", "perimetre/typePerimetreDisplay.tpl" );
 		break;
 		
 	/*

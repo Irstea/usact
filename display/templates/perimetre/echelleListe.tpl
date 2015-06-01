@@ -3,10 +3,9 @@
 	setDataTables("idListe");
 </script>
 <h2>{$LANG.gestion.0}</h2>
-<a href="index.php?module=echelleChange&id=0">{$LANG.gestion.7}</a>
-&nbsp
+<a href="index.php?module=echelleChange&echelle_id=0">{$LANG.gestion.7}</a>
 {if $isSearch == 1}
-<a href="index.php?module=echelleChange&id=0">Nouvelle echelle</a>
+<a href="index.php?module=echelleChange&echelle_id=0">Nouvelle echelle</a>
 <table id="idListe" class="tableListe">
 	<thead>
 		<tr>
@@ -15,7 +14,7 @@
 	</thead>
 	<tdata> {section name=lst loop=$data}
 	<tr>
-		<td><a href="index.php?module=echelleChange&id={$data[lst].echelle_id}">{$data[lst].echelle_libelle}</td>
+		<td><a href="index.php?module=echelleChange&echelle_id={$data[lst].echelle_id}">{$data[lst].echelle_libelle}</td>
 	</tr>
 	{/section} </tdata>		
 </table>

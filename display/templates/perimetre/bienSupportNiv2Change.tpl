@@ -1,7 +1,5 @@
 <h2>Nouveau/Modification bien support niv2 :</h2>
 <a href="index.php?module=bienSupportNiv2Liste">Retour à la liste</a>
-&nbsp
-<a href="index.php?module=bienSupportNiv2Display&id={$data.bien_support_niv2_id}" >Retour au détail de la fiche</a>
 
 <div class="formSaisie">
 <form method="post" action="index.php">
@@ -14,7 +12,7 @@
 </dl>
 
 <dl>
-<dt>Bien support niv1 :</dt>
+<dt>Bien support niv1<span class="red">*</span> :</dt>
 <dd>
 <div align="left">
 <select name="bien_support_niv1_id">

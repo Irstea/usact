@@ -1,7 +1,5 @@
 <h2>Nouveau/Modification objet niv2 :</h2>
 <a href="index.php?module=objetNiv2Liste">Retour à la liste</a>
-&nbsp
-<a href="index.php?module=objetNiv2Display&id={$data.objet_niv2_id}" >Retour au détail de la fiche</a>
 
 <div class="formSaisie">
 <form method="post" action="index.php">
@@ -14,7 +12,7 @@
 </dl>
 
 <dl>
-<dt>Objet niv1 :</dt>
+<dt>Objet niv1<span class="red">*</span> :</dt>
 <dd>
 <div align="left">
 <select name="objet_niv1_id">

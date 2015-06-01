@@ -15,7 +15,7 @@
 include_once 'modules/classes/objet_niv2.class.php';
 $dataClass = new objetNiv2( $bdd, $ObjetBDDParam );
 include_once 'modules/classes/objet_niv1.class.php';
-$id = $_REQUEST ["id"];
+$id = $_REQUEST ["objet_niv2_id"];
 
 switch ($t_module ["param"]) {
 	
@@ -33,15 +33,6 @@ switch ($t_module ["param"]) {
 		$smarty->assign ( "isSearch", 1 );		
 		$smarty->assign ( "objetNiv2Search", $dataRecherche );
 		$smarty->assign ( "corps", "perimetre/objetNiv2Liste.tpl" );
-		break;
-		
-	/*
-	 * Display the detail of the record
-	*/
-	case "display":
-		$data = $dataClass->lireDetail ( $id );
-		$smarty->assign ( "data", $data );
-		$smarty->assign ( "corps", "perimetre/objetNiv2Display.tpl" );
 		break;
 		
 	/*

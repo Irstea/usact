@@ -1,7 +1,5 @@
 <h2>Nouveau/Modification echelle :</h2>
 <a href="index.php?module=echelleListe">Retour à la liste</a>
-&nbsp
-<a href="index.php?module=echelleDisplay&id={$data.echelle_id}" >Retour au détail de la fiche</a>
 
 <div class="formSaisie">
 <form method="post" action="index.php">
@@ -10,7 +8,7 @@
 
 <dl>
 <dt>Echelle<span class="red">*</span> :</dt>
-<dd><input name="echelle_libelle" value="{$data.echelle_libelle}"></dd>
+<dd><input name="echelle_libelle" value="{$data.echelle_libelle}" required autofocus></dd>
 </dl>
 
 <tr>

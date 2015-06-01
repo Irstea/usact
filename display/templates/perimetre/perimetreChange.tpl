@@ -1,7 +1,7 @@
 <h2>Nouveau/Modification perimetre :</h2>
 <a href="index.php?module=perimetreListe">Retour à la liste</a>
 &nbsp
-<a href="index.php?module=perimetreDisplay&id={$data.perimetre_id}" >Retour au détail de la fiche</a>
+<a href="index.php?module=perimetreDisplay&perimetre_id={$data.perimetre_id}" >Retour au détail de la fiche</a>
 
 <div class="formSaisie">
 <form method="post" action="index.php">
@@ -12,13 +12,62 @@
 <dt>Description<span class="red">*</span> :</dt>
 <dd><input name="perimetre_detail" value="{$data.perimetre_detail}" autofocus></dd>
 </dl>
+
 <dl>
-<dt>Récurrence<span class="red">*</span> :</dt>
-<dd><input name="recurrence" value="{$data.recurrence}" required autofocus></dd>
+<dt>Bien support niv2<span class="red">*</span> :</dt>
+<dd>
+<div align="left">
+<select name="bien_support_niv2_id">
+{section name=lst loop=$bien_support_niv2}
+{strip}
+<option value="{$bien_support_niv2[lst].bien_support_niv2_id}"
+{if $bien_support_niv2[lst].bien_support_niv2_id == $data.bien_support_niv2_id} selected{/if}
+{if $bien_support_niv2[lst].bien_support_niv2_libelle == null} hidden {/if}
+>
+{$bien_support_niv2[lst].bien_support_niv2_libelle}
+</option>{/strip}
+{/section}
+</select>
+</div>
+</dd>
 </dl>
+
 <dl>
-<dt>Date de saisie<span class="red">*</span> :</dt>
-<dd><input class="date" name="perimetre_date_saisie" value="{$data.perimetre_date_saisie}" required autofocus></dd>
+<dt>Objet niv2<span class="red">*</span> :</dt>
+<dd>
+<div align="left">
+<select name="objet_niv2_id">
+{section name=lst loop=$objet_niv2}
+{strip}
+<option value="{$objet_niv2[lst].objet_niv2_id}"
+{if $objet_niv2[lst].objet_niv2_id == $data.objet_niv2_id} selected{/if}
+{if $objet_niv2[lst].objet_niv2_libelle == null} hidden {/if}
+>
+{$objet_niv2[lst].objet_niv2_libelle}
+</option>{/strip}
+{/section}
+</select>
+</div>
+</dd>
+</dl>
+
+<dl>
+<dt>Recurrence<span class="red">*</span> :</dt>
+<dd>
+<div align="left">
+<select name="recurrence_id">
+{section name=lst loop=$recurrence}
+{strip}
+<option value="{$recurrence[lst].recurrence_id}"
+{if $recurrence[lst].recurrence_id == $data.recurrence_id} selected{/if}
+{if $recurrence[lst].recurrence_libelle == null} hidden {/if}
+>
+{$recurrence[lst].recurrence_libelle}
+</option>{/strip}
+{/section}
+</select>
+</div>
+</dd>
 </dl>
 
 <dl>
@@ -58,45 +107,6 @@
 </div>
 </dd>
 </dl>
-
-<dl>
-<dt>Bien support niv2 :</dt>
-<dd>
-<div align="left">
-<select name="bien_support_niv2_id">
-{section name=lst loop=$bien_support_niv2}
-{strip}
-<option value="{$bien_support_niv2[lst].bien_support_niv2_id}"
-{if $bien_support_niv2[lst].bien_support_niv2_id == $data.bien_support_niv2_id} selected{/if}
-{if $bien_support_niv2[lst].bien_support_niv2_libelle == null} hidden {/if}
->
-{$bien_support_niv2[lst].bien_support_niv2_libelle}
-</option>{/strip}
-{/section}
-</select>
-</div>
-</dd>
-</dl>
-
-<dl>
-<dt>Objet niv2 :</dt>
-<dd>
-<div align="left">
-<select name="objet_niv2_id">
-{section name=lst loop=$objet_niv2}
-{strip}
-<option value="{$objet_niv2[lst].objet_niv2_id}"
-{if $objet_niv2[lst].objet_niv2_id == $data.objet_niv2_id} selected{/if}
-{if $objet_niv2[lst].objet_niv2_libelle == null} hidden {/if}
->
-{$objet_niv2[lst].objet_niv2_libelle}
-</option>{/strip}
-{/section}
-</select>
-</div>
-</dd>
-</dl>
-
 
 
 <tr>

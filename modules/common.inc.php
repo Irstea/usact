@@ -32,6 +32,14 @@ else {
 	$searchEchelle = $_SESSION["searchEchelle"];
 }
 
+if (!isset($_SESSION["searchRecurrence"])) {
+	$searchRecurrence = new SearchRecurrence();
+	$_SESSION["searchRecurrence"] = $searchRecurrence;
+}
+else {
+	$searchRecurrence = $_SESSION["searchRecurrence"];
+}
+
 if (!isset($_SESSION["searchTypePerimetre"])) {
 	$searchTypePerimetre = new SearchTypePerimetre();
 	$_SESSION["searchTypePerimetre"] = $searchTypePerimetre;

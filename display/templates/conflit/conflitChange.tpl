@@ -10,20 +10,31 @@
 
 <dl>
 <dt>Description<span class="red">*</span> :</dt>
-<dd><input name="conflit_detail" value="{$data.conflit_detail}"></dd>
+<dd><input name="conflit_detail" value="{$data.conflit_detail}" required autofocus></dd>
 </dl>
+{if $data.conflit_id == 0}
+<dl>
+<dt>Date de début :</dt>
+<dd><input class="date" value="jj/mm/aaaa" name="conflit_date_debut"></dd>
+</dl>
+{else}
 <dl>
 <dt>Date de début :</dt>
 <dd><input class="date" name="conflit_date_debut" value="{$data.conflit_date_debut}"></dd>
 </dl>
+{/if}
+
+{if $data.conflit_id == 0}
+<dl>
+<dt>Date de fin :</dt>
+<dd><input type="date" value="<?php echo date('d-m-Y'); ?>" name="conflit_date_fin"></dd>
+</dl>
+{else}
 <dl>
 <dt>Date de fin :</dt>
 <dd><input class="date" name="conflit_date_fin" value="{$data.conflit_date_fin}"></dd>
 </dl>
-<dl>
-<dt>Date de saisie<span class="red">*</span> :</dt>
-<dd><input class="date" name="conflit_date_saisie" value="{$data.conflit_date_saisie}"></dd>
-</dl>
+{/if}
 
 <dl>
 <dt>Perimetre :</dt>

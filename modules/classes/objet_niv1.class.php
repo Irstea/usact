@@ -28,7 +28,8 @@ class ObjetNiv1 extends ObjetBDD {
 						"defaultValue" => 0 
 				),
 				"objet_niv1_libelle" => array (
-						"type" => 0
+						"type" => 0,
+						"requis" => 1
 				)
 		);
 		$param ["fullDescription"] = 1;
@@ -56,7 +57,7 @@ class ObjetNiv1 extends ObjetBDD {
 		if (strlen ( $param ["searchId"] ) > 0)
 			$where .= ' where objet_niv1_id ='.$param["searchId"];
 		
-		$order = ' order by objet_niv1_id';
+		$order = ' order by objet_niv1_libelle';
 		
 		return parent::getListeParam ( $sql . $where . $order);
 	}
@@ -84,7 +85,7 @@ class ObjetNiv1 extends ObjetBDD {
 					objet_niv1_libelle
 					from ' .$this->table
 					.' where objet_niv1_id = '.$id
-					.' order by objet_niv1_id';
+					.' order by objet_niv1_libelle';
 			return parent::lireParam ( $sql );
 		}
 	}

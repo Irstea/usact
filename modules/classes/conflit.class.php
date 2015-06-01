@@ -40,8 +40,7 @@ class Conflit extends ObjetBDD {
 						"type" => 2 
 				),
 				"conflit_date_saisie" => array (
-						"type" => 2,
-						"requis" => 0
+						"type" => 2
 				),
 				"conflit_detail" => array (
 						"type" => 0,

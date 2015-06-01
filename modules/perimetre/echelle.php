@@ -14,7 +14,7 @@
  */
 include_once 'modules/classes/echelle.class.php';
 $dataClass = new echelle( $bdd, $ObjetBDDParam );
-$id = $_REQUEST ["id"];
+$id = $_REQUEST ["echelle_id"];
 
 switch ($t_module ["param"]) {
 	
@@ -32,15 +32,6 @@ switch ($t_module ["param"]) {
 		$smarty->assign ( "isSearch", 1 );		
 		$smarty->assign ( "echelleSearch", $dataRecherche );
 		$smarty->assign ( "corps", "perimetre/echelleListe.tpl" );
-		break;
-		
-	/*
-	 * Display the detail of the record
-	*/
-	case "display":
-		$data = $dataClass->lireDetail ( $id );
-		$smarty->assign ( "data", $data );
-		$smarty->assign ( "corps", "perimetre/echelleDisplay.tpl" );
 		break;
 		
 	/*

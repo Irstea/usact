@@ -17,8 +17,9 @@ include_once 'modules/classes/echelle.class.php';
 include_once 'modules/classes/type_perimetre.class.php';
 include_once 'modules/classes/bien_support_niv2.class.php';
 include_once 'modules/classes/objet_niv2.class.php';
+include_once 'modules/classes/recurrence.class.php';
 $dataClass = new perimetre( $bdd, $ObjetBDDParam );
-$id = $_REQUEST ["id"];
+$id = $_REQUEST ["perimetre_id"];
 
 switch ($t_module ["param"]) {
 	
@@ -65,6 +66,8 @@ switch ($t_module ["param"]) {
 		$smarty->assign ( "bien_support_niv2", $bien_support_niv2->getListe (2) );		
 		$objet_niv2 = new objetNiv2 ( $bdd, $ObjetBDDParam );
 		$smarty->assign ( "objet_niv2", $objet_niv2->getListe (2) );		
+		$recurrence = new recurrence ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "recurrence", $recurrence->getListe (2) );		
 		dataRead ( $dataClass, $id, "perimetre/perimetreChange.tpl" );
 		break;
 

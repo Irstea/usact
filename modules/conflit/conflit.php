@@ -15,7 +15,7 @@
 include_once 'modules/classes/conflit.class.php';
 include_once 'modules/classes/perimetre.class.php';
 $dataClass = new conflit( $bdd, $ObjetBDDParam );
-$id = $_REQUEST ["id"];
+$id = $_REQUEST ["conflit_id"];
 
 switch ($t_module ["param"]) {
 	

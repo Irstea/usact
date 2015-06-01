@@ -32,7 +32,8 @@ class ObjetNiv2 extends ObjetBDD {
 						"requis" => 0
 				),
 				"objet_niv2_libelle" => array (
-						"type" => 0
+						"type" => 0,
+						"requis" => 1
 				)
 		);
 		$param ["fullDescription"] = 1;
@@ -63,7 +64,7 @@ class ObjetNiv2 extends ObjetBDD {
 		if (strlen ( $param ["searchId"] ) > 0)
 			$where .= ' where objet_niv2_id ='.$param["searchId"];
 		
-		$order = ' order by objet_niv2_id';
+		$order = ' order by objet_niv2_libelle, objet_niv1_libelle';
 		
 		return parent::getListeParam ( $sql . $where . $order);
 	}
@@ -75,7 +76,7 @@ class ObjetNiv2 extends ObjetBDD {
 				objet_niv1_libelle
 				from ' .$this->table
 				.' left outer join objet_niv1 on objet_niv2.objet_niv1_id = objet_niv1.objet_niv1_id
-				order by objet_niv2_libelle';
+				order by objet_niv2_libelle, objet_niv1_libelle';
 	
 		return parent::getListeParam ( $sql );
 	}
@@ -97,7 +98,7 @@ class ObjetNiv2 extends ObjetBDD {
 					from ' .$this->table .'
 					left outer join objet_niv1 on objet_niv2.objet_niv1_id = objet_niv1.objet_niv1_id
 					where objet_niv2_id = '.$id
-					.' order by objet_niv2_id';
+					.' order by objet_niv2_libelle, objet_niv1_libelle';
 			return parent::lireParam ( $sql );
 		}
 	}

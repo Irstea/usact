@@ -28,7 +28,8 @@ class TypePerimetre extends ObjetBDD {
 						"defaultValue" => 0 
 				),
 				"type_perimetre_libelle" => array (
-						"type" => 0
+						"type" => 0,
+						"requis" => 1
 				)
 		);
 		$param ["fullDescription"] = 1;
@@ -56,7 +57,7 @@ class TypePerimetre extends ObjetBDD {
 		if (strlen ( $param ["searchId"] ) > 0)
 			$where .= ' where type_perimetre_id ='.$param["searchId"];
 		
-		$order = ' order by type_perimetre_id';
+		$order = ' order by type_perimetre_libelle';
 		
 		return parent::getListeParam ( $sql . $where . $order);
 	}
@@ -84,7 +85,7 @@ class TypePerimetre extends ObjetBDD {
 					type_perimetre_libelle
 					from ' .$this->table
 					.' where type_perimetre_id = '.$id
-					.' order by type_perimetre_id';
+					.' order by type_perimetre_libelle';
 			return parent::lireParam ( $sql );
 		}
 	}

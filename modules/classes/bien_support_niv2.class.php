@@ -32,7 +32,8 @@ class BienSupportNiv2 extends ObjetBDD {
 						"requis" => 0
 				),
 				"bien_support_niv2_libelle" => array (
-						"type" => 0
+						"type" => 0,
+						"requis" => 1
 				)
 		);
 		$param ["fullDescription"] = 1;
@@ -64,7 +65,7 @@ class BienSupportNiv2 extends ObjetBDD {
 		if (strlen ( $param ["searchId"] ) > 0)
 			$where .= ' where bien_support_niv2_id ='.$param["searchId"];
 		
-		$order = ' order by bien_support_niv2_id';
+		$order = ' order by bien_support_niv2_libelle, bien_support_niv1_libelle';
 		
 		return parent::getListeParam ( $sql . $where . $order);
 	}
@@ -77,7 +78,7 @@ class BienSupportNiv2 extends ObjetBDD {
 				from ' .$this->table 
 				.' left outer join bien_support_niv1 on
 				bien_support_niv2.bien_support_niv1_id = bien_support_niv1.bien_support_niv1_id
-				order by bien_support_niv2_libelle';
+				order by bien_support_niv2_libelle, bien_support_niv1_libelle';
 	
 		return parent::getListeParam ( $sql );
 	}
@@ -100,7 +101,7 @@ class BienSupportNiv2 extends ObjetBDD {
 					.' left outer join bien_support_niv1 on
 					bien_support_niv2.bien_support_niv1_id = bien_support_niv1.bien_support_niv1_id 
 					where bien_support_niv2_id = '.$id
-					.' order by bien_support_niv2_id';
+					.' order by bien_support_niv2_libelle, bien_support_niv1_libelle';
 			return parent::lireParam ( $sql );
 		}
 	}

@@ -1,7 +1,5 @@
 <h2>Nouveau/Modification type perimetre :</h2>
 <a href="index.php?module=typePerimetreListe">Retour à la liste</a>
-&nbsp
-<a href="index.php?module=typePerimetreDisplay&id={$data.type_perimetre_id}" >Retour au détail de la fiche</a>
 
 <div class="formSaisie">
 <form method="post" action="index.php">

@@ -14,7 +14,7 @@
  */
 include_once 'modules/classes/bien_support_niv1.class.php';
 $dataClass = new bienSupportNiv1( $bdd, $ObjetBDDParam );
-$id = $_REQUEST ["id"];
+$id = $_REQUEST ["bien_support_niv1_id"];
 
 switch ($t_module ["param"]) {
 	

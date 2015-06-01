@@ -28,7 +28,8 @@ class Echelle extends ObjetBDD {
 						"defaultValue" => 0 
 				),
 				"echelle_libelle" => array (
-						"type" => 0
+						"type" => 0,
+						"requis" => 1
 				)
 		);
 		$param ["fullDescription"] = 1;
@@ -56,7 +57,7 @@ class Echelle extends ObjetBDD {
 		if (strlen ( $param ["searchId"] ) > 0)
 			$where .= ' where echelle_id ='.$param["searchId"];
 		
-		$order = ' order by echelle_id';
+		$order = ' order by echelle_libelle';
 		
 		return parent::getListeParam ( $sql . $where . $order);
 	}
@@ -84,7 +85,7 @@ class Echelle extends ObjetBDD {
 					echelle_libelle
 					from ' .$this->table
 					.' where echelle_id = '.$id
-					.' order by echelle_id';
+					.' order by echelle_libelle';
 			return parent::lireParam ( $sql );
 		}
 	}

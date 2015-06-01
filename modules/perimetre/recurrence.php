@@ -12,9 +12,9 @@
  *
  * menu items are declared in locales/fr.php
  */
-include_once 'modules/classes/objet_niv1.class.php';
-$dataClass = new objetNiv1( $bdd, $ObjetBDDParam );
-$id = $_REQUEST ["objet_niv1_id"];
+include_once 'modules/classes/recurrence.class.php';
+$dataClass = new recurrence( $bdd, $ObjetBDDParam );
+$id = $_REQUEST ["recurrence_id"];
 
 switch ($t_module ["param"]) {
 	
@@ -25,13 +25,13 @@ switch ($t_module ["param"]) {
 	 * Gestion des criteres de recherche
 	 */
 	case "list":
-		$searchObjetNiv1->setParam ( $_REQUEST );
-		$dataRecherche = $searchObjetNiv1->getParam ();
+		$searchRecurrence->setParam ( $_REQUEST );
+		$dataRecherche = $searchRecurrence->getParam ();
 		$data = $dataClass->getListeSearch ( $dataRecherche );
 		$smarty->assign ( "data", $data );
-		$smarty->assign ( "isSearch", 1 );
-		$smarty->assign ( "objetNiv1Search", $dataRecherche );
-		$smarty->assign ( "corps", "perimetre/objetNiv1Liste.tpl" );
+		$smarty->assign ( "isSearch", 1 );		
+		$smarty->assign ( "recurrenceSearch", $dataRecherche );
+		$smarty->assign ( "corps", "perimetre/recurrenceListe.tpl" );
 		break;
 		
 	/*
@@ -40,9 +40,9 @@ switch ($t_module ["param"]) {
 	* $_REQUEST["idParent"] contains the identifiant of the parent record
 	*/
 	case "change":
-		$objetNiv1 = new objetNiv1 ( $bdd, $ObjetBDDParam );
-		$smarty->assign ( "objetNiv1", $objetNiv1->getListe () );		
-		dataRead ( $dataClass, $id, "perimetre/objetNiv1Change.tpl" );
+		$recurrence = new recurrence ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "recurrence", $recurrence->getListe () );		
+		dataRead ( $dataClass, $id, "perimetre/recurrenceChange.tpl" );
 		break;
 
 	/*
