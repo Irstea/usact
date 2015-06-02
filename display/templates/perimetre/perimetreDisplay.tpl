@@ -6,16 +6,16 @@
 <fieldset>
 <legend>Informations sur le perimetre</legend>
 <dl>
-<dt> Description :</dt>
-<dd>{$data.perimetre_detail}</dd>
+<dt> Objet niv2 :</dt>
+<dd>{$data.objet_niv2_libelle}</dd>
 </dl>
 <dl>
 <dt> Bien support niv2 :</dt>
 <dd>{$data.bien_support_niv2_libelle}</dd>
 </dl>
 <dl>
-<dt> Objet niv2 :</dt>
-<dd>{$data.objet_niv2_libelle}</dd>
+<dt> Description :</dt>
+<dd>{$data.perimetre_detail}</dd>
 </dl>
 <dl>
 <dt> Récurrence :</dt>

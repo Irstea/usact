@@ -93,7 +93,7 @@ class SearchConflit extends SearchParam {
  */
 class SearchPerimetre extends SearchParam {
 	function __construct() {
-		$this->param = array ("searchId" => "");
+		$this->param = array ("searchId" => "", "searchObjetNiv2" => "", "searchBienSupportNiv2" => "", "searchObjetNiv1" => "", "searchBienSupportNiv1" => "");
 		parent::__construct();
 	}
 }

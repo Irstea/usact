@@ -78,13 +78,17 @@ class perimetre extends ObjetBDD {
 				type_perimetre_libelle,
 				echelle_libelle,
 				bien_support_niv2_libelle,
+				bien_support_niv1_libelle,
 				objet_niv2_libelle,
+				objet_niv1_libelle,
 				recurrence_libelle				
 				from perimetre
 				left outer join bien_support_niv2 on perimetre.bien_support_niv2_id = bien_support_niv2.bien_support_niv2_id
+				left outer join bien_support_niv1 on bien_support_niv2.bien_support_niv1_id = bien_support_niv1.bien_support_niv1_id
 				left outer join type_perimetre on perimetre.type_perimetre_id = type_perimetre.type_perimetre_id
 				left outer join echelle on perimetre.echelle_id = echelle.echelle_id
 				left outer join objet_niv2 on perimetre.objet_niv2_id = objet_niv2.objet_niv2_id
+				left outer join objet_niv1 on objet_niv2.objet_niv1_id = objet_niv1.objet_niv1_id
 				left outer join recurrence on perimetre.recurrence_id = recurrence.recurrence_id';
 		
 		/*
@@ -93,9 +97,21 @@ class perimetre extends ObjetBDD {
 		if (strlen ( $param ["searchId"] ) > 0)
 			$where .= ' where perimetre_id ='.$param["searchId"];
 		
-		$order = ' order by bien_support_niv2_libelle, objet_niv2_libelle';
+		if (strlen ( $param ["searchObjetNiv2"] ) > 0)
+			$where2 .= ' and objet_niv2.objet_niv2_id ='.$param["searchObjetNiv2"];
+				
+		if (strlen ( $param ["searchObjetNiv1"] ) > 0)
+			$where3 .= ' and objet_niv1.objet_niv1_id ='.$param["searchObjetNiv1"];
 		
-		return parent::getListeParam ( $sql . $where . $order);
+		if (strlen ( $param ["searchBienSupportNiv2"] ) > 0)
+			$where4 .= ' and bien_support_niv2.bien_support_niv2_id ='.$param["searchBienSupportNiv2"];
+		
+		if (strlen ( $param ["searchBienSupportNiv1"] ) > 0)
+			$where5 .= ' and bien_support_niv1.bien_support_niv1_id ='.$param["searchBienSupportNiv1"];
+		
+		$order = ' order by objet_niv2_libelle, bien_support_niv2_libelle';
+		
+		return parent::getListeParam ( $sql . $where . $where2 . $order);
 	}
 	
 	function getListe() {
@@ -111,15 +127,19 @@ class perimetre extends ObjetBDD {
 				type_perimetre_libelle,
 				echelle_libelle,
 				bien_support_niv2_libelle,
+				bien_support_niv1_libelle,
 				objet_niv2_libelle,
+				objet_niv1_libelle,
 				recurrence_libelle
 				from perimetre
 				left outer join bien_support_niv2 on perimetre.bien_support_niv2_id = bien_support_niv2.bien_support_niv2_id
+				left outer join bien_support_niv1 on bien_support_niv2.bien_support_niv1_id = bien_support_niv1.bien_support_niv1_id
 				left outer join type_perimetre on perimetre.type_perimetre_id = type_perimetre.type_perimetre_id
 				left outer join echelle on perimetre.echelle_id = echelle.echelle_id
 				left outer join objet_niv2 on perimetre.objet_niv2_id = objet_niv2.objet_niv2_id
+				left outer join objet_niv1 on objet_niv2.objet_niv1_id = objet_niv1.objet_niv1_id
 				left outer join recurrence on perimetre.recurrence_id = recurrence.recurrence_id
-				order by bien_support_niv2_libelle, objet_niv2_libelle, type_perimetre_libelle, echelle_libelle';
+				order by objet_niv2_libelle, bien_support_niv2_libelle, type_perimetre_libelle, echelle_libelle';
 	
 		return parent::getListeParam ( $sql );
 	}
@@ -146,16 +166,20 @@ class perimetre extends ObjetBDD {
 				type_perimetre_libelle,
 				echelle_libelle,
 				bien_support_niv2_libelle,
+				bien_support_niv1_libelle,
 				objet_niv2_libelle,
+				objet_niv1_libelle,
 				recurrence_libelle				
 				from perimetre
 				left outer join bien_support_niv2 on perimetre.bien_support_niv2_id = bien_support_niv2.bien_support_niv2_id
+				left outer join bien_support_niv1 on bien_support_niv2.bien_support_niv1_id = bien_support_niv1.bien_support_niv1_id
 				left outer join type_perimetre on perimetre.type_perimetre_id = type_perimetre.type_perimetre_id
 				left outer join echelle on perimetre.echelle_id = echelle.echelle_id
 				left outer join objet_niv2 on perimetre.objet_niv2_id = objet_niv2.objet_niv2_id
+				left outer join objet_niv1 on objet_niv2.objet_niv1_id = objet_niv1.objet_niv1_id
 				left outer join recurrence on perimetre.recurrence_id = recurrence.recurrence_id'							
 				.' where perimetre_id = '.$id
-				.' order by bien_support_niv2_libelle, objet_niv2_libelle';
+				.' order by objet_niv2_libelle, bien_support_niv2_libelle';
 			return parent::lireParam ( $sql );
 		}
 	}

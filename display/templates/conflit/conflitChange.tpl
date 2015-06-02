@@ -15,7 +15,7 @@
 {if $data.conflit_id == 0}
 <dl>
 <dt>Date de début :</dt>
-<dd><input class="date" value="jj/mm/aaaa" name="conflit_date_debut"></dd>
+<dd><input class="date" name="conflit_date_debut" readonly="readonly" style="cursor: text" value="<?php echo date("d/m/Y"); ?>" /></dd>
 </dl>
 {else}
 <dl>

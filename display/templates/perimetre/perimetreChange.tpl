@@ -9,8 +9,22 @@
 <input type="hidden" name="module" value="perimetreWrite">
 
 <dl>
-<dt>Description<span class="red">*</span> :</dt>
-<dd><input name="perimetre_detail" value="{$data.perimetre_detail}" autofocus></dd>
+<dt>Objet niv2<span class="red">*</span> :</dt>
+<dd>
+<div align="left">
+<select name="objet_niv2_id">
+{section name=lst loop=$objet_niv2}
+{strip}
+<option value="{$objet_niv2[lst].objet_niv2_id}"
+{if $objet_niv2[lst].objet_niv2_id == $data.objet_niv2_id} selected{/if}
+{if $objet_niv2[lst].objet_niv2_libelle == null} hidden {/if}
+>
+{$objet_niv2[lst].objet_niv2_libelle}
+</option>{/strip}
+{/section}
+</select>
+</div>
+</dd>
 </dl>
 
 <dl>
@@ -33,22 +47,8 @@
 </dl>
 
 <dl>
-<dt>Objet niv2<span class="red">*</span> :</dt>
-<dd>
-<div align="left">
-<select name="objet_niv2_id">
-{section name=lst loop=$objet_niv2}
-{strip}
-<option value="{$objet_niv2[lst].objet_niv2_id}"
-{if $objet_niv2[lst].objet_niv2_id == $data.objet_niv2_id} selected{/if}
-{if $objet_niv2[lst].objet_niv2_libelle == null} hidden {/if}
->
-{$objet_niv2[lst].objet_niv2_libelle}
-</option>{/strip}
-{/section}
-</select>
-</div>
-</dd>
+<dt>Description<span class="red">*</span> :</dt>
+<dd><input name="perimetre_detail" value="{$data.perimetre_detail}" autofocus></dd>
 </dl>
 
 <dl>

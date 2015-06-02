@@ -16,7 +16,9 @@ include_once 'modules/classes/perimetre.class.php';
 include_once 'modules/classes/echelle.class.php';
 include_once 'modules/classes/type_perimetre.class.php';
 include_once 'modules/classes/bien_support_niv2.class.php';
+include_once 'modules/classes/bien_support_niv1.class.php';
 include_once 'modules/classes/objet_niv2.class.php';
+include_once 'modules/classes/objet_niv1.class.php';
 include_once 'modules/classes/recurrence.class.php';
 $dataClass = new perimetre( $bdd, $ObjetBDDParam );
 $id = $_REQUEST ["perimetre_id"];
@@ -32,7 +34,17 @@ switch ($t_module ["param"]) {
 	case "list":
 		$searchPerimetre->setParam ( $_REQUEST );
 		$dataRecherche = $searchPerimetre->getParam ();
+		$objet_niv2 = new objetNiv2 ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "objet_niv2", $objet_niv2->getListe (2) );
+		$bien_support_niv2 = new bienSupportNiv2 ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "bien_support_niv2", $bien_support_niv2->getListe (2) );
+		$objet_niv1 = new objetNiv1 ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "objet_niv1", $objet_niv1->getListe (2) );
+		$bien_support_niv1 = new bienSupportNiv1 ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "bien_support_niv1", $bien_support_niv1->getListe (2) );
 		if ($searchPerimetre->isSearch () == 1) {
+			$searchPerimetre = new SearchPerimetre();
+			$_SESSION["perimetreSearch"] = $searchPerimetre;
 			$data = $dataClass->getListeSearch ( $dataRecherche );
 			$smarty->assign ( "data", $data );
 			$smarty->assign ( "isSearch", 1 );
