@@ -1,19 +1,15 @@
 <h2>Perimetre :</h2>
-<table id="perimetreSearch" class="formSaisie">
+<table id="perimetreSearch" class="tableAffichage">
 <form method="GET" action="index.php">
 <input type="hidden" name="module" value="perimetreListe">
 <input type="hidden" name="isSearch" value="1">
 
-<dl>
-<dt>ID à rechercher : </dt>
-<dd><input name="searchId" value="{$perimetreSearch.searchId}" maxlength="50" size="30" autofocus></dd>
-</dl>
-
-<dl>
-<dt>Objet niv2 :</dt>
-<dd>
+<tr>
+<td>Objet niv2 :</td>
+<td>
 <div align="left">
 <select id="searchObjetNiv2" name="searchObjetNiv2">
+<option value = "" selected hitden>Selectionner ...</option>
 {section name=lst loop=$objet_niv2}
 {strip}
 <option value="{$objet_niv2[lst].objet_niv2_id}"
@@ -25,14 +21,14 @@
 {/section}
 </select>
 </div>
-</dd>
-</dl>
+</td>
 
-<dl>
-<dt>Objet niv1 :</dt>
-<dd>
+<tr>
+<td>Objet niv1 :</td>
+<td>
 <div align="left">
 <select id="searchObjetNiv1" name="searchObjetNiv1">
+<option value = "" selected hitden>Selectionner ...</option>
 {section name=lst loop=$objet_niv1}
 {strip}
 <option value="{$objet_niv1[lst].objet_niv1_id}"
@@ -44,14 +40,15 @@
 {/section}
 </select>
 </div>
-</dd>
-</dl>
+</td>
+</tr>
 
-<dl>
-<dt>Bien support niv2 :</dt>
-<dd>
+<tr>
+<td>Bien support niv2 :</td>
+<td>
 <div align="left">
 <select id="searchBienSupportniv2" name="searchBienSupportNiv2">
+<option value = "" selected hitden>Selectionner ...</option>
 {section name=lst loop=$bien_support_niv2}
 {strip}
 <option value="{$bien_support_niv2[lst].bien_support_niv2_id}"
@@ -63,14 +60,15 @@
 {/section}
 </select>
 </div>
-</dd>
-</dl>
+</td>
+</tr>
 
-<dl>
-<dt>Bien support niv1 :</dt>
-<dd>
+<tr>
+<td>Bien support niv1 :</td>
+<td>
 <div align="left">
 <select id="searchBienSupportNiv1" name="searchBienSupportNiv1">
+<option value = "" selected hitden>Selectionner ...</option>
 {section name=lst loop=$bien_support_niv1}
 {strip}
 <option value="{$bien_support_niv1[lst].bien_support_niv1_id}"
@@ -82,13 +80,33 @@
 {/section}
 </select>
 </div>
-</dd>
-</dl>
+</td>
+</tr>
+
+<tr>
+<td>Année début du conflit :</td>
+<td>
+<div align="left">
+<select id="searchDateDebut" name="searchDateDebut">
+<option value = "" selected hitden>Selectionner ...</option>
+{section name=lst loop=$conflit}
+{strip}
+<option value="{$conflit[lst].conflit_id}"
+{if $conflit[lst].conflit_id == $data.conflit_id} selected{/if}
+>
+{$bien_support_niv2[lst].conflit_date_debut}
+</option>{/strip}
+{/section}
+</select>
+</div>
+</td>
+</tr>
 
 <tr>
 <td colspan=2>
 <div style="text-align:center;" class="formBouton">
 <input class="submit" type="submit" name="Rechercher..." value="Rechercher">
+</td>
 </form>
 </div>
 </td>

@@ -12,17 +12,12 @@
 <dt>Description<span class="red">*</span> :</dt>
 <dd><input name="conflit_detail" value="{$data.conflit_detail}" required autofocus></dd>
 </dl>
-{if $data.conflit_id == 0}
-<dl>
-<dt>Date de début :</dt>
-<dd><input class="date" name="conflit_date_debut" readonly="readonly" style="cursor: text" value="<?php echo date("d/m/Y"); ?>" /></dd>
-</dl>
-{else}
+
 <dl>
 <dt>Date de début :</dt>
 <dd><input class="date" name="conflit_date_debut" value="{$data.conflit_date_debut}"></dd>
 </dl>
-{/if}
+
 
 {if $data.conflit_id == 0}
 <dl>
@@ -37,11 +32,11 @@
 {/if}
 
 <dl>
-<dt>Perimetre :</dt>
+<dt>Perimetre<span class="red">*</span> :</dt>
 <dd>
 <div align="left">
 <select name="perimetre_id">
-<option placeholder="Selectionner ..." value = "Selectionner" selected="selected">Selectionner ...</option>
+<option value = "" selected hidden>Selectionner ...</option>
 {section name=lst loop=$perimetre}
 {strip}
 <option value="{$perimetre[lst].perimetre_id}"

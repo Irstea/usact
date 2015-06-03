@@ -67,7 +67,7 @@ class perimetre extends ObjetBDD {
 		if (! is_array ( $param ))
 			$param = array ();
 		$param = $this->encodeData($param);
-		$sql = 'select perimetre_id,
+		$sql = 'select perimetre.perimetre_id,
 				perimetre.type_perimetre_id,
 				perimetre.echelle_id,
 				perimetre.bien_support_niv2_id,
@@ -81,7 +81,8 @@ class perimetre extends ObjetBDD {
 				bien_support_niv1_libelle,
 				objet_niv2_libelle,
 				objet_niv1_libelle,
-				recurrence_libelle				
+				recurrence_libelle,
+				conflit_date_debut				
 				from perimetre
 				left outer join bien_support_niv2 on perimetre.bien_support_niv2_id = bien_support_niv2.bien_support_niv2_id
 				left outer join bien_support_niv1 on bien_support_niv2.bien_support_niv1_id = bien_support_niv1.bien_support_niv1_id
@@ -89,13 +90,15 @@ class perimetre extends ObjetBDD {
 				left outer join echelle on perimetre.echelle_id = echelle.echelle_id
 				left outer join objet_niv2 on perimetre.objet_niv2_id = objet_niv2.objet_niv2_id
 				left outer join objet_niv1 on objet_niv2.objet_niv1_id = objet_niv1.objet_niv1_id
-				left outer join recurrence on perimetre.recurrence_id = recurrence.recurrence_id';
+				left outer join recurrence on perimetre.recurrence_id = recurrence.recurrence_id 
+				left outer join conflit on perimetre.perimetre_id = conflit.perimetre_id
+				where objet_niv2.objet_niv1_id = objet_niv1.objet_niv1_id';
 		
 		/*
 		 * Rajout des parametres de recherche
 		 */
 		if (strlen ( $param ["searchId"] ) > 0)
-			$where .= ' where perimetre_id ='.$param["searchId"];
+			$where .= ' and perimetre_id ='.$param["searchId"];
 		
 		if (strlen ( $param ["searchObjetNiv2"] ) > 0)
 			$where2 .= ' and objet_niv2.objet_niv2_id ='.$param["searchObjetNiv2"];
@@ -111,7 +114,7 @@ class perimetre extends ObjetBDD {
 		
 		$order = ' order by objet_niv2_libelle, bien_support_niv2_libelle';
 		
-		return parent::getListeParam ( $sql . $where . $where2 . $order);
+		return parent::getListeParam ( $sql . $where . $where2 . $where3 . $where4 . $where5 . $order);
 	}
 	
 	function getListe() {

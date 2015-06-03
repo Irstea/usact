@@ -5,8 +5,9 @@
 <a href="index.php?module=perimetreChange&perimetre_id=0">{$LANG.gestion.7}</a>
 {include file="perimetre/perimetreSearch.tpl"}
 {if $isSearch == 1}
+<br>
 <a href="index.php?module=perimetreChange&perimetre_id=0">Nouveau perimetre</a>
-<table id="idListe" class="tableListe" style="width:100%">
+<table id="idListe" class="tableListe">
 	<thead>
 		<tr>
 			<th>Objet_niv2</th>

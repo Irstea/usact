@@ -13,6 +13,7 @@
 <dd>
 <div align="left">
 <select name="objet_niv2_id">
+<option value = "" selected hidden>Selectionner ...</option>
 {section name=lst loop=$objet_niv2}
 {strip}
 <option value="{$objet_niv2[lst].objet_niv2_id}"
@@ -32,6 +33,7 @@
 <dd>
 <div align="left">
 <select name="bien_support_niv2_id">
+<option value = "" selected hidden>Selectionner ...</option>
 {section name=lst loop=$bien_support_niv2}
 {strip}
 <option value="{$bien_support_niv2[lst].bien_support_niv2_id}"
@@ -56,6 +58,7 @@
 <dd>
 <div align="left">
 <select name="recurrence_id">
+<option value = "" selected hidden>Selectionner ...</option>
 {section name=lst loop=$recurrence}
 {strip}
 <option value="{$recurrence[lst].recurrence_id}"
@@ -75,6 +78,7 @@
 <dd>
 <div align="left">
 <select name="type_perimetre_id">
+<option value = "" selected hidden>Selectionner ...</option>
 {section name=lst loop=$type_perimetre}
 {strip}
 <option value="{$type_perimetre[lst].type_perimetre_id}"
@@ -94,6 +98,7 @@
 <dd>
 <div align="left">
 <select name="echelle_id">
+<option value = "" selected hidden>Selectionner ...</option>
 {section name=lst loop=$echelle}
 {strip}
 <option value="{$echelle[lst].echelle_id}"

@@ -14,6 +14,10 @@
  */
 include_once 'modules/classes/conflit.class.php';
 include_once 'modules/classes/perimetre.class.php';
+include_once 'modules/classes/bien_support_niv2.class.php';
+include_once 'modules/classes/bien_support_niv1.class.php';
+include_once 'modules/classes/objet_niv2.class.php';
+include_once 'modules/classes/objet_niv1.class.php';
 $dataClass = new conflit( $bdd, $ObjetBDDParam );
 $id = $_REQUEST ["conflit_id"];
 
@@ -28,7 +32,17 @@ switch ($t_module ["param"]) {
 	case "list":
 		$searchConflit->setParam ( $_REQUEST );
 		$dataRecherche = $searchConflit->getParam ();
+		$objet_niv2 = new objetNiv2 ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "objet_niv2", $objet_niv2->getListe (2) );
+		$bien_support_niv2 = new bienSupportNiv2 ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "bien_support_niv2", $bien_support_niv2->getListe (2) );
+		$objet_niv1 = new objetNiv1 ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "objet_niv1", $objet_niv1->getListe (2) );
+		$bien_support_niv1 = new bienSupportNiv1 ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "bien_support_niv1", $bien_support_niv1->getListe (2) );
 		if ($searchConflit->isSearch () == 1) {
+			$searchConflit = new SearchConflit();
+			$_SESSION["conflitSearch"] = $searchConflit;
 			$data = $dataClass->getListeSearch ( $dataRecherche );
 			$smarty->assign ( "data", $data );
 			$smarty->assign ( "isSearch", 1 );
