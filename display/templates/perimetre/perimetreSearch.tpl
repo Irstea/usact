@@ -9,7 +9,7 @@
 <td>
 <div align="left">
 <select id="searchObjetNiv2" name="searchObjetNiv2">
-<option value = "" selected hitden>Selectionner ...</option>
+<option value = "" selected hidden>Selectionner ...</option>
 {section name=lst loop=$objet_niv2}
 {strip}
 <option value="{$objet_niv2[lst].objet_niv2_id}"
@@ -28,7 +28,7 @@
 <td>
 <div align="left">
 <select id="searchObjetNiv1" name="searchObjetNiv1">
-<option value = "" selected hitden>Selectionner ...</option>
+<option value = "" selected hidden>Selectionner ...</option>
 {section name=lst loop=$objet_niv1}
 {strip}
 <option value="{$objet_niv1[lst].objet_niv1_id}"
@@ -48,7 +48,7 @@
 <td>
 <div align="left">
 <select id="searchBienSupportniv2" name="searchBienSupportNiv2">
-<option value = "" selected hitden>Selectionner ...</option>
+<option value = "" selected hidden>Selectionner ...</option>
 {section name=lst loop=$bien_support_niv2}
 {strip}
 <option value="{$bien_support_niv2[lst].bien_support_niv2_id}"
@@ -68,7 +68,7 @@
 <td>
 <div align="left">
 <select id="searchBienSupportNiv1" name="searchBienSupportNiv1">
-<option value = "" selected hitden>Selectionner ...</option>
+<option value = "" selected hidden>Selectionner ...</option>
 {section name=lst loop=$bien_support_niv1}
 {strip}
 <option value="{$bien_support_niv1[lst].bien_support_niv1_id}"
@@ -88,13 +88,14 @@
 <td>
 <div align="left">
 <select id="searchDateDebut" name="searchDateDebut">
-<option value = "" selected hitden>Selectionner ...</option>
-{section name=lst loop=$conflit}
+<option value = "" selected hidden>Selectionner ...</option>
+{section name=lst loop=1}
 {strip}
-<option value="{$conflit[lst].conflit_id}"
-{if $conflit[lst].conflit_id == $data.conflit_id} selected{/if}
->
-{$bien_support_niv2[lst].conflit_date_debut}
+<option value="{$conflit[lst].conflit_id}"> 2015
+<option value="{$conflit[lst].conflit_id}"> 2014
+<option value="{$conflit[lst].conflit_id}"> 2013
+<option value="{$conflit[lst].conflit_id}"> 2012
+<option value="{$conflit[lst].conflit_id}"> 2011
 </option>{/strip}
 {/section}
 </select>

@@ -104,9 +104,12 @@ class Conflit extends ObjetBDD {
 		if (strlen ( $param ["searchBienSupportNiv1"] ) > 0)
 			$where5 .= ' and bien_support_niv1.bien_support_niv1_id ='.$param["searchBienSupportNiv1"];
 		
+		if (strlen ( $param ["searchDateDebut"] ) > 0)
+			$where6 .= ' and extract (year from conflit_date_debut) ='.$param["searchDateDebut"];
+		
 		$order = ' order by conflit_id';
 		
-		return parent::getListeParam ( $sql . $where . $where2 . $where3 . $where4 . $where5 . $order);
+		return parent::getListeParam ( $sql . $where . $where2 . $where3 . $where4 . $where5 . $where6 . $order);
 	}
 	
 	/**
