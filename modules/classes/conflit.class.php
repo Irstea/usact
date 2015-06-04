@@ -34,10 +34,12 @@ class Conflit extends ObjetBDD {
 						"type" => 0
 				),
 				"conflit_date_debut" => array (
-						"type" => 2 
+						"type" => 2,
+						"defaultValue" => getDateJour
 				),
 				"conflit_date_fin" => array (
-						"type" => 2 
+						"type" => 2,
+						"defaultValue" => getDateJour 
 				),
 				"conflit_date_saisie" => array (
 						"type" => 2

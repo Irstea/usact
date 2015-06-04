@@ -9,12 +9,11 @@
 <td>
 <div align="left">
 <select id="searchObjetNiv2" name="searchObjetNiv2">
-<option value = "" selected hidden>Selectionner ...</option>
+<option value = "" selected>Selectionner ...</option>
 {section name=lst loop=$objet_niv2}
 {strip}
 <option value="{$objet_niv2[lst].objet_niv2_id}"
 {if $objet_niv2[lst].objet_niv2_id == $data.objet_niv2_id} selected{/if}
-{if $objet_niv2[lst].objet_niv2_libelle == null} hidden {/if}
 >
 {$objet_niv2[lst].objet_niv2_libelle}
 </option>{/strip}
@@ -28,12 +27,11 @@
 <td>
 <div align="left">
 <select id="searchObjetNiv1" name="searchObjetNiv1">
-<option value = "" selected hidden>Selectionner ...</option>
+<option value = "" selected>Selectionner ...</option>
 {section name=lst loop=$objet_niv1}
 {strip}
 <option value="{$objet_niv1[lst].objet_niv1_id}"
 {if $objet_niv1[lst].objet_niv1_id == $data.objet_niv1_id} selected{/if}
-{if $objet_niv1[lst].objet_niv1_libelle == null} hidden {/if}
 >
 {$objet_niv1[lst].objet_niv1_libelle}
 </option>{/strip}
@@ -48,12 +46,11 @@
 <td>
 <div align="left">
 <select id="searchBienSupportniv2" name="searchBienSupportNiv2">
-<option value = "" selected hidden>Selectionner ...</option>
+<option value = "" selected>Selectionner ...</option>
 {section name=lst loop=$bien_support_niv2}
 {strip}
 <option value="{$bien_support_niv2[lst].bien_support_niv2_id}"
 {if $bien_support_niv2[lst].bien_support_niv2_id == $data.bien_support_niv2_id} selected{/if}
-{if $bien_support_niv2[lst].bien_support_niv2_libelle == null} hidden {/if}
 >
 {$bien_support_niv2[lst].bien_support_niv2_libelle}
 </option>{/strip}
@@ -68,12 +65,11 @@
 <td>
 <div align="left">
 <select id="searchBienSupportNiv1" name="searchBienSupportNiv1">
-<option value = "" selected hidden>Selectionner ...</option>
+<option value = "" selected>Selectionner ...</option>
 {section name=lst loop=$bien_support_niv1}
 {strip}
 <option value="{$bien_support_niv1[lst].bien_support_niv1_id}"
 {if $bien_support_niv1[lst].bien_support_niv1_id == $data.bien_support_niv1_id} selected{/if}
-{if $bien_support_niv1[lst].bien_support_niv1_libelle == null} hidden {/if}
 >
 {$bien_support_niv1[lst].bien_support_niv1_libelle}
 </option>{/strip}
@@ -88,7 +84,7 @@
 <td>
 <div align="left">
 <select id="searchDateDebut" name="searchDateDebut">
-<option value = "" selected hidden>Selectionner ...</option>
+<option value = "" selected>Selectionner ...</option>
 {section name=lst loop=1}
 {strip}
 <option value="{$conflit[lst].conflit_id}"> 2015

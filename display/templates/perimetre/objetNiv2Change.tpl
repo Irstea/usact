@@ -16,11 +16,11 @@
 <dd>
 <div align="left">
 <select name="objet_niv1_id">
+<option value = "" selected hidden>Selectionner ...</option>
 {section name=lst loop=$objet_niv1}
 {strip}
 <option value="{$objet_niv1[lst].objet_niv1_id}"
 {if $objet_niv1[lst].objet_niv1_id == $data.objet_niv1_id} selected{/if}
-{if $objet_niv1[lst].objet_niv1_libelle == null} hidden {/if}
 >
 {$objet_niv1[lst].objet_niv1_libelle}
 </option>
