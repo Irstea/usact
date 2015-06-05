@@ -83,15 +83,13 @@
 <td>Année début du conflit :</td>
 <td>
 <div align="left">
-<select id="searchDateDebut" name="searchDateDebut">
+<select id="searchAnneeDebut" name="searchAnneeDebut">
 <option value = "" selected>Selectionner ...</option>
-{section name=lst loop=1}
+{section name=lst loop=$conflit_id}
 {strip}
-<option value="{$conflit[lst].conflit_id}"> 2015
-<option value="{$conflit[lst].conflit_id}"> 2014
-<option value="{$conflit[lst].conflit_id}"> 2013
-<option value="{$conflit[lst].conflit_id}"> 2012
-<option value="{$conflit[lst].conflit_id}"> 2011
+<option value="{$conflit[lst].conflit_id}"
+{if $conflit[lst].conflit_id == $data.conflit_id} selected {/if}>
+{$conflit[lst].annee}
 </option>{/strip}
 {/section}
 </select>

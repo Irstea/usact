@@ -81,7 +81,7 @@ class SearchExample extends SearchParam {
  */
 class SearchConflit extends SearchParam {
 	function __construct() {
-		$this->param = array ("searchId" => "", "searchObjetNiv2" => "", "searchBienSupportNiv2" => "", "searchObjetNiv1" => "", "searchBienSupportNiv1" => "", "searchDateDebut" => "");
+		$this->param = array ("searchId" => "", "searchObjetNiv2" => "", "searchBienSupportNiv2" => "", "searchObjetNiv1" => "", "searchBienSupportNiv1" => "", "searchAnneeDebut" => date('Y'));
 		parent::__construct();
 	}
 }
@@ -93,7 +93,7 @@ class SearchConflit extends SearchParam {
  */
 class SearchPerimetre extends SearchParam {
 	function __construct() {
-		$this->param = array ("searchId" => "", "searchObjetNiv2" => "", "searchBienSupportNiv2" => "", "searchObjetNiv1" => "", "searchBienSupportNiv1" => "", "searchDateDebut" => "");
+		$this->param = array ("searchId" => "", "searchObjetNiv2" => "", "searchBienSupportNiv2" => "", "searchObjetNiv1" => "", "searchBienSupportNiv1" => "", "searchAnneeDebut" => date('Y'));
 		parent::__construct();
 	}
 }

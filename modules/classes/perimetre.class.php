@@ -112,8 +112,8 @@ class perimetre extends ObjetBDD {
 		if (strlen ( $param ["searchBienSupportNiv1"] ) > 0)
 			$where5 .= ' and bien_support_niv1.bien_support_niv1_id ='.$param["searchBienSupportNiv1"];
 		
-		if (strlen ( $param ["searchDateDebut"] ) > 0)
-			$where5 .= ' and extract (year from conflit_date_debut) ='.$param["searchDateDebut"];
+		if (strlen ( $param ["searchAnneeDebut"] ) > 0)
+			$where5 .= ' and extract (year from conflit_date_debut) as annee ='.$param["searchAnneeDebut"];
 		
 		$order = ' order by objet_niv2_libelle, bien_support_niv2_libelle';
 		
