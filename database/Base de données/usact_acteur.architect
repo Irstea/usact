@@ -308,16 +308,16 @@
     <column id="COL85" populated="true" UUID="ce3b7d77-52bb-4cd0-ac9c-d301bbb39404" autoIncrement="false" autoIncrementSequenceName="intervention_intervention_id_seq" defaultValue="" name="intervention_id" nullable="0" physicalName="intervention_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL86" populated="true" UUID="ec70dce9-b5e6-46fe-8353-e311ff453839" autoIncrement="false" autoIncrementSequenceName="acteur_acteur_id_seq" defaultValue="" name="acteur_id" nullable="0" physicalName="acteur_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL86" populated="true" UUID="ec70dce9-b5e6-46fe-8353-e311ff453839" autoIncrement="false" autoIncrementSequenceName="intervention_acteur_id_seq" defaultValue="" name="acteur_id" nullable="0" physicalName="acteur_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL87" populated="true" UUID="624e9735-072a-4a7b-96cf-026706d988ef" autoIncrement="false" autoIncrementSequenceName="role_role_id_seq" defaultValue="" name="role_id" nullable="0" physicalName="role_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL87" populated="true" UUID="624e9735-072a-4a7b-96cf-026706d988ef" autoIncrement="false" autoIncrementSequenceName="intervention_role_id_seq" defaultValue="" name="role_id" nullable="0" physicalName="role_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL88" populated="true" UUID="8c6a745c-c00e-4702-8e1b-858efd742cd6" autoIncrement="false" autoIncrementSequenceName="usage_activite_niv2_usage_activite_niv2_id_seq" defaultValue="" name="usage_activite_niv2_id" nullable="0" physicalName="usage_activite_niv2_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL88" populated="true" UUID="8c6a745c-c00e-4702-8e1b-858efd742cd6" autoIncrement="false" autoIncrementSequenceName="intervention_usage_activite_niv2_id_seq" defaultValue="" name="usage_activite_niv2_id" nullable="0" physicalName="usage_activite_niv2_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL89" populated="true" UUID="30d96299-85f3-462a-a24c-2372a884ade0" autoIncrement="false" autoIncrementSequenceName="position_usage_activite_position_usage_activite_id_seq" defaultValue="" name="position_usage_activite_id" nullable="0" physicalName="position_usage_activite_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL89" populated="true" UUID="30d96299-85f3-462a-a24c-2372a884ade0" autoIncrement="false" autoIncrementSequenceName="intervention_position_usage_activite_id_seq" defaultValue="" name="position_usage_activite_id" nullable="0" physicalName="position_usage_activite_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL90" populated="true" UUID="bb27dce8-f3a7-4db9-b120-9af934f3eb77" autoIncrement="false" autoIncrementSequenceName="intervention_intervention_date_entree_seq" defaultValue="" name="intervention_date_entree" nullable="0" physicalName="intervention_date_entree" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
@@ -366,7 +366,7 @@
     <column id="COL101" populated="true" UUID="18f70f7c-6b0e-4f06-9f0b-32455b10dbf5" autoIncrement="true" autoIncrementSequenceName="usage_activite_niv2_usage_activite_niv2_id_seq" defaultValue="" name="usage_activite_niv2_id" nullable="0" physicalName="usage_activite_niv2_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL102" populated="true" UUID="d498c9ed-6452-4deb-bb98-acd47e911e90" autoIncrement="false" autoIncrementSequenceName="usage_activite_niv1_usage_activite_niv1_id_seq" defaultValue="" name="usage_activite_niv1_id" nullable="0" physicalName="usage_activite_niv1_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL102" populated="true" UUID="d498c9ed-6452-4deb-bb98-acd47e911e90" autoIncrement="false" autoIncrementSequenceName="usage_activite_niv2_usage_activite_niv1_id_seq" defaultValue="" name="usage_activite_niv1_id" nullable="0" physicalName="usage_activite_niv1_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL103" populated="true" UUID="2b3d4009-b52a-4eb8-8f6e-f00b79485ae2" autoIncrement="false" autoIncrementSequenceName="usage_activite_niv2_usage_activite_niv2_libelle_seq" defaultValue="" name="usage_activite_niv2_libelle" nullable="1" physicalName="usage_activite_niv2_libelle" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -468,7 +468,7 @@
  <ddl-generator type="ca.sqlpower.architect.ddl.GenericDDLGenerator" allow-connection="true"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="1.0" viewportX="279" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="582" y="265" bgColor="0xc8b7ea" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB12" x="303" y="472" bgColor="0xc8b7ea" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB31" x="557" y="467" bgColor="0xc8b7ea" fgColor="0x000000" rounded="false" dashed="false"/>
@@ -478,11 +478,11 @@
   <table-pane table-ref="TAB56" x="1169" y="304" bgColor="0xc8b7ea" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB61" x="893" y="202" bgColor="0xc8b7ea" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB77" x="921" y="501" bgColor="0xc8b7ea" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB84" x="282" y="251" bgColor="0xc8b7ea" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB95" x="46" y="418" bgColor="0xc8b7ea" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB100" x="318" y="79" bgColor="0xc8b7ea" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB106" x="42" y="70" bgColor="0xc8b7ea" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB111" x="20" y="285" bgColor="0xc8b7ea" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB84" x="282" y="251" bgColor="0xbfd6ff" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB95" x="46" y="418" bgColor="0xbfd6ff" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB100" x="318" y="79" bgColor="0xbfd6ff" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB106" x="42" y="70" bgColor="0xbfd6ff" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB111" x="20" y="285" bgColor="0xbfd6ff" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-link relationship-ref="REL128" pkConnection="0.46496815286624205" fkConnection="0.46496815286624205" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
   <table-link relationship-ref="REL126" pkConnection="0.4507042253521127" fkConnection="0.5294117647058824" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
   <table-link relationship-ref="REL124" pkConnection="0.39490445859872614" fkConnection="0.6506024096385542" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
