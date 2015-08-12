@@ -14,7 +14,7 @@ $APPLI_utf8 = true;
 
 $GACL_aco = "appli";
 
-$ident_type = "BDD";
+$ident_type = "LDAP-BDD";
 /*
  * Parametres concernant la base de donnees
  */
@@ -25,29 +25,32 @@ $BDD_dsn = "pgsq:host=localhost;dbname=proto";
 /*
  * Base de donnees de developpement
 */
-$BDDDEV_login = "proto";
-$BDDDEV_passwd = "proto";
-$BDDDEV_dsn = "pgsq:host=localhost;dbname=proto";
+$BDDDEV_login = "eric.quinton";
+$BDDDEV_passwd = "Kl3nduc!";
+$BDDDEV_dsn = "pgsql:host=guzzi;dbname=usact";
+$BDDDEV_schema = "public";
 
 /*
  * Rights management, logins and logs records database
  */
-$GACL_dblogin = "proto";
-$GACL_dbpasswd = "proto";
+$GACL_dblogin = "eric.quinton";
+$GACL_dbpasswd = "Kl3nduc!";
 $GACL_aco = "appli";
-$GACL_dsn = "pgsql:host=localhost;dbname=proto";
+$GACL_dsn = "pgsql:host=guzzi;dbname=usact";
+$GACL_schema = "gacl";
 
-$APPLI_address = "http://localhost/proto";
+$APPLI_address = "http://localhost/usact";
 $APPLI_mail = "proto@domain.fr";
 $APPLI_nom = "PROTOTYPEPHP";
 $APPLI_code = 'proto';
 
-$LDAPGROUP_address = "localhost";
+
+$LDAPGROUP_address = "ldaps://ldap.irstea.fr";
 $LDAPGROUP_attributnomgroupe = "cn";
 $LDAPGROUP_attributnomlogin = "memberuid";
-$LDAPGROUP_basedngroup = "ou=Group,ou=example,o=societe,c=fr";
-$LDAP_address = "localhost";
-$LDAP_port = 389;
-$LDAP_basedn = "ou=people,ou=example,o=societe,c=fr";
+$LDAPGROUP_basedngroup = "dc=irstea,dc=fr";
+$LDAP_address = "ldaps://ldap.irstea.fr";
+$LDAP_port = 636;
+$LDAP_basedn = "ou=people,dc=irstea,dc=fr";
 
 ?>

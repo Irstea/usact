@@ -5,8 +5,8 @@
  * variables de session
  */
 
-$sql = "set search_path = public, arcachon, gacl";
-$bdd -> Execute($sql);
+$sql = "set search_path = public, arcachon";
+$bdd -> exec($sql);
 
 if (!isset($_SESSION["searchConflit"])) {
 	$searchConflit = new SearchConflit();
