@@ -54,6 +54,15 @@ $LANG["menu"][65] = "Objet niv2";
 $LANG["menu"][66] = "Bien support niv1";
 $LANG["menu"][67] = "Bien support niv2";
 $LANG["menu"][68] = "Recurrence";
+/*
+ * Gestion des droits nouvelle formule
+ */
+$LANG["menu"]["appliliste"] = "ACL - droits";
+$LANG["menu"]["applilistetitle"] = "applications et droits gérés";
+$LANG["menu"]["aclloginliste"] = "ACL - logins";
+$LANG["menu"]["aclloginlistetitle"] = "Logins déclarés dans le module de gestion des droits";
+$LANG["menu"]["groupliste"] = "ACL - groupes de logins";
+$LANG["menu"]["grouplistetitle"] = "Groupes de logins et logins rattachés aux groupes";
 
 $LANG["menu"]["phpinfo"] = "PHP info";
 $LANG["menu"]["phpinfotitle"] = "configuration générale du serveur PHP";

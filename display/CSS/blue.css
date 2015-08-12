@@ -67,32 +67,11 @@ dl {
 
 .formSaisie dd {
 	float: left;
-	text_align: left;
+	text-align: left;
 	width: 450px;
 	margin: 0 0 10px 0;
 	/*background: #ffffff;*/
 }
-.formSaisie .texte {
-	width: 450px;
-	margin: 0 0 10px 0;
-}
-/*
- * valeurs pour zone de select editable (deux definitions)
- */
-.formSaisie .selectEdit {
-	position: absolute;
-	width: 470px;
-	height: 30px;
-	border: 0;
-	margin: 0 0 10px 0;
-}
-.formSaisie .inputEdit {
-	position: absolute;
-	width: 450px ;
-	height: 23px;
-	margin: 0 0 10px 0;
-}
-
 .formSaisie400 {
 	border-style: solid;
 	border-width: 1px;
@@ -109,7 +88,7 @@ dl {
 
 .formSaisie400 dd {
 	float: left;
-	text_align: left;
+	text-align: left;
 	width: 250px;
 	margin: 0 0 10px 0;
 	/*background: #ffffff;*/
@@ -118,6 +97,7 @@ dl {
 	text-align: center;
 	width: 400px;
 }
+
 /*
  * Affichage basé sur <dl>
  */
@@ -147,6 +127,33 @@ dl {
 	border-radius: 0.4em;
 	border-color: grey;
 }
+.formDisplayNarrow {
+	border-style: solid;
+	border-width: 1px;
+	/*background:  #98c1e9;*/
+	background-color: rgba(152, 193, 233, 0.5);
+	width: 430px;
+}
+.formDisplayNarrow dt {
+	float: left;
+	text-align: right;
+	width: 150px;
+	margin: 0 10px 10px 0;
+}
+.formDisplayNarrow dd {
+	float: left;
+	text_align: left;
+	width: 250px;
+	margin: 0 0 10px 0;
+	background-color: white;
+	word-wrap: break-word;
+	border-style: solid;
+	border-width: 1px;
+	min-height: 20px;
+	border-radius: 0.4em;
+	border-color: grey;
+}
+
 dd.image {
 	float: center;
 	text_align: center;
@@ -159,15 +166,38 @@ dd.image {
 
 input.date {
 	background-image: url("images/calendar-small.gif");
+	background-size: 1em;
 	background-repeat: no-repeat;
 	background-position: 100% 50%;
-	width: 10em;
+	width: 7em;
+}
+
+input.taux {
+		width: 5em;
+}
+
+input.nombre {
+		width: 5em;
+}
+
+input.timepicker {
+	background-image: url("images/clock.png");
+	background-size: 1em;
+	background-repeat: no-repeat;
+	background-position: 100% 50%;
+	width: 5em;
+}
+input.commentaire {
+	size: 20em;
 }
 input.num5 {
 	width: 5em;
 }
 input.num10 {
 	width: 10em;
+}
+input.num3 {
+	width: 2em;
 }
 dl select {
 	max-width: 480px;
@@ -179,7 +209,7 @@ dl select {
 	padding-left: 25px;
 	height: 20px;
 	cursor: pointer;
-	fontStyle: italic;
+	font-style: italic;
 	text-decoration: underline;
 }
 .masquageText {
@@ -189,7 +219,7 @@ dl select {
 	padding-left: 25px;
 	height: 20px;
 	cursor: pointer;
-	fontStyle: italic;
+	font-style: italic;
 	text-decoration: underline;
 }
 /*
@@ -272,6 +302,9 @@ a:hover {
 	text-align: right;
 }
 
+.commentaire {
+	width: 25em;
+}
 
 h1 {
 	font-size: large;
@@ -329,16 +362,18 @@ table {
 	width: auto;
 }
 
+
 table a:link {
 	display: block;
-	margin: -2px;
-	padding: 2px;
+	/*margin: -2px;
+	padding: 2px;*/
 	color: black;
+	white-space: nowrap;
 }
 table a:visited {
 	display: block;
-	margin: -2px;
-	padding: 2px;
+	/*margin: -2px;
+	padding: 2px;*/
 	color: dimGrey;
 }
 table a:active,table a:hover { 
@@ -462,6 +497,13 @@ label {
 .tableaffichage td {
 	vertical-align: top;
 }
+.noborder{
+	border: 0px;
+	background: #ffffff;
+}
+.noborder tr:hover{
+	background: #ffffff;
+}
 .tableliste{
 	margin-left: 0px;
 	margin-right: auto;
@@ -503,6 +545,10 @@ label {
 	font-style: italic;
 }
 
+div.corps {
+	z-index: 1;
+}
+
 /* Menu block */
 div.menu {
 	border: #999999 1px solid;
@@ -511,6 +557,7 @@ div.menu {
 	padding: 0.5em;
 	margin-left: 0px;
 	margin-right: auto;
+	z-index: 999;
 }
 
 div.menu h2 {
@@ -759,3 +806,18 @@ div.bloc {
 	text-align: center;
 }
 
+.right {
+	text-align: right;
+}
+
+.textareaDisplay {
+	white-space:pre-wrap;
+}
+
+.tableCell {
+	display: table-cell;
+}
+
+.tablenoborder {
+	border: 0px;
+}

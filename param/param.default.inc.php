@@ -41,7 +41,7 @@ $LOG_duree = 365;
  */
 $ident_type = "BDD";
 //$CAS_plugin="plugins/phpcas-simple/phpcas.php";
-$CAS_plugin = 'plugins/esup-phpcas/source/CAS/CAS.php';
+$CAS_plugin = 'plugins/CAS-1.3.3/CAS.php';
 $CAS_address = "http://localhost/CAS";
 $CAS_port = 443;
 $LDAP_address = "localhost";
@@ -55,19 +55,15 @@ $LDAP_tls = false;
 /*
  * Parametres concernant la base de donnees
  */
-$BDD_type = "mysql";
-$BDD_server = "localhost";
 $BDD_login = "proto";
 $BDD_passwd = "proto";
-$BDD_database = "proto";
+$BDD_dsn = "pgsq:host=localhost;dbname=proto";
 /*
  * Base de donnees de developpement
 */
-$BDDDEV_type = "mysql";
-$BDDDEV_server = "localhost";
 $BDDDEV_login = "proto";
 $BDDDEV_passwd = "proto";
-$BDDDEV_database = "proto";
+$BDDDEV_dsn = "pgsq:host=localhost;dbname=proto";
 /*
  * Parametres concernant SMARTY
  */
@@ -91,20 +87,16 @@ $APPLI_address = "http://localhost/proto";
 $APPLI_modeDeveloppement = false;
 $APPLI_modeDeveloppementDroit = false;
 $APPLI_utf8 = true;
+$APPLI_menufile = "param/menu.xml";
 
 /*
  * Variables liees a GACL et l'identification via base de donnees
  */
-$GACL_dbtype = "mysql";
-$GACL_dbserver = "localhost";
 $GACL_dblogin = "proto";
 $GACL_dbpasswd = "proto";
-$GACL_database = "proto";
-$GACL_dbprefixe = "gacl";
-$GACL_aro = "login";
 $GACL_aco = "appli";
-$GACL_path = "param/gacl.ini.php";
-$GACL_listeDroitsGeres = "admin,gestion";
+$GACL_dsn = "pgsql:host=localhost;dbname=proto";
+
 /*
  * Gestion des erreurs
  */
@@ -124,4 +116,5 @@ $OBJETBDD_debugmode = 1;
 $APPLI_moduleDroitKO = "droitko";
 $APPLI_moduleErrorBefore = "errorbefore";
 $APPLI_moduleNoLogin = "errorlogin";
+$APPLI_notSSL = false;
 ?>

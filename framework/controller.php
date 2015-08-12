@@ -9,6 +9,14 @@
  */
 include_once ("framework/common.inc.php");
 /**
+ * Verification des donnees entrantes.
+ * Codage UTF-8
+ */
+if (check_encoding ( $_REQUEST ) == false) {
+	$message = "Problème dans les données fournies : l'encodage des caractères n'est pas celui attendu";
+	$_REQUEST ["module"] = "default";
+}
+/**
  * Recuperation du module
  */
 unset ( $module );
@@ -61,14 +69,14 @@ while ( isset ( $module ) ) {
 							if ($res == TRUE) {
 								$_SESSION ["login"] = $_REQUEST ["login"];
 							}
-						}
-						/*
-						 * Verification de l'identification uniquement en base de donnees
-						 */
-					} elseif ($ident_type == "BDD") {
-						$res = $loginGestion->VerifLogin ( $_REQUEST ['login'], $_REQUEST ['password'] );
-						if ($res == TRUE) {
-							$_SESSION ["login"] = $_REQUEST ["login"];
+							/*
+							 * Verification de l'identification uniquement en base de donnees
+							 */
+						} elseif ($ident_type == "BDD") {
+							$res = $loginGestion->VerifLogin ( $_REQUEST ['login'], $_REQUEST ['password'] );
+							if ($res == TRUE) {
+								$_SESSION ["login"] = $_REQUEST ["login"];
+							}
 						}
 					}
 					/*
@@ -121,10 +129,10 @@ while ( isset ( $module ) ) {
 			$resident = 0;
 			$motifErreur = "nologin";
 		} else {
-			$resident = 0;
 			$droits_array = explode ( ",", $t_module ["droits"] );
-			foreach ( $droits_array as $key => $value ) {
-				if ($gestionDroit->getgacl ( $value ) == 1)
+			$resident = 0;
+			foreach ( $droits_array as $key => $value ) {				
+				if ($_SESSION ["droits"] [$value] == 1)
 					$resident = 1;
 			}
 			if ($resident == 0)
@@ -211,35 +219,40 @@ if ($t_module ["ajax"] != 1) {
 		$message = $LANG ["message"] [0];
 	$smarty->assign ( "message", $message );
 	/*
-	 * Gestion du menu Rajout du 17/8/09 : mise en cache du menu
+	 * Affichage du menu
 	 */
-	if (! isset ( $_SESSION ["menu"] )) {
-		include ("framework/navigation/menu.inc.php");
-	} else {
-		$menu = $_SESSION ["menu"];
+	if (!isset($_SESSION["menu"])) {
+		include_once 'framework/navigation/menu.class.php';
+		if (!isset ($menu))
+		$menu = new Menu($APPLI_menufile, $LANG);
+		$_SESSION["menu"] = $menu->generateMenu();
 	}
-	$smarty->assign ( "menu", $menu );
+	$smarty->assign ( "menu", $_SESSION["menu"] );
 	if (isset ( $_SESSION ["login"] ))
 		$smarty->assign ( "isConnected", 1 );
 		/*
 	 * Affichage de la page
 	 */
-	/*
+		/*
 	 * Alerte Mode developpement
-	*/
+	 */
 	if ($APPLI_modeDeveloppement == true) {
-		$texteDeveloppement = $LANG ["message"] [32] . " : " . $BDDDEV_server . '/' . $BDDDEV_database;
+		$texteDeveloppement = $LANG ["message"] [32] . " : " . $BDDDEV_dsn.' - schema : '.$BDDDEV_schema;
 		$smarty->assign ( "developpementMode", $texteDeveloppement );
 	}
 	$smarty->assign ( "moduleListe", $_SESSION ["moduleListe"] );
 	/*
-	 * Positionnement des droits pour Smarty
+	 * execution du code generique avant affichage
 	 */
-	if (isset($_SESSION["login"])) $smarty->assign("droits",$gestionDroit->getDroits());
+	include 'modules/beforeDisplay.php';
 	/*
-	 * Integration des commandes generiques d'affichage
+	 * Encodage ultime des donnees avant envoi vers le navigateur
 	 */
-	include "modules/beforeDisplay.php";
+	foreach ( $smarty->getTemplateVars () as $key => $value ) {
+		if (in_array($key, array("menu", "LANG", "message", "texteNews")) == false) {
+			$smarty->assign ( $key, encodehtml ( $value ) );
+		}
+	}
 	$smarty->display ( $SMARTY_principal );
 }
 ?>

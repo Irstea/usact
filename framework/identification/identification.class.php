@@ -134,6 +134,15 @@ class Identification {
 				echo "Cette fonction doit être appelee apres init_LDAP";
 				die ();
 			}
+			$login = str_replace(array('\\', '*', '(', ')'), array('\5c', '\2a', '\28', '\29'), $login);
+			for ($i = 0; $i<strlen($login); $i++) {
+				$char = substr($login, $i, 1);
+				if (ord($char)<32) {
+					$hex = dechex(ord($char));
+					if (strlen($hex) == 1) $hex = '0' . $hex;
+					$login = str_replace($char, '\\' . $hex, $login);
+				}
+			}
 			$ldap = @ldap_connect ( $this->LDAP_address, $this->LDAP_port ) or die ( "Impossible de se connecter au serveur LDAP." );
 			if ($this->LDAP_v3) {
 				ldap_set_option ( $ldap, LDAP_OPT_PROTOCOL_VERSION, 3 );
@@ -147,7 +156,7 @@ class Identification {
 			if ($rep == 1) {
 				$_SESSION ["login"] = $login;
 				$log->setLog ( $login, "connexion", "ldap-ok - ip:" . $_SESSION ["remoteIP"] );
-				$message = $LANG["message"][10];
+				$message = $LANG ["message"] [10];
 				/*
 				 * Purge des anciens enregistrements dans log
 				 */
@@ -155,7 +164,7 @@ class Identification {
 				return $login;
 			} else {
 				$log->setLog ( $login, "connexion", "ldap-ko - ip:" . $_SESSION ["remoteIP"] );
-				$message = $LANG["message"][11];
+				$message = $LANG ["message"] [11];
 				return - 1;
 			}
 		} else
@@ -168,7 +177,8 @@ class Identification {
 	 * @return 0:1
 	 */
 	function disconnect($adresse_retour) {
-		global $message;$LANG;
+		global $message;
+		$LANG;
 		if (! isset ( $this->ident_type )) {
 			return 0;
 		}
@@ -185,7 +195,7 @@ class Identification {
 		if (isset ( $_COOKIE [session_name ()] )) {
 			setcookie ( session_name (), '', time () - 42000, '/' );
 		}
-		$message = $LANG["message"][7];
+		$message = $LANG ["message"] [7];
 		// Finalement, on détruit la session.
 		session_destroy ();
 		return 1;
@@ -247,6 +257,8 @@ class LoginGestion extends ObjetBDD {
 				"login" => array (
 						'requis' => 1 
 				),
+				"nom" => array ("type"=>0),
+				"prenom" => array ("type"=>0),
 				"actif" => array (
 						'type' => 1,
 						'defaultValue' => 1 
@@ -261,20 +273,22 @@ class LoginGestion extends ObjetBDD {
 	}
 	/**
 	 * Vérification du login en mode base de données
-	 * @param string $login
-	 * @param string $password
+	 * 
+	 * @param string $login        	
+	 * @param string $password        	
 	 * @return boolean
 	 */
 	function VerifLogin($login, $password) {
 		if (strlen ( $login ) > 0 && strlen ( $password ) > 0) {
+			$login = $this->encodeData ( $login );
 			// $password = md5($password);
-			$password = hash ( "sha256", $password );
+			$password = hash ( "sha256", $password.$login );
 			$sql = "select login from LoginGestion where login ='" . $login . "' and password = '" . $password . "' and actif = 1";
 			$res = ObjetBDD::lireParam ( $sql );
 			global $log, $LOG_duree, $message, $LANG;
 			if ($res ["login"] == $login) {
 				$log->setLog ( $login, "connexion", "db-ok - ip:" . $_SESSION ["remoteIP"] );
-				$message = $LANG["message"][10];
+				$message = $LANG ["message"] [10];
 				/*
 				 * Purge des anciens enregistrements dans log
 				 */
@@ -282,7 +296,7 @@ class LoginGestion extends ObjetBDD {
 				return TRUE;
 			} else {
 				$log->setLog ( $login, "connexion", "db-ko - ip:" . $_SESSION ["remoteIP"] );
-				$message = $LANG["message"][11];
+				$message = $LANG ["message"] [11];
 				return FALSE;
 			}
 		} else
@@ -294,7 +308,7 @@ class LoginGestion extends ObjetBDD {
 	 * @return array
 	 */
 	function getListeTriee() {
-		$sql = 'select id,login,nom,prenom,mail,actif from LoginGestion order by nom,prenom,login';
+		$sql = 'select id,login,nom,prenom,mail,actif from LoginGestion order by nom,prenom, login';
 		return ObjetBDD::getListeParam ( $sql );
 	}
 	/**
@@ -305,14 +319,14 @@ class LoginGestion extends ObjetBDD {
 	 */
 	function ecrire($liste) {
 		if (isset ( $liste ["pass1"] ) && isset ( $liste ["pass2"] ) && $liste ["pass1"] == $liste ["pass2"] && strlen ( $liste ["pass1"] ) > 3) {
-			$liste ["password"] = hash ( "sha256", $liste ["pass1"] );
+			$liste ["password"] = hash ( "sha256", $liste ["pass1"].$liste["login"] );
 		}
 		$liste ["datemodif"] = date ( 'd-m-y' );
 		return parent::ecrire ( $liste );
 	}
 	/**
 	 * Fonction de validation de changement du mot de passe
-	 * 
+	 *
 	 * @param string $oldpassword        	
 	 * @param string $pass1        	
 	 * @param string $pass2        	
@@ -324,7 +338,7 @@ class LoginGestion extends ObjetBDD {
 			global $LANG;
 			$oldData = $this->lireByLogin ( $_SESSION ["login"] );
 			if ($oldData ["id"] > 0) {
-				$oldpassword_hash = hash ( "sha256", $oldpassword );
+				$oldpassword_hash = hash ( "sha256", $oldpassword.$_SESSION["login"] );
 				if ($oldpassword_hash == $oldData ["password"]) {
 					
 					$data = $oldData;
@@ -343,7 +357,7 @@ class LoginGestion extends ObjetBDD {
 								/*
 								 * calcul du sha256 du mot de passe
 								 */
-								$password_hash = hash ( "sha256", $pass1 );
+								$password_hash = hash ( "sha256", $pass1.$_SESSION["login"] );
 								/*
 								 * Verification que le mot de passe n'a pas deja ete employe
 								 */
@@ -430,101 +444,13 @@ class LoginGestion extends ObjetBDD {
 	 * @return array
 	 */
 	function lireByLogin($login) {
+		$login = $this->encodeData ( $login );
 		$sql = "select * from " . $this->table . "
 				where login = '" . $login . "'";
 		return $this->lireParam ( $sql );
 	}
 }
-/**
- *
- *
- *
- *
- *
- * Classe de gestion des droits
- *
- * @author eric.quinton
- *        
- */
-class GestionDroit {
-	public $droits = array ();
-	private $gacl;
-	private $aco;
-	private $aro;
-	private $listeDroitsGeres;
-	
-	/**
-	 * Recherche des droits attribues au login, a partir de phpgacl et autres...
-	 * Impose que les droits geres dans l'application soient declares dans la
-	 * variable globale $GACL_listeDroitsGeres (fichier param.default.inc.php)
-	 *
-	 * @param
-	 *        	$gacl
-	 * @param
-	 *        	$aco
-	 * @param
-	 *        	$aro
-	 * @param
-	 *        	$ressource
-	 * @param
-	 *        	$listeDroitsGeres
-	 */
-	function setgacl(&$gacl, $aco, $aro, $listeDroitsGeres) {
-		$this->gacl = $gacl;
-		$this->aco = $aco;
-		$this->aro = $aro;
-		
-		$login = $this->getLogin ();
-		if (! is_null ( $listeDroitsGeres ) && ! is_null ( $login )) {
-			$droits = explode ( ",", $listeDroitsGeres );
-			$this->droits = array ();
-			foreach ( $droits as $value ) {
-				if ($this->gacl->acl_check ( $this->aco, $value, $this->aro, $login ) == 1) {
-					$this->droits [$value] = 1;
-				}
-			}
-		}
-	}
-	/**
-	 * Retourne le login stocke en variable de session
-	 */
-	function getLogin() {
-		return $_SESSION ["login"];
-	}
-	
-	/**
-	 * Test des droits
-	 *
-	 * @param $aco Categorie_a_tester        	
-	 * @return -1 1
-	 */
-	function getgacl($aco) {
-		$login = $this->getLogin ();
-		if (is_null ( $login ))
-			return - 1;
-		if ($this->droits [$aco] == 1) {
-			return 1;
-		} else {
-			return - 1;
-		}
-	}
-	/**
-	 * Retourne les droits affectes au login courant
-	 *
-	 * @return array
-	 */
-	function getDroits() {
-		return $this->droits;
-	}
-	/**
-	 * Fonction permettant de positionner manuellement un droit
-	 * @param string $droit
-	 * @param number $value
-	 */
-	function setDroitManual($droit, $value = 1) {
-		if (strlen($droit)>0) $this->droits[$droit] = $value;
-	}
-}
+
 /**
  * Classe permettant d'enregistrer toutes les operations effectuees dans la base
  *
@@ -577,6 +503,7 @@ class Log extends ObjetBDD {
 	 * @return integer
 	 */
 	function setLog($login, $module, $commentaire = NULL) {
+		global $GACL_aco;
 		$data = array (
 				"log_id" => 0,
 				"commentaire" => $commentaire 
@@ -590,13 +517,13 @@ class Log extends ObjetBDD {
 		$data ["login"] = $login;
 		if (is_null ( $module ))
 			$module = "unknown";
-		$data ["nom_module"] = $module;
+		$data ["nom_module"] = $GACL_aco."-".$module;
 		$data ["log_date"] = date ( "d/m/Y H:i:s" );
 		return $this->ecrire ( $data );
 	}
 	/**
 	 * Fonction de purge du fichier de traces
-	 * 
+	 *
 	 * @param int $nbJours
 	 *        	: nombre de jours de conservation
 	 * @return int
@@ -656,6 +583,7 @@ class LoginOldPassword extends ObjetBDD {
 	 * @return number
 	 */
 	function testPassword($login, $password_hash) {
+		$login = $this->encodeData ( $login );
 		$sql = 'select count(o.login_oldpassword_id) as "nb" 
 				from ' . $this->table . " o 
 				join logingestion on logingestion.id = o.id
@@ -672,11 +600,13 @@ class LoginOldPassword extends ObjetBDD {
 	 * @return int
 	 */
 	function setPassword($id, $password_hash) {
-		$data = array (
-				"id" => $id,
-				"password" => $password_hash 
-		);
-		return $this->ecrire ( $data );
+		if ($id > 0) {
+			$data = array (
+					"id" => $id,
+					"password" => $password_hash 
+			);
+			return $this->ecrire ( $data );
+		}
 	}
 }
 ?>
