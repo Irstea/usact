@@ -4,7 +4,7 @@
 
 <div class="formSaisie">
 <fieldset>
-<legend>Masque de saisie</legend>
+<legend>Table {$tableName}</legend>
 <div>
 
 <form method="post" action="index.php?module={$tableName}Write">

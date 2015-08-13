@@ -5,12 +5,37 @@
 	<item module="exampleList" value="example1" title="example2"  />	
 </item>
 <item module="parametre" value="100" title="101" >
-	<item module="echelleList" value="102" title="103" />
-	<item module="recurrenceList" value="104" title="105" />
+	<item module="echelleList" droits="consult" value="102" title="103" />
+	<item module="recurrenceList" droits="consult" value="104" title="105" />
+	<item module="type_perimetreList" droits="consult" value="106" title="107" />
+	<item module="bien_support_niv1List" droits="consult" value="108" title="109" />
+	<item module="objet_niv1List" droits="consult" value="110" title="111" />
+	<item module="action_echelleList" droits="consult" value="112" title="113" />
+	<item module="action_modeList" droits="consult" value="114" title="115" />
+	<item module="action_typeList" droits="consult" value="116" title="117" />
+	<item module="structure_typeList" droits="consult" value="118" title="119" />
+	<item module="mandat_typeList" droits="consult" value="120" title="121" />
+	<item module="acteur_niv1List" droits="consult" value="122" title="123" />
+	<item module="registre_argument_niv1List" droits="consult" value="124" title="125" />
+	<item module="revendication_niv1List" droits="consult" value="1260" title="1261" />
+	<item module="revend_support_niv1List" droits="consult" value="126" title="127" />
+	<item module="position_acteurList" droits="consult" value="128" title="129" />
+	<item module="qualite_appelList" droits="consult" value="130" title="131" />
+	<item module="journalList" droits="consult" value="132" title="133" />
+	<item module="acte_contentieuxList" droits="consult" value="134" title="135" />
+	<item module="type_ouvrage_perm_constrList" droits="consult" value="136" title="137" />
+	<item module="decision_appelList" droits="consult" value="138" title="139" />
+	<item module="nature_requeteList" droits="consult" value="140" title="141" />
+	<item module="nature_travauxList" droits="consult" value="142" title="143" />
+	<item module="juridique_domaineList" droits="consult" value="144" title="145" />
+	<item module="List" droits="consult" value="" title="" />
+	<item module="List" droits="consult" value="" title="" />
+	<item module="List" droits="consult" value="" title="" />
+	
 </item>
 
 <item module="administration" value="4" title="5">
-	<item module="groupeList" value="groupevalue" title="groupetitle" droits="admin"/>
+	<!--  item module="groupeList" value="groupevalue" title="groupetitle" droits="admin"/-->
 	<item module="loginliste" droits="admin" title="3" value="2"/>
 	<item module="appliList" droits="admin" value="appliliste" title="applilistetitle"/>
 	<item module="aclloginList" droits="admin" value="aclloginliste" title="aclloginlistetitle"/>

@@ -1,13 +1,11 @@
 <h2>Contenu de la table de paramètres : {$tableName}</h2>
-{include file="example/exampleSearch.tpl"}
-{if $isSearch == 1}
 {if $droits["param"] == 1}
-<a href="index.php?module=parametreChange&{$tableName}_id=0">
+<a href="index.php?module={$tableName}Change&{$tableName}_id=0">
 Nouveau...
 </a>
 {/if}
 <script>
-setDataTables("exampleListe");
+<!--setDataTables("parametre");-->
 </script>
 <table id="parametre" class="tableaffichage">
 <thead>
@@ -20,7 +18,7 @@ setDataTables("exampleListe");
 <tr>
 <td>
 {if $droits["param"] == 1}
-<a href="index.php?module=parametreChange&{$tableName}_id={$data[lst].id}">
+<a href="index.php?module={$tableName}Change&{$tableName}_id={$data[lst].id}">
 {$data[lst].id}
 </a>
 {else}
@@ -32,4 +30,4 @@ setDataTables("exampleListe");
 {/section}
 </tbody>
 </table>
-{/if}
+

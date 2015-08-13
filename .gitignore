@@ -5,7 +5,7 @@ gacl.ini.php
 .buildpath
 .settings
 .settings/*
-*/templates_c/* 
+display/templates_c/* 
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
