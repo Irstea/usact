@@ -25,31 +25,32 @@
 	<test action="test/test.php" retourko=""
 		retournull="">
 	</test>
-	<connexion loginrequis="1" menutitle="connexiontitle" menuvalue="connexionvalue" menulevel="0" menuorder="8" onlynoconnect="1" />
-	<identdisconnect action="framework/identification/disconnect.php" menutitle="7" menuvalue="6" menuorder="9" menulevel="0" menuloginrequis="1"></identdisconnect>
-	<apropos action="framework/apropos.php" menulevel="1" menuorder="99" menuvalue="8" menutitle="9" menuparent="99"></apropos>
+	<connexion loginrequis="1" menutitle="connexiontitle" menuvalue="connexionvalue" onlynoconnect="1" />
+	<disconnect action="framework/identification/disconnect.php" menuloginrequis="1"/>
+	<apropos action="framework/apropos.php" ></apropos>
 	<testcalendrier action="test/testcalendrier.php"></testcalendrier>
-	<phpinfo action="framework/phpinfo.php" droits="admin" menudroits="admin"  retourlogin="1" menulevel="1" menuorder="999" menuparent="3" menuvalue="phpinfo" menutitle="phpinfotitle" />
-	<quoideneuf action="doc/quoideneuf.php" menulevel="1" menuparent="99"  retourlogin="1" menutitle="41" menuvalue="40"></quoideneuf>
+	<phpinfo action="framework/phpinfo.php" droits="admin" />
+	<quoideneuf action="doc/quoideneuf.php" ></quoideneuf>
 	<setlanguage action='framework/setlanguage.php'  retourlogin="1" />
 	
-	<docindex menulevel="0" menuorder="99" menutitle="21" menuvalue="20" action="doc/index.php" param1="index.html" ajax="1"></docindex>
-	<docinstallation menulevel="1" menuorder="0" menutitle="23" menuvalue="22" action="doc/index.php" param1="Installation.html" menuparent="99" ></docinstallation>
-	<docdroits menulevel="1" menuorder="1" menutitle="25" menuvalue="24" action="doc/index.php" param1="Gestion_droits.html" menuparent="99"></docdroits>
-	<docmodulelecture menulevel="1" menuorder="2" menutitle="27" menuvalue="26" action="doc/index.php" param1="module_lecture.html" menuparent="99"></docmodulelecture>
-	<docparammodule menulevel="1" menuorder="3" menutitle="29" menuvalue="28" action="doc/index.php" param1="Parametrage_module.html" menuparent="99"></docparammodule>
-	<docclasseaccess menulevel="1" menuorder="4" menutitle="31" menuvalue="30" action="doc/index.php" param1="classe_acces_donnees.html" menuparent="99"></docclasseaccess>
-	<docgestiondoc menulevel="1" menuorder="5" menutitle="33" menuvalue="32" action="doc/index.php" param1="Gestion_documentation.html" menuparent="99" ></docgestiondoc>
-	<docinternationalisation menulevel="1" menuorder="6" menutitle="35" menuvalue="34" action="doc/index.php" param1="Internationalisation.html" menuparent="99"></docinternationalisation>
-	<docsmarty menulevel="1" menuorder="7" menutitle="37" menuvalue="36" action="doc/index.php" param1="Utiliser_SMARTY.html" menuparent="99" ></docsmarty>
-	<docdescriptionorganisation menulevel="1" menuorder="8" menutitle="39" menuvalue="38" action="doc/index.php" param1="Organisation_application.html" menuparent="99" ></docdescriptionorganisation>
-	<docmodulerecherche menulevel="1" menuorder="9" menutitle="43" menuvalue="42" menuparent="99" action="doc/index.php" param1="module_recherche.html" />
 	
 	<exampleList action="modules/example/example.php" param="list" droits="consult" menulevel="1" menuparent="1" menudroits="" menuvalue="example1" menutitle="example2"  />
 	<exampleDisplay action="modules/example/example.php" param="display" droits="consult" />
 	<exampleChange action="modules/example/example.php" param="change" droits="gestion" />
 	<exampleWrite action="modules/example/example.php" param="write" droits="gestion" retourok="exampleList" retourko="exampleChange" modulebefore="exampleChange" />
 	<exampleDelete action="modules/example/example.php" param="delete" droits="admin" retoursuppr="exampleList" retourko="exampleChange" />
+
+<!-- Paramètres -->
+	<parametre droits="consult" retourlogin="1"/>
+	<echelleList action="modules/parametre/parametre.php" tableName="echelle" param="list" droits="consult"  />
+	<echelleChange action="modules/parametre/parametre.php" tableName="echelle" param="change" droits="param" />
+	<echelleWrite action="modules/parametre/parametre.php" tableName="echelle" param="write" droits="param" retourok="echelleList" retourko="echelleChange" modulebefore="echelleChange" />
+	<echelleDelete action="modules/parametre/parametre.php" tableName="echelle" param="delete" droits="param" retoursuppr="echelleList" retourko="echelleChange" />
+	
+	<recurrenceList action="modules/parametre/parametre.php" tableName="recurrence" param="list" droits="consult"  />
+	<recurrenceChange action="modules/parametre/parametre.php" tableName="recurrence" param="change" droits="param" />
+	<recurrenceWrite action="modules/parametre/parametre.php" tableName="recurrence" param="write" droits="param" retourok="recurrenceList" retourko="recurrenceChange" modulebefore="recurrenceChange" />
+	<recurrenceDelete action="modules/parametre/parametre.php" tableName="recurrence" param="delete" droits="param" retoursuppr="recurrenceList" retourko="recurrenceChange" />
 
 <!-- gestion des droits nouvelle formule -->
 	<appliList action="framework/droits/appli.php" param="list" droits="admin" retourlogin="1"  />

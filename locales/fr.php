@@ -18,25 +18,8 @@ $LANG["menu"][13] = "Gestion des droits d'accés aux modules de l'application";
 $LANG["menu"][14] = "Droits et comptes";
 $LANG["menu"][15] = "Gestion des droits et des comptes";
 $LANG["menu"][20] = "Aide";
-$LANG["menu"][21] = "Utiliser PrototypePHP";
-$LANG["menu"][22] = "Installation";
-$LANG["menu"][23] = "Installer PrototypePHP";
-$LANG["menu"][24] = "Gestion des droits";
-$LANG["menu"][25] = "Gérer les droits dans l'application";
-$LANG["menu"][26] = "Module de lecture-ériture";
-$LANG["menu"][27] = "Créer un module pour lire ou écrire un enregistrement";
-$LANG["menu"][28] = "Paramétrage du module";
-$LANG["menu"][29] = "Configurer le module dans le fichier xml";
-$LANG["menu"][30] = "Classe d'accés aux données";
-$LANG["menu"][31] = "Créer la classe permettant d'accéder à une table";
-$LANG["menu"][32] = "Gestion de la documentation";
-$LANG["menu"][33] = "Gérer les pages de la documentation";
-$LANG["menu"][34] = "Langues";
-$LANG["menu"][35] = "Gestion des différentes langues, internationalisation de l'application";
-$LANG["menu"][36] = "SMARTY";
-$LANG["menu"][37] = "Manipuler les templates SMARTY";
-$LANG["menu"][38] = "Structure";
-$LANG["menu"][39] = "Organisation de PrototypePHP";
+$LANG["menu"][21] = "Aide";
+
 $LANG["menu"][40] = "Nouveautés";
 $LANG["menu"][41] = "Quoi de neuf dans l'application ?";
 $LANG["menu"][42] = "Module de recherche";
@@ -54,6 +37,16 @@ $LANG["menu"][65] = "Objet niv2";
 $LANG["menu"][66] = "Bien support niv1";
 $LANG["menu"][67] = "Bien support niv2";
 $LANG["menu"][68] = "Recurrence";
+
+$LANG["menu"][100] = "Paramètres";
+$LANG["menu"][101] = "Consultation - saisie des tables de paramètres";
+$LANG["menu"][102] = "Échelles";
+$LANG["menu"][103] = "Table des échelles (périmètre)";
+$LANG["menu"][104] = "Récurrences";
+$LANG["menu"][105] = "Table des récurrences (périmètre)";
+$LANG["menu"][] = "";
+
+
 /*
  * Gestion des droits nouvelle formule
  */

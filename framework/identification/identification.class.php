@@ -177,8 +177,7 @@ class Identification {
 	 * @return 0:1
 	 */
 	function disconnect($adresse_retour) {
-		global $message;
-		$LANG;
+		global $message, $LANG;
 		if (! isset ( $this->ident_type )) {
 			return 0;
 		}

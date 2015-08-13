@@ -12,8 +12,6 @@ $ADODB_debugmode = 0;
 $OBJETBDD_debugmode = 1;
 $APPLI_utf8 = true;
 
-$GACL_aco = "appli";
-
 $ident_type = "LDAP-BDD";
 /*
  * Parametres concernant la base de donnees
@@ -35,7 +33,7 @@ $BDDDEV_schema = "public";
  */
 $GACL_dblogin = "eric.quinton";
 $GACL_dbpasswd = "Kl3nduc!";
-$GACL_aco = "appli";
+$GACL_aco = "usact";
 $GACL_dsn = "pgsql:host=guzzi;dbname=usact";
 $GACL_schema = "gacl";
 
