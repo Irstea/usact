@@ -1,38 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <menu>
 <item module="gestion" title="1" value="0">
-	<item module="gestion" title="1" value="0"/>
-	<item module="exampleList" value="example1" title="example2"  />	
+	<item module="perimetreList" droits="consult" value="52" title="53" />
+	<item module="conflitList" droits="consult" value="50" title="51" />
+	<item module="interventionList" droits="consult" value="54" title="55" />
+	<item module="entretienList" droits="consult" value="56" title="57" />
+	<item module="articleList" droits="consult" value="58" title="59" />
+	<item module="juridiqueList" droits="consult" value="60" title="61" />
+	<item module="resolutionList" droits="consult" value="62" title="63" />
 </item>
-<item module="parametre" value="100" title="101" >
+
+
+<item module="parametrePerimetre" value="94" title="95">
 	<item module="echelleList" droits="consult" value="102" title="103" />
 	<item module="recurrenceList" droits="consult" value="104" title="105" />
 	<item module="type_perimetreList" droits="consult" value="106" title="107" />
 	<item module="bien_support_niv1List" droits="consult" value="108" title="109" />
+	<item module="bien_support_niv2List" droits="consult" value="156" title="157" />
 	<item module="objet_niv1List" droits="consult" value="110" title="111" />
-	<item module="action_echelleList" droits="consult" value="112" title="113" />
-	<item module="action_modeList" droits="consult" value="114" title="115" />
-	<item module="action_typeList" droits="consult" value="116" title="117" />
-	<item module="structure_typeList" droits="consult" value="118" title="119" />
-	<item module="mandat_typeList" droits="consult" value="120" title="121" />
-	<item module="acteur_niv1List" droits="consult" value="122" title="123" />
+	<item module="objet_niv2List" droits="consult" value="150" title="151" />
+
+</item>
+
+<item module="parametreRevendication" value="96" title="97">
 	<item module="registre_argument_niv1List" droits="consult" value="124" title="125" />
-	<item module="revendication_niv1List" droits="consult" value="1260" title="1261" />
+	<item module="registre_argument_niv2List" droits="consult" value="152" title="153" />
+	<item module="revendication_niv1List" droits="consult" value="146" title="147" />
+	<item module="revendication_niv2List" droits="consult" value="154" title="155" />
 	<item module="revend_support_niv1List" droits="consult" value="126" title="127" />
-	<item module="position_acteurList" droits="consult" value="128" title="129" />
-	<item module="qualite_appelList" droits="consult" value="130" title="131" />
-	<item module="journalList" droits="consult" value="132" title="133" />
+	<item module="revend_support_niv2List" droits="consult" value="158" title="159" />
+</item>
+
+<item module="parametreJuridique" value="98" title="99">
 	<item module="acte_contentieuxList" droits="consult" value="134" title="135" />
 	<item module="type_ouvrage_perm_constrList" droits="consult" value="136" title="137" />
 	<item module="decision_appelList" droits="consult" value="138" title="139" />
 	<item module="nature_requeteList" droits="consult" value="140" title="141" />
 	<item module="nature_travauxList" droits="consult" value="142" title="143" />
 	<item module="juridique_domaineList" droits="consult" value="144" title="145" />
-	<item module="List" droits="consult" value="" title="" />
-	<item module="List" droits="consult" value="" title="" />
-	<item module="List" droits="consult" value="" title="" />
-	
+	<item module="juridique_sous_domaineList" droits="consult" value="164" title="165" />
+	<item module="position_acteurList" droits="consult" value="128" title="129" />
+	<item module="qualite_appelList" droits="consult" value="130" title="131" />
 </item>
+
+<item module="parametre" value="100" title="101" >
+	<item module="usage_activite_niv1List" droits="consult" value="160" title="161" />
+	<item module="usage_activite_niv2List" droits="consult" value="162" title="163" />
+	<item module="roleList" droits="consult" value="174" title="175" />	
+	<item module="action_echelleList" droits="consult" value="112" title="113" />
+	<item module="action_modeList" droits="consult" value="114" title="115" />
+	<item module="action_typeList" droits="consult" value="116" title="117" />
+	<item module="structure_typeList" droits="consult" value="118" title="119" />
+	<item module="mandat_typeList" droits="consult" value="120" title="121" />
+	<item module="acteur_niv1List" droits="consult" value="122" title="123" />
+	<item module="acteur_niv2List" droits="consult" value="166" title="167" />
+	<item module="acteur_niv3List" droits="consult" value="168" title="169" />
+	<item module="journalList" droits="consult" value="132" title="133" />
+	<item module="resolution_mode_niv1List" droits="consult" value="170" title="171" />
+	<item module="resolution_mode_niv2List" droits="consult" value="172" title="173" />	
+</item>
+
 
 <item module="administration" value="4" title="5">
 	<!--  item module="groupeList" value="groupevalue" title="groupetitle" droits="admin"/-->

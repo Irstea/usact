@@ -157,6 +157,68 @@
 	<juridique_domaineWrite action="modules/parametre/parametre.php" tableName="juridique_domaine" param="write" droits="param" retourok="juridique_domaineList" retourko="juridique_domaineChange" modulebefore="juridique_domaineChange" />
 	<juridique_domaineDelete action="modules/parametre/parametre.php" tableName="juridique_domaine" param="delete" droits="param" retoursuppr="juridique_domaineList" retourko="juridique_domaineChange" />
 
+	<roleList action="modules/parametre/parametre.php" tableName="role" param="list" retourlogin="1"  droits="consult"  />
+	<roleChange action="modules/parametre/parametre.php" tableName="role" param="change" droits="param" />
+	<roleWrite action="modules/parametre/parametre.php" tableName="role" param="write" droits="param" retourok="roleList" retourko="roleChange" modulebefore="roleChange" />
+	<roleDelete action="modules/parametre/parametre.php" tableName="role" param="delete" droits="param" retoursuppr="roleList" retourko="roleChange" />
+
+
+	<objet_niv2List action="modules/parametre/parametre_niv2.php" tableName="objet_niv2" tableParent="objet_niv1" param="list" retourlogin="1"  droits="consult"  />
+	<objet_niv2Change action="modules/parametre/parametre_niv2.php" tableName="objet_niv2"  tableParent="objet_niv1" param="change" droits="param" />
+	<objet_niv2Write action="modules/parametre/parametre_niv2.php" tableName="objet_niv2"  tableParent="objet_niv1" param="write" droits="param" retourok="objet_niv2List" retourko="objet_niv2Change" modulebefore="objet_niv2Change" />
+	<objet_niv2Delete action="modules/parametre/parametre_niv2.php" tableName="objet_niv2"  tableParent="objet_niv1" param="delete" droits="param" retoursuppr="objet_niv2List" retourko="objet_niv2Change" />
+
+	<registre_argument_niv2List action="modules/parametre/parametre_niv2.php" tableName="registre_argument_niv2" tableParent="registre_argument_niv1" param="list" retourlogin="1"  droits="consult"  />
+	<registre_argument_niv2Change action="modules/parametre/parametre_niv2.php" tableName="registre_argument_niv2"  tableParent="registre_argument_niv1" param="change" droits="param" />
+	<registre_argument_niv2Write action="modules/parametre/parametre_niv2.php" tableName="registre_argument_niv2"  tableParent="registre_argument_niv1" param="write" droits="param" retourok="registre_argument_niv2List" retourko="registre_argument_niv2Change" modulebefore="registre_argument_niv2Change" />
+	<registre_argument_niv2Delete action="modules/parametre/parametre_niv2.php" tableName="registre_argument_niv2"  tableParent="registre_argument_niv1" param="delete" droits="param" retoursuppr="registre_argument_niv2List" retourko="registre_argument_niv2Change" />
+
+	<revendication_niv2List action="modules/parametre/parametre_niv2.php" tableName="revendication_niv2" tableParent="revendication_niv1" param="list" retourlogin="1"  droits="consult"  />
+	<revendication_niv2Change action="modules/parametre/parametre_niv2.php" tableName="revendication_niv2"  tableParent="revendication_niv1" param="change" droits="param" />
+	<revendication_niv2Write action="modules/parametre/parametre_niv2.php" tableName="revendication_niv2"  tableParent="revendication_niv1" param="write" droits="param" retourok="revendication_niv2List" retourko="revendication_niv2Change" modulebefore="revendication_niv2Change" />
+	<revendication_niv2Delete action="modules/parametre/parametre_niv2.php" tableName="revendication_niv2"  tableParent="revendication_niv1" param="delete" droits="param" retoursuppr="revendication_niv2List" retourko="revendication_niv2Change" />
+
+	<bien_support_niv2List action="modules/parametre/parametre_niv2.php" tableName="bien_support_niv2" tableParent="bien_support_niv1" param="list" retourlogin="1"  droits="consult"  />
+	<bien_support_niv2Change action="modules/parametre/parametre_niv2.php" tableName="bien_support_niv2"  tableParent="bien_support_niv1" param="change" droits="param" />
+	<bien_support_niv2Write action="modules/parametre/parametre_niv2.php" tableName="bien_support_niv2"  tableParent="bien_support_niv1" param="write" droits="param" retourok="bien_support_niv2List" retourko="bien_support_niv2Change" modulebefore="bien_support_niv2Change" />
+	<bien_support_niv2Delete action="modules/parametre/parametre_niv2.php" tableName="bien_support_niv2"  tableParent="bien_support_niv1" param="delete" droits="param" retoursuppr="bien_support_niv2List" retourko="bien_support_niv2Change" />
+
+	<revend_support_niv2List action="modules/parametre/parametre_niv2.php" tableName="revend_support_niv2" tableParent="revend_support_niv1" param="list" retourlogin="1"  droits="consult"  />
+	<revend_support_niv2Change action="modules/parametre/parametre_niv2.php" tableName="revend_support_niv2"  tableParent="revend_support_niv1" param="change" droits="param" />
+	<revend_support_niv2Write action="modules/parametre/parametre_niv2.php" tableName="revend_support_niv2"  tableParent="revend_support_niv1" param="write" droits="param" retourok="revend_support_niv2List" retourko="revend_support_niv2Change" modulebefore="revend_support_niv2Change" />
+	<revend_support_niv2Delete action="modules/parametre/parametre_niv2.php" tableName="revend_support_niv2"  tableParent="revend_support_niv1" param="delete" droits="param" retoursuppr="revend_support_niv2List" retourko="revend_support_niv2Change" />
+
+	<juridique_sous_domaineList action="modules/parametre/parametre_niv2.php" tableName="juridique_sous_domaine" tableParent="juridique_domaine" param="list" retourlogin="1"  droits="consult"  />
+	<juridique_sous_domaineChange action="modules/parametre/parametre_niv2.php" tableName="juridique_sous_domaine"  tableParent="juridique_domaine" param="change" droits="param" />
+	<juridique_sous_domaineWrite action="modules/parametre/parametre_niv2.php" tableName="juridique_sous_domaine"  tableParent="juridique_domaine" param="write" droits="param" retourok="juridique_sous_domaineList" retourko="juridique_sous_domaineChange" modulebefore="juridique_sous_domaineChange" />
+	<juridique_sous_domaineDelete action="modules/parametre/parametre_niv2.php" tableName="juridique_sous_domaine"  tableParent="juridique_domaine" param="delete" droits="param" retoursuppr="juridique_sous_domaineList" retourko="juridique_sous_domaineChange" />
+
+	<acteur_niv2List action="modules/parametre/parametre_niv2.php" tableName="acteur_niv2" tableParent="acteur_niv1" param="list" retourlogin="1"  droits="consult"  />
+	<acteur_niv2Change action="modules/parametre/parametre_niv2.php" tableName="acteur_niv2"  tableParent="acteur_niv1" param="change" droits="param" />
+	<acteur_niv2Write action="modules/parametre/parametre_niv2.php" tableName="acteur_niv2"  tableParent="acteur_niv1" param="write" droits="param" retourok="acteur_niv2List" retourko="acteur_niv2Change" modulebefore="acteur_niv2Change" />
+	<acteur_niv2Delete action="modules/parametre/parametre_niv2.php" tableName="acteur_niv2"  tableParent="acteur_niv1" param="delete" droits="param" retoursuppr="acteur_niv2List" retourko="acteur_niv2Change" />
+
+	<resolution_mode_niv1List action="modules/parametre/parametre.php" tableName="resolution_mode_niv1" param="list" retourlogin="1"  droits="consult"  />
+	<resolution_mode_niv1Change action="modules/parametre/parametre.php" tableName="resolution_mode_niv1" param="change" droits="param" />
+	<resolution_mode_niv1Write action="modules/parametre/parametre.php" tableName="resolution_mode_niv1" param="write" droits="param" retourok="resolution_mode_niv1List" retourko="resolution_mode_niv1Change" modulebefore="resolution_mode_niv1Change" />
+	<resolution_mode_niv1Delete action="modules/parametre/parametre.php" tableName="resolution_mode_niv1" param="delete" droits="param" retoursuppr="resolution_mode_niv1List" retourko="resolution_mode_niv1Change" />
+
+	<resolution_mode_niv2List action="modules/parametre/parametre_niv2.php" tableName="resolution_mode_niv2" tableParent="resolution_mode_niv1" param="list" retourlogin="1"  droits="consult"  />
+	<resolution_mode_niv2Change action="modules/parametre/parametre_niv2.php" tableName="resolution_mode_niv2"  tableParent="resolution_mode_niv1" param="change" droits="param" />
+	<resolution_mode_niv2Write action="modules/parametre/parametre_niv2.php" tableName="resolution_mode_niv2"  tableParent="resolution_mode_niv1" param="write" droits="param" retourok="resolution_mode_niv2List" retourko="resolution_mode_niv2Change" modulebefore="resolution_mode_niv2Change" />
+	<resolution_mode_niv2Delete action="modules/parametre/parametre_niv2.php" tableName="resolution_mode_niv2"  tableParent="resolution_mode_niv1" param="delete" droits="param" retoursuppr="resolution_mode_niv2List" retourko="resolution_mode_niv2Change" />
+
+	<usage_activite_niv1List action="modules/parametre/parametre.php" tableName="usage_activite_niv1" param="list" retourlogin="1"  droits="consult"  />
+	<usage_activite_niv1Change action="modules/parametre/parametre.php" tableName="usage_activite_niv1" param="change" droits="param" />
+	<usage_activite_niv1Write action="modules/parametre/parametre.php" tableName="usage_activite_niv1" param="write" droits="param" retourok="usage_activite_niv1List" retourko="usage_activite_niv1Change" modulebefore="usage_activite_niv1Change" />
+	<usage_activite_niv1Delete action="modules/parametre/parametre.php" tableName="usage_activite_niv1" param="delete" droits="param" retoursuppr="usage_activite_niv1List" retourko="usage_activite_niv1Change" />
+
+
+	<usage_activite_niv2List action="modules/parametre/parametre_niv2.php" tableName="usage_activite_niv2" tableParent="usage_activite_niv1" param="list" retourlogin="1"  droits="consult"  />
+	<usage_activite_niv2Change action="modules/parametre/parametre_niv2.php" tableName="usage_activite_niv2"  tableParent="usage_activite_niv1" param="change" droits="param" />
+	<usage_activite_niv2Write action="modules/parametre/parametre_niv2.php" tableName="usage_activite_niv2"  tableParent="usage_activite_niv1" param="write" droits="param" retourok="usage_activite_niv2List" retourko="usage_activite_niv2Change" modulebefore="usage_activite_niv2Change" />
+	<usage_activite_niv2Delete action="modules/parametre/parametre_niv2.php" tableName="usage_activite_niv2"  tableParent="usage_activite_niv1" param="delete" droits="param" retoursuppr="usage_activite_niv2List" retourko="usage_activite_niv2Change" />
+
 
 <!-- gestion des droits nouvelle formule -->
 	<appliList action="framework/droits/appli.php" param="list" droits="admin" retourlogin="1"  />

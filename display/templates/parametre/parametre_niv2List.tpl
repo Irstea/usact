@@ -5,13 +5,14 @@ Nouveau...
 </a>
 {/if}
 <script>
-setDataTables("parametre");
+setDataTables("parametre_niv2");
 </script>
-<table id="parametre" class="tableaffichage">
+<table id="parametre_niv2" class="tableaffichage">
 <thead>
 <tr>
 <th>Clé</th>
-<th>Libellé</th>
+<th>Niveau 1</th>
+<th>Niveau 2</th>
 </tr>
 </thead><tbody>
 {section name=lst loop=$data}
@@ -25,9 +26,9 @@ setDataTables("parametre");
 {$data[lst].id}
 {/if}
 </td>
+<td>{$data[lst].parent_libelle}</td>
 <td>{$data[lst].libelle}</td>
 </tr>
 {/section}
 </tbody>
 </table>
-
