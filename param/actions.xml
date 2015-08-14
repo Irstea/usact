@@ -198,6 +198,12 @@
 	<acteur_niv2Write action="modules/parametre/parametre_niv2.php" tableName="acteur_niv2"  tableParent="acteur_niv1" param="write" droits="param" retourok="acteur_niv2List" retourko="acteur_niv2Change" modulebefore="acteur_niv2Change" />
 	<acteur_niv2Delete action="modules/parametre/parametre_niv2.php" tableName="acteur_niv2"  tableParent="acteur_niv1" param="delete" droits="param" retoursuppr="acteur_niv2List" retourko="acteur_niv2Change" />
 
+	<acteur_niv3List action="modules/parametre/acteur_niv3.php"  param="list" retourlogin="1"  droits="consult"  />
+	<acteur_niv3Change action="modules/parametre/acteur_niv3.php"  param="change" droits="param" />
+	<acteur_niv3Write action="modules/parametre/acteur_niv3.php"  param="write" droits="param" retourok="acteur_niv3List" retourko="acteur_niv3Change" modulebefore="acteur_niv3Change" />
+	<acteur_niv3Delete action="modules/parametre/acteur_niv3.php"  param="delete" droits="param" retoursuppr="acteur_niv3List" retourko="acteur_niv3Change" />
+
+
 	<resolution_mode_niv1List action="modules/parametre/parametre.php" tableName="resolution_mode_niv1" param="list" retourlogin="1"  droits="consult"  />
 	<resolution_mode_niv1Change action="modules/parametre/parametre.php" tableName="resolution_mode_niv1" param="change" droits="param" />
 	<resolution_mode_niv1Write action="modules/parametre/parametre.php" tableName="resolution_mode_niv1" param="write" droits="param" retourok="resolution_mode_niv1List" retourko="resolution_mode_niv1Change" modulebefore="resolution_mode_niv1Change" />

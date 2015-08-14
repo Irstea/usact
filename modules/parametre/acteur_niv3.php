@@ -5,13 +5,11 @@
  * @license http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html LICENCE DE LOGICIEL LIBRE CeCILL-C
  *  Creation 14 août 2015
  */
+ 
 include_once 'modules/classes/parametre.class.php';
-$dataClass = new Parametre_niv2($bdd,$t_module["tableName"], $t_module["tableParent"], $ObjetBDDParam);
-$keyName = $t_module["tableName"]."_id";
+$dataClass = new Acteur_niv3($bdd, $ObjetBDDParam);
+$keyName = "acteur_niv3_id";
 $id = $_REQUEST[$keyName];
-$smarty->assign("tableName", $t_module["tableName"]);
-$smarty->assign("tableParent", $t_module["tableParent"]);
-
 
 switch ($t_module["param"]) {
 	case "list":
@@ -19,8 +17,8 @@ switch ($t_module["param"]) {
 		 * Display the list of all records of the table
 		 */
 
-		$smarty->assign("data", $dataClass->generalise($dataClass->getListe(2)));
-		$smarty->assign("corps", "parametre/parametre_niv2List.tpl");
+		$smarty->assign("data", $dataClass->getListe());
+		$smarty->assign("corps", "parametre/acteur_niv3List.tpl");
 		break;
 	case "change":
 		/*
@@ -28,12 +26,11 @@ switch ($t_module["param"]) {
 		 * If is a new record, generate a new record with default value :
 		 * $_REQUEST["idParent"] contains the identifiant of the parent record
 		 */
-		$data = dataRead($dataClass, $id, "parametre/parametre_niv2Change.tpl");
-		$smarty->assign("data", $dataClass->generalise($data, false));
+		$data = dataRead($dataClass, $id, "parametre/acteur_niv3Change.tpl");
 		/*
 		 * Recuperation des donnees de la table parente
-		 */
-		$parentClass = new Parametre($bdd, $t_module["tableParent"], $ObjetBDDParam);
+		*/
+		$parentClass = new Parametre_niv2($bdd, "acteur_niv2", "acteur_niv1", $ObjetBDDParam);
 		$smarty->assign("parentData", $parentClass->generalise($parentClass->getListe()));
 		break;
 	case "write":
@@ -52,5 +49,6 @@ switch ($t_module["param"]) {
 		dataDelete($dataClass, $id);
 		break;
 }
+
 
 ?>

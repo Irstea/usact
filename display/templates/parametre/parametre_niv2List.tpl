@@ -32,3 +32,4 @@ setDataTables("parametre_niv2");
 {/section}
 </tbody>
 </table>
+<br>

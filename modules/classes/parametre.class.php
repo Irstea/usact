@@ -90,9 +90,10 @@ class Parametre_niv2 extends ObjetBDD {
 	function getListe($order=0) {
 		$sql = "select * from ".$this->table."
 				natural join ".$this->nomTableParent;
-		if ($order > 0 && is_numeric($order)) {
+		if ($order != 0 ) {
 			$sql .= " order by ".$order;
-		}
+		} else 
+			$sql .= " order by 3, 2";
 		return $this->getListeParam($sql);
 	}
 	
@@ -116,6 +117,37 @@ class Parametre_niv2 extends ObjetBDD {
 		}
 		return $data;
 	}
+}
+
+class Acteur_niv3 extends ObjetBDD {
+	function __construct($bdd, $param=null) {
+		$this->param = $param;
+		$this->table="acteur_niv3";
+		$this->id_auto="1";
+		$this->colonnes=array(
+				"acteur_niv3_id"=>array("type"=>1,"key"=>1, "requis"=>1, "defaultValue"=>0),
+				"acteur_niv3_libelle"=>array("type"=>0,"requis"=>1),
+				"acteur_niv2_id"=>array("type"=>0, "requis"=>1, "parentAttrib"=>1)
+		);
+		if(!is_array($param)) $param==array();
+		$param["fullDescription"]=1;
+		parent::__construct($bdd,$param);
+	}
+
+	/**
+	 * Retourne la liste avec les tables parentes attachees
+	 * (non-PHPdoc)
+	 * @see ObjetBDD::getListe()
+	 */
+	function getListe($order=0) {
+		$sql = "select * from ".$this->table."
+				natural join acteur_niv2
+				natural join acteur_niv1
+				order by ";
+		$order != 0 ? $sql .= $order : $sql .= " 2,3,4";
+		return $this->getListeParam($sql);
+	}
+	
 }
 
 

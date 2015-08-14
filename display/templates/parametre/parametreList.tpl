@@ -5,7 +5,7 @@ Nouveau...
 </a>
 {/if}
 <script>
-setDataTables("parametre");
+setDataTables("parametre", true, true);
 </script>
 <table id="parametre" class="tableaffichage">
 <thead>
@@ -30,4 +30,4 @@ setDataTables("parametre");
 {/section}
 </tbody>
 </table>
-
+<br>
