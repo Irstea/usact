@@ -42,117 +42,117 @@
 
 <!-- Paramètres -->
 	<parametre droits="consult" retourlogin="1"/>
-	<echelleList action="modules/parametre/parametre.php" tableName="echelle" param="list" droits="consult"  />
+	<echelleList action="modules/parametre/parametre.php" tableName="echelle" retourlogin="1" param="list" droits="consult"  />
 	<echelleChange action="modules/parametre/parametre.php" tableName="echelle" param="change" droits="param" />
 	<echelleWrite action="modules/parametre/parametre.php" tableName="echelle" param="write" droits="param" retourok="echelleList" retourko="echelleChange" modulebefore="echelleChange" />
 	<echelleDelete action="modules/parametre/parametre.php" tableName="echelle" param="delete" droits="param" retoursuppr="echelleList" retourko="echelleChange" />
 	
-	<recurrenceList action="modules/parametre/parametre.php" tableName="recurrence" param="list" droits="consult"  />
+	<recurrenceList action="modules/parametre/parametre.php" tableName="recurrence" retourlogin="1" param="list" droits="consult"  />
 	<recurrenceChange action="modules/parametre/parametre.php" tableName="recurrence" param="change" droits="param" />
 	<recurrenceWrite action="modules/parametre/parametre.php" tableName="recurrence" param="write" droits="param" retourok="recurrenceList" retourko="recurrenceChange" modulebefore="recurrenceChange" />
 	<recurrenceDelete action="modules/parametre/parametre.php" tableName="recurrence" param="delete" droits="param" retoursuppr="recurrenceList" retourko="recurrenceChange" />
 
-	<type_perimetreList action="modules/parametre/parametre.php" tableName="type_perimetre" param="list" droits="consult"  />
+	<type_perimetreList action="modules/parametre/parametre.php" tableName="type_perimetre" retourlogin="1" param="list" droits="consult"  />
 	<type_perimetreChange action="modules/parametre/parametre.php" tableName="type_perimetre" param="change" droits="param" />
 	<type_perimetreWrite action="modules/parametre/parametre.php" tableName="type_perimetre" param="write" droits="param" retourok="type_perimetreList" retourko="type_perimetreChange" modulebefore="type_perimetreChange" />
 	<type_perimetreDelete action="modules/parametre/parametre.php" tableName="type_perimetre" param="delete" droits="param" retoursuppr="type_perimetreList" retourko="type_perimetreChange" />
 
-	<bien_support_niv1List action="modules/parametre/parametre.php" tableName="bien_support_niv1" param="list" droits="consult"  />
+	<bien_support_niv1List action="modules/parametre/parametre.php" tableName="bien_support_niv1" retourlogin="1"  param="list" droits="consult"  />
 	<bien_support_niv1Change action="modules/parametre/parametre.php" tableName="bien_support_niv1" param="change" droits="param" />
 	<bien_support_niv1Write action="modules/parametre/parametre.php" tableName="bien_support_niv1" param="write" droits="param" retourok="bien_support_niv1List" retourko="bien_support_niv1Change" modulebefore="bien_support_niv1Change" />
 	<bien_support_niv1Delete action="modules/parametre/parametre.php" tableName="bien_support_niv1" param="delete" droits="param" retoursuppr="bien_support_niv1List" retourko="bien_support_niv1Change" />
 
-	<objet_niv1List action="modules/parametre/parametre.php" tableName="objet_niv1" param="list" droits="consult"  />
+	<objet_niv1List action="modules/parametre/parametre.php" tableName="objet_niv1" param="list" retourlogin="1"  droits="consult"  />
 	<objet_niv1Change action="modules/parametre/parametre.php" tableName="objet_niv1" param="change" droits="param" />
 	<objet_niv1Write action="modules/parametre/parametre.php" tableName="objet_niv1" param="write" droits="param" retourok="objet_niv1List" retourko="objet_niv1Change" modulebefore="objet_niv1Change" />
 	<objet_niv1Delete action="modules/parametre/parametre.php" tableName="objet_niv1" param="delete" droits="param" retoursuppr="objet_niv1List" retourko="objet_niv1Change" />
 
-	<action_echelleList action="modules/parametre/parametre.php" tableName="action_echelle" param="list" droits="consult"  />
+	<action_echelleList action="modules/parametre/parametre.php" tableName="action_echelle"  retourlogin="1" param="list" droits="consult"  />
 	<action_echelleChange action="modules/parametre/parametre.php" tableName="action_echelle" param="change" droits="param" />
 	<action_echelleWrite action="modules/parametre/parametre.php" tableName="action_echelle" param="write" droits="param" retourok="action_echelleList" retourko="action_echelleChange" modulebefore="action_echelleChange" />
 	<action_echelleDelete action="modules/parametre/parametre.php" tableName="action_echelle" param="delete" droits="param" retoursuppr="action_echelleList" retourko="action_echelleChange" />
 
-	<action_modeList action="modules/parametre/parametre.php" tableName="action_mode" param="list" droits="consult"  />
+	<action_modeList action="modules/parametre/parametre.php" tableName="action_mode" param="list" retourlogin="1"  droits="consult"  />
 	<action_modeChange action="modules/parametre/parametre.php" tableName="action_mode" param="change" droits="param" />
 	<action_modeWrite action="modules/parametre/parametre.php" tableName="action_mode" param="write" droits="param" retourok="action_modeList" retourko="action_modeChange" modulebefore="action_modeChange" />
 	<action_modeDelete action="modules/parametre/parametre.php" tableName="action_mode" param="delete" droits="param" retoursuppr="action_modeList" retourko="action_modeChange" />
 
-	<action_typeList action="modules/parametre/parametre.php" tableName="action_type" param="list" droits="consult"  />
+	<action_typeList action="modules/parametre/parametre.php" tableName="action_type" param="list"  retourlogin="1" droits="consult"  />
 	<action_typeChange action="modules/parametre/parametre.php" tableName="action_type" param="change" droits="param" />
 	<action_typeWrite action="modules/parametre/parametre.php" tableName="action_type" param="write" droits="param" retourok="action_typeList" retourko="action_typeChange" modulebefore="action_typeChange" />
 	<action_typeDelete action="modules/parametre/parametre.php" tableName="action_type" param="delete" droits="param" retoursuppr="action_typeList" retourko="action_typeChange" />
 
-	<structure_typeList action="modules/parametre/parametre.php" tableName="structure_type" param="list" droits="consult"  />
+	<structure_typeList action="modules/parametre/parametre.php" tableName="structure_type" param="list" retourlogin="1"  droits="consult"  />
 	<structure_typeChange action="modules/parametre/parametre.php" tableName="structure_type" param="change" droits="param" />
 	<structure_typeWrite action="modules/parametre/parametre.php" tableName="structure_type" param="write" droits="param" retourok="structure_typeList" retourko="structure_typeChange" modulebefore="structure_typeChange" />
 	<structure_typeDelete action="modules/parametre/parametre.php" tableName="structure_type" param="delete" droits="param" retoursuppr="structure_typeList" retourko="structure_typeChange" />
 
-	<mandat_typeList action="modules/parametre/parametre.php" tableName="mandat_type" param="list" droits="consult"  />
+	<mandat_typeList action="modules/parametre/parametre.php" tableName="mandat_type" param="list" retourlogin="1"  droits="consult"  />
 	<mandat_typeChange action="modules/parametre/parametre.php" tableName="mandat_type" param="change" droits="param" />
 	<mandat_typeWrite action="modules/parametre/parametre.php" tableName="mandat_type" param="write" droits="param" retourok="mandat_typeList" retourko="mandat_typeChange" modulebefore="mandat_typeChange" />
 	<mandat_typeDelete action="modules/parametre/parametre.php" tableName="mandat_type" param="delete" droits="param" retoursuppr="mandat_typeList" retourko="mandat_typeChange" />
 
-	<acteur_niv1List action="modules/parametre/parametre.php" tableName="acteur_niv1" param="list" droits="consult"  />
+	<acteur_niv1List action="modules/parametre/parametre.php" tableName="acteur_niv1" param="list"  retourlogin="1" droits="consult"  />
 	<acteur_niv1Change action="modules/parametre/parametre.php" tableName="acteur_niv1" param="change" droits="param" />
 	<acteur_niv1Write action="modules/parametre/parametre.php" tableName="acteur_niv1" param="write" droits="param" retourok="acteur_niv1List" retourko="acteur_niv1Change" modulebefore="acteur_niv1Change" />
 	<acteur_niv1Delete action="modules/parametre/parametre.php" tableName="acteur_niv1" param="delete" droits="param" retoursuppr="acteur_niv1List" retourko="acteur_niv1Change" />
 
-	<registre_argument_niv1List action="modules/parametre/parametre.php" tableName="registre_argument_niv1" param="list" droits="consult"  />
+	<registre_argument_niv1List action="modules/parametre/parametre.php" tableName="registre_argument_niv1"  retourlogin="1" param="list" droits="consult"  />
 	<registre_argument_niv1Change action="modules/parametre/parametre.php" tableName="registre_argument_niv1" param="change" droits="param" />
 	<registre_argument_niv1Write action="modules/parametre/parametre.php" tableName="registre_argument_niv1" param="write" droits="param" retourok="registre_argument_niv1List" retourko="registre_argument_niv1Change" modulebefore="registre_argument_niv1Change" />
 	<registre_argument_niv1Delete action="modules/parametre/parametre.php" tableName="registre_argument_niv1" param="delete" droits="param" retoursuppr="registre_argument_niv1List" retourko="registre_argument_niv1Change" />
 
-	<revendication_niv1List action="modules/parametre/parametre.php" tableName="revendication_niv1" param="list" droits="consult"  />
+	<revendication_niv1List action="modules/parametre/parametre.php" tableName="revendication_niv1" retourlogin="1"  param="list" droits="consult"  />
 	<revendication_niv1Change action="modules/parametre/parametre.php" tableName="revendication_niv1" param="change" droits="param" />
 	<revendication_niv1Write action="modules/parametre/parametre.php" tableName="revendication_niv1" param="write" droits="param" retourok="revendication_niv1List" retourko="revendication_niv1Change" modulebefore="revendication_niv1Change" />
 	<revendication_niv1Delete action="modules/parametre/parametre.php" tableName="revendication_niv1" param="delete" droits="param" retoursuppr="revendication_niv1List" retourko="revendication_niv1Change" />
 
-	<revend_support_niv1List action="modules/parametre/parametre.php" tableName="revend_support_niv1" param="list" droits="consult"  />
+	<revend_support_niv1List action="modules/parametre/parametre.php" tableName="revend_support_niv1" retourlogin="1"  param="list" droits="consult"  />
 	<revend_support_niv1Change action="modules/parametre/parametre.php" tableName="revend_support_niv1" param="change" droits="param" />
 	<revend_support_niv1Write action="modules/parametre/parametre.php" tableName="revend_support_niv1" param="write" droits="param" retourok="revend_support_niv1List" retourko="revend_support_niv1Change" modulebefore="revend_support_niv1Change" />
 	<revend_support_niv1Delete action="modules/parametre/parametre.php" tableName="revend_support_niv1" param="delete" droits="param" retoursuppr="revend_support_niv1List" retourko="revend_support_niv1Change" />
 
-	<position_acteurList action="modules/parametre/parametre.php" tableName="position_acteur" param="list" droits="consult"  />
+	<position_acteurList action="modules/parametre/parametre.php" tableName="position_acteur" retourlogin="1"  param="list" droits="consult"  />
 	<position_acteurChange action="modules/parametre/parametre.php" tableName="position_acteur" param="change" droits="param" />
 	<position_acteurWrite action="modules/parametre/parametre.php" tableName="position_acteur" param="write" droits="param" retourok="position_acteurList" retourko="position_acteurChange" modulebefore="position_acteurChange" />
 	<position_acteurDelete action="modules/parametre/parametre.php" tableName="position_acteur" param="delete" droits="param" retoursuppr="position_acteurList" retourko="position_acteurChange" />
 
-	<qualite_appelList action="modules/parametre/parametre.php" tableName="qualite_appel" param="list" droits="consult"  />
+	<qualite_appelList action="modules/parametre/parametre.php" tableName="qualite_appel" retourlogin="1"  param="list" droits="consult"  />
 	<qualite_appelChange action="modules/parametre/parametre.php" tableName="qualite_appel" param="change" droits="param" />
 	<qualite_appelWrite action="modules/parametre/parametre.php" tableName="qualite_appel" param="write" droits="param" retourok="qualite_appelList" retourko="qualite_appelChange" modulebefore="qualite_appelChange" />
 	<qualite_appelDelete action="modules/parametre/parametre.php" tableName="qualite_appel" param="delete" droits="param" retoursuppr="qualite_appelList" retourko="qualite_appelChange" />
 
-	<journalList action="modules/parametre/parametre.php" tableName="journal" param="list" droits="consult"  />
+	<journalList action="modules/parametre/parametre.php" tableName="journal" param="list"  retourlogin="1" droits="consult"  />
 	<journalChange action="modules/parametre/parametre.php" tableName="journal" param="change" droits="param" />
 	<journalWrite action="modules/parametre/parametre.php" tableName="journal" param="write" droits="param" retourok="journalList" retourko="journalChange" modulebefore="journalChange" />
 	<journalDelete action="modules/parametre/parametre.php" tableName="journal" param="delete" droits="param" retoursuppr="journalList" retourko="journalChange" />
 
-	<acte_contentieuxList action="modules/parametre/parametre.php" tableName="acte_contentieux" param="list" droits="consult"  />
+	<acte_contentieuxList action="modules/parametre/parametre.php" tableName="acte_contentieux"  retourlogin="1" param="list" droits="consult"  />
 	<acte_contentieuxChange action="modules/parametre/parametre.php" tableName="acte_contentieux" param="change" droits="param" />
 	<acte_contentieuxWrite action="modules/parametre/parametre.php" tableName="acte_contentieux" param="write" droits="param" retourok="acte_contentieuxList" retourko="acte_contentieuxChange" modulebefore="acte_contentieuxChange" />
 	<acte_contentieuxDelete action="modules/parametre/parametre.php" tableName="acte_contentieux" param="delete" droits="param" retoursuppr="acte_contentieuxList" retourko="acte_contentieuxChange" />
 
-	<type_ouvrage_perm_constrList action="modules/parametre/parametre.php" tableName="type_ouvrage_perm_constr" param="list" droits="consult"  />
+	<type_ouvrage_perm_constrList action="modules/parametre/parametre.php"  retourlogin="1" tableName="type_ouvrage_perm_constr" param="list" droits="consult"  />
 	<type_ouvrage_perm_constrChange action="modules/parametre/parametre.php" tableName="type_ouvrage_perm_constr" param="change" droits="param" />
 	<type_ouvrage_perm_constrWrite action="modules/parametre/parametre.php" tableName="type_ouvrage_perm_constr" param="write" droits="param" retourok="type_ouvrage_perm_constrList" retourko="type_ouvrage_perm_constrChange" modulebefore="type_ouvrage_perm_constrChange" />
 	<type_ouvrage_perm_constrDelete action="modules/parametre/parametre.php" tableName="type_ouvrage_perm_constr" param="delete" droits="param" retoursuppr="type_ouvrage_perm_constrList" retourko="type_ouvrage_perm_constrChange" />
 
-	<decision_appelList action="modules/parametre/parametre.php" tableName="decision_appel" param="list" droits="consult"  />
+	<decision_appelList action="modules/parametre/parametre.php" retourlogin="1"  tableName="decision_appel" param="list" droits="consult"  />
 	<decision_appelChange action="modules/parametre/parametre.php" tableName="decision_appel" param="change" droits="param" />
 	<decision_appelWrite action="modules/parametre/parametre.php" tableName="decision_appel" param="write" droits="param" retourok="decision_appelList" retourko="decision_appelChange" modulebefore="decision_appelChange" />
 	<decision_appelDelete action="modules/parametre/parametre.php" tableName="decision_appel" param="delete" droits="param" retoursuppr="decision_appelList" retourko="decision_appelChange" />
 
-	<nature_requeteList action="modules/parametre/parametre.php" tableName="nature_requete" param="list" droits="consult"  />
+	<nature_requeteList action="modules/parametre/parametre.php" tableName="nature_requete"  retourlogin="1" param="list" droits="consult"  />
 	<nature_requeteChange action="modules/parametre/parametre.php" tableName="nature_requete" param="change" droits="param" />
 	<nature_requeteWrite action="modules/parametre/parametre.php" tableName="nature_requete" param="write" droits="param" retourok="nature_requeteList" retourko="nature_requeteChange" modulebefore="nature_requeteChange" />
 	<nature_requeteDelete action="modules/parametre/parametre.php" tableName="nature_requete" param="delete" droits="param" retoursuppr="nature_requeteList" retourko="nature_requeteChange" />
 
-	<nature_travauxList action="modules/parametre/parametre.php" tableName="nature_travaux" param="list" droits="consult"  />
+	<nature_travauxList action="modules/parametre/parametre.php" tableName="nature_travaux" retourlogin="1"  param="list" droits="consult"  />
 	<nature_travauxChange action="modules/parametre/parametre.php" tableName="nature_travaux" param="change" droits="param" />
 	<nature_travauxWrite action="modules/parametre/parametre.php" tableName="nature_travaux" param="write" droits="param" retourok="nature_travauxList" retourko="nature_travauxChange" modulebefore="nature_travauxChange" />
 	<nature_travauxDelete action="modules/parametre/parametre.php" tableName="nature_travaux" param="delete" droits="param" retoursuppr="nature_travauxList" retourko="nature_travauxChange" />
 
-	<juridique_domaineList action="modules/parametre/parametre.php" tableName="juridique_domaine" param="list" droits="consult"  />
+	<juridique_domaineList action="modules/parametre/parametre.php" tableName="juridique_domaine" retourlogin="1"  param="list" droits="consult"  />
 	<juridique_domaineChange action="modules/parametre/parametre.php" tableName="juridique_domaine" param="change" droits="param" />
 	<juridique_domaineWrite action="modules/parametre/parametre.php" tableName="juridique_domaine" param="write" droits="param" retourok="juridique_domaineList" retourko="juridique_domaineChange" modulebefore="juridique_domaineChange" />
 	<juridique_domaineDelete action="modules/parametre/parametre.php" tableName="juridique_domaine" param="delete" droits="param" retoursuppr="juridique_domaineList" retourko="juridique_domaineChange" />
