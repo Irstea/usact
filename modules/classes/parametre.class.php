@@ -93,7 +93,7 @@ class Parametre_niv2 extends ObjetBDD {
 		if ($order != 0 ) {
 			$sql .= " order by ".$order;
 		} else 
-			$sql .= " order by 3, 2";
+			$sql .= " order by 2,3";
 		return $this->getListeParam($sql);
 	}
 	

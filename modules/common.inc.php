@@ -24,60 +24,6 @@ else {
 	$searchPerimetre = $_SESSION["searchPerimetre"];
 }
 
-if (!isset($_SESSION["searchEchelle"])) {
-	$searchEchelle = new SearchEchelle();
-	$_SESSION["searchEchelle"] = $searchEchelle;
-}
-else {
-	$searchEchelle = $_SESSION["searchEchelle"];
-}
 
-if (!isset($_SESSION["searchRecurrence"])) {
-	$searchRecurrence = new SearchRecurrence();
-	$_SESSION["searchRecurrence"] = $searchRecurrence;
-}
-else {
-	$searchRecurrence = $_SESSION["searchRecurrence"];
-}
-
-if (!isset($_SESSION["searchTypePerimetre"])) {
-	$searchTypePerimetre = new SearchTypePerimetre();
-	$_SESSION["searchTypePerimetre"] = $searchTypePerimetre;
-}
-else {
-	$searchTypePerimetre = $_SESSION["searchTypePerimetre"];
-}
-
-if (!isset($_SESSION["searchObjetNiv1"])) {
-	$searchObjetNiv1 = new SearchObjetNiv1();
-	$_SESSION["searchObjetNiv1"] = $searchObjetNiv1;
-}
-else {
-	$searchObjetNiv1 = $_SESSION["searchObjetNiv1"];
-}
-
-if (!isset($_SESSION["searchObjetNiv2"])) {
-	$searchObjetNiv2 = new SearchObjetNiv2();
-	$_SESSION["searchObjetNiv2"] = $searchObjetNiv2;
-}
-else {
-	$searchObjetNiv2 = $_SESSION["searchObjetNiv2"];
-}
-
-if (!isset($_SESSION["searchBienSupportNiv1"])) {
-	$searchBienSupportNiv1 = new SearchBienSupportNiv1();
-	$_SESSION["searchBienSupportNiv1"] = $searchBienSupportNiv1;
-}
-else {
-	$searchBienSupportNiv1 = $_SESSION["searchBienSupportNiv1"];
-}
-
-if (!isset($_SESSION["searchBienSupportNiv2"])) {
-	$searchBienSupportNiv2 = new SearchBienSupportNiv2();
-	$_SESSION["searchBienSupportNiv2"] = $searchBienSupportNiv2;
-}
-else {
-	$searchBienSupportNiv2 = $_SESSION["searchBienSupportNiv2"];
-}
 
 ?>

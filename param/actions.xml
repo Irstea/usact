@@ -17,9 +17,6 @@
 
 	<administration action="modules/administration/index.php" droits="admin"
 		retourko="" retourok="" retournull="" menuvalue="4" menutitle="5" menuorder="3" menulevel="0" droitko="droitko"></administration>
-	<gestion action="modules/gestion/index.php" droits="gestion" retourko=""
-		retournull="" retourok="" menuorder="1" menulevel="0" menuvalue="0" menutitle="1" droitko="droitko">
-	</gestion>
 	<errorbefore action="framework/errorbefore.php" retourlogin="1" ></errorbefore>
 	<errorlogin action="framework/errorlogin.php" retourlogin="1" ></errorlogin>
 	<test action="test/test.php" retourko=""
@@ -33,12 +30,12 @@
 	<quoideneuf action="doc/quoideneuf.php" ></quoideneuf>
 	<setlanguage action='framework/setlanguage.php'  retourlogin="1" />
 	
-	
-	<exampleList action="modules/example/example.php" param="list" droits="consult" menulevel="1" menuparent="1" menudroits="" menuvalue="example1" menutitle="example2"  />
-	<exampleDisplay action="modules/example/example.php" param="display" droits="consult" />
-	<exampleChange action="modules/example/example.php" param="change" droits="gestion" />
-	<exampleWrite action="modules/example/example.php" param="write" droits="gestion" retourok="exampleList" retourko="exampleChange" modulebefore="exampleChange" />
-	<exampleDelete action="modules/example/example.php" param="delete" droits="admin" retoursuppr="exampleList" retourko="exampleChange" />
+<!-- Modules -->
+	<perimetreList action="modules/conflit/perimetre.php" param="list" droits="consult" retourlogin='1' />
+	<perimetreDisplay action="modules/conflit/perimetre.php" param="display" droits="consult"/>
+	<perimetreChange action="modules/conflit/perimetre.php" param="change" droits="gestion"/>
+	<perimetreWrite action="modules/conflit/perimetre.php" param="write" droits="gestion" retourok="perimetreListe" retourko="perimetreChange" modulebefore="perimetreChange" />
+	<perimetreDelete action="modules/conflit/perimetre.php" param="delete" droits="gestion" retoursuppr="perimetreListe" retourko="perimetreChange" modulebefore="perimetreChange" />
 
 <!-- Paramètres -->
 	<parametre droits="consult" retourlogin="1"/>
