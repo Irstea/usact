@@ -1484,6 +1484,15 @@ class ObjetBDD {
 		return $this->formatDateDBversLocal ( $data, 3 );
 	}
 	/**
+	 * Retourne le login, pour creer la valeur par defaut
+	 *
+	 * @return string
+	 */
+	function getLogin() {
+		if (isset ( $_SESSION ["login"] ))
+			return $_SESSION ["login"];
+	}
+	/**
 	 * Fonction permettant de recuperer les valeurs par defaut
 	 *
 	 * @param int $parentValue        	

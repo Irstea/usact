@@ -1,12 +1,16 @@
 <h2>Nouveau/Modification perimetre :</h2>
-<a href="index.php?module=perimetreListe">Retour à la liste</a>
-&nbsp
-<a href="index.php?module=perimetreDisplay&perimetre_id={$data.perimetre_id}" >Retour au détail de la fiche</a>
-
+<a href="index.php?module=perimetreList">Retour à la liste</a>
+{if $data.perimetre_id > 0}
+&nbsp;
+<a href="index.php?module=perimetreDisplay&perimetre_id={$data.perimetre_id}" >
+Retour au détail du périmètre {$data.perimetre_id}</a>
+{/if}
 <div class="formSaisie">
 <form method="post" action="index.php">
 <input type="hidden" name="perimetre_id" value="{$data.perimetre_id}">
 <input type="hidden" name="module" value="perimetreWrite">
+<input type="hidden" name="perimetre_date_saisie" value="{$data.perimetre_date_saisie"}>
+<input type="hidden" name="perimetre_login" value="{$data.perimetre_login}">
 
 <dl>
 <dt>Objet niv2<span class="red">*</span> :</dt>
@@ -28,11 +32,11 @@
 </dl>
 
 <dl>
-<dt>Bien support niv2<span class="red">*</span> :</dt>
+<dt>Bien support niv2 :</dt>
 <dd>
 <div align="left">
 <select name="bien_support_niv2_id">
-<option value = "" selected>Selectionner ...</option>
+<option value = "" selected {if $data.bien_support_niv2_id == ""}selected{/if}></option>
 {section name=lst loop=$bien_support_niv2}
 {strip}
 <option value="{$bien_support_niv2[lst].bien_support_niv2_id}"
@@ -47,20 +51,21 @@
 </dl>
 
 <dl>
-<dt>Description<span class="red">*</span> :</dt>
-<dd><input name="perimetre_detail" value="{$data.perimetre_detail}" autofocus></dd>
+<dt>Description :</dt>
+<dd><textarea name="perimetre_detail" rows="3" cols="50" autofocus>{$data.perimetre_detail}</textarea>
+<!-- input class="commentaire" name="perimetre_detail" value="{$data.perimetre_detail}" autofocus-->
+</dd>
 </dl>
 
 <dl>
-<dt>Recurrence<span class="red">*</span> :</dt>
+<dt>Recurrence :</dt>
 <dd>
 <div align="left">
 <select name="recurrence_id">
-<option value = "" selected>Selectionner ...</option>
+<option value = "" {if $data.recurrence_id==""}selected{/if}></option>
 {section name=lst loop=$recurrence}
 {strip}
-<option value="{$recurrence[lst].recurrence_id}"
-{if $recurrence[lst].recurrence_id == $data.recurrence_id} selected{/if}
+<option value="{$recurrence[lst].recurrence_id}" {if $recurrence[lst].recurrence_id == $data.recurrence_id}selected{/if}
 >
 {$recurrence[lst].recurrence_libelle}
 </option>{/strip}
@@ -71,11 +76,10 @@
 </dl>
 
 <dl>
-<dt>Type :</dt>
+<dt>Type <span class="red">*</span> :</dt>
 <dd>
 <div align="left">
 <select name="type_perimetre_id">
-<option value = "" selected>Selectionner ...</option>
 {section name=lst loop=$type_perimetre}
 {strip}
 <option value="{$type_perimetre[lst].type_perimetre_id}"

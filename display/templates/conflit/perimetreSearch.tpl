@@ -1,7 +1,15 @@
-<form method="GET" action="index.php">
+<script>
+$(document).ready(function() { 
+	$("select").change(function () {
+		$("#search").submit();
+	} );
+} ) ;
+</script>
+
+<form id="search" method="GET" action="index.php">
 <table id="perimetreSearch" class="tableaffichage">
 
-<input type="hidden" name="module" value="perimetreList">
+<input type="hidden" name="module" value="{$table}List">
 <input type="hidden" name="isSearch" value="1">
 
 <tr>

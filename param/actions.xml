@@ -31,11 +31,20 @@
 	<setlanguage action='framework/setlanguage.php'  retourlogin="1" />
 	
 <!-- Modules -->
+	<gestion retourlogin="1" droits="consult"/>
+
 	<perimetreList action="modules/conflit/perimetre.php" param="list" droits="consult" retourlogin='1' />
 	<perimetreDisplay action="modules/conflit/perimetre.php" param="display" droits="consult"/>
 	<perimetreChange action="modules/conflit/perimetre.php" param="change" droits="gestion"/>
-	<perimetreWrite action="modules/conflit/perimetre.php" param="write" droits="gestion" retourok="perimetreListe" retourko="perimetreChange" modulebefore="perimetreChange" />
-	<perimetreDelete action="modules/conflit/perimetre.php" param="delete" droits="gestion" retoursuppr="perimetreListe" retourko="perimetreChange" modulebefore="perimetreChange" />
+	<perimetreWrite action="modules/conflit/perimetre.php" param="write" droits="gestion" retourok="perimetreDisplay" retourko="perimetreChange" modulebefore="perimetreChange" />
+	<perimetreDelete action="modules/conflit/perimetre.php" param="delete" droits="gestion" retoursuppr="perimetreList" retourko="perimetreChange" modulebefore="perimetreChange" />
+
+	<conflitList action="modules/conflit/conflit.php" param="list" droits="consult" retourlogin='1' />
+	<conflitDisplay action="modules/conflit/conflit.php" param="display" droits="consult"/>
+	<conflitChange action="modules/conflit/conflit.php" param="change" droits="gestion"/>
+	<conflitWrite action="modules/conflit/conflit.php" param="write" droits="gestion" retourok="conflitDisplay" retourko="conflitChange" modulebefore="conflitChange" />
+	<conflitDelete action="modules/conflit/conflit.php" param="delete" droits="gestion" retoursuppr="conflitList" retourko="conflitChange" modulebefore="conflitChange" />
+
 
 <!-- Paramètres -->
 	<parametre droits="consult" retourlogin="1"/>

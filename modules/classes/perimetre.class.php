@@ -5,6 +5,8 @@
  * @author jeremy.damey
  *
  */
+
+
 class Perimetre extends ObjetBDD {
 	/**
 	 * instanciation de la classe, et initialisation des parametres
@@ -21,6 +23,7 @@ class Perimetre extends ObjetBDD {
 					left outer join echelle using (echelle_id)
 					left outer join bien_support_niv2 using (bien_support_niv2_id)
 					left outer join bien_support_niv1 using (bien_support_niv1_id)
+					left outer join recurrence using (recurrence_id)
 					";
 	
 	function __construct($link, $param = NULL) {
@@ -58,7 +61,8 @@ class Perimetre extends ObjetBDD {
 						"type" => 0
 				),
 				"perimetre_login" => array (
-						"type" => 0 
+						"type" => 0 ,
+						"defaultValue"=>"getLogin"
 				) 
 		);
 		$param ["fullDescription"] = 1;
@@ -72,7 +76,7 @@ class Perimetre extends ObjetBDD {
 	 * @return array|NULL
 	 */
 	function lireDetail ($id) {
-		if (is_numeric($id && $id > 0)) {
+		if (is_numeric($id) && $id > 0) {
 			$sql = $this->sql." where perimetre_id = ".$id;
 			return $this->lireParam($sql);
 		} else

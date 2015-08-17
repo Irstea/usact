@@ -14,20 +14,8 @@
  */
 include_once 'modules/classes/perimetre.class.php';
 include_once 'modules/classes/parametre.class.php';
+include_once 'modules/conflit/perimetre.function.php';
 
-function setSmartyPerimetreParam() {
-	global $smarty, $ObjetBDDParam,$bdd;
-	$objet_niv2 = new Parametre_niv2( $bdd,"objet_niv2", "objet_niv1", $ObjetBDDParam );
-	$smarty->assign ( "objet_niv2", $objet_niv2->getListe () );
-	$bien_support_niv2 = new Parametre_niv2( $bdd,"bien_support_niv2", "bien_support_niv1", $ObjetBDDParam );
-	$smarty->assign ( "bien_support_niv2", $bien_support_niv2->getListe () );
-	$type_perimetre = new Parametre($bdd, "type_perimetre", $ObjetBDDParam);
-	$smarty->assign("type_perimetre", $type_perimetre->getListe());
-	$echelle= new Parametre($bdd, "echelle", $ObjetBDDParam);
-	$smarty->assign("echelle", $echelle->getListe());
-	$recurrence = new Parametre($bdd, "recurrence", $ObjetBDDParam);
-	$smarty->assign("recurrence", $recurrence->getListe());
-}
 
 $dataClass = new Perimetre( $bdd, $ObjetBDDParam );
 $id = $_REQUEST ["perimetre_id"];
@@ -44,6 +32,7 @@ switch ($t_module ["param"]) {
 		$searchPerimetre->setParam ( $_REQUEST );
 		$dataRecherche = $searchPerimetre->getParam ();
 		setSmartyPerimetreParam();
+		$smarty->assign("table", "perimetre");
 		if ($searchPerimetre->isSearch () == 1) {
 			$data = $dataClass->getListeSearch ( $dataRecherche );
 			$smarty->assign ( "data", $data );
@@ -60,6 +49,12 @@ switch ($t_module ["param"]) {
 		$data = $dataClass->lireDetail ( $id );
 		$smarty->assign ( "data", $data );
 		$smarty->assign ( "corps", "conflit/perimetreDisplay.tpl" );
+		/*
+		 * Recherche les conflits rattaches
+		 */
+		require_once 'modules/classes/conflit.class.php';
+		$conflit = new Conflit($bdd, $ObjetBDDParam);
+		$smarty->assign("conflitData", $conflit->getListFromParent($id,3));
 		break;
 		
 	/*
@@ -69,7 +64,7 @@ switch ($t_module ["param"]) {
 	*/
 	case "change":
 		setSmartyPerimetreParam();
-		dataRead ( $dataClass, $id, "conflit/perimetreChange.tpl" );
+		$data = dataRead ( $dataClass, $id, "conflit/perimetreChange.tpl" );
 		break;
 
 	/*

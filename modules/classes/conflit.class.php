@@ -15,6 +15,15 @@ class Conflit extends ObjetBDD {
 	 * @return void
 	 *
 	 */
+	private $sql = "select *
+					from conflit
+					natural join perimetre
+					natural join objet_niv2
+					natural join objet_niv1
+					natural join type_perimetre
+					left outer join bien_support_niv2 using (bien_support_niv2_id)
+					left outer join bien_support_niv1 using (bien_support_niv1_id)		
+					";
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
 			$param = array ();
@@ -28,26 +37,35 @@ class Conflit extends ObjetBDD {
 						"defaultValue" => 0 
 				),
 				"perimetre_id" => array (
-						"type" => 1
+						"type" => 1,
+						"requis" => 1,
+						"parentAttrib" => 1 
 				),
 				"conflit_login_saisie" => array (
-						"type" => 0
+						"type" => 0,
+						"defaultValue" => "getLogin" 
 				),
 				"conflit_date_debut" => array (
 						"type" => 2,
-						"defaultValue" => getDateJour
+						"defaultValue" => "getDateJour" 
+				),
+				"confilt_date_debut_txt" => array (
+						"type" => 0 
 				),
 				"conflit_date_fin" => array (
-						"type" => 2,
-						"defaultValue" => getDateJour 
+						"type" => 2 
+				),
+				"conflit_date_fin_txt" => array (
+						"type" => 0 
 				),
 				"conflit_date_saisie" => array (
-						"type" => 2
+						"type" => 2,
+						"defaultValue" => "getDateJour" 
 				),
 				"conflit_detail" => array (
 						"type" => 0,
-						"requis" => 1
-				)
+						"requis" => 1 
+				) 
 		);
 		$param ["fullDescription"] = 1;
 		
@@ -63,92 +81,62 @@ class Conflit extends ObjetBDD {
 	function getListeSearch($param) {
 		if (! is_array ( $param ))
 			$param = array ();
-		$param = $this->encodeData($param);
-		$sql = 'select conflit_id,
-				conflit.perimetre_id,
-				conflit_login_saisie,
-				conflit_date_debut,
-				conflit_date_fin,
-				conflit_date_saisie,
-				conflit_detail,
-				perimetre_detail,
-				bien_support_niv2_libelle,
-				bien_support_niv1_libelle,
-				type_perimetre_libelle,
-				echelle_libelle,
-				objet_niv2_libelle, 
-				objet_niv1_libelle 
-				from ' .$this->table
-				.' left outer join perimetre on conflit.perimetre_id = perimetre.perimetre_id
-					left outer join bien_support_niv2 on perimetre.bien_support_niv2_id = bien_support_niv2.bien_support_niv2_id
-					left outer join bien_support_niv1 on bien_support_niv2.bien_support_niv1_id = bien_support_niv1.bien_support_niv1_id
-					left outer join type_perimetre on perimetre.type_perimetre_id = type_perimetre.type_perimetre_id
-					left outer join echelle on perimetre.echelle_id = echelle.echelle_id
-					left outer join objet_niv2 on perimetre.objet_niv2_id = objet_niv2.objet_niv2_id
-					left outer join objet_niv1 on objet_niv2.objet_niv1_id = objet_niv1.objet_niv1_id 
-					where conflit.perimetre_id = perimetre.perimetre_id';
-				
+		$param = $this->encodeData ( $param );
+
 		/*
-		 * Rajout des parametres de recherche
+		 * Preparation de la clause where
 		 */
-		if (strlen ( $param ["searchId"] ) > 0)
-			$where .= ' and conflit_id ='.$param["searchId"];
-		
-		if (strlen ( $param ["searchObjetNiv2"] ) > 0)
-			$where2 .= ' and objet_niv2.objet_niv2_id ='.$param["searchObjetNiv2"];
-		
-		if (strlen ( $param ["searchObjetNiv1"] ) > 0)
-			$where3 .= ' and objet_niv1.objet_niv1_id ='.$param["searchObjetNiv1"];
-		
-		if (strlen ( $param ["searchBienSupportNiv2"] ) > 0)
-			$where4 .= ' and bien_support_niv2.bien_support_niv2_id ='.$param["searchBienSupportNiv2"];
-		
-		if (strlen ( $param ["searchBienSupportNiv1"] ) > 0)
-			$where5 .= ' and bien_support_niv1.bien_support_niv1_id ='.$param["searchBienSupportNiv1"];
-		
-		if (strlen ( $param ["searchAnneeDebut"] ) > 0)
-			$where6 .= ' and extract (year from conflit_date_debut) as annee ='.$param["searchAnneeDebut"];
-		
-		$order = ' order by conflit_id';
-		
-		return parent::getListeParam ( $sql . $where . $where2 . $where3 . $where4 . $where5 . $where6 . $order);
+		$where = " where ";
+		$wb = false;
+		if (strlen($param["libelle"])>0) {
+			$wb == true ? $where .= " and ":$wb = true;
+			if (is_numeric($param["libelle"])) {
+				$where .= "conflit_id = ".$param["libelle"];
+			} else {
+				$where .= "upper(conflit_detail) like upper('%".$param["libelle"]."%')";
+			}
+		}
+		if ($param["bien_support_niv2_id"]> 0 && is_numeric($param["bien_support_niv2_id"])){
+			$wb == true ? $where .= " and ":$wb = true;
+			$where .= "bien_support_niv2_id = ".$param["bien_support_niv2_id"];
+		}
+		if ($param["type_perimetre_id"]>0 && is_numeric($param["type_perimetre_id"])){
+			$wb == true ? $where .= " and ":$wb = true;
+			$where .= "type_perimetre_id = ".$param["type_perimetre_id"];
+		}
+		if ($param["echelle_id"]>0 && is_numeric($param["echelle_id"])){
+			$wb == true ? $where .= " and ":$wb = true;
+			$where .= "echelle_id = ".$param["echelle_id"];
+		}
+		if ($param["recurrence_id"]>0 && is_numeric($param["recurrence_id"])){
+			$wb == true ? $where .= " and ":$wb = true;
+			$where .= "recurrence_id = ".$param["recurrence_id"];
+		}
+		/*
+		 * Cas ou aucun critere de recherche
+		 */
+		if ($wb == false)
+			$where = "";
+		/*
+		 * Clause de tri
+		 */
+		$order = ' order by conflit_id desc';		
+		/*
+		 * Execution de la recherche
+		 */
+		return parent::getListeParam ( $this->sql . $where . $order );
 	}
 	
 	/**
 	 * Retourne le detail de la fiche du conflit selectionné du conflit
-	 * 
-	 * @param unknown $id
+	 *
+	 * @param unknown $id        	
 	 * @return Ambigous <multitype:, boolean, $data>
 	 */
-	function lireDetail($id) {	
-		if($id > 0)	
-		{
-			$id = $this->encodeData($id);
-			$sql = 'select conflit_id,
-					conflit.perimetre_id,
-					conflit_login_saisie,
-					conflit_date_debut,
-					conflit_date_fin,
-					conflit_date_saisie,
-					conflit_detail,
-					perimetre_detail,
-					bien_support_niv2_libelle,
-					bien_support_niv1_libelle,
-					type_perimetre_libelle,
-					echelle_libelle,
-					objet_niv2_libelle,
-					objet_niv1_libelle
-					from ' .$this->table
-					.' left outer join perimetre on conflit.perimetre_id = perimetre.perimetre_id
-					left outer join bien_support_niv2 on perimetre.bien_support_niv2_id = bien_support_niv2.bien_support_niv2_id
-					left outer join bien_support_niv1 on bien_support_niv2.bien_support_niv1_id = bien_support_niv1.bien_support_niv1_id
-					left outer join type_perimetre on perimetre.type_perimetre_id = type_perimetre.type_perimetre_id
-					left outer join echelle on perimetre.echelle_id = echelle.echelle_id
-					left outer join objet_niv2 on perimetre.objet_niv2_id = objet_niv2.objet_niv2_id
-					left outer join objet_niv1 on objet_niv2.objet_niv1_id = objet_niv1.objet_niv1_id
-						where conflit_id = '.$id
-					.' order by conflit_id';
-			return parent::lireParam ( $sql );
+	function lireDetail($id) {
+		if ($id > 0 && is_numeric ( $id )) {
+			$where = " where conflit_id = " . $id;
+			return parent::lireParam ( $this->sql . $where );
 		}
 	}
 }
