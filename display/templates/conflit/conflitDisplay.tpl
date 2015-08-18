@@ -1,40 +1,52 @@
-<a href="index.php?module=conflitListe">Retour à la liste </a>
-&nbsp
-<a href="index.php?module=conflitChange&conflit_id={$data.conflit_id}">Modifier...</a>
+<h2>Détail d'un conflit</h2>
+<a href="index.php?module={$conflit_table}List">Retour à la liste </a>
+&nbsp;
+{if $droits.gestion == 1}
+<a href="index.php?module=conflitChange&conflit_id={$conflit.conflit_id}">Modifier...</a>
+{/if}
 <div class="formDisplay">
 <fieldset>
-<legend>Informations sur le conflit</legend>
+<legend>Périmètre n° 
+<a href="index.php?module=perimetreDisplay&perimetre_id={$conflit.perimetre_id}">
+{$conflit.perimetre_id}
+</a>
+</legend>
+<dl>
+<dt> Description :</dt>
+<dd><span class="textareaDisplay">{$conflit.perimetre_detail}</span></dd>
+</dl>
 <dl>
 <dt> Objet niv2 :</dt>
-<dd>{$data.objet_niv2_libelle}</dd>
+<dd>{$conflit.objet_niv2_libelle}</dd>
 </dl>
 <dl>
 <dt> Bien support niv2 :</dt>
-<dd>{$data.bien_support_niv2_libelle}</dd>
+<dd>{$conflit.bien_support_niv2_libelle}</dd>
 </dl>
 <dl>
+<dt> Type de périmètre :</dt>
+<dd>{$conflit.type_perimetre_libelle}</dd>
+</dl>
+<dl>
+<dt> Échelle du périmètre :</dt>
+<dd>{$conflit.echelle_libelle}</dd>
+</dl>
+</fieldset>
+<fieldset>
+<legend>Conflit n° {$conflit.conflit_id}</legend>
+<dl>
 <dt> Description :</dt>
-<dd>{$data.conflit_detail}</dd>
+<dd><span class="textareaDisplay">{$conflit.conflit_detail}</span></dd>
 </dl>
 <dl>
 <dt> Date début :</dt>
-<dd>{$data.conflit_date_debut}</dd>
+<dd>{$conflit.conflit_date_debut}{$conflit.conflit_date_debut_txt}</dd>
 </dl>
 <dl>
 <dt> Date fin :</dt>
-<dd>{$data.conflit_date_fin}</dd>
-</dl>
-<dl>
-<dt> Descritpion perimetre :</dt>
-<dd>{$data.perimetre_detail}</dd>
-</dl>
-<dl>
-<dt> Type perimetre :</dt>
-<dd>{$data.type_perimetre_libelle}</dd>
-</dl>
-<dl>
-<dt> Echelle perimetre :</dt>
-<dd>{$data.echelle_libelle}</dd>
+<dd>{$conflit.conflit_date_fin}{$conflit.conflit_date_fin_txt}</dd>
 </dl>
 </fieldset>
+
+
 </div>

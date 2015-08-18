@@ -1,5 +1,5 @@
 <h2>Nouveau/Modification perimetre :</h2>
-<a href="index.php?module=perimetreList">Retour à la liste</a>
+<a href="index.php?module={$conflit_table}List">Retour à la liste</a>
 {if $data.perimetre_id > 0}
 &nbsp;
 <a href="index.php?module=perimetreDisplay&perimetre_id={$data.perimetre_id}" >
@@ -52,7 +52,7 @@ Retour au détail du périmètre {$data.perimetre_id}</a>
 
 <dl>
 <dt>Description :</dt>
-<dd><textarea name="perimetre_detail" rows="3" cols="50" autofocus>{$data.perimetre_detail}</textarea>
+<dd><textarea name="perimetre_detail" autofocus>{$data.perimetre_detail}</textarea>
 <!-- input class="commentaire" name="perimetre_detail" value="{$data.perimetre_detail}" autofocus-->
 </dd>
 </dl>
@@ -113,18 +113,16 @@ Retour au détail du périmètre {$data.perimetre_id}</a>
 </dl>
 
 
-<tr>
-<td colspan=2>
 <div class="formBouton">
 <input class="submit" type="submit" value="Enregistrer">
+</div>
 </form>
+<div class="formBouton">
 <form action="index.php" method="post" onSubmit='return confirmSuppression("Confirmez-vous la suppression ?")'>
 <input type="hidden" name="perimetre_id" value="{$data.perimetre_id}">
 <input type="hidden" name="module" value="perimetreDelete">
 <input type="submit" value="Supprimer">
 </form>
 </div>
-</td>
-</tr>
 </div>
 <span class="red">*</span><span class="messagebas">Champ obligatoire</span>

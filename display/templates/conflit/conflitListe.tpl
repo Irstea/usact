@@ -20,9 +20,9 @@
 	<tbody> {section name=lst loop=$data}
 	<tr>
 		<td class="center">
-		<a href="index.php?module=conflitDisplay&conflit_id={$conflitData[lst].conflit_id}&perimetre_id={$data.perimetre_id}">
+		<a href="index.php?module=conflitDisplay&conflit_id={$data[lst].conflit_id}&perimetre_id={$data[lst].perimetre_id}">
 		<img src="display/images/edit.gif" height="20">
-		{$conflitData[lst].conflit_id}
+		{$data[lst].conflit_id}
 		</a>
 		</td>
 		<td>{$data[lst].conflit_date_debut}{$data[lst].conflit_date_debut_txt}</td>

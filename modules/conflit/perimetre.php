@@ -40,21 +40,21 @@ switch ($t_module ["param"]) {
 		}
 		$smarty->assign ( "dataSearch", $dataRecherche );
 		$smarty->assign ( "corps", "conflit/perimetreListe.tpl" );
+		$_SESSION["conflit_table"] = "perimetre";
 		break;
 		
 	/*
 	 * Display the detail of the record
 	*/
 	case "display":
-		$data = $dataClass->lireDetail ( $id );
-		$smarty->assign ( "data", $data );
+		$smarty->assign ( "perimetre", $dataClass->lireDetail ( $id ) );
 		$smarty->assign ( "corps", "conflit/perimetreDisplay.tpl" );
 		/*
 		 * Recherche les conflits rattaches
 		 */
 		require_once 'modules/classes/conflit.class.php';
 		$conflit = new Conflit($bdd, $ObjetBDDParam);
-		$smarty->assign("conflitData", $conflit->getListFromParent($id,3));
+		$smarty->assign("conflit", $conflit->getListFromParent($id,3));
 		break;
 		
 	/*
@@ -81,5 +81,5 @@ switch ($t_module ["param"]) {
 		dataDelete ( $dataClass, $id );
 		break;
 }
-
+$smarty->assign("conflit_table", $_SESSION["conflit_table"]);
 ?>

@@ -23,6 +23,7 @@ class Conflit extends ObjetBDD {
 					natural join type_perimetre
 					left outer join bien_support_niv2 using (bien_support_niv2_id)
 					left outer join bien_support_niv1 using (bien_support_niv1_id)		
+					left outer join echelle using (echelle_id)
 					";
 	function __construct($link, $param = NULL) {
 		if (! is_array ( $param ))
@@ -41,7 +42,7 @@ class Conflit extends ObjetBDD {
 						"requis" => 1,
 						"parentAttrib" => 1 
 				),
-				"conflit_login_saisie" => array (
+				"conflit_login" => array (
 						"type" => 0,
 						"defaultValue" => "getLogin" 
 				),
@@ -49,7 +50,7 @@ class Conflit extends ObjetBDD {
 						"type" => 2,
 						"defaultValue" => "getDateJour" 
 				),
-				"confilt_date_debut_txt" => array (
+				"conflit_date_debut_txt" => array (
 						"type" => 0 
 				),
 				"conflit_date_fin" => array (

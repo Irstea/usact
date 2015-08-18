@@ -1,6 +1,6 @@
 <script>
 $(document).ready(function() { 
-	$("select").change(function () {
+	$(".selection").change(function () {
 		$("#search").submit();
 	} );
 } ) ;
@@ -19,7 +19,7 @@ Texte ou numéro à rechercher :
 <br>
 Objets :
 
-<select id="objet_niv2_id" name="objet_niv2_id">
+<select class="selection" id="objet_niv2_id" name="objet_niv2_id">
 <option value = "" {if $dataSearch.objet_niv2_id == ""}selected{/if}>
 {section name=lst loop=$objet_niv2}
 {strip}
@@ -33,7 +33,7 @@ Objets :
 <br>
 Biens supports :
 
-<select id="bien_support_niv2_id" name="bien_support_niv2_id">
+<select class="selection" id="bien_support_niv2_id" name="bien_support_niv2_id">
 <option value = "" {if $dataSearch.bien_support_niv2_id == ""}selected{/if}></option>
 {section name=lst loop=$bien_support_niv2}
 {strip}
@@ -45,7 +45,7 @@ Biens supports :
 </select>
 <br>
 Type de périmètre : 
-<select name="type_perimetre_id">
+<select class="selection" name="type_perimetre_id">
 <option value="" {if $dataSearch.type_perimetre_id == ""}selected{/if}></option>
 {section name=lst loop=$type_perimetre}
 <option value="{$type_perimetre[lst].type_perimetre_id}" {if $type_perimetre[lst].type_perimetre_id == $dataSearch.type_perimetre_id}selected{/if}>
@@ -54,7 +54,7 @@ Type de périmètre :
 {/section}
 </select>
 Récurrence :
-<select name="recurrence_id">
+<select class="selection" name="recurrence_id">
 <option value="" {if $dataSearch.recurrence_id == ""}selected{/if}></option>
 {section name=lst loop=$recurrence}
 <option value="{$recurrence[lst].recurrence_id}" {if $recurrence[lst].recurrence_id == $dataSearch.recurrence_id}selected{/if}>

@@ -47,6 +47,12 @@ p {
 	text-align: center;
 	width: 750px;
 }
+
+.formSaisie textarea {
+	height:5em;
+	width:40em;
+}
+
 input {
 	/*border-radius: 1em;*/
 }

@@ -40,14 +40,14 @@ switch ($t_module ["param"]) {
 		}
 		$smarty->assign ( "dataSearch", $dataRecherche );
 		$smarty->assign ( "corps", "conflit/conflitListe.tpl" );
+		$_SESSION["conflit_table"] = "conflit";
 		break;
 		
 	/*
 	 * Display the detail of the record
 	*/
 	case "display":
-		$data = $dataClass->lireDetail ( $id );
-		$smarty->assign ( "data", $data );
+		$smarty->assign ( "conflit", $dataClass->lireDetail ( $id ));
 		$smarty->assign ( "corps", "conflit/conflitDisplay.tpl" );
 		break;
 		
@@ -57,7 +57,10 @@ switch ($t_module ["param"]) {
 	* $_REQUEST["idParent"] contains the identifiant of the parent record
 	*/
 	case "change":
-		dataRead ( $dataClass, $id, "conflit/conflitChange.tpl", $_REQUEST["perimetre_id"] );
+		$data = dataRead ( $dataClass, $id, "conflit/conflitChange.tpl", $_REQUEST["perimetre_id"] );
+		require_once 'modules/classes/perimetre.class.php';
+		$perimetre = new Perimetre($bdd, $ObjetBDDParam);
+		$smarty->assign("perimetre", $perimetre->lireDetail($data["perimetre_id"]));
 		break;
 
 	/*
@@ -75,4 +78,5 @@ switch ($t_module ["param"]) {
 		break;
 		
 }
+$smarty->assign("conflit_table", $_SESSION["conflit_table"]);
 ?>
