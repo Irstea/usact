@@ -37,6 +37,9 @@ $LANG["menu"][60] = "Juridique";
 $LANG["menu"][61] = "Liste des décisions juridiques";
 $LANG["menu"][62] = "Résolutions";
 $LANG["menu"][63] = "Liste des résolutions";
+$LANG["menu"][64] = "Acteurs";
+$LANG["menu"][65] = "Liste des acteurs";
+
 
 $LANG["menu"][94] = "Param. périmètre";
 $LANG["menu"][95] = "Liste des paramètres concernant les périmètres";

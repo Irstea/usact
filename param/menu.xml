@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <menu>
 <item module="gestion" title="1" value="0">
-	<item module="perimetreList" droits="consult" value="52" title="53" />
-	<item module="conflitList" droits="consult" value="50" title="51" />
-	<item module="interventionList" droits="consult" value="54" title="55" />
-	<item module="entretienList" droits="consult" value="56" title="57" />
-	<item module="articleList" droits="consult" value="58" title="59" />
-	<item module="juridiqueList" droits="consult" value="60" title="61" />
-	<item module="resolutionList" droits="consult" value="62" title="63" />
+	<item module="perimetreList"  value="52" title="53" />
+	<item module="conflitList"  value="50" title="51" />
+	<item module="acteurList" value="64" title="65" />
+	<item module="interventionList"  value="54" title="55" />
+	<item module="entretienList"  value="56" title="57" />
+	<item module="articleList"  value="58" title="59" />
+	<item module="juridiqueList"  value="60" title="61" />
+	<item module="resolutionList"  value="62" title="63" />
 </item>
 
 

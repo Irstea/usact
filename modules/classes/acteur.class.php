@@ -21,7 +21,7 @@ class Acteur extends ObjetBDD {
 			natural_join acteur_niv1
 			";
 	private $sqlSearch = "
-			select *
+			select acteur.*, acteur_niv3_libelle, acteur_niv2_libelle, acteur_niv1_libelle
 			from acteur
 			natural join acteur_niv3
 			natural join acteur_niv2
@@ -29,7 +29,6 @@ class Acteur extends ObjetBDD {
 			left outer join acteur_structure using (acteur_id)
 			left outer join acteur_mandat using (acteur_id)
 			";
-
 	function __construct($bdd, $param = null) {
 		$this->param = $param;
 		$this->table = "acteur";
@@ -54,10 +53,10 @@ class Acteur extends ObjetBDD {
 				"acteur_moral_nom" => array (
 						"type" => 0 
 				),
-				"statut" => array (
+				"acteur_statut" => array (
 						"type" => 0 
 				),
-				"statut_detail" => array (
+				"acteur_statut_detail" => array (
 						"type" => 0 
 				),
 				"commune_physique" => array (
@@ -86,61 +85,174 @@ class Acteur extends ObjetBDD {
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}
-
+	
 	/**
 	 * Retourne le detail d'un acteur
-	 * @param int $id
+	 * 
+	 * @param int $id        	
 	 * @return array|NULL
 	 */
 	function getDetail($id) {
-		if (is_numeric($id) && $id > 0) {
-			$where = " where acteur_id = ".$id;
-			return $this->lireParam($this->sql.$where);
-		} else 
+		if (is_numeric ( $id ) && $id > 0) {
+			$where = " where acteur_id = " . $id;
+			return $this->lireParam ( $this->sql . $where );
+		} else
 			return null;
 	}
-
+	
 	/**
 	 * Retourne la liste des acteurs en fonction des criteres fournis
-	 * @param array $param
+	 * 
+	 * @param array $param        	
 	 * @return tableau
 	 */
-	function getListSearch($param) {
-		$param = $this->encodeData($param);
+	function getListeSearch($param) {
+		$param = $this->encodeData ( $param );
 		$where = " where ";
 		$wb = false;
-		if (strlen($param["libelle"])>0) {
-			$wb == true ? $where .= " and ":$wb = true;
-			if (is_numeric($param["libelle"])) {
-				$where .= "acteur_id = ".$param["libelle"];
+		if (strlen ( $param ["libelle"] ) > 0) {
+			$wb == true ? $where .= " and " : $wb = true;
+			if (is_numeric ( $param ["libelle"] )) {
+				$where .= "acteur_id = " . $param ["libelle"];
 			} else {
-				$where .= "(upper(acteur_physique_nom) like upper('%".$param["libelle"]."%')";
-				$where .= " or upper(acteur_moral_nom) like upper('%".$param["libelle"]."%')";
-				$where .= " or upper(commune_physique) like upper('%".$param["libelle"]."%')";
-				$where .= " or upper(commune_morale) like upper('%".$param["libelle"]."%')";
+				$where .= "(upper(acteur_physique_nom) like upper('%" . $param ["libelle"] . "%')";
+				$where .= " or upper(acteur_moral_nom) like upper('%" . $param ["libelle"] . "%')";
+				$where .= " or upper(commune_physique) like upper('%" . $param ["libelle"] . "%')";
+				$where .= " or upper(commune_morale) like upper('%" . $param ["libelle"] . "%')";
 				$where .= ")";
 			}
 		}
-		if ($param["acteur_niv3_id"]> 0 && is_numeric($param["acteur_niv3_id"])){
-			$wb == true ? $where .= " and ":$wb = true;
-			$where .= "acteur_niv3_id = ".$param["acteur_niv3_id"];
+		if ($param ["acteur_niv3_id"] > 0 && is_numeric ( $param ["acteur_niv3_id"] )) {
+			$wb == true ? $where .= " and " : $wb = true;
+			$where .= "acteur_niv3_id = " . $param ["acteur_niv3_id"];
 		}
-		if ($param["structure_type_id"]>0 && is_numeric($param["structure_type_id"])){
-			$wb == true ? $where .= " and ":$wb = true;
-			$where .= "structure_type_id = ".$param["structure_type_id"];
+		if ($param ["structure_type_id"] > 0 && is_numeric ( $param ["structure_type_id"] )) {
+			$wb == true ? $where .= " and " : $wb = true;
+			$where .= "structure_type_id = " . $param ["structure_type_id"];
 		}
-		if ($param["mandat_type_id"]>0 && is_numeric($param["mandat_type_id"])){
-			$wb == true ? $where .= " and ":$wb = true;
-			$where .= "mandat_type_id = ".$param["mandat_type_id"];
+		if ($param ["mandat_type_id"] > 0 && is_numeric ( $param ["mandat_type_id"] )) {
+			$wb == true ? $where .= " and " : $wb = true;
+			$where .= "mandat_type_id = " . $param ["mandat_type_id"];
 		}
 		if ($wb == false)
 			$where = "";
-		/*
+			/*
 		 * Preparation de la clause de tri
 		 */
 		$order = " order by acteur_moral_nom, acteur_physique_nom";
-		return $this->getListeParam($sql.$where.$order);
-		
+		return $this->getListeParam ( $sql . $where . $order );
+	}
+}
+/**
+ * ORM de gestion de la table acteur_mandat
+ * 
+ * @author quinton
+ *        
+ */
+class ActeurMandat extends ObjetBDD {
+	function __construct($bdd, $param = null) {
+		$this->param = $param;
+		$this->table = "acteur_mandat";
+		$this->id_auto = "1";
+		$this->colonnes = array (
+				"acteur_mandat_id" => array (
+						"type" => 1,
+						"key" => 1,
+						"requis" => 1,
+						"defaultValue" => 0 
+				),
+				"acteur_id" => array (
+						"type" => 1,
+						"requis" => 1,
+						"parentAttrib" => 1 
+				),
+				"mandat_type_id" => array (
+						"type" => 1,
+						"requis" => 1 
+				),
+				"mandat_detail" => array (
+						"type" => 0 
+				) 
+		);
+		if (! is_array ( $param ))
+			$param == array ();
+		$param ["fullDescription"] = 1;
+		parent::__construct ( $bdd, $param );
+	}
+	
+	/**
+	 * Retourne la liste des mandats d'un acteur
+	 * 
+	 * @param int $acteur_id        	
+	 * @return tableau|NULL
+	 */
+	function getListFromActeur($acteur_id) {
+		if (is_numeric ( $acteur_id ) && $acteur_id > 0) {
+			$sql = "select * from acteur_mandat
+					natural join mandat_type
+					where acteur_id = " . $acteur_id . "
+					order by mandat_type_libelle";
+			return $this->getListeParam ( $sql );
+		} else
+			return null;
+	}
+}
+
+/**
+ * ORM de gestion de la table acteur_structure
+ * 
+ * @author quinton
+ *        
+ */
+class ActeurStructure extends ObjetBDD {
+	function __construct($bdd, $param = null) {
+		$this->param = $param;
+		$this->table = "acteur_structure";
+		$this->id_auto = "1";
+		$this->colonnes = array (
+				"acteur_structure_id" => array (
+						"type" => 1,
+						"key" => 1,
+						"requis" => 1,
+						"defaultValue" => 0 
+				),
+				"acteur_id" => array (
+						"type" => 1,
+						"requis" => 1,
+						"parentAttrib" => 1 
+				),
+				"structure_type_id" => array (
+						"type" => 1,
+						"requis" => 1 
+				),
+				"structure_statut_detail" => array (
+						"type" => 0 
+				),
+				"structure_statut" => array (
+						"type" => 0 
+				) 
+		);
+		if (! is_array ( $param ))
+			$param == array ();
+		$param ["fullDescription"] = 1;
+		parent::__construct ( $bdd, $param );
+	}
+	
+	/**
+	 * Retourne la liste des structures d'un acteur
+	 * 
+	 * @param int $acteur_id        	
+	 * @return tableau|NULL
+	 */
+	function getListFromActeur($acteur_id) {
+		if (is_numeric ( $acteur_id ) && $acteur_id > 0) {
+			$sql = "select * from acteur_structure
+					natural join structure_type
+					where acteur_id = " . $acteur_id . "
+					order by structure_type_libelle";
+			return $this->getListeParam ( $sql );
+		} else
+			return null;
 	}
 }
 

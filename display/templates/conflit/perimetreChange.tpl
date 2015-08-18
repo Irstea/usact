@@ -15,7 +15,6 @@ Retour au détail du périmètre {$data.perimetre_id}</a>
 <dl>
 <dt>Objet niv2<span class="red">*</span> :</dt>
 <dd>
-<div align="left">
 <select name="objet_niv2_id">
 <option value = "" selected>Selectionner ...</option>
 {section name=lst loop=$objet_niv2}
@@ -27,14 +26,12 @@ Retour au détail du périmètre {$data.perimetre_id}</a>
 </option>{/strip}
 {/section}
 </select>
-</div>
 </dd>
 </dl>
 
 <dl>
 <dt>Bien support niv2 :</dt>
 <dd>
-<div align="left">
 <select name="bien_support_niv2_id">
 <option value = "" selected {if $data.bien_support_niv2_id == ""}selected{/if}></option>
 {section name=lst loop=$bien_support_niv2}
@@ -46,7 +43,6 @@ Retour au détail du périmètre {$data.perimetre_id}</a>
 </option>{/strip}
 {/section}
 </select>
-</div>
 </dd>
 </dl>
 
@@ -60,7 +56,6 @@ Retour au détail du périmètre {$data.perimetre_id}</a>
 <dl>
 <dt>Recurrence :</dt>
 <dd>
-<div align="left">
 <select name="recurrence_id">
 <option value = "" {if $data.recurrence_id==""}selected{/if}></option>
 {section name=lst loop=$recurrence}
@@ -71,14 +66,12 @@ Retour au détail du périmètre {$data.perimetre_id}</a>
 </option>{/strip}
 {/section}
 </select>
-</div>
 </dd>
 </dl>
 
 <dl>
 <dt>Type <span class="red">*</span> :</dt>
 <dd>
-<div align="left">
 <select name="type_perimetre_id">
 {section name=lst loop=$type_perimetre}
 {strip}
@@ -89,14 +82,12 @@ Retour au détail du périmètre {$data.perimetre_id}</a>
 </option>{/strip}
 {/section}
 </select>
-</div>
 </dd>
 </dl>
 
 <dl>
 <dt>Echelle :</dt>
 <dd>
-<div align="left">
 <select name="echelle_id">
 <option value = "" selected>Selectionner ...</option>
 {section name=lst loop=$echelle}
@@ -108,7 +99,6 @@ Retour au détail du périmètre {$data.perimetre_id}</a>
 </option>{/strip}
 {/section}
 </select>
-</div>
 </dd>
 </dl>
 

@@ -45,6 +45,11 @@
 	<conflitWrite action="modules/conflit/conflit.php" param="write" droits="gestion" retourok="conflitDisplay" retourko="conflitChange" modulebefore="conflitChange" />
 	<conflitDelete action="modules/conflit/conflit.php" param="delete" droits="gestion" retoursuppr="perimetreDisplay" retourko="conflitChange" modulebefore="conflitChange" />
 
+	<acteurList action="modules/acteur/acteur.php" param="list" droits="consult" retourlogin='1' />
+	<acteurDisplay action="modules/acteur/acteur.php" param="display" droits="consult"/>
+	<acteurChange action="modules/acteur/acteur.php" param="change" droits="gestion"/>
+	<acteurWrite action="modules/acteur/acteur.php" param="write" droits="gestion" retourok="acteurDisplay" retourko="acteurChange" modulebefore="acteurChange" />
+	<acteurDelete action="modules/acteur/acteur.php" param="delete" droits="gestion" retoursuppr="acteurList" retourko="acteurChange" modulebefore="acteurChange" />
 
 <!-- Paramètres -->
 	<parametre droits="consult" retourlogin="1"/>
