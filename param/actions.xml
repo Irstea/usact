@@ -173,6 +173,11 @@
 	<roleWrite action="modules/parametre/parametre.php" tableName="role" param="write" droits="param" retourok="roleList" retourko="roleChange" modulebefore="roleChange" />
 	<roleDelete action="modules/parametre/parametre.php" tableName="role" param="delete" droits="param" retoursuppr="roleList" retourko="roleChange" />
 
+	<particulier_resident_typeList action="modules/parametre/parametre.php" tableName="particulier_resident_type" param="list" retourlogin="1"  droits="consult"  />
+	<particulier_resident_typeChange action="modules/parametre/parametre.php" tableName="particulier_resident_type" param="change" droits="param" />
+	<particulier_resident_typeWrite action="modules/parametre/parametre.php" tableName="particulier_resident_type" param="write" droits="param" retourok="particulier_resident_typeList" retourko="particulier_resident_typeChange" modulebefore="particulier_resident_typeChange" />
+	<particulier_resident_typeDelete action="modules/parametre/parametre.php" tableName="particulier_resident_type" param="delete" droits="param" retoursuppr="particulier_resident_typeList" retourko="particulier_resident_typeChange" />
+
 
 	<objet_niv2List action="modules/parametre/parametre_niv2.php" tableName="objet_niv2" tableParent="objet_niv1" param="list" retourlogin="1"  droits="consult"  />
 	<objet_niv2Change action="modules/parametre/parametre_niv2.php" tableName="objet_niv2"  tableParent="objet_niv1" param="change" droits="param" />

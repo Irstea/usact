@@ -122,6 +122,10 @@ $LANG["menu"][172] = "Modes résolution niv2";
 $LANG["menu"][173] = "TAble des modes de résolution de niveau 2";
 $LANG["menu"][174] = "Rôles";
 $LANG["menu"][175] = "Table des rôles";
+$LANG["menu"][176] = "Types de résidents";
+$LANG["menu"][177] = "Table des types de résidence des particuliers";
+
+
 /*
  * Gestion des droits nouvelle formule
  */
