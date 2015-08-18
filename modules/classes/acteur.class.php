@@ -19,6 +19,7 @@ class Acteur extends ObjetBDD {
 			natural join acteur_niv3
 			natural join acteur_niv2
 			natural_join acteur_niv1
+			left outer join particulier_resident_type using (particulier_resident_type_id)
 			";
 	private $sqlSearch = "
 			select acteur.*, acteur_niv3_libelle, acteur_niv2_libelle, acteur_niv1_libelle
@@ -28,6 +29,7 @@ class Acteur extends ObjetBDD {
 			natural_join acteur_niv1
 			left outer join acteur_structure using (acteur_id)
 			left outer join acteur_mandat using (acteur_id)
+			left outer join particulier_resident_type using (particulier_resident_type_id)
 			";
 	function __construct($bdd, $param = null) {
 		$this->param = $param;
@@ -78,6 +80,9 @@ class Acteur extends ObjetBDD {
 				),
 				"login" => array (
 						"type" => 0 
+				),
+				"particulier_resident_type_id" => array (
+						"type" => 1 
 				) 
 		);
 		if (! is_array ( $param ))
@@ -88,7 +93,7 @@ class Acteur extends ObjetBDD {
 	
 	/**
 	 * Retourne le detail d'un acteur
-	 * 
+	 *
 	 * @param int $id        	
 	 * @return array|NULL
 	 */
@@ -102,7 +107,7 @@ class Acteur extends ObjetBDD {
 	
 	/**
 	 * Retourne la liste des acteurs en fonction des criteres fournis
-	 * 
+	 *
 	 * @param array $param        	
 	 * @return tableau
 	 */
@@ -145,7 +150,7 @@ class Acteur extends ObjetBDD {
 }
 /**
  * ORM de gestion de la table acteur_mandat
- * 
+ *
  * @author quinton
  *        
  */
@@ -182,7 +187,7 @@ class ActeurMandat extends ObjetBDD {
 	
 	/**
 	 * Retourne la liste des mandats d'un acteur
-	 * 
+	 *
 	 * @param int $acteur_id        	
 	 * @return tableau|NULL
 	 */
@@ -200,7 +205,7 @@ class ActeurMandat extends ObjetBDD {
 
 /**
  * ORM de gestion de la table acteur_structure
- * 
+ *
  * @author quinton
  *        
  */
@@ -240,7 +245,7 @@ class ActeurStructure extends ObjetBDD {
 	
 	/**
 	 * Retourne la liste des structures d'un acteur
-	 * 
+	 *
 	 * @param int $acteur_id        	
 	 * @return tableau|NULL
 	 */

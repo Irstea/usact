@@ -9,7 +9,8 @@
 			<th>Personne<br>morale</th>
 			<th>Type</th>
 			<th>Statut</th>
-			<th>Statut détaillé</th>								
+			<th>Statut détaillé</th>
+			<th>Type de résidence<br>particulier</th>								
 		</tr>
 	</thead>
 	<tbody> 
@@ -41,6 +42,7 @@
 		<td>
 		<span class="textareaDisplay">{$data[lst].acteur_statut_detail}</span>
 		</td>
+		<td>{$data[lst].particulier_resident_type_libelle}</td>
 	</tr>
 	{/section}
 	</tbody>

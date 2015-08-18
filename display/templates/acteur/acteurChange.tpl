@@ -62,6 +62,19 @@ Retour au détail de l'acteur {$data.acteur_id}</a>
 </dd>
 </dl>
 
+<dl>
+<dt>Type de résidence (particulier) :</dt>
+<dd>
+<select name="particulier_resident_type_id">
+<option value="" {if $data.particulier_resident_type_id == ""}selected{/if}>
+{section name=lst loop=$particulier_resident_type}
+<option value="{$particulier_resident_type[lst].particulier_resident_type_id}" {if $particulier_resident_type[lst].particulier_resident_type_id == $data.particulier_resident_type_id}selected{/if}>
+{$particulier_resident_type[lst].particulier_resident_type_libelle}
+</option>
+{/section}
+</select>
+</dl>
+
 <div class="formBouton">
 <input class="submit" type="submit" value="Enregistrer">
 </div>
