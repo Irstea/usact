@@ -10,14 +10,14 @@ class SearchParam {
 	/**
 	 * Tableau des parametres geres par la classe
 	 * La liste des parametres doit etre declaree dans la fonction construct
-	 * 
+	 *
 	 * @var array
 	 */
 	public $param;
 	/**
 	 * Indique si la lecture des parametres a ete realisee au moins une fois
 	 * Permet ainsi de declencher ou non la recherche
-	 * 
+	 *
 	 * @var int
 	 */
 	public $isSearch;
@@ -32,7 +32,7 @@ class SearchParam {
 	}
 	/**
 	 * Stocke les parametres fournis
-	 * 
+	 *
 	 * @param array $data        	
 	 */
 	function setParam($data) {
@@ -57,7 +57,7 @@ class SearchParam {
 	}
 	/**
 	 * Indique si la recherche a ete deja lancee
-	 * 
+	 *
 	 * @return int
 	 */
 	function isSearch() {
@@ -70,7 +70,7 @@ class SearchParam {
 }
 /**
  * Exemple d'instanciation
- * 
+ *
  * @author Eric Quinton
  *        
  */
@@ -85,28 +85,8 @@ class SearchExample extends SearchParam {
 }
 
 /**
- * Classe de gestion des parametres de recherche de la table Conflit
- * 
- * @author Jeremy Damey
- *        
- */
-class SearchConflit extends SearchParam {
-	function __construct() {
-		$this->param = array (
-				"searchId" => "",
-				"searchObjetNiv2" => "",
-				"searchBienSupportNiv2" => "",
-				"searchObjetNiv1" => "",
-				"searchBienSupportNiv1" => "",
-				"searchAnneeDebut" => date ( 'Y' ) 
-		);
-		parent::__construct ();
-	}
-}
-
-/**
  * Classe de gestion des parametres de recherche de la table Perimetre
- * 
+ *
  * @author Jeremy Damey
  *        
  */
@@ -115,14 +95,30 @@ class SearchPerimetre extends SearchParam {
 		$this->param = array (
 				"bien_support_niv2_id" => "",
 				"objet_niv2_id" => "",
-				"libelle"=>"",
-				"type_perimetre_id"=>"",
-				"echelle_id"=>"",
-				"recurrence_id"=>"" /*,
+				"libelle" => "",
+				"type_perimetre_id" => "",
+				"echelle_id" => "",
+				"recurrence_id" => "" /*,
 				"objet_niv1_id"=>"",
 				"bien_support_niv1_id"=>""	*/			
 		);
 		parent::__construct ();
+	}
+}
+/**
+ * Classe de recherche des acteurs
+ * @author quinton
+ *
+ */
+class SearchActeur extends SearchParam {
+	function __construct() {
+		$this->param = array (
+				"libelle" => "",
+				"acteur_niv3_id" => "",
+				"mandat_type_id" => "",
+				"structure_type_id" => "" 
+		);
+		parent::__construct();
 	}
 }
 
