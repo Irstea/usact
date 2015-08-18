@@ -18,7 +18,8 @@ include_once 'modules/conflit/perimetre.function.php';
 
 
 $dataClass = new Perimetre( $bdd, $ObjetBDDParam );
-$id = $_REQUEST ["perimetre_id"];
+$keyName = "perimetre_id";
+$id = $_REQUEST [$keyName];
 
 switch ($t_module ["param"]) {
 	
@@ -71,7 +72,10 @@ switch ($t_module ["param"]) {
 	* write record in database
 	*/
 	case "write":
-		dataWrite ( $dataClass, $_REQUEST );
+		$id = dataWrite ( $dataClass, $_REQUEST );
+		if ($id > 0) {
+			$_REQUEST[$keyName] = $id;
+		}
 		break;
 		
 	/*

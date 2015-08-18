@@ -64,8 +64,7 @@ class Conflit extends ObjetBDD {
 						"defaultValue" => "getDateJour" 
 				),
 				"conflit_detail" => array (
-						"type" => 0,
-						"requis" => 1 
+						"type" => 0
 				) 
 		);
 		$param ["fullDescription"] = 1;

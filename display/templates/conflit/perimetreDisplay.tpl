@@ -1,3 +1,4 @@
+<h2>Détail d'un périmètre</h2>
 <a href="index.php?module={$conflit_table}List">Retour à la liste </a>
 &nbsp;
 <a href="index.php?module=perimetreChange&perimetre_id={$perimetre.perimetre_id}" >Modifier...</a>
@@ -9,7 +10,7 @@
 <fieldset>
 <legend>Conflits rattachés</legend>
 {if $droits.gestion == 1}
-<a href="index.php&module=conflitChange&conflit_id=0&perimetre_id={$perimetre.perimetre_id}">
+<a href="index.php?module=conflitChange&conflit_id=0&perimetre_id={$perimetre.perimetre_id}">
 Nouveau conflit...</a>
 {/if}
 <table>
