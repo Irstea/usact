@@ -27,7 +27,11 @@
 </dl>
 </fieldset>
 <fieldset>
-<legend>Conflit n° {$conflit.conflit_id}</legend>
+<legend>Conflit n° 
+<a href="index.php?module=conflitDisplay&conflit_id={$conflit.conflit_id}">
+{$conflit.conflit_id}
+</a>
+</legend>
 <dl>
 <dt> Description :</dt>
 <dd><span class="textareaDisplay">{$conflit.conflit_detail}</span></dd>
