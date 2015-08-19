@@ -50,6 +50,12 @@
 	<acteurChange action="modules/acteur/acteur.php" param="change" droits="gestion"/>
 	<acteurWrite action="modules/acteur/acteur.php" param="write" droits="gestion" retourok="acteurDisplay" retourko="acteurChange" modulebefore="acteurChange" />
 	<acteurDelete action="modules/acteur/acteur.php" param="delete" droits="gestion" retoursuppr="acteurList" retourko="acteurChange" modulebefore="acteurChange" />
+	<acteur_mandatChange action="modules/acteur/acteur_mandat.php" param="change" droits="gestion"/>
+	<acteur_mandatWrite action="modules/acteur/acteur_mandat.php" param="write" droits="gestion" retourok="acteurDisplay" retourko="acteur_mandatChange" modulebefore="acteur_mandatChange" />
+	<acteur_mandatDelete action="modules/acteur/acteur_mandat.php" param="delete" droits="gestion" retoursuppr="acteurDisplay" retourko="acteur_mandatChange" modulebefore="acteur_mandatChange" />
+	<acteur_structureChange action="modules/acteur/acteur_structure.php" param="change" droits="gestion"/>
+	<acteur_structureWrite action="modules/acteur/acteur_structure.php" param="write" droits="gestion" retourok="acteurDisplay" retourko="acteur_structureChange" modulebefore="acteur_structureChange" />
+	<acteur_structureDelete action="modules/acteur/acteur_structure.php" param="delete" droits="gestion" retoursuppr="acteurDisplay" retourko="acteur_structureChange" modulebefore="acteur_structureChange" />
 
 <!-- Paramètres -->
 	<parametre droits="consult" retourlogin="1"/>

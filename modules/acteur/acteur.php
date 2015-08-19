@@ -25,17 +25,21 @@ switch ($t_module["param"]) {
 			$smarty->assign ("isSearch", 1);
 		}
 		$smarty->assign ("dataSearch", $dataSearch);
-		$smarty->assign("data", $dataClass->getListe(1));
 		$smarty->assign("corps", "acteur/acteurListSearch.tpl");
 		setSmartyActeurParam();
+		$_SESSION["conflit_table"] = "acteur";
 		break;
 	case "display":
 		/*
 		 * Display the detail of the record
 		 */
-		$data = $dataClass->lire($id);
-		$smarty->assign("data", $data);
+		$data = $dataClass->getDetail($id);
+		$smarty->assign("acteur", $data);
 		$smarty->assign("corps", "acteur/acteurDisplay.tpl");
+		$acteurMandat = new ActeurMandat($bdd, $ObjetBDDParam);
+		$smarty->assign("acteur_mandat", $acteurMandat->getListFromActeur($id));
+		$acteurStructure = new ActeurStructure($bdd, $ObjetBDDParam);
+		$smarty->assign("acteur_structure", $acteurStructure->getListFromActeur($id));
 		break;
 	case "change":
 		/*

@@ -82,5 +82,5 @@ switch ($t_module ["param"]) {
 		break;
 		
 }
-$smarty->assign("conflit_table", $_SESSION["conflit_table"]);
+
 ?>

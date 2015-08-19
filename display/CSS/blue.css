@@ -122,7 +122,7 @@ dl {
 }
 .formDisplay dd {
 	float: left;
-	text_align: left;
+	text-align: left;
 	width: 450px;
 	margin: 0 0 10px 0;
 	background-color: white;
@@ -148,7 +148,7 @@ dl {
 }
 .formDisplayNarrow dd {
 	float: left;
-	text_align: left;
+	text-align: left;
 	width: 250px;
 	margin: 0 0 10px 0;
 	background-color: white;
@@ -161,8 +161,8 @@ dl {
 }
 
 dd.image {
-	float: center;
-	text_align: center;
+	/*float: center;*/
+	text-align: center;
 	border-style: none;
 	/*background-color: rgba(152, 193, 233, 0.5);*/
 	width: auto;

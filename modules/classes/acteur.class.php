@@ -18,15 +18,16 @@ class Acteur extends ObjetBDD {
 			from acteur
 			natural join acteur_niv3
 			natural join acteur_niv2
-			natural_join acteur_niv1
+			natural join acteur_niv1
 			left outer join particulier_resident_type using (particulier_resident_type_id)
 			";
 	private $sqlSearch = "
-			select acteur.*, acteur_niv3_libelle, acteur_niv2_libelle, acteur_niv1_libelle
+			select distinct acteur.*, acteur_niv3_libelle, acteur_niv2_libelle, acteur_niv1_libelle,
+			particulier_resident_type_libelle
 			from acteur
 			natural join acteur_niv3
 			natural join acteur_niv2
-			natural_join acteur_niv1
+			natural join acteur_niv1
 			left outer join acteur_structure using (acteur_id)
 			left outer join acteur_mandat using (acteur_id)
 			left outer join particulier_resident_type using (particulier_resident_type_id)
@@ -41,9 +42,6 @@ class Acteur extends ObjetBDD {
 						"key" => 1,
 						"requis" => 1,
 						"defaultValue" => 0 
-				),
-				"commune_id" => array (
-						"type" => 1 
 				),
 				"acteur_niv3_id" => array (
 						"type" => 1,
@@ -78,8 +76,9 @@ class Acteur extends ObjetBDD {
 						"requis" => 1,
 						"defaultValue" => "getDateJour" 
 				),
-				"login" => array (
-						"type" => 0 
+				"acteur_login" => array (
+						"type" => 0 ,
+						"defaultValue" => "getLogin"
 				),
 				"particulier_resident_type_id" => array (
 						"type" => 1 
@@ -145,7 +144,7 @@ class Acteur extends ObjetBDD {
 		 * Preparation de la clause de tri
 		 */
 		$order = " order by acteur_moral_nom, acteur_physique_nom";
-		return $this->getListeParam ( $sql . $where . $order );
+		return $this->getListeParam ( $this->sqlSearch . $where . $order );
 	}
 }
 /**

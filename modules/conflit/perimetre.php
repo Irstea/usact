@@ -85,5 +85,5 @@ switch ($t_module ["param"]) {
 		dataDelete ( $dataClass, $id );
 		break;
 }
-$smarty->assign("conflit_table", $_SESSION["conflit_table"]);
+
 ?>

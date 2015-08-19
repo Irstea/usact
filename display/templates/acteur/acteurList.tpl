@@ -1,5 +1,8 @@
 <script>
-	setDataTables("acteurListe");
+$(document).ready(function() { 
+var table = setDataTables("acteurListe", true, true );
+table.fnSort( [ [2,'asc'], [1,'asc'] ] );
+});
 </script>
 <table id="acteurListe" class="tableListe">
 	<thead>
@@ -17,7 +20,7 @@
 	{section name=lst loop=$data}
 	<tr>
 		<td class="center">
-		<a href="index.php?module=acteurDisplay&acteur_id={$data[lst].acteur_id}&perimetre_id={$data[lst].perimetre_id}">
+		<a href="index.php?module=acteurDisplay&acteur_id={$data[lst].acteur_id}">
 		<img src="display/images/edit.gif" height="20">
 		{$data[lst].acteur_id}
 		</a>

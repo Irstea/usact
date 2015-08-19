@@ -5,7 +5,9 @@ Nouveau...
 </a>
 {/if}
 <script>
+$(document).ready(function() { 
 setDataTables("parametre_niv3");
+} );
 </script>
 <table id="parametre_niv3" class="tableaffichage">
 <thead>

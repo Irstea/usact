@@ -1,5 +1,5 @@
 <h2>Détail d'un acteur</h2>
-<a href="index.php?module=acteurList">Retour à la liste </a>
+<a href="index.php?module={$conflit_table}List">Retour à la liste </a>
 &nbsp;
 <a href="index.php?module=acteurChange&acteur_id={$acteur.acteur_id}" >Modifier...</a>
 {include file="acteur/acteurDetail.tpl"}
@@ -15,10 +15,25 @@ Nouveau mandat...</a>
 {/if}
 <table>
 <thead>
-
+<tr>
+<th>Type de mandat</th>
+<th>Détail</th>
 </thead>
 <tbody>
-
+{section name=lst loop=$acteur_mandat}
+<tr>
+<td>
+{if $droits.gestion == 1}
+<a href="index.php?module=acteur_mandatChange&acteur_mandat_id={$acteur_mandat[lst].acteur_mandat_id}&acteur_id={$acteur_mandat[lst].acteur_id}">
+{$acteur_mandat[lst].mandat_type_libelle}
+</a>
+{else}
+{$acteur_mandat[lst].mandat_type_libelle}
+{/if}
+</td>
+<td>{$acteur_mandat[lst].mandat_detail}</td>
+</tr>
+{/section}
 </tbody>
 </table>
 </fieldset>
@@ -32,11 +47,28 @@ Nouveau rôle...</a>
 <thead>
 <tr>
 <th>Type de structure</th>
-
-
+<th>Statut</th>
+<th>Statut détaillé</th>
+</tr>
 </thead>
 <tbody>
-
+{section name=lst loop=$acteur_structure}
+<tr>
+<td>
+{if $droits.gestion == 1}
+<a href="index.php?module=acteur_structureChange&acteur_structure_id={$acteur_structure[lst].acteur_structure_id}&acteur_id={$acteur.acteur_id}">
+{$acteur_structure[lst].structure_type_libelle}
+</a>
+{else}
+{$acteur_structure[lst].structure_type_libelle}
+{/if}
+</td>
+<td>{$acteur_structure[lst].structure_statut}</td>
+<td><span class="textareaDisplay">{$acteur_structure[lst].structure_statut_detail}</span></td>
+</tr>
+{/section}
 </tbody>
 </table>
 </fieldset>
+
+</td></tr></table>

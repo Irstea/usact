@@ -45,11 +45,11 @@ Type de structure :
 </select>
 
 Type de mandat : 
-<select class="selection" name="type_mandat_id">
-<option value="" {if $dataSearch.type_mandat_id == ""}selected{/if}></option>
-{section name=lst loop=$type_mandat}
-<option value="{$type_mandat[lst].type_mandat_id}" {if $type_mandat[lst].type_mandat_id == $dataSearch.type_mandat_id}selected{/if}>
-{$type_mandat[lst].type_mandat_libelle}
+<select class="selection" name="mandat_type_id">
+<option value="" {if $dataSearch.mandat_type_id == ""}selected{/if}></option>
+{section name=lst loop=$mandat_type}
+<option value="{$mandat_type[lst].mandat_type_id}" {if $mandat_type[lst].mandat_type_id == $dataSearch.mandat_type_id}selected{/if}>
+{$mandat_type[lst].mandat_type_libelle}
 </option>
 {/section}
 </select>

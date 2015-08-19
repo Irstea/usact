@@ -1,5 +1,7 @@
 <script>
+$(document).ready(function() { 
 	setDataTables("idListe");
+});
 </script>
 <h2>Liste des conflits</h2>
 {include file="conflit/perimetreSearch.tpl"} 

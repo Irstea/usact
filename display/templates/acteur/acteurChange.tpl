@@ -1,5 +1,5 @@
 <h2>Nouveau/Modification d'un acteur :</h2>
-<a href="index.php?module=acteurList">Retour à la liste</a>
+<a href="index.php?module={$conflit_table}List">Retour à la liste</a>
 {if $data.acteur_id > 0}
 &nbsp;
 <a href="index.php?module=acteurDisplay&acteur_id={$data.acteur_id}" >
@@ -9,7 +9,7 @@ Retour au détail de l'acteur {$data.acteur_id}</a>
 <form method="post" action="index.php">
 <input type="hidden" name="acteur_id" value="{$data.acteur_id}">
 <input type="hidden" name="module" value="acteurWrite">
-<input type="hidden" name="acteur_date_saisie" value="{$data.acteur_date_saisie"}>
+<input type="hidden" name="acteur_date_saisie" value="{$data.acteur_date_saisie}">
 <input type="hidden" name="acteur_login" value="{$data.acteur_login}">
 
 <dl>
