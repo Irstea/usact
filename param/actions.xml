@@ -57,6 +57,13 @@
 	<acteur_structureWrite action="modules/acteur/acteur_structure.php" param="write" droits="gestion" retourok="acteurDisplay" retourko="acteur_structureChange" modulebefore="acteur_structureChange" />
 	<acteur_structureDelete action="modules/acteur/acteur_structure.php" param="delete" droits="gestion" retoursuppr="acteurDisplay" retourko="acteur_structureChange" modulebefore="acteur_structureChange" />
 
+	<interventionList action="modules/intervention/intervention.php" param="list" droits="consult" retourlogin='1' />
+	<interventionDisplay action="modules/intervention/intervention.php" param="display" droits="consult"/>
+	<interventionChange action="modules/intervention/intervention.php" param="change" droits="gestion"/>
+	<interventionWrite action="modules/intervention/intervention.php" param="write" droits="gestion" retourok="interventionDisplay" retourko="interventionChange" modulebefore="interventionChange" />
+	<interventionDelete action="modules/intervention/intervention.php" param="delete" droits="gestion" retoursuppr="interventionList" retourko="interventionChange" modulebefore="interventionChange" />
+
+
 <!-- Paramètres -->
 	<parametre droits="consult" retourlogin="1"/>
 	<echelleList action="modules/parametre/parametre.php" tableName="echelle" retourlogin="1" param="list" droits="consult"  />

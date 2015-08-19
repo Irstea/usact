@@ -122,4 +122,15 @@ class SearchActeur extends SearchParam {
 	}
 }
 
+class SearchIntervention extends SearchParam {
+	function __construct() {
+		$this->param = array (
+				"usage_activite_niv2_id"=>"",
+				"role_id"=>"",
+				"position_usage_activite_id"=>""
+				);
+		parent::__construct();
+	}
+}
+
 ?>
