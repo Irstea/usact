@@ -70,5 +70,14 @@ Nouveau rôle...</a>
 </tbody>
 </table>
 </fieldset>
-
+<br>
+<fieldset>
+<legend>Interventions</legend>
+{if $droits.gestion == 1}
+<a href="index.php?module=interventionChange&intervention_id=0&acteur_id={$acteur.acteur_id}">
+Nouvelle intervention...
+</a>
+{/if}
+{include file="intervention/interventionList.tpl"}
+</fieldset>
 </td></tr></table>

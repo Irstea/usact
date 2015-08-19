@@ -127,7 +127,9 @@ class SearchIntervention extends SearchParam {
 		$this->param = array (
 				"usage_activite_niv2_id"=>"",
 				"role_id"=>"",
-				"position_usage_activite_id"=>""
+				"position_usage_activite_id"=>"",
+				"bien_support_niv2_id" => "",
+				"objet_niv2_id" => ""
 				);
 		parent::__construct();
 	}

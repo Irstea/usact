@@ -17,6 +17,11 @@ function setSmartyInterventionParam() {
 	$smarty->assign("role", $role->getListe());
 	$position_usage_activite= new Parametre($bdd, "position_usage_activite", $ObjetBDDParam);
 	$smarty->assign("position_usage_activite", $position_usage_activite->getListe());
+	$objet_niv2 = new Parametre_niv2( $bdd,"objet_niv2", "objet_niv1", $ObjetBDDParam );
+	$smarty->assign ( "objet_niv2", $objet_niv2->getListe () );
+	$bien_support_niv2 = new Parametre_niv2( $bdd,"bien_support_niv2", "bien_support_niv1", $ObjetBDDParam );
+	$smarty->assign ( "bien_support_niv2", $bien_support_niv2->getListe () );
+	
 }
 
 ?>

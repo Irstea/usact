@@ -12,6 +12,7 @@ table.fnSort( [ [2,'asc'], [1,'asc'] ] );
 			<th>Conflit</th>
 			<th>Activité d'usage</th>
 			<th>Position</th>
+			<th>Role</th>
 			<th>Date d'entrée</th>
 			<th>Date de sortie</th>
 			<th>Détail</th>
@@ -30,11 +31,17 @@ table.fnSort( [ [2,'asc'], [1,'asc'] ] );
 	{$intervention[lst].acteur_physique_nom} {$intervention[lst].acteur_moral_nom}
 	</td>
 	<td>
+	{if strlen($intervention[lst].bien_support_niv2_libelle > 0 || strlen($intervention[lst].objet_niv2_libelle) > 0)}
+	{$intervention[lst].bien_support_niv2_libelle} / {$intervention[lst].objet_niv2_libelle}
+	<br>
+	{/if}
 	{$intervention[lst].conflit_detail}
 	</td>
 	<td>
-	{$intervention[lst].usage_activite_niv1_libelle} - {$intervention[lst].usage_activit_niv2_libelle}
+	{$intervention[lst].usage_activite_niv1_libelle} - {$intervention[lst].usage_activite_niv2_libelle}
 	</td>
+	<td>{$intervention[lst].position_usage_activite_libelle}</td>
+	<td>{$intervention[lst].role_libelle}</td>
 	<td>
 	{$intervention[lst].intervention_date_entree}{$intervention[lst].intervention_date_entree_txt}
 	</td>

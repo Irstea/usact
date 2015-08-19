@@ -40,6 +40,10 @@ switch ($t_module["param"]) {
 		$smarty->assign("acteur_mandat", $acteurMandat->getListFromActeur($id));
 		$acteurStructure = new ActeurStructure($bdd, $ObjetBDDParam);
 		$smarty->assign("acteur_structure", $acteurStructure->getListFromActeur($id));
+		require_once 'modules/classes/intervention.class.php';
+		$intervention = new Intervention($bdd, $ObjetBDDParam);
+		$smarty->assign("intervention", $intervention->getListFromActeur($id));
+		
 		break;
 	case "change":
 		/*

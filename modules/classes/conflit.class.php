@@ -112,6 +112,11 @@ class Conflit extends ObjetBDD {
 			$wb == true ? $where .= " and ":$wb = true;
 			$where .= "recurrence_id = ".$param["recurrence_id"];
 		}
+		if ($param["objet_niv2_id"]>0 && is_numeric($param["objet_niv2_id"])) {
+			$wb == true ? $where .= " and ":$wb = true;
+			$where .= "objet_niv2_id = ".$param["objet_niv2_id"];
+		}
+		
 		/*
 		 * Cas ou aucun critere de recherche
 		 */

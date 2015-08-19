@@ -22,6 +22,9 @@ class Intervention extends ObjetBDD {
 		left outer join usage_activite_niv2 using (usage_activite_niv2_id)
 		left outer join usage_activite_niv1 using (usage_activite_niv1_id)
 		left outer join role using (role_id)
+		natural join perimetre
+		left outer join bien_support_niv2 using (bien_support_niv2_id)
+		left outer join objet_niv2 using (objet_niv2_id)
 		";
 	
 	function __construct($bdd, $param = null) {
@@ -74,6 +77,14 @@ class Intervention extends ObjetBDD {
 		if ($param ["position_usage_activite_id"] > 0 && is_numeric ( $param ["position_usage_activite_id"] )) {
 			$wb == true ? $where .= " and " : $wb = true;
 			$where .= "position_usage_activite_id = " . $param ["position_usage_activite_id"];
+		}
+		if ($param["objet_niv2_id"]>0 && is_numeric($param["objet_niv2_id"])) {
+			$wb == true ? $where .= " and ":$wb = true;
+			$where .= "objet_niv2_id = ".$param["objet_niv2_id"];
+		}
+		if ($param["bien_support_niv2_id"]> 0 && is_numeric($param["bien_support_niv2_id"])){
+			$wb == true ? $where .= " and ":$wb = true;
+			$where .= "bien_support_niv2_id = ".$param["bien_support_niv2_id"];
 		}
 		
 		if ($wb == false)

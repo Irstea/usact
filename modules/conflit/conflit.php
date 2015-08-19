@@ -50,6 +50,9 @@ switch ($t_module ["param"]) {
 	case "display":
 		$smarty->assign ( "conflit", $dataClass->lireDetail ( $id ));
 		$smarty->assign ( "corps", "conflit/conflitDisplay.tpl" );
+		require_once 'modules/classes/intervention.class.php';
+		$intervention = new Intervention($bdd, $ObjetBDDParam);
+		$smarty->assign("intervention", $intervention->getListFromConflit($id));
 		break;
 		
 	/*

@@ -22,7 +22,7 @@ switch ($t_module["param"]) {
 		$dataSearch = $searchIntervention->getParam ();
 		if ($searchIntervention->isSearch () == 1) {
 			$data = $dataClass->getListeSearch ( $dataSearch );
-			$smarty->assign ( "data", $data );
+			$smarty->assign ( "intervention", $data );
 			$smarty->assign ("isSearch", 1);
 		}
 		$smarty->assign ("dataSearch", $dataSearch);
@@ -37,6 +37,12 @@ switch ($t_module["param"]) {
 		$data = $dataClass->getDetail($id);
 		$smarty->assign("intervention", $data);
 		$smarty->assign("corps", "intervention/interventionDisplay.tpl");
+		require_once 'modules/classes/acteur.class.php';
+		$acteur = new Acteur($bdd, $ObjetBDDParam);
+		$smarty->assign("acteur", $acteur->getDetail($data["acteur_id"]));
+		require_once "modules/classes/conflit.class.php";
+		$conflit = new Conflit($bdd, $ObjetBDDParam);
+		$smarty->assign("conflit", $conflit->lireDetail($data["conflit_id"]));
 /*		$interventionMandat = new InterventionMandat($bdd, $ObjetBDDParam);
 		$smarty->assign("intervention_mandat", $interventionMandat->getListFromIntervention($id));
 		$interventionStructure = new InterventionStructure($bdd, $ObjetBDDParam);
