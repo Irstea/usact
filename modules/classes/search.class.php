@@ -137,7 +137,7 @@ class SearchIntervention extends SearchParam {
 
 class SearchExpert extends SearchParam {
 	function __construct() {
-		$this->param = array("libelle", "");
+		$this->param = array("libelle"=>"");
 		parent::__construct();
 	}
 }

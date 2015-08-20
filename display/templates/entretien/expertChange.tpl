@@ -1,3 +1,33 @@
+<script>
+$(document).ready(function() {
+	$("#acteurSearch").keyup(function() {
+		/*
+		* Traitement de la recherche d'une espèce/type
+		*/
+		var texte = $(this).val();
+		if (texte.length > 2) {
+			/*
+			* declenchement de la recherche
+			*/
+			var url = "index.php?module=acteurSearchAjax";
+			$.getJSON ( url, { "libelle": texte } , function( data ) {
+				var options = '';
+				var moral = '';
+				var physique = '';
+				 for (var i = 0; i < data.length; i++) {
+					 moral = !data[i].acteur_moral_nom ? "" : data[i].acteur_moral_nom;
+					 physique = !data[i].acteur_physique_nom ? "" : data[i].acteur_physique_nom;
+				        options += '<option value="' + data[i].acteur_id + '">' 
+				        + data[i].acteur_id + " - "+ moral 
+				        + " " + physique
+				        + '</option>';
+				      };				
+				$("#acteur_id").html(options);
+			} ) ;
+		};
+	} );
+});
+</script>
 <h2>Nouveau/Modification d'un expert :</h2>
 <a href="index.php?module={$conflit_table}List">Retour à la liste</a>
 {if $data.expert_id > 0}
@@ -31,7 +61,7 @@ Retour au détail de l'expert {$data.expert_id}</a>
 </dd>
 </dl>
 <dl>
-<dt>Commune de résidence<span class="red">*</span> :</dt>
+<dt>Commune de résidence :</dt>
 <dd>
 <input name="commune_residence" value="{$data.commune_residence}" >
 </dd>
@@ -39,11 +69,11 @@ Retour au détail de l'expert {$data.expert_id}</a>
 <dl>
 <dt>Lien avec le territoire<span class="red">*</span> :</dt>
 <dd>
-<input class="commentaire" name="lien_territoire" value="{$data.lien_territoire}" required>
+<textarea name="lien_territoire" required>{$data.lien_territoire}</textarea>
 </dd>
 </dl>
 <dl>
-<dt>Activité associative<span class="red">*</span> :</dt>
+<dt>Activité associative :</dt>
 <dd>
 <input class="commentaire" name="activite_assoc" value="{$data.activite_assoc}">
 </dd>
@@ -57,10 +87,21 @@ Retour au détail de l'expert {$data.expert_id}</a>
 <dl>
 <dt>Année de naissance :</dt>
 <dd>
-<input class="num5" value={$data.annee_naissance} name="annee_naissance">
+<input class="num5" value="{$data.annee_naissance}" name="annee_naissance">
 </dd>
 </dl>
-
+<dl>
+<dt>Correspond à l'acteur :</dt>
+<dd>
+<input id="acteurSearch" placeholder="Nom à rechercher..." class="commentaire">
+<br>
+<select id="acteur_id" name="acteur_id">
+<option value="{$data.acteur_id}">
+{$acteur.acteur_id} - {$acteur.acteur_moral_nom} {$acteur.acteur_physique_nom}
+</option>
+</select>
+</dd>
+</dl>
 <div class="formBouton">
 <input class="submit" type="submit" value="Enregistrer">
 </div>

@@ -22,7 +22,7 @@ class Expert extends ObjetBDD {
 				"acteur_id"=>array("type"=>1),
 				"expert_nom"=>array("requis"=>1),
 				"expert_prenom"=>array("requis"=>1),
-				"sexe"=>array("requis"=>1,)"pattern"=>"#[FH]#", "defaultValue"=>"H"),
+				"sexe"=>array("requis"=>1,"pattern"=>"#[FH]#", "defaultValue"=>"H"),
 				"commune_residence"=>array("type"=>0),
 				"lien_territoire"=>array("requis"=>1),
 				"activite_assoc"=>array("type"=>0),
@@ -61,7 +61,7 @@ class Expert extends ObjetBDD {
 		 * Preparation de la clause de tri
 		 */
 		$order = " order by expert_nom, expert_prenom";
-		return $this->getListeParam ( $sqlSearch . $where . $order );
+		return $this->getListeParam ( $sql . $where . $order );
 	}
 }
 ?>

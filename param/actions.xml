@@ -68,6 +68,12 @@
 	<revendicationWrite action="modules/intervention/revendication.php" param="write" droits="gestion" retourok="interventionDisplay" retourko="revendicationChange" modulebefore="revendicationChange" />
 	<revendicationDelete action="modules/intervention/revendication.php" param="delete" droits="gestion" retoursuppr="interventionDisplay" retourko="revendicationChange" modulebefore="revendicationChange" />
 
+	<expertList action="modules/entretien/expert.php" param="list" droits="consult" retourlogin='1' />
+	<expertDisplay action="modules/entretien/expert.php" param="display" droits="consult"/>
+	<expertChange action="modules/entretien/expert.php" param="change" droits="gestion"/>
+	<expertWrite action="modules/entretien/expert.php" param="write" droits="gestion" retourok="expertDisplay" retourko="expertChange" modulebefore="expertChange" />
+	<expertDelete action="modules/entretien/expert.php" param="delete" droits="gestion" retoursuppr="expertList" retourko="expertChange" modulebefore="expertChange" />
+
 
 <!-- Paramètres -->
 	<parametre droits="consult" retourlogin="1"/>

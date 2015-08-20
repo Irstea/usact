@@ -17,7 +17,7 @@
 </dl>
 <dl>
 <dt> Len avec le territoire :</dt>
-<dd>{$expert.lien_territoire}</dd>
+<dd><span class="textareaDisplay">{$expert.lien_territoire}</span></dd>
 </dl>
 <dl>
 <dt>Activité professionnelle :</dt>

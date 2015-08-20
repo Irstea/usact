@@ -36,7 +36,7 @@ table.fnSort( [ [1,'asc'] ] );
 			<td>{$expert[lst].expert_nom} {$expert[lst].expert_prenom}</td>
 			<td class="center">{$expert[lst].sexe}</td>
 			<td>{$expert[lst].commune_residence}</td>
-			<td>{$expert[lst].lien_territoire}</td>
+			<td><span class="textareaDisplay">{$expert[lst].lien_territoire}</span></td>
 			<td>{$expert[lst].activite_prof}</td>
 			<td>{$expert[lst].activite_assoc}</td>
 			<td>{$expert[lst].annee_naissance}</td>

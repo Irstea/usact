@@ -29,8 +29,8 @@ switch ($t_module["param"]) {
 		 * and, also, into modules/classes/searchParam.class.php...
 		 */
 		$searchExpert->setParam ( $_REQUEST );
-		$dataSearch = $searchExample->getParam ();
-		if ($searchExample->isSearch () == 1) {
+		$dataSearch = $searchExpert->getParam ();
+		if ($searchExpert->isSearch () == 1) {
 			$data = $dataClass->getListeSearch ( $dataSearch );
 			$smarty->assign ( "expert", $data );
 			$smarty->assign ("isSearch", 1);
@@ -44,7 +44,7 @@ switch ($t_module["param"]) {
 		 * Display the detail of the record
 		 */
 		$data = $dataClass->lire($id);
-		$smarty->assign("data", $data);
+		$smarty->assign("expert", $data);
 		$smarty->assign("corps", "entretien/expertDisplay.tpl");
 		break;
 	case "change":

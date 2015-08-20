@@ -39,6 +39,8 @@ $LANG["menu"][62] = "Résolutions";
 $LANG["menu"][63] = "Liste des résolutions";
 $LANG["menu"][64] = "Acteurs";
 $LANG["menu"][65] = "Liste des acteurs";
+$LANG["menu"][66] = "Experts";
+$LANG["menu"][67] = "Liste des experts";
 
 
 $LANG["menu"][94] = "Param. périmètre";
