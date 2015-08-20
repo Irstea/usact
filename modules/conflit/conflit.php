@@ -36,7 +36,7 @@ switch ($t_module ["param"]) {
 		$smarty->assign("table", "conflit");
 		if ($searchPerimetre->isSearch () == 1) {
 			$data = $dataClass->getListeSearch ( $dataRecherche );
-			$smarty->assign ( "data", $data );
+			$smarty->assign ( "conflit", $data );
 			$smarty->assign ( "isSearch", 1 );
 		}
 		$smarty->assign ( "dataSearch", $dataRecherche );
@@ -53,6 +53,9 @@ switch ($t_module ["param"]) {
 		require_once 'modules/classes/intervention.class.php';
 		$intervention = new Intervention($bdd, $ObjetBDDParam);
 		$smarty->assign("intervention", $intervention->getListFromConflit($id));
+		require_once 'modules/classes/entretien.class.php';
+		$entretien = new Entretien($bdd, $ObjetBDDParam);
+		$smarty->assign("entretien", $entretien->getListFromConflit($id));
 		break;
 		
 	/*

@@ -46,6 +46,8 @@ switch ($t_module["param"]) {
 		$data = $dataClass->lire($id);
 		$smarty->assign("expert", $data);
 		$smarty->assign("corps", "entretien/expertDisplay.tpl");
+		$entretien = new Entretien($bdd, $ObjetBDDParam);
+		$smarty->assign("entretien", $entretien->getListFromParent($data["expert_id"]));
 		break;
 	case "change":
 		/*

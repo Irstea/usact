@@ -18,6 +18,11 @@ Nouvelle intervention...
 {/if}
 {include file="intervention/interventionList.tpl"}
 </fieldset>
+<br>
+<fieldset>
+<legend>Entretiens traitant de ce conflit</legend>
+{include file="entretien/entretienList.tpl"}
+</fieldset>
 </td>
 </tr>
 </table>

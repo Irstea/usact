@@ -7,6 +7,15 @@
 <table class="noborder">
 <tr>
 <td>
+<fieldset>
+<legend>Entretiens réalisés</legend>
+{if $droits.gestion == 1}
+<a href="index.php?module=entretienChange&entretien_id=0&expert_id={$expert.expert_id}">
+Nouvel entretien...
+</a>
+{/if}
+{include file="entretien/entretienList.tpl"}
+</fieldset>
 
 </td>
 </tr>

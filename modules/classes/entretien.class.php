@@ -52,6 +52,9 @@ class Expert extends ObjetBDD {
 				$where .= "expert_id = " . $param ["libelle"];
 			} else {
 				$where .= "(upper(expert_nom) like upper('%" . $param ["libelle"] . "%')";
+				$where .= " or upper(commune_residence) like upper('%" . $param ["libelle"] . "%')";
+				$where .= " or upper(lien_territoire) like upper('%" . $param ["libelle"] . "%')";
+				$where .= " or upper(activite_prof) like upper('%" . $param ["libelle"] . "%')";
 				$where .= ")";
 			}
 		}
@@ -71,6 +74,8 @@ class Expert extends ObjetBDD {
  *
  */
 class Entretien extends ObjetBDD {
+	private $sql = "select * from entretien";
+	
 	function __construct($bdd, $param = null) {
 		$this->param = $param;
 		$this->table = "entretien";
@@ -78,6 +83,7 @@ class Entretien extends ObjetBDD {
 		$this->colonnes=array(
 				"entretien_id"=>array("type"=>1,"key"=>1, "requis"=>1, "defaultValue"=>0),
 				"expert_id"=>array("type"=>1, "requis"=>1, "parentAttrib"=>1),
+				"entretien_date"=>array("type"=>2, "requis"=>1),
 				"institution"=>array("requis"=>1),
 				"statut"=>array("requis"=>1),
 				"localisation"=>array("requis"=>1),
@@ -90,6 +96,20 @@ class Entretien extends ObjetBDD {
 			$param == array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
+	}
+
+	/**
+	 * Retourne la liste des entretiens se rapportant a un conflit
+	 * @param unknown $conflit_id
+	 * @return tableau
+	 */
+	function getListFromConflit($conflit_id) {
+		if ($conflit_id > 0 && is_numeric($conflit_id)) {
+			$sql = $this->sql." natural join entretien_conflit";
+			$where = " where conflit_id = ".$conflit_id;
+			$order = " order by conflit_id";
+			return $this->getListeParam($sql.$where.$order);
+		}
 	}
 	
 }

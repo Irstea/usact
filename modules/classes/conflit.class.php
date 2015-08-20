@@ -161,6 +161,20 @@ class Conflit extends ObjetBDD {
 			return $this->getListeParam($sql.$where.$order);
 		}
 	}
+
+	/**
+	 * Recupere la liste des conflits associes a un entretien
+	 * @param int $entretien_id
+	 * @return tableau
+	 */
+	function getListFromEntretien($entretien_id) {
+		if ($entretien_id > 0 && is_numeric($entretien_id)) {
+			$sql = $this->sql." natural join entretien_conflit";
+			$where = " where entretien_id = ".$entretien_id;
+			$order = " order by conflit_id";
+			return $this->getListeParam($sql.$where.$order);
+		}
+	}
 }
 ?>
 
