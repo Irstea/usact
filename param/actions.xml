@@ -73,6 +73,10 @@
 	<expertChange action="modules/entretien/expert.php" param="change" droits="gestion"/>
 	<expertWrite action="modules/entretien/expert.php" param="write" droits="gestion" retourok="expertDisplay" retourko="expertChange" modulebefore="expertChange" />
 	<expertDelete action="modules/entretien/expert.php" param="delete" droits="gestion" retoursuppr="expertList" retourko="expertChange" modulebefore="expertChange" />
+	<entretienDisplay action="modules/entretien/entretien.php" param="display" droits="consult"/>
+	<entretienChange action="modules/entretien/entretien.php" param="change" droits="gestion"/>
+	<entretienWrite action="modules/entretien/entretien.php" param="write" droits="gestion" retourok="entretienDisplay" retourko="entretienChange" modulebefore="entretienChange" />
+	<entretienDelete action="modules/entretien/entretien.php" param="delete" droits="gestion" retoursuppr="expertDisplay" retourko="entretienChange" modulebefore="entretienChange" />
 
 
 <!-- Paramètres -->

@@ -64,4 +64,33 @@ class Expert extends ObjetBDD {
 		return $this->getListeParam ( $sql . $where . $order );
 	}
 }
+
+/**
+ * ORM de gestion de la table entretien
+ * @author quinton
+ *
+ */
+class Entretien extends ObjetBDD {
+	function __construct($bdd, $param = null) {
+		$this->param = $param;
+		$this->table = "entretien";
+		$this->id_auto = "1";
+		$this->colonnes=array(
+				"entretien_id"=>array("type"=>1,"key"=>1, "requis"=>1, "defaultValue"=>0),
+				"expert_id"=>array("type"=>1, "requis"=>1, "parentAttrib"=>1),
+				"institution"=>array("requis"=>1),
+				"statut"=>array("requis"=>1),
+				"localisation"=>array("requis"=>1),
+				"binome"=>array("requis"=>1),
+				"entretien_login"=>array("type"=>0, "defaultValue"=>"getLogin"),
+				"entretien_date_saisie"=>array("type"=>2, "defaultValue"=>"getDateJour"),
+				"piece_jointe"=>array("type"=>0)
+		);
+		if (! is_array ( $param ))
+			$param == array ();
+		$param ["fullDescription"] = 1;
+		parent::__construct ( $bdd, $param );
+	}
+	
+}
 ?>

@@ -6,7 +6,7 @@
 	<item module="acteurList" value="64" title="65" />
 	<item module="interventionList"  value="54" title="55" />
 	<item module="expertList" value="66" title="67" />
-	<item module="entretienList"  value="56" title="57" />
+	<!-- item module="entretienList"  value="56" title="57" /-->
 	<item module="articleList"  value="58" title="59" />
 	<item module="juridiqueList"  value="60" title="61" />
 	<item module="resolutionList"  value="62" title="63" />
