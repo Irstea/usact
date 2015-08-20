@@ -84,6 +84,13 @@ switch ($t_module ["param"]) {
 		dataDelete ( $dataClass, $id );
 		break;
 		
+	case "getListAjaxJson":
+		if (strlen($_REQUEST["objet_id"]) > 0) {
+			$data = $dataClass->getListByObjet($_REQUEST["objet_id"]);
+		
+			echo json_encode ($data) ;
+		}
+		
 }
 
 ?>

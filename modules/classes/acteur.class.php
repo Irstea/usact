@@ -77,8 +77,8 @@ class Acteur extends ObjetBDD {
 						"defaultValue" => "getDateJour" 
 				),
 				"acteur_login" => array (
-						"type" => 0 ,
-						"defaultValue" => "getLogin"
+						"type" => 0,
+						"defaultValue" => "getLogin" 
 				),
 				"particulier_resident_type_id" => array (
 						"type" => 1 
@@ -145,6 +145,33 @@ class Acteur extends ObjetBDD {
 		 */
 		$order = " order by acteur_moral_nom, acteur_physique_nom";
 		return $this->getListeParam ( $this->sqlSearch . $where . $order );
+	}
+	
+	/**
+	 * Retourne la liste des acteurs dont le nom contient le libelle fourni
+	 * ou dont l'identifiant est egal au libelle fourni
+	 * @param string $libelle
+	 * @return tableau
+	 */
+	function getListByName($libelle) {
+		if (strlen ( $libelle ) > 0) {
+			$this->encodeData ( $libelle );
+			$sql = "select acteur_id, acteur_moral_nom, acteur_physique_nom
+					from acteur
+					";
+			$where = " where ";
+			if (is_numeric ( $libelle )) {
+				$where .= "acteur_id = " . $libelle;
+			} else {
+				$where .= "(upper(acteur_physique_nom) like upper('%" . $libelle . "%')";
+				$where .= " or upper(acteur_moral_nom) like upper('%" . $libelle . "%')";
+				$where .= " or upper(commune_physique) like upper('%" . $libelle . "%')";
+				$where .= " or upper(commune_morale) like upper('%" . $libelle . "%')";
+				$where .= ")";
+			}
+			$order = " order by acteur_moral_nom, acteur_physique_nom";
+			return $this->getListeParam($sql.$where.$order);
+		}
 	}
 }
 /**

@@ -144,6 +144,23 @@ class Conflit extends ObjetBDD {
 			return parent::lireParam ( $this->sql . $where );
 		}
 	}
+
+	/**
+	 * Fonction retournant la liste des conflits correspondants a un objet
+	 * @param int $objet_id
+	 * @return tableau
+	 */
+	function getListByObjet($objet_id) {
+		if( $objet_id > 0 && is_numeric($objet_id)) {
+			$sql = "select conflit_id, conflit_detail
+					from conflit
+					natural join perimetre
+					";
+			$where = " where objet_niv2_id = ".$objet_id;
+			$order = " order by conflit_id";
+			return $this->getListeParam($sql.$where.$order);
+		}
+	}
 }
 ?>
 

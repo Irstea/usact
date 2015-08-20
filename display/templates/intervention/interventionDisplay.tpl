@@ -4,11 +4,11 @@
 {if $droits.gestion == 1}
 <a href="index.php?module=interventionChange&intervention_id={$intervention.intervention_id}">Modifier...</a>
 {/if}
+{include file="intervention/interventionDetail.tpl"}
+<br>
 {include file="conflit/conflitDetail.tpl"}
 <br>
 {include file="acteur/acteurDetail.tpl"}
-<br>
-{include file="intervention/interventionDetail.tpl"}
 <table class="noborder">
 <tr><td>
 

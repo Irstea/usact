@@ -1,3 +1,52 @@
+<script>
+$(document).ready(function() {
+	$("#acteurSearch").keyup(function() {
+		/*
+		* Traitement de la recherche d'une espèce/type
+		*/
+		var texte = $(this).val();
+		if (texte.length > 2) {
+			/*
+			* declenchement de la recherche
+			*/
+			var url = "index.php?module=acteurSearchAjax";
+			$.getJSON ( url, { "libelle": texte } , function( data ) {
+				var options = '';
+				var moral = '';
+				var physique = '';
+				 for (var i = 0; i < data.length; i++) {
+					 moral = !data[i].acteur_moral_nom ? "" : data[i].acteur_moral_nom;
+					 physique = !data[i].acteur_physique_nom ? "" : data[i].acteur_physique_nom;
+				        options += '<option value="' + data[i].acteur_id + '">' 
+				        + data[i].acteur_id + " - "+ moral 
+				        + " " + physique
+				        + '</option>';
+				      };				
+				$("#acteur_id").html(options);
+			} ) ;
+		};
+	} );
+	$("#conflitSearch").change(function () {
+		var id = $(this).val();
+		/*
+		* declenchement de la recherche
+		*/
+		var url = "index.php?module=conflitSearchAjax";
+		$.getJSON ( url, { "objet_id": id } , function( data ) {
+			var options = '';
+			var detail = '';
+			 for (var i = 0; i < data.length; i++) {
+				 detail = !data[i].conflit_detail ? "" : data[i].conflit_detail;
+			        options += '<option value="' + data[i].conflit_id + '">' 
+			        + data[i].conflit_id + " - " + detail
+			        + '</option>';
+			      };				
+			$("#conflit_id").html(options);
+		} ) ;
+	});
+});
+</script>
+
 <h2>Nouveau/Modification d'une intervention :</h2>
 <a href="index.php?module={$conflit_table}List">Retour à la liste</a>
 &nbsp;
@@ -7,10 +56,41 @@
 <form method="post" action="index.php">
 <input type="hidden" name="intervention_id" value="{$data.intervention_id}">
 <input type="hidden" name="module" value="interventionWrite">
-<input type="hidden" id="conflit_id" name="conflit_id" value="{$data.conflit_id}">
+
 <fieldset>
 <legend>Intervention {if $data.intervention_id > 0}n° {$data.intervention_id}{/if}</legend>
-
+<dl>
+<dt>Acteur :</dt>
+<dd>
+<input id="acteurSearch" placeholder="Nom à rechercher..." class="commentaire" autofocus>
+<br>
+<select id="acteur_id" name="acteur_id">
+<option value="{$data.acteur_id}">
+{$acteur.acteur_id} - {$acteur.acteur_moral_nom} {$acteur.acteur_physique_nom}
+</option>
+</select>
+</dd>
+</dl>
+<dl>
+<dt>Objet du conflit (pour recherche) :</dt>
+<dd>
+<select id="conflitSearch">
+{section name=lst loop=$objet_niv2}
+<option value="{$objet_niv2[lst].objet_niv2_id}" {if $conflit.objet_niv2_id == $objet_niv2[lst].objet_niv2_id}selected{/if}>
+{$objet_niv2[lst].objet_niv1_libelle} - {$objet_niv2[lst].objet_niv2_libelle}
+</option>
+{/section}
+</select>
+</dd>
+</dl>
+<dl>
+<dt>Conflit :</dt>
+<select id="conflit_id" name="conflit_id">
+<option value="{$data.conflit_id}">
+{$conflit.conflit_id} - {$conflit.conflit_detail}
+</option>
+</select>
+</dl>
 <dl>
 <dt>Activité d'usage :</dt>
 <dd>

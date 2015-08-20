@@ -81,6 +81,9 @@ switch ($t_module["param"]) {
 			$smarty->assign("conflit", $conflit->lireDetail($data["conflit_id"]));
 		}
 		setSmartyInterventionParam();
+		require_once 'modules/classes/parametre.class.php';
+		$objet_niv2 = new Parametre_niv2( $bdd,"objet_niv2", "objet_niv1", $ObjetBDDParam );
+		$smarty->assign ( "objet_niv2", $objet_niv2->getListe () );
 		break;
 	case "write":
 		/*

@@ -18,7 +18,7 @@
 </dl>
 <dl>
 <dt>Détail :</dt>
-<dd>{$intervention.intervention_detail_usage}</dd>
+<dd><span class="textareaDisplay">{$intervention.intervention_detail_usage}</span></dd>
 </dl>
 <dl>
 <dt>Date d'entrée :</dt>
