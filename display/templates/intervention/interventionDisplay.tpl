@@ -17,6 +17,17 @@ Nouvelle action...
 {/if}
 {include file="intervention/actionList.tpl"}
 </fieldset>
+<br>
+<fieldset>
+<legend>Revendications</legend>
+{if $droits.gestion == 1}
+<a href="index.php?module=revendicationChange&intervention_id={$intervention.intervention_id}&revendication_id=0">
+Nouvelle revendication...
+</a>
+{/if}
+{include file="intervention/revendicationList.tpl"}
+</fieldset>
+
 </td></tr>
 </table>
 {include file="conflit/conflitDetail.tpl"}

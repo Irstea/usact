@@ -45,9 +45,10 @@ switch ($t_module["param"]) {
 		$smarty->assign("conflit", $conflit->lireDetail($data["conflit_id"]));
 		$action = new Action($bdd, $ObjetBDDParam);
 		$smarty->assign("action", $action->getListFromIntervention($id));
-/*		$interventionStructure = new InterventionStructure($bdd, $ObjetBDDParam);
-		$smarty->assign("intervention_structure", $interventionStructure->getListFromIntervention($id));
-*/		break;
+		$revendication = new Revendication($bdd, $ObjetBDDParam);
+		$smarty->assign("revendication", $revendication->getListFromIntervention($id));
+		
+		break;
 	case "change":
 		/*
 		 * open the form to modify the record

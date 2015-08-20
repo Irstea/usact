@@ -20,7 +20,7 @@
 </option>
 {section name=lst loop=$revendication_niv2}
 <option value="{$revendication_niv2[lst].revendication_niv2_id}" {if $revendication_niv2[lst].revendication_niv2_id == $data.revendication_niv2_id}selected{/if}>
-{$revendication_niv2[lst].revendication_niv1_libelle} {$revendication_niv2[lst].revendication_niv2_libelle}
+{$revendication_niv2[lst].revendication_niv1_libelle} - {$revendication_niv2[lst].revendication_niv2_libelle}
 </option>
 {/section}
 </select>
@@ -34,7 +34,7 @@
 </option>
 {section name=lst loop=$registre_argument_niv2}
 <option value="{$registre_argument_niv2[lst].registre_argument_niv2_id}" {if $registre_argument_niv2[lst].registre_argument_niv2_id == $data.registre_argument_niv2_id}selected{/if}>
-{$registre_argument_niv2[lst].registre_argument_niv1_libelle} {$registre_argument_niv2[lst].registre_argument_niv2_libelle}
+{$registre_argument_niv2[lst].registre_argument_niv1_libelle} - {$registre_argument_niv2[lst].registre_argument_niv2_libelle}
 </option>
 {/section}
 </select>
@@ -48,19 +48,20 @@
 </option>
 {section name=lst loop=$revend_support_niv2}
 <option value="{$revend_support_niv2[lst].revend_support_niv2_id}" {if $revend_support_niv2[lst].revend_support_niv2_id == $data.revend_support_niv2_id}selected{/if}>
-{$revend_support_niv2[lst].revend_support_niv1_libelle} {$revend_support_niv2[lst].revend_support_niv2_libelle}
+{$revend_support_niv2[lst].revend_support_niv1_libelle} - {$revend_support_niv2[lst].revend_support_niv2_libelle}
 </option>
 {/section}
 </select>
 </dd>
 </dl>
-
-
 <dl>
-<dt>Détail :</dt>
+<dt>Détail de la revendication :</dt>
 <dd><textarea name="revendication_detail">{$data.revendication_detail}</textarea></dd>
 </dl>
-
+<dl>
+<dt>Détail des arguments :</dt>
+<dd><textarea name="argument_detail">{$data.argument_detail}</textarea></dd>
+</dl>
 </fieldset>
 
 

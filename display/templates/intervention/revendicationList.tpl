@@ -6,6 +6,7 @@
 			<th>Argument</th>
 			<th>Support</th>
 			<th>Détail</th>
+			<th>Détail des<br>arguments</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -24,6 +25,7 @@
 			<td>{$revendication[lst].registre_argument_niv1_libelle} {$revendication[lst].registre_argument_niv2_libelle}</td>
 			<td>{$revendication[lst].revend_support_niv1_libelle} {$revendication[lst].revend_support_niv2_libelle}</td>
 			<td><span class="textareaDisplay">{$revendication[lst].revendication_detail}</span></td>
+			<td><span class="textareaDisplay">{$revendication[lst].argument_detail}</span></td>
 		</tr>
 		{/section}
 	</tbody>

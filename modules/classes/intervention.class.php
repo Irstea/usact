@@ -8,7 +8,7 @@
 
 /**
  * ORM de gestion de la table intervention
- * 
+ *
  * @author quinton
  *        
  */
@@ -134,7 +134,7 @@ class Intervention extends ObjetBDD {
 	
 	/**
 	 * Retourne la liste des interventions pour un acteur
-	 * 
+	 *
 	 * @param int $acteur_id        	
 	 * @return tableau|NULL
 	 */
@@ -149,7 +149,7 @@ class Intervention extends ObjetBDD {
 	
 	/**
 	 * Retourne la liste des interventions pour un conflit
-	 * 
+	 *
 	 * @param int $conflit_id        	
 	 * @return tableau|NULL
 	 */
@@ -165,8 +165,9 @@ class Intervention extends ObjetBDD {
 
 /**
  * ORM de gestion de la table action
+ * 
  * @author quinton
- *
+ *        
  */
 class Action extends ObjetBDD {
 	private $sql = "
@@ -175,7 +176,6 @@ class Action extends ObjetBDD {
 			left outer join action_mode using (action_mode_id)
 			left outer join action_echelle using (action_echelle_id)
 			";
-	
 	function __construct($bdd, $param = null) {
 		$this->param = $param;
 		$this->table = "action";
@@ -216,26 +216,27 @@ class Action extends ObjetBDD {
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}
-
+	
 	/**
 	 * Retourne la liste des actions pour une intervention
-	 * @param int $id
+	 * 
+	 * @param int $id        	
 	 * @return tableau
 	 */
-	function getListFromIntervention ($id) {
-		if ($id > 0 && is_numeric($id)) {
-			$where = " where intervention_id = ".$id;
+	function getListFromIntervention($id) {
+		if ($id > 0 && is_numeric ( $id )) {
+			$where = " where intervention_id = " . $id;
 			$order = " order by action_date, action_id";
-			return $this->getListeParam($this->sql.$where.$order);
+			return $this->getListeParam ( $this->sql . $where . $order );
 		}
 	}
 }
 
-
 /**
  * ORM de gestion de la table revendication
+ * 
  * @author quinton
- *
+ *        
  */
 class Revendication extends ObjetBDD {
 	private $sql = "
@@ -247,7 +248,6 @@ class Revendication extends ObjetBDD {
 			left outer join revend_support_niv2 using (revend_support_niv2_id)
 			left outer join revend_support_niv1 using (revend_support_niv1_id)
 			";
-
 	function __construct($bdd, $param = null) {
 		$this->param = $param;
 		$this->table = "revendication";
@@ -257,42 +257,46 @@ class Revendication extends ObjetBDD {
 						"type" => 1,
 						"key" => 1,
 						"requis" => 1,
-						"defaultValue" => 0
+						"defaultValue" => 0 
 				),
 				"intervention_id" => array (
 						"type" => 1,
 						"requis" => 1,
-						"parentAttrib" => 1
+						"parentAttrib" => 1 
 				),
 				"revendication_niv2_id" => array (
-						"type" => 1
+						"type" => 1 
 				),
 				"registre_argument_niv2_id" => array (
-						"type" => 1
+						"type" => 1 
 				),
 				"revend_support_niv2_id" => array (
-						"type" => 1
+						"type" => 1 
 				),
 				"revendication_detail" => array (
-						"type" => 0
-				)
+						"type" => 0 
+				),
+				"argument_detail" => array (
+						"type" => 0 
+				) 
 		);
 		if (! is_array ( $param ))
 			$param == array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}
-
+	
 	/**
 	 * Retourne la liste des revendications pour une intervention
-	 * @param int $id
+	 * 
+	 * @param int $id        	
 	 * @return tableau
 	 */
-	function getListFromIntervention ($id) {
-		if ($id > 0 && is_numeric($id)) {
-			$where = " where intervention_id = ".$id;
+	function getListFromIntervention($id) {
+		if ($id > 0 && is_numeric ( $id )) {
+			$where = " where intervention_id = " . $id;
 			$order = " order by revendication_id";
-			return $this->getListeParam($this->sql.$where.$order);
+			return $this->getListeParam ( $this->sql . $where . $order );
 		}
 	}
 }
