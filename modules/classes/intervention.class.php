@@ -8,11 +8,10 @@
 
 /**
  * ORM de gestion de la table intervention
+ * 
  * @author quinton
- *
+ *        
  */
-
-
 class Intervention extends ObjetBDD {
 	private $sql = "
 		select * from intervention
@@ -26,7 +25,6 @@ class Intervention extends ObjetBDD {
 		left outer join bien_support_niv2 using (bien_support_niv2_id)
 		left outer join objet_niv2 using (objet_niv2_id)
 		";
-	
 	function __construct($bdd, $param = null) {
 		$this->param = $param;
 		$this->table = "intervention";
@@ -38,16 +36,40 @@ class Intervention extends ObjetBDD {
 						"requis" => 1,
 						"defaultValue" => 0 
 				),
-				"conflit_id" => array( "type"=>1, "requis"=>1, "parentAttrib"=>1),
-				"acteur_id" => array("type"=>1, "requis"=>1),
-				"role_id" => array("type"=>1),
-				"usage_activite_niv2_id"=>array("type"=>1),
-				"position_usage_activite_id"=>array("type"=>1, "requis"=>1),
-				"intervention_date_entree"=>array("type"=>2),
-				"intervention_date_entree_txt"=>array("type"=>0),
-				"intervention_date_sortie"=>array("type"=>2),
-				"intervention_date_sortie_txt"=>array("type"=>0),
-				"intervention_detail_usage"=>array("type"=>0)
+				"conflit_id" => array (
+						"type" => 1,
+						"requis" => 1,
+						"parentAttrib" => 1 
+				),
+				"acteur_id" => array (
+						"type" => 1,
+						"requis" => 1 
+				),
+				"role_id" => array (
+						"type" => 1 
+				),
+				"usage_activite_niv2_id" => array (
+						"type" => 1 
+				),
+				"position_usage_activite_id" => array (
+						"type" => 1,
+						"requis" => 1 
+				),
+				"intervention_date_entree" => array (
+						"type" => 2 
+				),
+				"intervention_date_entree_txt" => array (
+						"type" => 0 
+				),
+				"intervention_date_sortie" => array (
+						"type" => 2 
+				),
+				"intervention_date_sortie_txt" => array (
+						"type" => 0 
+				),
+				"intervention_detail_usage" => array (
+						"type" => 0 
+				) 
 		);
 		if (! is_array ( $param ))
 			$param == array ();
@@ -58,7 +80,7 @@ class Intervention extends ObjetBDD {
 	/**
 	 * Retourne la liste des acteurs en fonction des criteres fournis
 	 *
-	 * @param array $param
+	 * @param array $param        	
 	 * @return tableau
 	 */
 	function getListeSearch($param) {
@@ -78,18 +100,18 @@ class Intervention extends ObjetBDD {
 			$wb == true ? $where .= " and " : $wb = true;
 			$where .= "position_usage_activite_id = " . $param ["position_usage_activite_id"];
 		}
-		if ($param["objet_niv2_id"]>0 && is_numeric($param["objet_niv2_id"])) {
-			$wb == true ? $where .= " and ":$wb = true;
-			$where .= "objet_niv2_id = ".$param["objet_niv2_id"];
+		if ($param ["objet_niv2_id"] > 0 && is_numeric ( $param ["objet_niv2_id"] )) {
+			$wb == true ? $where .= " and " : $wb = true;
+			$where .= "objet_niv2_id = " . $param ["objet_niv2_id"];
 		}
-		if ($param["bien_support_niv2_id"]> 0 && is_numeric($param["bien_support_niv2_id"])){
-			$wb == true ? $where .= " and ":$wb = true;
-			$where .= "bien_support_niv2_id = ".$param["bien_support_niv2_id"];
+		if ($param ["bien_support_niv2_id"] > 0 && is_numeric ( $param ["bien_support_niv2_id"] )) {
+			$wb == true ? $where .= " and " : $wb = true;
+			$where .= "bien_support_niv2_id = " . $param ["bien_support_niv2_id"];
 		}
 		
 		if ($wb == false)
 			$where = "";
-		/*
+			/*
 		 * Preparation de la clause de tri
 		 */
 		$order = "";
@@ -99,7 +121,7 @@ class Intervention extends ObjetBDD {
 	/**
 	 * Retourne le detail d'une intervention
 	 *
-	 * @param int $id
+	 * @param int $id        	
 	 * @return array|NULL
 	 */
 	function getDetail($id) {
@@ -109,39 +131,104 @@ class Intervention extends ObjetBDD {
 		} else
 			return null;
 	}
-
+	
 	/**
 	 * Retourne la liste des interventions pour un acteur
-	 * @param int $acteur_id
+	 * 
+	 * @param int $acteur_id        	
 	 * @return tableau|NULL
 	 */
 	function getListFromActeur($acteur_id) {
-		if (is_numeric($acteur_id) && $acteur_id > 0) {
-			$where = " where acteur_id = ".$acteur_id;
+		if (is_numeric ( $acteur_id ) && $acteur_id > 0) {
+			$where = " where acteur_id = " . $acteur_id;
 			$order = " order by intervention_date_entree desc";
-			return $this->getListeParam($this->sql.$where.$order);
-		}
-		else 
+			return $this->getListeParam ( $this->sql . $where . $order );
+		} else
 			return null;
 	}
 	
 	/**
 	 * Retourne la liste des interventions pour un conflit
-	 * @param int $conflit_id
+	 * 
+	 * @param int $conflit_id        	
 	 * @return tableau|NULL
 	 */
 	function getListFromConflit($conflit_id) {
-		if (is_numeric($conflit_id) && $conflit_id > 0) {
-			$where = " where conflit_id = ".$conflit_id;
+		if (is_numeric ( $conflit_id ) && $conflit_id > 0) {
+			$where = " where conflit_id = " . $conflit_id;
 			$order = " order by intervention_date_entree desc";
-			return $this->getListeParam($this->sql.$where.$order);
-		}
-		else
+			return $this->getListeParam ( $this->sql . $where . $order );
+		} else
 			return null;
 	}
-	
 }
 
+/**
+ * ORM de gestion de la table action
+ * @author quinton
+ *
+ */
+class Action extends ObjetBDD {
+	private $sql = "
+			select * from action
+			left outer join action_type using (action_type_id)
+			left outer join action_mode using (action_mode_id)
+			left outer join action_echelle using (action_echelle_id)
+			";
+	
+	function __construct($bdd, $param = null) {
+		$this->param = $param;
+		$this->table = "action";
+		$this->id_auto = "1";
+		$this->colonnes = array (
+				"action_id" => array (
+						"type" => 1,
+						"key" => 1,
+						"requis" => 1,
+						"defaultValue" => 0 
+				),
+				"intervention_id" => array (
+						"type" => 1,
+						"requis" => 1,
+						"parentAttrib" => 1 
+				),
+				"action_type_id" => array (
+						"type" => 1 
+				),
+				"action_mode_id" => array (
+						"type" => 1 
+				),
+				"action_echelle_id" => array (
+						"type" => 1 
+				),
+				"action_date" => array (
+						"type" => 2 
+				),
+				"action_date_complement" => array (
+						"type" => 0 
+				),
+				"action_detail" => array (
+						"type" => 0 
+				) 
+		);
+		if (! is_array ( $param ))
+			$param == array ();
+		$param ["fullDescription"] = 1;
+		parent::__construct ( $bdd, $param );
+	}
 
+	/**
+	 * Retourne la liste des actions pour une intervention
+	 * @param int $id
+	 * @return tableau
+	 */
+	function getListFromIntervention ($id) {
+		if ($id > 0 && is_numeric($id)) {
+			$where = " where intervention_id = ".$id;
+			$order = " order by action_date, action_id";
+			return $this->getListeParam($this->sql.$where.$order);
+		}
+	}
+}
 
 ?>

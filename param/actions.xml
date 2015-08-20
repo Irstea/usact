@@ -64,6 +64,9 @@
 	<interventionChange action="modules/intervention/intervention.php" param="change" droits="gestion"/>
 	<interventionWrite action="modules/intervention/intervention.php" param="write" droits="gestion" retourok="interventionDisplay" retourko="interventionChange" modulebefore="interventionChange" />
 	<interventionDelete action="modules/intervention/intervention.php" param="delete" droits="gestion" retoursuppr="interventionList" retourko="interventionChange" modulebefore="interventionChange" />
+	<actionChange action="modules/intervention/action.php" param="change" droits="gestion"/>
+	<actionWrite action="modules/intervention/action.php" param="write" droits="gestion" retourok="interventionDisplay" retourko="actionChange" modulebefore="actionChange" />
+	<actionDelete action="modules/intervention/action.php" param="delete" droits="gestion" retoursuppr="interventionDisplay" retourko="actionChange" modulebefore="actionChange" />
 
 
 <!-- Paramètres -->
