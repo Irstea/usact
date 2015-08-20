@@ -7,11 +7,9 @@ $(document).ready(function() {
 </script>
 
 <form id="search" method="GET" action="index.php">
-<table id="acteurSearch" class="tableaffichage">
-
 <input type="hidden" name="module" value="acteurList">
 <input type="hidden" name="isSearch" value="1">
-
+<table id="acteurSearch" class="tableaffichage">
 <tr>
 <td>
 Texte ou numéro à rechercher : 

@@ -38,5 +38,11 @@ if (!isset($_SESSION["searchIntervention"])) {
 else {
 	$searchIntervention = $_SESSION["searchIntervention"];
 }
-
+if (!isset($_SESSION["searchExpert"])) {
+	$searchExpert = new SearchExpert();
+	$_SESSION["searchExpert"] = $searchExpert;
+}
+else {
+	$searchExpert = $_SESSION["searchExpert"];
+}
 ?>
