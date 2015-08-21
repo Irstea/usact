@@ -11,7 +11,7 @@
 <fieldset>
 <legend>Conflits relatés</legend>
 {if $droits.gestion == 1}
-Rattacher un nouveau conflit
+<a href="index.php?module=entretienConflitManage&entretien_id={$entretien.entretien_id}">Gérer les conflits rattachés...</a>
 {/if}
 {include file="conflit/conflitListSearch.tpl"}
 </fieldset>

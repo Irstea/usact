@@ -78,6 +78,9 @@
 	<entretienWrite action="modules/entretien/entretien.php" param="write" droits="gestion" retourok="entretienDisplay" retourko="entretienChange" modulebefore="entretienChange" />
 	<entretienDelete action="modules/entretien/entretien.php" param="delete" droits="gestion" retoursuppr="expertDisplay" retourko="entretienChange" modulebefore="entretienChange" />
 
+	<entretienConflitManage action="modules/entretien/entretienConflit.php" param="manage" droits="gestion"/>
+	<entretienConflitWrite action="modules/entretien/entretienConflit.php" param="write" droits="gestion" retourok="entretienConflitManage" retourko="entretienConflitManage" modulebefore="entretienConflitManage,entretienConflitWrite,entretienConflitDelete" />
+	<entretienConflitDelete action="modules/entretien/entretienConflit.php" param="delete" droits="gestion" retoursuppr="entretienConflitManage" retourko="entretienConflitManage" modulebefore="entretienConflitManage,entretienConflitWrite,entretienConflitDelete" />
 
 <!-- Paramètres -->
 	<parametre droits="consult" retourlogin="1"/>
