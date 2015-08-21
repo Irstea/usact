@@ -5,13 +5,13 @@ $(document).ready(function() {
 		* Traitement de la recherche d'une espèce/type
 		*/
 		var texte = $(this).val();
+		var options = '<option value=""></option>';
 		if (texte.length > 2) {
 			/*
 			* declenchement de la recherche
 			*/
 			var url = "index.php?module=acteurSearchAjax";
-			$.getJSON ( url, { "libelle": texte } , function( data ) {
-				var options = '';
+			options = $.getJSON ( url, { "libelle": texte } , function( data ) {
 				var moral = '';
 				var physique = '';
 				 for (var i = 0; i < data.length; i++) {
@@ -21,10 +21,11 @@ $(document).ready(function() {
 				        + data[i].acteur_id + " - "+ moral 
 				        + " " + physique
 				        + '</option>';
-				      };				
-				$("#acteur_id").html(options);
+				      };
+				  return options;
 			} ) ;
 		};
+		$("#acteur_id").html(options);
 	} );
 });
 </script>
@@ -93,7 +94,7 @@ Retour au détail de l'expert {$data.expert_id}</a>
 <dl>
 <dt>Correspond à l'acteur :</dt>
 <dd>
-<input id="acteurSearch" placeholder="Nom à rechercher..." class="commentaire">
+<input id="acteurSearch" placeholder="Nom à rechercher..." class="commentaire" autocomplete="false">
 <br>
 <select id="acteur_id" name="acteur_id">
 <option value="{$data.acteur_id}">
