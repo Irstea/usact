@@ -27,6 +27,10 @@ switch ($t_module["param"]) {
 		require_once 'modules/classes/conflit.class.php';
 		$conflit = new Conflit($bdd, $ObjetBDDParam);
 		$smarty->assign("conflit", $conflit->getListFromEntretien($id));
+		require_once 'modules/classes/intervention.class.php';
+		$intervention = new Intervention($bdd, $ObjetBDDParam);
+		$smarty->assign("intervention", $intervention->getListFromEntretien($id));
+		
 		break;
 	
 	case "change":

@@ -16,6 +16,13 @@
 {include file="conflit/conflitListSearch.tpl"}
 </fieldset>
 <br>
+<fieldset>
+<legend>Interventions évoquées</legend>
+{if $droits.gestion == 1}
+<a href="index.php?module=entretienInterventionManage&entretien_id={$entretien.entretien_id}">Gérer les interventions évoquées...</a>
+{/if}
+{include file="intervention/interventionList.tpl"}
+</fieldset>
 </td>
 </tr>
 </table>

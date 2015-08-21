@@ -101,6 +101,18 @@ switch ($t_module["param"]) {
 		 */
 		dataDelete($dataClass, $id);
 		break;
+		
+		case "getListAjaxJson":
+			/*
+			 * Recherche la liste et la retourne au format Ajax
+			 */
+			if (strlen($_REQUEST["libelle"]) > 0) {
+				$data = $dataClass->getSearchFromActeur($_REQUEST["libelle"]);
+		
+				echo json_encode ($data) ;
+			}
+			break;
+		
 }
 
 ?>

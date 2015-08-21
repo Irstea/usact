@@ -25,6 +25,14 @@ class Intervention extends ObjetBDD {
 		left outer join bien_support_niv2 using (bien_support_niv2_id)
 		left outer join objet_niv2 using (objet_niv2_id)
 		";
+	private $sqlActeur = "
+			select * from intervention
+			natural join position_usage_activite
+			natural join acteur
+			left outer join usage_activite_niv2 using (usage_activite_niv2_id)
+			left outer join usage_activite_niv1 using (usage_activite_niv1_id)
+			left outer join role using (role_id)
+			";
 	function __construct($bdd, $param = null) {
 		$this->param = $param;
 		$this->table = "intervention";
@@ -161,11 +169,40 @@ class Intervention extends ObjetBDD {
 		} else
 			return null;
 	}
+	/**
+	 * Recherche les interventions a partir du nom de l'acteur
+	 * @param string $libelle
+	 * @return tableau
+	 */
+	function getSearchFromActeur($libelle) {
+		$libelle = $this->encodeData ( $libelle );
+		if (strlen ( $libelle ) > 0) {
+			$where .= " where (upper(acteur_physique_nom) like upper('%" .$libelle  . "%')";
+			$where .= " or upper(acteur_moral_nom) like upper('%" . $libelle . "%')";
+			$where .= ")";
+			$order = " order by acteur_moral_nom, acteur_physique_nom";
+			return $this->getListeParam($this->sqlActeur.$where.$order);
+		}
+	}
+	
+	/**
+	 * Recupere la liste des interventions associes a un entretien
+	 * @param int $entretien_id
+	 * @return tableau
+	 */
+	function getListFromEntretien($entretien_id) {
+		if ($entretien_id > 0 && is_numeric($entretien_id)) {
+			$sql = $this->sql." natural join entretien_intervention";
+			$where = " where entretien_id = ".$entretien_id;
+			$order = " order by intervention_id";
+			return $this->getListeParam($sql.$where.$order);
+		}
+	}
 }
 
 /**
  * ORM de gestion de la table action
- * 
+ *
  * @author quinton
  *        
  */
@@ -219,7 +256,7 @@ class Action extends ObjetBDD {
 	
 	/**
 	 * Retourne la liste des actions pour une intervention
-	 * 
+	 *
 	 * @param int $id        	
 	 * @return tableau
 	 */
@@ -234,7 +271,7 @@ class Action extends ObjetBDD {
 
 /**
  * ORM de gestion de la table revendication
- * 
+ *
  * @author quinton
  *        
  */
@@ -288,7 +325,7 @@ class Revendication extends ObjetBDD {
 	
 	/**
 	 * Retourne la liste des revendications pour une intervention
-	 * 
+	 *
 	 * @param int $id        	
 	 * @return tableau
 	 */

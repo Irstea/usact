@@ -64,6 +64,9 @@
 	<interventionChange action="modules/intervention/intervention.php" param="change" droits="gestion"/>
 	<interventionWrite action="modules/intervention/intervention.php" param="write" droits="gestion" retourok="interventionDisplay" retourko="interventionChange" modulebefore="interventionChange" />
 	<interventionDelete action="modules/intervention/intervention.php" param="delete" droits="gestion" retoursuppr="interventionList" retourko="interventionChange" modulebefore="interventionChange" />
+	<interventionSearchAjax action="modules/intervention/intervention.php" param="getListAjaxJson" droits="gestion" ajax="1"/>
+
+
 	<revendicationChange action="modules/intervention/revendication.php" param="change" droits="gestion"/>
 	<revendicationWrite action="modules/intervention/revendication.php" param="write" droits="gestion" retourok="interventionDisplay" retourko="revendicationChange" modulebefore="revendicationChange" />
 	<revendicationDelete action="modules/intervention/revendication.php" param="delete" droits="gestion" retoursuppr="interventionDisplay" retourko="revendicationChange" modulebefore="revendicationChange" />
@@ -81,6 +84,9 @@
 	<entretienConflitManage action="modules/entretien/entretienConflit.php" param="manage" droits="gestion"/>
 	<entretienConflitWrite action="modules/entretien/entretienConflit.php" param="write" droits="gestion" retourok="entretienConflitManage" retourko="entretienConflitManage" modulebefore="entretienConflitManage,entretienConflitWrite,entretienConflitDelete" />
 	<entretienConflitDelete action="modules/entretien/entretienConflit.php" param="delete" droits="gestion" retoursuppr="entretienConflitManage" retourko="entretienConflitManage" modulebefore="entretienConflitManage,entretienConflitWrite,entretienConflitDelete" />
+	<entretienInterventionManage action="modules/entretien/entretienIntervention.php" param="manage" droits="gestion"/>
+	<entretienInterventionWrite action="modules/entretien/entretienIntervention.php" param="write" droits="gestion" retourok="entretienInterventionManage" retourko="entretienInterventionManage" modulebefore="entretienInterventionManage,entretienInterventionWrite,entretienInterventionDelete" />
+	<entretienInterventionDelete action="modules/entretien/entretienIntervention.php" param="delete" droits="gestion" retoursuppr="entretienInterventionManage" retourko="entretienInterventionManage" modulebefore="entretienInterventionManage,entretienInterventionWrite,entretienInterventionDelete" />
 
 <!-- Paramètres -->
 	<parametre droits="consult" retourlogin="1"/>

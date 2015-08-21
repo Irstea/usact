@@ -129,4 +129,21 @@ class EntretienConflit extends ObjetBDD {
 		}
 		
 }
+
+class EntretienIntervention extends ObjetBDD {
+	function __construct($bdd, $param = null) {
+		$this->param = $param;
+		$this->table = "entretien_intervention";
+		$this->id_auto = "0";
+		$this->cleMultiple = "1";
+		$this->colonnes=array(
+				"entretien_id"=>array("type"=>1,"key"=>1, "requis"=>1),
+				"intervention_id"=>array("type"=>1, "key"=>1, "requis"=>1));
+		if (! is_array ( $param ))
+			$param == array ();
+		$param ["fullDescription"] = 1;
+		parent::__construct ( $bdd, $param );
+	}
+
+}
 ?>
