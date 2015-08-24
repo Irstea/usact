@@ -47,7 +47,9 @@ switch ($t_module["param"]) {
 		$smarty->assign("action", $action->getListFromIntervention($id));
 		$revendication = new Revendication($bdd, $ObjetBDDParam);
 		$smarty->assign("revendication", $revendication->getListFromIntervention($id));
-		
+		require_once 'modules/classes/article.class.php';
+		$article = new Article($bdd, $ObjetBDDParam);
+		$smarty->assign("article", $article->getListFromIntervention($id));
 		break;
 	case "change":
 		/*

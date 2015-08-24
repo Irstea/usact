@@ -23,6 +23,12 @@ Nouvelle intervention...
 <legend>Entretiens traitant de ce conflit</legend>
 {include file="entretien/entretienList.tpl"}
 </fieldset>
+<br>
+<fieldset>
+<legend>Liste des articles correspondants</legend>
+{include file="article/articleList.tpl"}
+<br>
+</fieldset>
 </td>
 </tr>
 </table>

@@ -15,6 +15,7 @@ class Article extends ObjetBDD {
 	private $sql = "
 			select * from article
 			natural join journal";
+	private $order = " order by journal_libelle, titre";
 	function __construct($bdd,$param=null) {
 		$this->param = $param;
 		$this->table="article";
@@ -38,6 +39,11 @@ class Article extends ObjetBDD {
 		parent::__construct($bdd,$param);
 	}
 	
+	/**
+	 * Retourne la liste des articles correspondants aux criteres fournis
+	 * @param array $param
+	 * @return tableau
+	 */
 	function getListSearch($param) {
 		$param = $this->encodeData ( $param );
 		$where = " where ";
@@ -58,15 +64,36 @@ class Article extends ObjetBDD {
 		}
 		if ($wb == false)
 			$where = "";
-		/*
-		 * Preparation de la clause de tri
-		 */
 		$order = " order by journal_libelle, titre";
-		return $this->getListeParam ( $this->sql . $where . $order );
-		
-		
-		
+		return $this->getListeParam ( $this->sql . $where . $this->order );
 	}
+
+	/**
+	 * Retourne la liste des articles correspondants a un conflit
+	 * @param unknown $conflit_id
+	 * @return tableau
+	 */
+	function getListFromConflit($conflit_id) {
+		if (is_numeric($conflit_id) && $conflit_id > 0) {
+			$sql = $this->sql." natural join article_conflit";
+			$where = " where conflit_id = ".$conflit_id;
+			return $this->getListeParam($sql.$where.$this->order);
+		}
+	}
+	
+	/**
+	 * Retourne la liste des articles correspondants a un intervention
+	 * @param unknown $intervention_id
+	 * @return tableau
+	 */
+	function getListFromIntervention($intervention_id) {
+		if (is_numeric($intervention_id) && $intervention_id > 0) {
+			$sql = $this->sql." natural join article_intervention";
+			$where = " where intervention_id = ".$intervention_id;
+			return $this->getListeParam($sql.$where.$this->order);
+		}
+	}
+	
 }
 /**
  * ORM de gestion de la table article_conflit

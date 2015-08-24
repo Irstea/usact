@@ -27,7 +27,11 @@ Nouvelle revendication...
 {/if}
 {include file="intervention/revendicationList.tpl"}
 </fieldset>
-
+<fieldset>
+<legend>Liste des articles correspondants</legend>
+{include file="article/articleList.tpl"}
+<br>
+</fieldset>
 </td></tr>
 </table>
 {include file="conflit/conflitDetail.tpl"}

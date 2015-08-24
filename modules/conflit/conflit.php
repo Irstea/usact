@@ -56,6 +56,9 @@ switch ($t_module ["param"]) {
 		require_once 'modules/classes/entretien.class.php';
 		$entretien = new Entretien($bdd, $ObjetBDDParam);
 		$smarty->assign("entretien", $entretien->getListFromConflit($id));
+		require_once 'modules/classes/article.class.php';
+		$article = new Article($bdd, $ObjetBDDParam);
+		$smarty->assign("article", $article->getListFromConflit($id));
 		break;
 		
 	/*
