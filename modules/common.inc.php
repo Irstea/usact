@@ -45,4 +45,11 @@ if (!isset($_SESSION["searchExpert"])) {
 else {
 	$searchExpert = $_SESSION["searchExpert"];
 }
+if (!isset($_SESSION["searchArticle"])) {
+	$searchArticle = new SearchArticle();
+	$_SESSION["searchArticle"] = $searchArticle;
+}
+else {
+	$searchArticle = $_SESSION["searchArticle"];
+}
 ?>

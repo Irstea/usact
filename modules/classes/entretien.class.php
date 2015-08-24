@@ -113,6 +113,11 @@ class Entretien extends ObjetBDD {
 	}
 }
 
+/**
+ * ORM de gestion de la table entretien_conflit
+ * @author quinton
+ *
+ */
 class EntretienConflit extends ObjetBDD {
 	function __construct($bdd, $param = null) {
 		$this->param = $param;
@@ -130,6 +135,11 @@ class EntretienConflit extends ObjetBDD {
 		
 }
 
+/**
+ * ORM de gestion de la table entretien_intervention
+ * @author quinton
+ *
+ */
 class EntretienIntervention extends ObjetBDD {
 	function __construct($bdd, $param = null) {
 		$this->param = $param;

@@ -175,6 +175,22 @@ class Conflit extends ObjetBDD {
 			return $this->getListeParam($sql.$where.$order);
 		}
 	}
+
+	/**
+	 * Recupere la liste des conflits associes a un article
+	 * @param int $article_id
+	 * @return tableau
+	 */
+	function getListFromArticle($article_id) {
+		if ($article_id > 0 && is_numeric($article_id)) {
+			$sql = $this->sql." natural join article_conflit
+					left outer join action_type using (action_type_id)";
+			$where = " where article_id = ".$article_id;
+			$order = " order by conflit_id";
+			return $this->getListeParam($sql.$where.$order);
+		}
+	}
+	
 }
 ?>
 

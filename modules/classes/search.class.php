@@ -142,4 +142,11 @@ class SearchExpert extends SearchParam {
 	}
 }
 
+class SearchArticle extends SearchParam {
+	function __construct() {
+		$this->param = array("journal_id"=>"","libelle"=>"");
+		parent::__construct();
+	}
+}
+
 ?>

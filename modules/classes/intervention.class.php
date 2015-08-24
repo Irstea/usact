@@ -198,6 +198,21 @@ class Intervention extends ObjetBDD {
 			return $this->getListeParam($sql.$where.$order);
 		}
 	}
+	
+	/**
+	 * Recupere la liste des interventions associes a un article
+	 * @param int $article_id
+	 * @return tableau
+	 */
+	function getListFromArticle($article_id) {
+		if ($article_id > 0 && is_numeric($article_id)) {
+			$sql = $this->sql." natural join article_intervention";
+			$where = " where article_id = ".$article_id;
+			$order = " order by intervention_id";
+			return $this->getListeParam($sql.$where.$order);
+		}
+	}
+	
 }
 
 /**

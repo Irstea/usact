@@ -88,6 +88,19 @@
 	<entretienInterventionWrite action="modules/entretien/entretienIntervention.php" param="write" droits="gestion" retourok="entretienInterventionManage" retourko="entretienInterventionManage" modulebefore="entretienInterventionManage,entretienInterventionWrite,entretienInterventionDelete" />
 	<entretienInterventionDelete action="modules/entretien/entretienIntervention.php" param="delete" droits="gestion" retoursuppr="entretienInterventionManage" retourko="entretienInterventionManage" modulebefore="entretienInterventionManage,entretienInterventionWrite,entretienInterventionDelete" />
 
+	<articleList action="modules/article/article.php" param="list" droits="consult" retourlogin='1' />
+	<articleDisplay action="modules/article/article.php" param="display" droits="consult"/>
+	<articleChange action="modules/article/article.php" param="change" droits="gestion"/>
+	<articleWrite action="modules/article/article.php" param="write" droits="gestion" retourok="articleDisplay" retourko="articleChange" modulebefore="articleChange" />
+	<articleDelete action="modules/article/article.php" param="delete" droits="gestion" retoursuppr="articleList" retourko="articleChange" modulebefore="articleChange" />
+	<articleConflitManage action="modules/article/articleConflit.php" param="manage" droits="gestion"/>
+	<articleConflitWrite action="modules/article/articleConflit.php" param="write" droits="gestion" retourok="articleConflitManage" retourko="articleConflitManage" modulebefore="articleConflitManage,articleConflitWrite,articleConflitDelete" />
+	<articleConflitDelete action="modules/article/articleConflit.php" param="delete" droits="gestion" retoursuppr="articleConflitManage" retourko="articleConflitManage" modulebefore="articleConflitManage,articleConflitWrite,articleConflitDelete" />
+	<articleInterventionManage action="modules/article/articleIntervention.php" param="manage" droits="gestion"/>
+	<articleInterventionWrite action="modules/article/articleIntervention.php" param="write" droits="gestion" retourok="articleInterventionManage" retourko="articleInterventionManage" modulebefore="articleInterventionManage,articleInterventionWrite,articleInterventionDelete" />
+	<articleInterventionDelete action="modules/article/articleIntervention.php" param="delete" droits="gestion" retoursuppr="articleInterventionManage" retourko="articleInterventionManage" modulebefore="articleInterventionManage,articleInterventionWrite,articleInterventionDelete" />
+
+
 <!-- Paramètres -->
 	<parametre droits="consult" retourlogin="1"/>
 	<echelleList action="modules/parametre/parametre.php" tableName="echelle" retourlogin="1" param="list" droits="consult"  />

@@ -13,7 +13,11 @@ $(document).ready(function() {
 			<th>Objet</th>
 			<th>bien support</th>			
 			<th>Échelle</th>
-			<th>Détail</th>									
+			<th>Détail</th>	
+			{if isset($conflit[0].action_type_id)}
+			<th>Action relatée</th>
+			{/if}
+										
 		</tr>
 	</thead>
 	<tbody> {section name=lst loop=$conflit}
@@ -30,7 +34,10 @@ $(document).ready(function() {
 		<td>{$conflit[lst].objet_niv1_libelle} - {$conflit[lst].objet_niv2_libelle}</td>
 		<td>{$conflit[lst].bien_support_niv1_libelle} - {$conflit[lst].bien_support_niv2_libelle}</td>
 		<td>{$conflit[lst].echelle_libelle}</td>
-		<td><span class="textareaDisplay">{$conflit[lst].conflit_detail}</span></td>				
+		<td><span class="textareaDisplay">{$conflit[lst].conflit_detail}</span></td>
+		{if isset($conflit[0].action_type_id)}
+		<td>{$conflit[lst].action_type_libelle}</td>
+		{/if}
 	</tr>
 	{/section} 
 	</tbody>	
