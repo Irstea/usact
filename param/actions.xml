@@ -100,6 +100,12 @@
 	<articleInterventionWrite action="modules/article/articleIntervention.php" param="write" droits="gestion" retourok="articleInterventionManage" retourko="articleInterventionManage" modulebefore="articleInterventionManage,articleInterventionWrite,articleInterventionDelete" />
 	<articleInterventionDelete action="modules/article/articleIntervention.php" param="delete" droits="gestion" retoursuppr="articleInterventionManage" retourko="articleInterventionManage" modulebefore="articleInterventionManage,articleInterventionWrite,articleInterventionDelete" />
 
+	<resolutionList action="modules/resolution/resolution.php" param="list" droits="consult" retourlogin='1' />
+	<resolutionDisplay action="modules/resolution/resolution.php" param="display" droits="consult"/>
+	<resolutionChange action="modules/resolution/resolution.php" param="change" droits="gestion"/>
+	<resolutionWrite action="modules/resolution/resolution.php" param="write" droits="gestion" retourok="resolutionDisplay" retourko="resolutionChange" modulebefore="resolutionChange" />
+	<resolutionDelete action="modules/resolution/resolution.php" param="delete" droits="gestion" retoursuppr="resolutionList" retourko="resolutionChange" modulebefore="resolutionChange" />
+
 
 <!-- Paramètres -->
 	<parametre droits="consult" retourlogin="1"/>

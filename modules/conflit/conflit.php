@@ -59,6 +59,9 @@ switch ($t_module ["param"]) {
 		require_once 'modules/classes/article.class.php';
 		$article = new Article($bdd, $ObjetBDDParam);
 		$smarty->assign("article", $article->getListFromConflit($id));
+		require_once 'modules/classes/resolution.class.php';
+		$resolution = new Resolution($bdd, $ObjetBDDParam);
+		$smarty->assign("resolution", $resolution->getListFromConflit($id));
 		break;
 		
 	/*

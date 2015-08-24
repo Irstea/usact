@@ -149,4 +149,15 @@ class SearchArticle extends SearchParam {
 	}
 }
 
+class SearchResolution extends SearchParam {
+	function __construct() {
+		$this->param = array(
+				"resolution_echelle_id"=>"",
+				"resolution_nature_id"=>"",
+				"resolution_acteur_id"=>"",
+				"resolution_mode_niv2_id"=>"",
+				"libelle"=>"");
+		parent::__construct();
+	}
+}
 ?>

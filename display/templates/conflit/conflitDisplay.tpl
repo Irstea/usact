@@ -29,6 +29,11 @@ Nouvelle intervention...
 {include file="article/articleList.tpl"}
 <br>
 </fieldset>
+<fieldset>
+<legend>Liste des résolutions</legend>
+{include file="resolution/resolutionList.tpl"}
+<br>
+</fieldset>
 </td>
 </tr>
 </table>

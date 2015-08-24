@@ -8,14 +8,6 @@
 $sql = "set search_path = public, arcachon";
 $bdd -> exec($sql);
 
-/*if (!isset($_SESSION["searchConflit"])) {
-	$searchConflit = new SearchConflit();
-	$_SESSION["searchConflit"] = $searchConflit;
-} 
-else {
-	$searchConflit = $_SESSION["searchConflit"];
-}*/
-
 if (!isset($_SESSION["searchPerimetre"])) {
 	$searchPerimetre = new SearchPerimetre();
 	$_SESSION["searchPerimetre"] = $searchPerimetre;
@@ -51,5 +43,12 @@ if (!isset($_SESSION["searchArticle"])) {
 }
 else {
 	$searchArticle = $_SESSION["searchArticle"];
+}
+if (!isset($_SESSION["searchResolution"])) {
+	$searchResolution = new SearchResolution();
+	$_SESSION["searchResolution"] = $searchResolution;
+}
+else {
+	$searchResolution = $_SESSION["searchResolution"];
 }
 ?>
