@@ -31,7 +31,12 @@ Nouvelle intervention...
 </fieldset>
 <fieldset>
 <legend>Liste des résolutions</legend>
-{include file="resolution/resolutionList.tpl"}
+{if $droits.gestion == 1}
+<a href="index.php?module=resolutionChange&resolution_id=0&conflit_id={$conflit.conflit_id}">
+Nouvelle résolution...
+</a>
+{/if}
+{include file="resolution/resolutionListe.tpl"}
 <br>
 </fieldset>
 </td>

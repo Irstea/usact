@@ -57,7 +57,6 @@ Nature de la résolution :
 {/section}
 </select>
 <br>
-<br>
 Modalité :
 <select class="selection" id="resolution_mode_niv2_id" name="resolution_mode_niv2_id">
 <option value = "" {if $dataSearch.resolution_mode_niv2_id == ""}selected{/if}>

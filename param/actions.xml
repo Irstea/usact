@@ -105,6 +105,10 @@
 	<resolutionChange action="modules/resolution/resolution.php" param="change" droits="gestion"/>
 	<resolutionWrite action="modules/resolution/resolution.php" param="write" droits="gestion" retourok="resolutionDisplay" retourko="resolutionChange" modulebefore="resolutionChange" />
 	<resolutionDelete action="modules/resolution/resolution.php" param="delete" droits="gestion" retoursuppr="resolutionList" retourko="resolutionChange" modulebefore="resolutionChange" />
+	<solutionChange action="modules/resolution/solution.php" param="change" droits="gestion"/>
+	<solutionWrite action="modules/resolution/solution.php" param="write" droits="gestion" retourok="solutionDisplay" retourko="solutionChange" modulebefore="solutionChange" />
+	<solutionDelete action="modules/resolution/solution.php" param="delete" droits="gestion" retoursuppr="solutionList" retourko="solutionChange" modulebefore="solutionChange" />
+	<solutionSearchAjax action="modules/resolution/solution.php" param="getListAjaxFromConflit" droits="gestion" ajax="1"/>
 
 
 <!-- Paramètres -->

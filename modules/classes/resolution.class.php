@@ -126,6 +126,72 @@ class Resolution extends ObjetBDD {
 			return $this->getListeParam($sql.$where.$this->order);
 		}
 	}
+}
+
+/**
+ * ORM de gestion de la table solution_proposee
+ * @author quinton
+ *
+ */
+class Solution extends ObjetBDD {
+	private $sql = "
+			select * from solution_proposee
+			natural join intervention
+			natural join acteur";
+	private $order = "
+			 order by intervention_date_entree, solution_proposee_id";
+	
+	function __construct($bdd,$param=null) {
+		$this->param = $param;
+		$this->table="solution_proposee";
+		$this->id_auto="1";
+		$this->colonnes=array(
+				"solution_proposee_id"=>array("type"=>1,"key"=>1, "requis"=>1, "defaultValue"=>0),
+				"intervention_id"=>array("type"=>1, "requis"=>1, "parentAttrib"=>1),
+				"solution_proposee_libelle"=>array("type"=>0)
+		);
+		if(!is_array($param)) $param==array();
+		$param["fullDescription"]=1;
+		parent::__construct($bdd,$param);
+	}
+
+	/**
+	 * Retourne la liste des solutions proposees pour une intervention
+	 * @param int $intervention_id
+	 * @return tableau
+	 */
+	function getListFromIntervention ($intervention_id) {
+		if ($intervention_id > 0 && is_numeric($intervention_id)){
+			$where = " where intervention_id = ".$intervention_id;
+			return $this->getListeParam($this->sql.$where.$this->order);
+		}
+	}
+
+	/**
+	 * Retourne la liste des solutions proposees correspondant a un conflit
+	 * @param unknown $conflit_id
+	 * @return tableau
+	 */
+	function getListFromConflit ($conflit_id) {
+		if ($conflit_id > 0 && is_numeric($conflit_id)){
+			$where = " where conflit_id = ".$conflit_id;
+			return $this->getListeParam($this->sql.$where.$this->order);
+		}
+	}
+
+	/**
+	 * Retourne le detail de la solution proposee
+	 * @param int $id
+	 * @return array
+	 */
+	function getDetail($id) {
+		if ($id > 0 && is_numeric($id)){
+			$where = " where solution_proposee_id = ".$id;
+			$data = $this->lireParam($this->sql.$where);
+			$data = $this->formatDatesVersLocal($data, array("intervention_date_entree", "intervention_date_sortie"));
+			return ($data);
+		}
+	}
 	
 	
 }
