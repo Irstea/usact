@@ -110,6 +110,12 @@
 	<solutionDelete action="modules/resolution/solution.php" param="delete" droits="gestion" retoursuppr="interventionDisplay" retourko="solutionChange" modulebefore="solutionChange" />
 	<solutionSearchAjax action="modules/resolution/solution.php" param="getListAjaxFromConflit" droits="gestion" ajax="1"/>
 
+	<juridiqueList action="modules/juridique/juridique.php" param="list" droits="consult" retourlogin='1' />
+	<juridiqueDisplay action="modules/juridique/juridique.php" param="display" droits="consult"/>
+	<juridiqueChange action="modules/juridique/juridique.php" param="change" droits="gestion"/>
+	<juridiqueWrite action="modules/juridique/juridique.php" param="write" droits="gestion" retourok="juridiqueDisplay" retourko="juridiqueChange" modulebefore="juridiqueChange" />
+	<juridiqueDelete action="modules/juridique/juridique.php" param="delete" droits="gestion" retoursuppr="juridiqueList" retourko="juridiqueChange" modulebefore="juridiqueChange" />
+
 
 <!-- Paramètres -->
 	<parametre droits="consult" retourlogin="1"/>

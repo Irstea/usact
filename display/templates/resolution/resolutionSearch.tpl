@@ -7,10 +7,11 @@ $(document).ready(function() {
 </script>
 
 <form id="search" method="GET" action="index.php">
+<input type="hidden" name="module" value="{$conflit_table}List">
+<input type="hidden" name="isSearch" value="1">
+
 <table id="resolutionSearch" class="tableaffichage">
 
-<input type="hidden" name="module" value="{$table}List">
-<input type="hidden" name="isSearch" value="1">
 
 <tr>
 <td>

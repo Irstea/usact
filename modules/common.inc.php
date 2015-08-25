@@ -51,4 +51,11 @@ if (!isset($_SESSION["searchResolution"])) {
 else {
 	$searchResolution = $_SESSION["searchResolution"];
 }
+if (!isset($_SESSION["searchJuridique"])) {
+	$searchJuridique = new SearchJuridique();
+	$_SESSION["searchJuridique"] = $searchJuridique;
+}
+else {
+	$searchJuridique = $_SESSION["searchJuridique"];
+}
 ?>

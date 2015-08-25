@@ -160,4 +160,17 @@ class SearchResolution extends SearchParam {
 		parent::__construct();
 	}
 }
+
+class SearchJuridique extends SearchParam {
+	function __construct() {
+		$this->param = array(
+				"juridiction_id"=>"",
+				"juridique_sous_domaine_id"=>"",
+				"nature_requete_id"=>"",
+				"nature_travaux_id"=>"",
+				"libelle"=>"");
+		parent::__construct();
+	}
+	
+}
 ?>
