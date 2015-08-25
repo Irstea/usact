@@ -20,8 +20,7 @@ switch ($t_module ["param"]) {
 		 * $_REQUEST["idParent"] contains the identifiant of the parent record
 		 */
 	case "change":
-		setSmartyResolutionParam();
-		$data = dataRead ( $dataClass, $id, "resolution/solutionChange.tpl" );
+		dataRead ( $dataClass, $id, "resolution/solutionChange.tpl", $_REQUEST["intervention_id"] );
 		break;
 
 		/*

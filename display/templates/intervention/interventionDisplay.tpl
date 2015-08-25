@@ -28,10 +28,21 @@ Nouvelle revendication...
 {include file="intervention/revendicationList.tpl"}
 </fieldset>
 <fieldset>
+<legend>Solutions proposées</legend>
+{if $droits.gestion == 1}
+<a href="index.php?module=solutionChange&solution_proposee_id=0&intervention_id={$intervention.intervention_id}">
+Nouvelle solution...
+</a>
+{/if}
+{include file="resolution/solutionList.tpl"}
+<br>
+</fieldset>
+<fieldset>
 <legend>Liste des articles correspondants</legend>
 {include file="article/articleList.tpl"}
 <br>
 </fieldset>
+
 </td></tr>
 </table>
 {include file="conflit/conflitDetail.tpl"}

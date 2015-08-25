@@ -50,6 +50,9 @@ switch ($t_module["param"]) {
 		require_once 'modules/classes/article.class.php';
 		$article = new Article($bdd, $ObjetBDDParam);
 		$smarty->assign("article", $article->getListFromIntervention($id));
+		require_once 'modules/classes/resolution.class.php';
+		$solution = new Solution($bdd, $ObjetBDDParam);
+		$smarty->assign("solution_proposee", $solution->getListFromIntervention($id));
 		break;
 	case "change":
 		/*
