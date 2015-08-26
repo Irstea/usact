@@ -89,6 +89,8 @@ $APPLI_modeDeveloppementDroit = false;
 $APPLI_utf8 = true;
 $APPLI_menufile = "param/menu.xml";
 
+$paramIniFile = "../param.ini";
+
 /*
  * Variables liees a GACL et l'identification via base de donnees
  */

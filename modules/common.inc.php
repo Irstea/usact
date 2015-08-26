@@ -5,8 +5,10 @@
  * variables de session
  */
 
-$sql = "set search_path = public, arcachon";
+$APPLI_modeDeveloppement != true ? $schema = $BDD_schema : $schema = $BDDDEV_schema;
+$sql = "set search_path = ".$schema;
 $bdd -> exec($sql);
+$smarty->assign("appliTitre", $titre);
 
 if (!isset($_SESSION["searchPerimetre"])) {
 	$searchPerimetre = new SearchPerimetre();

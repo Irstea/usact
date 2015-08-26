@@ -51,4 +51,5 @@ $LDAP_address = "ldaps://ldap.irstea.fr";
 $LDAP_port = 636;
 $LDAP_basedn = "ou=people,dc=irstea,dc=fr";
 
+$paramIniFile = "./param.ini";
 ?>
