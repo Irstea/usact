@@ -75,7 +75,7 @@ class Juridique extends ObjetBDD {
 		if (strlen($param["libelle"])>0) {
 			$wb == true ? $where .= " and ":$wb = true;
 			if (is_numeric($param["libelle"])) {
-				$where .= "juridique = ".$param["libelle"];
+				$where .= "juridique_id = ".$param["libelle"];
 			} else {
 				$where .= "(upper(juridique_libelle) like upper('%".$param["libelle"]."%')";
 				$where .= " or upper(objet_precision) like upper('%".$param["libelle"]."%')";

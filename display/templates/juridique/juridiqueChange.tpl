@@ -3,7 +3,7 @@
 {if $data.juridique_id > 0}
 &nbsp;
 <a href="index.php?module=juridiqueDisplay&juridique_id={$data.juridique_id}" >
-Retour au détail de l'juridique {$data.juridique_id}</a>
+Retour au détail de l'acte juridique {$data.juridique_id}</a>
 {/if}
 <div class="formSaisie">
 <form method="post" action="index.php">
@@ -17,7 +17,7 @@ Retour au détail de l'juridique {$data.juridique_id}</a>
 <dd>
 <select name="juridiction_id" autofocus>
 {section name=lst loop=$juridiction}
-<option value={$juridiction[lst].juridiction_id"} {if $juridiction[lst].juridiction_id == $data.juridiction_id}selected{/if}>
+<option value="{$juridiction[lst].juridiction_id}" {if $juridiction[lst].juridiction_id == $data.juridiction_id}selected{/if}>
 {$juridiction[lst].juridiction_libelle}
 </option>
 {/section}
@@ -44,7 +44,7 @@ Retour au détail de l'juridique {$data.juridique_id}</a>
 <select name="juridique_sous_domaine_id">
 <option value="" {if $data.juridique_sous_domaine_id == ""}selected{/if}></option>
 {section name=lst loop=$juridique_sous_domaine}
-<option value={$juridique_sous_domaine[lst].juridique_sous_domaine_id"} {if $juridique_sous_domaine[lst].juridique_sous_domaine_id == $data.juridique_sous_domaine_id}selected{/if}>
+<option value="{$juridique_sous_domaine[lst].juridique_sous_domaine_id}" {if $juridique_sous_domaine[lst].juridique_sous_domaine_id == $data.juridique_sous_domaine_id}selected{/if}>
 {$juridique_sous_domaine[lst].juridique_domaine_libelle} - {$juridique_sous_domaine[lst].juridique_sous_domaine_libelle}
 </option>
 {/section}
@@ -57,7 +57,7 @@ Retour au détail de l'juridique {$data.juridique_id}</a>
 <select name="nature_requete_id">
 <option value="" {if $data.nature_requete_id == ""}selected{/if}></option>
 {section name=lst loop=$nature_requete}
-<option value={$nature_requete[lst].nature_requete_id"} {if $nature_requete[lst].nature_requete_id == $data.nature_requete_id}selected{/if}>
+<option value="{$nature_requete[lst].nature_requete_id}" {if $nature_requete[lst].nature_requete_id == $data.nature_requete_id}selected{/if}>
 {$nature_requete[lst].nature_requete_libelle}
 </option>
 {/section}
@@ -70,7 +70,7 @@ Retour au détail de l'juridique {$data.juridique_id}</a>
 <select name="type_ouvrage_perm_constr_id">
 <option value="" {if $data.type_ouvrage_perm_constr_id == ""}selected{/if}></option>
 {section name=lst loop=$type_ouvrage_perm_constr}
-<option value={$type_ouvrage_perm_constr[lst].type_ouvrage_perm_constr_id"} {if $type_ouvrage_perm_constr[lst].type_ouvrage_perm_constr_id == $data.type_ouvrage_perm_constr_id}selected{/if}>
+<option value="{$type_ouvrage_perm_constr[lst].type_ouvrage_perm_constr_id}" {if $type_ouvrage_perm_constr[lst].type_ouvrage_perm_constr_id == $data.type_ouvrage_perm_constr_id}selected{/if}>
 {$type_ouvrage_perm_constr[lst].type_ouvrage_perm_constr_libelle}
 </option>
 {/section}
@@ -84,7 +84,7 @@ Retour au détail de l'juridique {$data.juridique_id}</a>
 <select name="nature_travaux_id">
 <option value="" {if $data.nature_travaux_id == ""}selected{/if}></option>
 {section name=lst loop=$nature_travaux}
-<option value={$nature_travaux[lst].nature_travaux_id"} {if $nature_travaux[lst].nature_travaux_id == $data.nature_travaux_id}selected{/if}>
+<option value="{$nature_travaux[lst].nature_travaux_id}" {if $nature_travaux[lst].nature_travaux_id == $data.nature_travaux_id}selected{/if}>
 {$nature_travaux[lst].nature_travaux_libelle}
 </option>
 {/section}
@@ -98,7 +98,7 @@ Retour au détail de l'juridique {$data.juridique_id}</a>
 <select name="decision_appel_id">
 <option value="" {if $data.decision_appel_id == ""}selected{/if}></option>
 {section name=lst loop=$decision_appel}
-<option value={$decision_appel[lst].decision_appel_id"} {if $decision_appel[lst].decision_appel_id == $data.decision_appel_id}selected{/if}>
+<option value="{$decision_appel[lst].decision_appel_id}" {if $decision_appel[lst].decision_appel_id == $data.decision_appel_id}selected{/if}>
 {$decision_appel[lst].decision_appel_libelle}
 </option>
 {/section}
@@ -111,7 +111,7 @@ Retour au détail de l'juridique {$data.juridique_id}</a>
 <select name="decision_cassation_id">
 <option value="" {if $data.decision_cassation_id == ""}selected{/if}></option>
 {section name=lst loop=$decision_cassation}
-<option value={$decision_cassation[lst].decision_cassation_id"} {if $decision_cassation[lst].decision_cassation_id == $data.decision_cassation_id}selected{/if}>
+<option value="{$decision_cassation[lst].decision_cassation_id}" {if $decision_cassation[lst].decision_cassation_id == $data.decision_cassation_id}selected{/if}>
 {$decision_cassation[lst].decision_cassation_libelle}
 </option>
 {/section}
@@ -125,7 +125,7 @@ Retour au détail de l'juridique {$data.juridique_id}</a>
 <select name="acte_contentieux_id">
 <option value="" {if $data.acte_contentieux_id == ""}selected{/if}></option>
 {section name=lst loop=$acte_contentieux}
-<option value={$acte_contentieux[lst].acte_contentieux_id"} {if $acte_contentieux[lst].acte_contentieux_id == $data.acte_contentieux_id}selected{/if}>
+<option value="{$acte_contentieux[lst].acte_contentieux_id}" {if $acte_contentieux[lst].acte_contentieux_id == $data.acte_contentieux_id}selected{/if}>
 {$acte_contentieux[lst].acte_contentieux_libelle}
 </option>
 {/section}
@@ -136,7 +136,7 @@ Retour au détail de l'juridique {$data.juridique_id}</a>
 <dl>
 <dt>Description :</dt>
 <dd>
-<input class="commentaire" name="juridique_libelle" value="{$data.juridique_libelle}">
+<textarea name="juridique_libelle">{$data.juridique_libelle}</textarea> 
 </dd>
 </dl>
 

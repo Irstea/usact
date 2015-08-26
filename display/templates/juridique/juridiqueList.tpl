@@ -42,7 +42,7 @@ table.fnSort( [ [2,'asc'], [1,'asc'] ] );
 	<td>{$juridique[lst].acte_contentieux_libelle}<br>
 		{$juridique[lst].acte_date}</td>
 	
-	<td><span class="textareaDisplay">{$juridique[lst].juridique_detail}
+	<td><span class="textareaDisplay">{$juridique[lst].juridique_libelle}
 	<br>{$juridique[lst].objet_precision}</span></td>
 	<td>{$juridique[lst].article1}
 	{if strlen($juridique[lst].article2) > 0}

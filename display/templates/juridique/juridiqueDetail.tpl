@@ -17,7 +17,7 @@
 </dl>
 <dl>
 <dt>Description :</dt>
-<dd>{$juridique.juridique_libelle}</dd>
+<dd><span class="textareaDisplay">{$juridique.juridique_libelle}</span></dd>
 </dl>
 <dl>
 <dt>Précisions sur l'objet :</dt>
