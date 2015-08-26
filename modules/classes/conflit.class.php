@@ -191,6 +191,21 @@ class Conflit extends ObjetBDD {
 		}
 	}
 	
+	/**
+	 * Recupere la liste des conflits associes a un juridique
+	 * @param int $juridique_id
+	 * @return tableau
+	 */
+	function getListFromJuridique($juridique_id) {
+		if ($juridique_id > 0 && is_numeric($juridique_id)) {
+			$sql = $this->sql." natural join juridique_conflit";
+			$where = " where juridique_id = ".$juridique_id;
+			$order = " order by conflit_id";
+			return $this->getListeParam($sql.$where.$order);
+		}
+	}
+	
+	
 }
 ?>
 

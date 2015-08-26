@@ -62,6 +62,9 @@ switch ($t_module ["param"]) {
 		require_once 'modules/classes/resolution.class.php';
 		$resolution = new Resolution($bdd, $ObjetBDDParam);
 		$smarty->assign("resolution", $resolution->getListFromConflit($id));
+		require_once 'modules/classes/juridique.class.php';
+		$juridique = new Juridique($bdd, $ObjetBDDParam);
+		$smarty->assign("juridique", $juridique->getListFromConflit($id));
 		break;
 		
 	/*

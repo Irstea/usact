@@ -115,6 +115,9 @@
 	<juridiqueChange action="modules/juridique/juridique.php" param="change" droits="gestion"/>
 	<juridiqueWrite action="modules/juridique/juridique.php" param="write" droits="gestion" retourok="juridiqueDisplay" retourko="juridiqueChange" modulebefore="juridiqueChange" />
 	<juridiqueDelete action="modules/juridique/juridique.php" param="delete" droits="gestion" retoursuppr="juridiqueList" retourko="juridiqueChange" modulebefore="juridiqueChange" />
+	<juridiqueConflitManage action="modules/juridique/juridiqueConflit.php" param="manage" droits="gestion"/>
+	<juridiqueConflitWrite action="modules/juridique/juridiqueConflit.php" param="write" droits="gestion" retourok="juridiqueConflitManage" retourko="juridiqueConflitManage" modulebefore="juridiqueConflitManage,juridiqueConflitWrite,juridiqueConflitDelete" />
+	<juridiqueConflitDelete action="modules/juridique/juridiqueConflit.php" param="delete" droits="gestion" retoursuppr="juridiqueConflitManage" retourko="juridiqueConflitManage" modulebefore="juridiqueConflitManage,juridiqueConflitWrite,juridiqueConflitDelete" />
 
 
 <!-- Paramètres -->
@@ -238,6 +241,11 @@
 	<roleChange action="modules/parametre/parametre.php" tableName="role" param="change" droits="param" />
 	<roleWrite action="modules/parametre/parametre.php" tableName="role" param="write" droits="param" retourok="roleList" retourko="roleChange" modulebefore="roleChange" />
 	<roleDelete action="modules/parametre/parametre.php" tableName="role" param="delete" droits="param" retoursuppr="roleList" retourko="roleChange" />
+
+	<juridictionList action="modules/parametre/parametre.php" tableName="juridiction" param="list" retourlogin="1"  droits="consult"  />
+	<juridictionChange action="modules/parametre/parametre.php" tableName="juridiction" param="change" droits="param" />
+	<juridictionWrite action="modules/parametre/parametre.php" tableName="juridiction" param="write" droits="param" retourok="juridictionList" retourko="juridictionChange" modulebefore="juridictionChange" />
+	<juridictionDelete action="modules/parametre/parametre.php" tableName="juridiction" param="delete" droits="param" retoursuppr="juridictionList" retourko="juridictionChange" />
 
 	<particulier_resident_typeList action="modules/parametre/parametre.php" tableName="particulier_resident_type" param="list" retourlogin="1"  droits="consult"  />
 	<particulier_resident_typeChange action="modules/parametre/parametre.php" tableName="particulier_resident_type" param="change" droits="param" />

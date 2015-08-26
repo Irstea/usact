@@ -107,6 +107,53 @@ class Juridique extends ObjetBDD {
 			$where = "";
 		return $this->getListeParam($this->sql.$where.$this->order);		
 	}
+	
+	/**
+	 * Retourne la liste des actes juridiques relies a un conflit
+	 * @param int $conflit_id
+	 * @return tableau
+	 */
+	function getListFromConflit($conflit_id) {
+		if ($conflit_id > 0 && is_numeric($conflit_id)) {
+			$sql = $this->sql ." natural join juridique_conflit where conflit_id = ".$conflit_id;
+			return $this->getListeParam($sql.$where.$this->order);
+		}
+	}
+
+	/**
+	 * Retourne le detail d'un acte juridique
+	 * @param int $id
+	 * @return array
+	 */
+	function getDetail($id) {
+		if (is_numeric($id) && $id > 0) {
+			$where = " where juridique_id = ".$id;
+			return $this->lireParam($this->sql.$where);
+		}
+	}
+	
 }
 
+/**
+ * ORM de gestion de la table juridique_conflit
+ * @author quinton
+ *
+ */
+class JuridiqueConflit extends ObjetBDD {
+	function __construct($bdd, $param = null) {
+		$this->param = $param;
+		$this->table = "juridique_conflit";
+		$this->id_auto = "0";
+		$this->cleMultiple = "1";
+		$this->colonnes=array(
+				"juridique_id"=>array("type"=>1,"key"=>1, "requis"=>1),
+				"conflit_id"=>array("type"=>1, "key"=>1, "requis"=>1)
+		);
+		if (! is_array ( $param ))
+			$param == array ();
+		$param ["fullDescription"] = 1;
+		parent::__construct ( $bdd, $param );
+	}
+
+}
 ?>

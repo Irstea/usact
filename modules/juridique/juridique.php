@@ -35,6 +35,12 @@ switch ($t_module ["param"]) {
 			$data = $dataClass->getDetail ( $id );
 		$smarty->assign ( "juridique", $data );
 		$smarty->assign ( "corps", "juridique/juridiqueDisplay.tpl" );
+		/*
+		 * Recuperation des conflits rattaches
+		 */
+		require_once 'modules/classes/conflit.class.php';
+		$conflit = new Conflit($bdd, $ObjetBDDParam);
+		$smarty->assign("conflit", $conflit->getListFromJuridique($id));
 		break;
 	case "change":
 				/*

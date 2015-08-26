@@ -34,6 +34,7 @@
 </item>
 
 <item module="parametreJuridique" value="98" title="99">
+	<item module="juridictionList" droits="consult" value="178" title="179" />
 	<item module="acte_contentieuxList" droits="consult" value="134" title="135" />
 	<item module="type_ouvrage_perm_constrList" droits="consult" value="136" title="137" />
 	<item module="decision_appelList" droits="consult" value="138" title="139" />

@@ -126,6 +126,9 @@ $LANG["menu"][174] = "Rôles";
 $LANG["menu"][175] = "Table des rôles";
 $LANG["menu"][176] = "Types de résidents";
 $LANG["menu"][177] = "Table des types de résidence des particuliers";
+$LANG["menu"][178] = "Juridictions";
+$LANG["menu"][179] = "Table des juridictions";
+
 
 
 /*
