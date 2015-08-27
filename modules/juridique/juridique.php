@@ -41,6 +41,8 @@ switch ($t_module ["param"]) {
 		require_once 'modules/classes/conflit.class.php';
 		$conflit = new Conflit($bdd, $ObjetBDDParam);
 		$smarty->assign("conflit", $conflit->getListFromJuridique($id));
+		$interventionJuridique = new InterventionJuridique($bdd, $ObjetBDDParam);
+		$smarty->assign("intervention_juridique", $interventionJuridique->getListFromJuridique($id));
 		break;
 	case "change":
 				/*
@@ -66,5 +68,11 @@ switch ($t_module ["param"]) {
 					 */
 					dataDelete ( $dataClass, $id );
 		break;
+	case "getListAjax" :
+		/**
+		 * Retourne la liste des actes juridiques selon les criteres fournis, au format json
+		 */
+		$data = $dataClass->getListeSearch($_REQUEST);
+		echo json_encode($data);
 }
 ?>

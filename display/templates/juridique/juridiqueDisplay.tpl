@@ -14,6 +14,11 @@
 {include file="conflit/conflitListSearch.tpl"}
 </fieldset>
 <br>
+<fieldset>
+<legend>Interventions relatives</legend>
+{include file="juridique/interventionJuridiqueList.tpl"}
+</fieldset>
+<br>
 </td>
 </tr>
 </table>

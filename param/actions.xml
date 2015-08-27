@@ -115,9 +115,13 @@
 	<juridiqueChange action="modules/juridique/juridique.php" param="change" droits="gestion"/>
 	<juridiqueWrite action="modules/juridique/juridique.php" param="write" droits="gestion" retourok="juridiqueDisplay" retourko="juridiqueChange" modulebefore="juridiqueChange" />
 	<juridiqueDelete action="modules/juridique/juridique.php" param="delete" droits="gestion" retoursuppr="juridiqueList" retourko="juridiqueChange" modulebefore="juridiqueChange" />
+	<juridiqueSearchAjax action="modules/juridique/juridique.php" param="getListAjax" droits="gestion" ajax="1" />
 	<juridiqueConflitManage action="modules/juridique/juridiqueConflit.php" param="manage" droits="gestion"/>
 	<juridiqueConflitWrite action="modules/juridique/juridiqueConflit.php" param="write" droits="gestion" retourok="juridiqueConflitManage" retourko="juridiqueConflitManage" modulebefore="juridiqueConflitManage,juridiqueConflitWrite,juridiqueConflitDelete" />
 	<juridiqueConflitDelete action="modules/juridique/juridiqueConflit.php" param="delete" droits="gestion" retoursuppr="juridiqueConflitManage" retourko="juridiqueConflitManage" modulebefore="juridiqueConflitManage,juridiqueConflitWrite,juridiqueConflitDelete" />
+	<intervention_juridiqueChange action="modules/juridique/intervention_juridique.php" param="change" droits="gestion"/>
+	<intervention_juridiqueWrite action="modules/juridique/intervention_juridique.php" param="write" droits="gestion" retourok="interventionDisplay" retourko="intervention_juridiqueChange" modulebefore="intervention_juridiqueChange" />
+	<intervention_juridiqueDelete action="modules/juridique/intervention_juridique.php" param="delete" droits="gestion" retoursuppr="interventionDisplay" retourko="intervention_juridiqueChange" modulebefore="intervention_juridiqueChange" />
 
 
 <!-- Paramètres -->

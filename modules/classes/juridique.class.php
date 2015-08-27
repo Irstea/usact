@@ -130,8 +130,7 @@ class Juridique extends ObjetBDD {
 			$where = " where juridique_id = ".$id;
 			return $this->lireParam($this->sql.$where);
 		}
-	}
-	
+	}	
 }
 
 /**
@@ -155,5 +154,92 @@ class JuridiqueConflit extends ObjetBDD {
 		parent::__construct ( $bdd, $param );
 	}
 
+}
+
+class InterventionJuridique extends ObjetBDD {
+	private $sql = "
+			select ij.*, position_acteur.*,
+			j.arret_num, j.arret_date, 
+			qa.qualite_appel_libelle, qp.qualite_appel_libelle as qualite_pourvoi_libelle,
+			nature_requete_libelle, juridiction_libelle, nature_requete_id, juridiction_id,
+			conflit_id, acteur_physique_nom, acteur_moral_nom
+			from intervention_juridique ij
+			natural join juridique j
+			natural join juridiction 
+			natural join nature_requete
+			natural join position_acteur
+			natural join intervention
+			natural join acteur
+			left outer join qualite_appel qa on (ij.qualite_appel_id = qa.qualite_appel_id)
+			left outer join qualite_appel qp on (ij.qualite_pourvoi_id = qp.qualite_appel_id)
+			";
+	private $order = "
+			 order by j.arret_date, ij.intervention_juridique_id
+			";
+	function __construct($bdd, $param = null) {
+		$this->param = $param;
+		$this->table = "intervention_juridique";
+		$this->id_auto = "1";
+		$this->colonnes=array(
+				"intervention_juridique_id" => array("type"=>1, "key"=>1, "defaultValue"=>0),
+				"juridique_id"=>array("type"=>1, "requis"=>1),
+				"intervention_id"=>array("type"=>1, "parentAttrib"=>1, "requis"=>1),
+				"position_acteur_id"=>array("type"=>1, "requis"=>1),
+				"qualite_appel_id"=>array("type"=>1),
+				"qualite_pourvoi_id"=>array("type"=>1),
+				"petitionnaire"=>array("type"=>1)
+		);
+		if (! is_array ( $param ))
+			$param == array ();
+		$param ["fullDescription"] = 1;
+		parent::__construct ( $bdd, $param );
+	}
+
+	/**
+	 * Retourne le detail d'un enregistrement
+	 * @param int $id
+	 * @return array
+	 */
+	function getDetail ($id) {
+		if ($id > 0 && is_numeric($id)) {
+			$where = " where intervention_juridique_id = ".$id;
+			return $this->lireParam($this->sql.$where);
+		}
+	}
+
+	/**
+	 * Retourne la liste des enregistrements correspondants a une intervention
+	 * @param int $id
+	 * @return tableau
+	 */
+	function getListFromIntervention ($id) {
+		return $this->getListFrom("intervention_id", $id);
+	}
+	
+	/**
+	 * Retourne la liste des enregistrements correspondants a une decision juridique
+	 * @param int $id
+	 * @return tableau
+	 */
+	function getListFromJuridique($id) {		
+			return $this->getListFrom("juridique_id", $id);		
+	}
+
+	/**
+	 * Fonction generique de recherche
+	 * @param string $field
+	 * @param int $id
+	 * @return tableau
+	 */
+	private function getListFrom($field, $id) {
+		if ($id > 0 && is_numeric($id) && strlen($field) > 0) {
+			$this->encodeData($field);		
+			$where = " where ".$field." = ".$id;
+			$data = $this->getListeParam($this->sql.$where.$this->order);
+			return $this->formatDatesVersLocal($data, array("arret_date"));;
+		}
+	}
+	
+	
 }
 ?>

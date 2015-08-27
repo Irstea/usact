@@ -38,10 +38,21 @@ Nouvelle solution...
 <br>
 </fieldset>
 <fieldset>
+<legend>Interventions juridiques</legend>
+{if $droits.gestion == 1}
+<a href="index.php?module=intervention_juridiqueChange&intervention_juridique_id=0&intervention_id={$intervention.intervention_id}">
+Nouvelle intervention juridique...
+</a>
+{/if}
+{include file="juridique/interventionJuridiqueList.tpl"}
+<br>
+</fieldset>
+<fieldset>
 <legend>Liste des articles correspondants</legend>
 {include file="article/articleList.tpl"}
 <br>
 </fieldset>
+
 
 </td></tr>
 </table>
