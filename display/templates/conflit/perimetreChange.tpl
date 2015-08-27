@@ -9,7 +9,7 @@ Retour au détail du périmètre {$data.perimetre_id}</a>
 <form method="post" action="index.php">
 <input type="hidden" name="perimetre_id" value="{$data.perimetre_id}">
 <input type="hidden" name="module" value="perimetreWrite">
-<input type="hidden" name="perimetre_date_saisie" value="{$data.perimetre_date_saisie"}>
+<input type="hidden" name="perimetre_date_saisie" value="{$data.perimetre_date_saisie}">
 <input type="hidden" name="perimetre_login" value="{$data.perimetre_login}">
 
 <dl>

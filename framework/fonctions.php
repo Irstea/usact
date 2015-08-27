@@ -73,11 +73,11 @@ function dataDelete($dataClass, $id) {
 	if (is_array($id)) {
 		foreach ($id as $key=>$value) {
 			if (! (is_numeric($value)&&$value > 0))
-				$ok = true;
+				$ok = false;
 		}
 	} else {
-		if (is_numeric ( $id ) && $id > 0)
-			$ok = true;
+		if (!is_numeric ( $id ) && $id > 0)
+			$ok = false;
 	}
 	if ($ok == true) {
 		if (strlen ( $message ) > 0)
@@ -133,8 +133,13 @@ function setlanguage($langue) {
 	/*
 	 * Ecriture du cookie
 	 */
+	$cookieParam = session_get_cookie_params ();
+	$cookieParam ["lifetime"] = $APPLI_session_ttl;
+	if ($APPLI_modeDeveloppement == false)
+		$cookieParam ["secure"] = true;
+	$cookieParam ["httponly"] = true;
 	
-	setcookie ( 'langue', $langue, time () + $APPLI_cookie_ttl );
+	setcookie ( 'langue', $langue, time () + $APPLI_session_ttl, $cookieParam ["path"], $cookieParam ["domain"], $cookieParam ["secure"], $cookieParam ["httponly"]  );
 }
 
 /**

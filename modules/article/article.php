@@ -54,6 +54,7 @@ switch ($t_module["param"]) {
 		 * $_REQUEST["idParent"] contains the identifiant of the parent record
 		 */
 		$data = dataRead($dataClass, $id, "article/articleChange.tpl");
+		require_once 'modules/classes/parametre.class.php';
 		$journal = new Parametre($bdd, "journal", $ObjetBDDParam);
 		$smarty->assign("journal", $journal->getListe(2));
 		break;
