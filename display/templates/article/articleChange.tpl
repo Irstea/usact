@@ -15,7 +15,7 @@ Retour au détail de l'article {$data.article_id}</a>
 <dl>
 <dt>Date de parution de l'article<span class="red">*</span> :</dt>
 <dd>
-<input class="date" name="article_date" value="{$data.article_date}" required autofocus>
+<input class="date" name="date_parution" value="{$data.date_parution}" required autofocus>
 </dd>
 </dl>
 <dl>

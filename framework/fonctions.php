@@ -76,7 +76,7 @@ function dataDelete($dataClass, $id) {
 				$ok = false;
 		}
 	} else {
-		if (!is_numeric ( $id ) && $id > 0)
+		if (!(is_numeric ( $id ) && $id > 0))
 			$ok = false;
 	}
 	if ($ok == true) {
@@ -94,7 +94,8 @@ function dataDelete($dataClass, $id) {
 			$message = formatErrorData ( $dataClass->getErrorData () );
 			$message .= $LANG ["message"] [13];			
 		}
-	}
+	} else 
+		$ret = -1;
 	return ($ret);
 }
 /**
