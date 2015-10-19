@@ -4,6 +4,9 @@ var table = setDataTables("juridiqueListe", true, true );
 table.fnSort( [ [2,'asc'], [1,'asc'] ] );
 });
 </script>
+{if $droits.gestion == 1}
+<a href="index.php?module=juridiqueChange&juridique_id=0">Nouvelle décision juridique...</a>
+{/if}
 <table id="juridiqueListe" class="tableListe">
 	<thead>
 		<tr>

@@ -39,6 +39,10 @@ Nouvelle résolution...
 {include file="resolution/resolutionListe.tpl"}
 <br>
 </fieldset>
+<fieldset>
+<legend>Liste des décisions juridiques</legend>
+{include file="juridique/juridiqueList.tpl"}
+</fieldset>
 </td>
 </tr>
 </table>

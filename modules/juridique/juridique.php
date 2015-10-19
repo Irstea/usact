@@ -39,10 +39,10 @@ switch ($t_module ["param"]) {
 		 * Recuperation des conflits rattaches
 		 */
 		require_once 'modules/classes/conflit.class.php';
-		$conflit = new Conflit($bdd, $ObjetBDDParam);
-		$smarty->assign("conflit", $conflit->getListFromJuridique($id));
-		$interventionJuridique = new InterventionJuridique($bdd, $ObjetBDDParam);
-		$smarty->assign("intervention_juridique", $interventionJuridique->getListFromJuridique($id));
+		$conflit = new Conflit ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "conflit", $conflit->getListFromJuridique ( $id ) );
+		$interventionJuridique = new InterventionJuridique ( $bdd, $ObjetBDDParam );
+		$smarty->assign ( "intervention_juridique", $interventionJuridique->getListFromJuridique ( $id ) );
 		break;
 	case "change":
 				/*
@@ -52,7 +52,8 @@ switch ($t_module ["param"]) {
 				 */
 		require_once 'modules/juridique/juridique.function.php';
 		setSmartyJuridiqueParam ();
-				$data = dataRead ( $dataClass, $id, "juridique/juridiqueChange.tpl" );
+		$data = dataRead ( $dataClass, $id, "juridique/juridiqueChange.tpl" );
+		break;
 	case "write":
 					/*
 					 * write record in database
@@ -72,7 +73,7 @@ switch ($t_module ["param"]) {
 		/**
 		 * Retourne la liste des actes juridiques selon les criteres fournis, au format json
 		 */
-		$data = $dataClass->getListeSearch($_REQUEST);
-		echo json_encode($data);
+		$data = $dataClass->getListeSearch ( $_REQUEST );
+		echo json_encode ( $data );
 }
 ?>
