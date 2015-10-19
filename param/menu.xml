@@ -59,9 +59,14 @@
 	<item module="acteur_niv2List" droits="consult" value="166" title="167" />
 	<item module="acteur_niv3List" droits="consult" value="168" title="169" />
 	<item module="particulier_resident_typeList" droits="consult" value="176" title="177" />
-	<item module="journalList" droits="consult" value="132" title="133" />
 	<item module="resolution_mode_niv1List" droits="consult" value="170" title="171" />
 	<item module="resolution_mode_niv2List" droits="consult" value="172" title="173" />	
+	<item module="position_usage_activiteList" droits="consult" value="182" title="183" />	
+	
+</item>
+
+<item module="parametreSource" value="180" title="181">
+	<item module="journalList" droits="consult" value="132" title="133" />
 </item>
 
 

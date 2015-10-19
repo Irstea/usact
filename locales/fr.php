@@ -43,15 +43,15 @@ $LANG["menu"][66] = "Experts";
 $LANG["menu"][67] = "Liste des experts";
 
 
-$LANG["menu"][94] = "Param. périmètre";
-$LANG["menu"][95] = "Liste des paramètres concernant les périmètres";
+$LANG["menu"][94] = "Param. conflits";
+$LANG["menu"][95] = "Liste des paramètres concernant les conflits et les périmètres";
 $LANG["menu"][96] = "Param. revend";
 $LANG["menu"][97] = "Liste des paramètres concernant les revendications";
 $LANG["menu"][98] = "Param. juridique";
 $LANG["menu"][99] = "Liste des paramètres concernant les décisions juridiques";
 
-$LANG["menu"][100] = "Autres param.";
-$LANG["menu"][101] = "Consultation - saisie des autres tables de paramètres";
+$LANG["menu"][100] = "Param. acteurs";
+$LANG["menu"][101] = "Paramètres concernant les acteurs";
 $LANG["menu"][102] = "Échelles";
 $LANG["menu"][103] = "Table des échelles";
 $LANG["menu"][104] = "Récurrences";
@@ -128,6 +128,11 @@ $LANG["menu"][176] = "Types de résidents";
 $LANG["menu"][177] = "Table des types de résidence des particuliers";
 $LANG["menu"][178] = "Juridictions";
 $LANG["menu"][179] = "Table des juridictions";
+$LANG["menu"][180] = "Param. sources";
+$LANG["menu"][181] = "Liste des paramètres concernant les sources";
+$LANG["menu"][182] = "Positions d'activité d'usage";
+$LANG["menu"][183] = "TAble des positions d'activité d'usage";
+
 
 
 

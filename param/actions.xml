@@ -323,6 +323,11 @@
 	<usage_activite_niv2Write action="modules/parametre/parametre_niv2.php" tableName="usage_activite_niv2"  tableParent="usage_activite_niv1" param="write" droits="param" retourok="usage_activite_niv2List" retourko="usage_activite_niv2Change" modulebefore="usage_activite_niv2Change" />
 	<usage_activite_niv2Delete action="modules/parametre/parametre_niv2.php" tableName="usage_activite_niv2"  tableParent="usage_activite_niv1" param="delete" droits="param" retoursuppr="usage_activite_niv2List" retourko="usage_activite_niv2Change" />
 
+	<position_usage_activiteList action="modules/parametre/parametre.php" tableName="position_usage_activite" tableParent="position_usage_activite_niv1" param="list" retourlogin="1"  droits="consult"  />
+	<position_usage_activiteChange action="modules/parametre/parametre.php" tableName="position_usage_activite"  tableParent="position_usage_activite_niv1" param="change" droits="param" />
+	<position_usage_activiteWrite action="modules/parametre/parametre.php" tableName="position_usage_activite"  tableParent="position_usage_activite_niv1" param="write" droits="param" retourok="position_usage_activiteList" retourko="position_usage_activiteChange" modulebefore="position_usage_activiteChange" />
+	<position_usage_activiteDelete action="modules/parametre/parametre.php" tableName="position_usage_activite"  tableParent="position_usage_activite_niv1" param="delete" droits="param" retoursuppr="position_usage_activiteList" retourko="position_usage_activiteChange" />
+
 
 <!-- gestion des droits nouvelle formule -->
 	<appliList action="framework/droits/appli.php" param="list" droits="admin" retourlogin="1"  />
