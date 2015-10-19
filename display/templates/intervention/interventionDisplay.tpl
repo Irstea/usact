@@ -52,6 +52,11 @@ Nouvelle intervention juridique...
 {include file="article/articleList.tpl"}
 <br>
 </fieldset>
+<fieldset>
+<legend>Liste des entretiens</legend>
+{include file="entretien/entretienList.tpl"}
+<br>
+</fieldset>
 
 
 </td></tr>

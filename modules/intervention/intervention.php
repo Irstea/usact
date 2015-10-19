@@ -56,6 +56,9 @@ switch ($t_module["param"]) {
 		require_once 'modules/classes/juridique.class.php';
 		$ij = new InterventionJuridique($bdd, $ObjetBDDParam);
 		$smarty->assign("intervention_juridique", $ij->getListFromIntervention($id));
+		require_once 'modules/classes/entretien.class.php';
+		$entretien = new Entretien($bdd, $ObjetBDDParam);
+		$smarty->assign("entretien", $entretien->getListFromIntervention($id));
 		break;
 	case "change":
 		/*

@@ -111,6 +111,20 @@ class Entretien extends ObjetBDD {
 			return $this->getListeParam($sql.$where.$order);
 		}
 	}
+
+	/**
+	 * Retourne la liste des entretiens se rapportant à une intervention
+	 * @param unknown $intervention_id
+	 * @return tableau
+	 */
+	function getListFromIntervention($intervention_id) {
+		if (is_numeric($intervention_id) && $intervention_id > 0) {
+			$sql = $this->sql. " natural join entretien_intervention";
+			$where = " where intervention_id = ".$intervention_id;
+			$order = " order by intervention_id";
+			return $this->getListeParam($sql.$where.$order);
+		}
+	}
 }
 
 /**
