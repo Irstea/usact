@@ -14,6 +14,9 @@ setDataTables("parametre", true, true);
 <tr>
 <th>Clé</th>
 <th>Libellé</th>
+{if strlen($colonneSupp) > 0}
+<th>{$colonneSupp}</th>
+{/if}
 </tr>
 </thead><tbody>
 {section name=lst loop=$data}
@@ -28,6 +31,9 @@ setDataTables("parametre", true, true);
 {/if}
 </td>
 <td>{$data[lst].libelle}</td>
+{if strlen($colonneSupp) > 0}
+<td>{$data[lst].selectfield}</td>
+{/if}
 </tr>
 {/section}
 </tbody>

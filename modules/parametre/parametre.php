@@ -6,6 +6,19 @@
  *  Creation 13 août 2015
  */
 include_once 'modules/classes/parametre.class.php';
+/*
+ * Selection de la classe a initialiser
+ */
+switch ($t_module["tableName"]) {
+	case "usage_activite_niv1":
+		$dataClass = new Usage_activite_niv1($bdd, $ObjetBDDParam);
+		break;
+	case "objet_niv1":
+		$dataClass = new Objet_niv1($bdd, $ObjetBDDParam);
+		break;
+	default:
+		$dataClass = new Parametre($bdd,$t_module["tableName"], $ObjetBDDParam);
+}
 $dataClass = new Parametre($bdd,$t_module["tableName"], $ObjetBDDParam);
 $keyName = $t_module["tableName"]."_id";
 $id = $_REQUEST[$keyName];
@@ -17,8 +30,23 @@ switch ($t_module["param"]) {
 		 * Display the list of all records of the table
 		 */
 
-		$smarty->assign("data", $dataClass->generalise($dataClass->getListe(2)));
 		$smarty->assign("corps", "parametre/parametreList.tpl");
+		/*
+		 * Rajout de l'affichage de la colonne complementaire
+		 */
+		switch ($t_module["tableName"]) {
+			case "usage_activite_niv1":
+				$data = $dataClass->getListe(2, "position_usage_activite", "position_usage_activite_libelle");
+				$smarty->assign("colonneSupp", "Activité d'usage");	
+				break;
+			case "objet_niv1":
+				$data = $dataClass->getListe(2, "type_perimetre", "type_perimetre_libelle");
+				$smarty->assign("colonneSupp", "Type périmètre");
+				break;
+			default :
+				$data = $dataClass->getListe(2);
+		}
+		$smarty->assign("data",$dataClass->generalise($data));
 		break;
 	case "change":
 		/*
@@ -28,6 +56,21 @@ switch ($t_module["param"]) {
 		 */
 		$data = dataRead($dataClass, $id, "parametre/parametreChange.tpl");
 		$smarty->assign("data", $dataClass->generalise($data, false));
+		/*
+		 * Rajout de la selection sur la colonne complementaire
+		 */
+		switch ($t_module["tableName"]) {
+			case "usage_activite_niv1":
+				$select = new Parametre($bdd, "position_usage_activite", $ObjetBDDParam);
+				$smarty->assign ("select", $select->generalise($select->getListe(2)));
+				$smarty->assign("colonneSupp", "Activité d'usage");
+				break;
+			case "objet_niv1":
+				$select = new Parametre($bdd, "type_perimetre", $ObjetBDDParam);
+				$smarty->assign ("select", $select->generalise($select->getListe(2)));
+				$smarty->assign("colonneSupp", "Type périmètre");
+				break;
+		}
 		break;
 	case "write":
 		/*

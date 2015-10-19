@@ -22,10 +22,8 @@ class Parametre extends ObjetBDD {
 		$this->param = $param;
 		$this->table=$nomTable;
 		$this->id_auto="1";
-		$this->colonnes=array(
-				$nomTable."_id"=>array("type"=>1,"key"=>1, "requis"=>1, "defaultValue"=>0),
-				$nomTable."_libelle"=>array("type"=>0,"requis"=>1)
-		);
+		$this->colonnes[$nomTable."_id"]=array("type"=>1,"key"=>1, "requis"=>1, "defaultValue"=>0);
+		$this->colonnes[$nomTable."_libelle"]=array("type"=>0,"requis"=>1);
 		if(!is_array($param)) $param==array();
 		$param["fullDescription"]=1;
 		parent::__construct($bdd,$param);
@@ -48,6 +46,31 @@ class Parametre extends ObjetBDD {
 		}
 		return $data;
 	}
+	
+	/**
+	 * Surcharge de la fonction getListe pour gerer l'affichage des donnees de la table parente
+	 * Ajout (le 19/10/2015) des champs $parentTable et $parentField, pour les tables objet_niv1 et
+	 * usage_activite_niv1
+	 * (non-PHPdoc)
+	 * @see ObjetBDD::getListe()
+	 * @return array
+	 */
+	function getListe($order=0, $parentTable ="", $parentField = "") {
+		$sql = "select * ";
+	
+		$from = " from ".$this->table;
+		if (strlen($parentField) > 0 && strlen($parentTable)>0) {
+			$sql .= ", ".$parentField." as selectfield ";
+			$from .= " natural join ".$parentTable;
+				
+		}
+		if ($order != 0 ) {
+			$order = " order by ".$order;
+		} else
+			$order = " order by 2";
+		return $this->getListeParam($sql.$from.$order);
+	}
+	
 }
 
 /**
@@ -83,6 +106,8 @@ class Parametre_niv2 extends ObjetBDD {
 
 	/**
 	 * Surcharge de la fonction getListe pour gerer l'affichage des donnees de la table parente
+	 * Ajout (le 19/10/2015) des champs $parentTable et $parentField, pour les tables objet_niv1 et 
+	 * usage_activite_niv1
 	 * (non-PHPdoc)
 	 * @see ObjetBDD::getListe()
 	 * @return array
@@ -92,7 +117,7 @@ class Parametre_niv2 extends ObjetBDD {
 				natural join ".$this->nomTableParent;
 		if ($order != 0 ) {
 			$sql .= " order by ".$order;
-		} else 
+		} else
 			$sql .= " order by 2,3";
 		return $this->getListeParam($sql);
 	}
@@ -146,6 +171,96 @@ class Acteur_niv3 extends ObjetBDD {
 				order by ";
 		$order != 0 ? $sql .= $order : $sql .= " 2,3,4";
 		return $this->getListeParam($sql);
+	}
+	
+}
+
+/**
+ * ORM de gestion de la table objet_niv1,
+ * cree pour rajouter la colonne type_perimetre_id
+ * @author quinton
+ *
+ */
+class Objet_niv1 extends Parametre {
+	function __construct($bdd, $param=null) {
+		$this->colonnes["type_perimetre_id"] = array("type"=>1, "defaultValue"=>2, "requis"=>1);
+		parent::__construct($bdd, "objet_niv1", $param);
+	}
+
+	/**
+	 * Surcharge de la fonction write pour rajouter la colonne type_perimetre_id
+	 * (non-PHPdoc)
+	 * @see ObjetBDD::write()
+	 */
+	function write($data) {
+		if (is_numeric($data["select_id"]) && $data["select_id"] > 0) 
+			$data["type_perimetre_id"] = $data["select_id"];
+		return parent::write($data);
+	}
+	
+	/**
+	 * Reecriture de la fonction generalise, pour prendre en compte le champ supplementaire
+	 * (non-PHPdoc)
+	 * @see Parametre::generalise()
+	 */
+	function generalise($data, $is_collection = true) {
+		if ($is_collection == true) {
+			foreach ($data as $key=>$value) {
+				$data[$key]["id"] = $value[$this->table."_id"];
+				$data[$key]["libelle"] = $value[$this->table."_libelle"];
+				$data[$key]["select_id"] = $value["type_perimetre_id"];
+			}
+		} else {
+			$data["id"] = $data[$this->table."_id"];
+			$data["libelle"] = $data[$this->table."_libelle"];
+			$data["select_id"] = $value["type_perimetre_id"];
+		}
+		return $data;
+	}
+	
+}
+
+/**
+ * ORM de gestion de la table usage_activite_niv1,
+ * cree pour rajouter la colonne position_usage_activite_id
+ * @author quinton
+ *
+ */
+class Usage_activite_niv1 extends Parametre {
+	function __construct($bdd, $param=null) {
+		$this->colonnes["position_usage_activite_id"] = array("type"=>1, "defaultValue"=>2, "requis"=>1);
+		parent::__construct($bdd, "objet_niv1", $param);
+	}
+	
+	/**
+	 * Surcharge de la fonction write pour rajouter la colonne type_perimetre_id
+	 * (non-PHPdoc)
+	 * @see ObjetBDD::write()
+	 */
+	function write($data) {
+		if (is_numeric($data["select_id"]) && $data["select_id"] > 0)
+			$data["position_usage_activite_id"] = $data["select_id"];
+		return parent::write($data);
+	}
+
+	/**
+	 * Reecriture de la fonction generalise, pour prendre en compte le champ supplementaire
+	 * (non-PHPdoc)
+	 * @see Parametre::generalise()
+	 */
+	function generalise($data, $is_collection = true) {
+		if ($is_collection == true) {
+		foreach ($data as $key=>$value) {
+			$data[$key]["id"] = $value[$this->table."_id"];
+			$data[$key]["libelle"] = $value[$this->table."_libelle"];
+			$data[$key]["select_id"] = $value["position_usage_activite_id"];
+		}
+		} else {
+			$data["id"] = $data[$this->table."_id"];
+			$data["libelle"] = $data[$this->table."_libelle"];
+			$data["select_id"] = $value["position_usage_activite_id"];
+		}
+		return $data;
 	}
 	
 }

@@ -14,6 +14,24 @@
 <dt>Libellé <span class="red">*</span> :</dt>
 <dd><input class="commentaire" id="{$tableName}_libelle" name="{$tableName}_libelle" value="{$data.libelle}" required> </dd>
 </dl>
+
+{if strlen($colonneSupp) > 0}
+<dl>
+<dt>{$colonneSupp} <span class="red">*</span> :</dt>
+<dd>
+<select name="select_id">
+{section name=lst loop=$select}
+{strip}
+<option value="{$select[lst].id}" {if $data.select_id == $select[lst].id}selected{/if}>
+{$select[lst].libelle}
+</option>
+{/strip}
+{/section}
+</select>
+</dd>
+</dl>
+{/if}
+
 <dl>
 <div class="formBouton">
 <input class="submit" type="submit" value="Enregistrer">
