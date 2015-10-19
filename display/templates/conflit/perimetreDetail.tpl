@@ -5,11 +5,11 @@
 </a></legend>
 <dl>
 <dt> Objet niv2 :</dt>
-<dd>{$perimetre.objet_niv2_libelle}</dd>
+<dd>{$perimetre.objet_niv1_libelle} - {$perimetre.objet_niv2_libelle}</dd>
 </dl>
 <dl>
 <dt> Bien support niv2 :</dt>
-<dd>{$perimetre.bien_support_niv2_libelle}</dd>
+<dd>{$perimetre.bien_support_niv1_libelle} - {$perimetre.bien_support_niv2_libelle}</dd>
 </dl>
 <dl>
 <dt> Description :</dt>

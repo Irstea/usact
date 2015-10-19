@@ -22,7 +22,7 @@ Retour au détail du périmètre {$data.perimetre_id}</a>
 <option value="{$objet_niv2[lst].objet_niv2_id}"
 {if $objet_niv2[lst].objet_niv2_id == $data.objet_niv2_id} selected{/if}
 >
-{$objet_niv2[lst].objet_niv2_libelle}
+{$objet_niv2[lst].objet_niv1_libelle} - {$objet_niv2[lst].objet_niv2_libelle}
 </option>{/strip}
 {/section}
 </select>
@@ -39,7 +39,7 @@ Retour au détail du périmètre {$data.perimetre_id}</a>
 <option value="{$bien_support_niv2[lst].bien_support_niv2_id}"
 {if $bien_support_niv2[lst].bien_support_niv2_id == $data.bien_support_niv2_id} selected{/if}
 >
-{$bien_support_niv2[lst].bien_support_niv2_libelle}
+{$bien_support_niv2[lst].bien_support_niv1_libelle} - {$bien_support_niv2[lst].bien_support_niv2_libelle}
 </option>{/strip}
 {/section}
 </select>
