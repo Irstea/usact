@@ -11,21 +11,20 @@ $(document).ready(function() {
 			* declenchement de la recherche
 			*/
 			var url = "index.php?module=acteurSearchAjax";
-			options = $.getJSON ( url, { "libelle": texte } , function( data ) {
+			$.getJSON ( url, { "libelle": texte } , function( data ) {
 				var moral = '';
 				var physique = '';
 				 for (var i = 0; i < data.length; i++) {
-					 moral = !data[i].acteur_moral_nom ? "" : data[i].acteur_moral_nom;
+					 moral = !data[i].acteur_moral_nom  ? "" : data[i].acteur_moral_nom;
 					 physique = !data[i].acteur_physique_nom ? "" : data[i].acteur_physique_nom;
-				        options += '<option value="' + data[i].acteur_id + '">' 
-				        + data[i].acteur_id + " - "+ moral 
-				        + " " + physique
-				        + '</option>';
+				        options += '<option value="' + data[i].acteur_id + '">' + data[i].acteur_id + " - "+ moral + " " + physique + '</option>';
 				      };
-				  return options;
+				  //return options;
+				$("#acteur_id").html(options);
 			} ) ;
-		};
-		$("#acteur_id").html(options);
+		} else {
+			$("#acteur_id").html(options);
+		};		
 	} );
 });
 </script>
@@ -94,7 +93,7 @@ Retour au détail de l'expert {$data.expert_id}</a>
 <dl>
 <dt>Correspond à l'acteur :</dt>
 <dd>
-<input id="acteurSearch" placeholder="Nom à rechercher..." class="commentaire" autocomplete="false">
+<input id="acteurSearch" placeholder="Nom à rechercher..." class="commentaire" autocomplete="off">
 <br>
 <select id="acteur_id" name="acteur_id">
 <option value="{$data.acteur_id}">
