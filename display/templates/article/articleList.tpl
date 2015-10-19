@@ -4,6 +4,9 @@ var table = setDataTables("articleListe", true, true );
 table.fnSort( [ [2,'asc'], [3,'asc'] ] );
 });
 </script>
+{if $droits.gestion == 1}
+<a href="index.php?module=articleChange&article_id=0">Nouvel article...</a>
+{/if}
 <table id="articleListe" class="tableListe">
 	<thead>
 		<tr>
