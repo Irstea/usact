@@ -19,7 +19,6 @@ switch ($t_module["tableName"]) {
 	default:
 		$dataClass = new Parametre($bdd,$t_module["tableName"], $ObjetBDDParam);
 }
-$dataClass = new Parametre($bdd,$t_module["tableName"], $ObjetBDDParam);
 $keyName = $t_module["tableName"]."_id";
 $id = $_REQUEST[$keyName];
 $smarty->assign("tableName", $t_module["tableName"]);
@@ -36,17 +35,13 @@ switch ($t_module["param"]) {
 		 */
 		switch ($t_module["tableName"]) {
 			case "usage_activite_niv1":
-				$data = $dataClass->getListe(2, "position_usage_activite", "position_usage_activite_libelle");
 				$smarty->assign("colonneSupp", "Activité d'usage");	
 				break;
 			case "objet_niv1":
-				$data = $dataClass->getListe(2, "type_perimetre", "type_perimetre_libelle");
 				$smarty->assign("colonneSupp", "Type périmètre");
 				break;
-			default :
-				$data = $dataClass->getListe(2);
 		}
-		$smarty->assign("data",$dataClass->generalise($data));
+		$smarty->assign("data",$dataClass->generalise($dataClass->getListe(2)));
 		break;
 	case "change":
 		/*

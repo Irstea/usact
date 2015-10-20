@@ -32,7 +32,7 @@ setDataTables("parametre", true, true);
 </td>
 <td>{$data[lst].libelle}</td>
 {if strlen($colonneSupp) > 0}
-<td>{$data[lst].selectfield}</td>
+<td>{$data[lst].select_libelle}</td>
 {/if}
 </tr>
 {/section}
