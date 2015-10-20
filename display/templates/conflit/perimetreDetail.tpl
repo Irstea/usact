@@ -7,10 +7,12 @@
 <dt> Objet niv2 :</dt>
 <dd>{$perimetre.objet_niv1_libelle} - {$perimetre.objet_niv2_libelle}</dd>
 </dl>
+{if $perimetre.type_perimetre_id == 2}
 <dl>
 <dt> Bien support niv2 :</dt>
 <dd>{$perimetre.bien_support_niv1_libelle} - {$perimetre.bien_support_niv2_libelle}</dd>
 </dl>
+{/if}
 <dl>
 <dt> Description :</dt>
 <dd><span class="textareaDisplay">{$perimetre.perimetre_detail}</span></dd>

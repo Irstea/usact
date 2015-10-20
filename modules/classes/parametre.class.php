@@ -131,14 +131,16 @@ class Parametre_niv2 extends ObjetBDD {
 	 * @see ObjetBDD::getListe()
 	 * @return array
 	 */
-	function getListe($order = 0) {
+	function getListe($order = 0, $parentTable = "", $parentId = 0) {
 		$sql = "select * from " . $this->table . "
 				natural join " . $this->nomTableParent;
-		if ($order != 0) {
-			$sql .= " order by " . $order;
-		} else
-			$sql .= " order by 2,3";
-		return $this->getListeParam ( $sql );
+		$where = "";
+		if (strlen($parentTable) > 0 && $parentId > 0 && is_numeric($parentId)) {
+			$sql .= " natural join ".$parentTable;
+			$where = " where ".$parentTable."_id = ".$parentId;
+		}
+		$order != 0 ? $order = " order by " . $order : $order = " order by 2,3";
+		return $this->getListeParam ( $sql.$where.$order );
 	}
 	
 	/**

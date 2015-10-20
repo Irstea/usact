@@ -1,3 +1,9 @@
+<script>
+$(document).ready(function() { 
+	
+} ) ;
+</script>
+
 <h2>Nouveau/Modification perimetre :</h2>
 <a href="index.php?module={$conflit_table}List">Retour à la liste</a>
 {if $data.perimetre_id > 0}
@@ -12,6 +18,21 @@ Retour au détail du périmètre {$data.perimetre_id}</a>
 <input type="hidden" name="perimetre_date_saisie" value="{$data.perimetre_date_saisie}">
 <input type="hidden" name="perimetre_login" value="{$data.perimetre_login}">
 
+<dl>
+<dt>Type <span class="red">*</span> :</dt>
+<dd>
+<select id="type_perimetre_id" name="type_perimetre_id" autofocus>
+{section name=lst loop=$type_perimetre}
+{strip}
+<option value="{$type_perimetre[lst].type_perimetre_id}"
+{if $type_perimetre[lst].type_perimetre_id == $data.type_perimetre_id} selected{/if}
+>
+{$type_perimetre[lst].type_perimetre_libelle}
+</option>{/strip}
+{/section}
+</select>
+</dd>
+</dl>
 <dl>
 <dt>Objet niv2<span class="red">*</span> :</dt>
 <dd>
@@ -29,7 +50,7 @@ Retour au détail du périmètre {$data.perimetre_id}</a>
 </dd>
 </dl>
 
-<dl>
+<dl id="bienSupport">
 <dt>Bien support niv2 :</dt>
 <dd>
 <select name="bien_support_niv2_id">
@@ -69,21 +90,7 @@ Retour au détail du périmètre {$data.perimetre_id}</a>
 </dd>
 </dl>
 
-<dl>
-<dt>Type <span class="red">*</span> :</dt>
-<dd>
-<select name="type_perimetre_id">
-{section name=lst loop=$type_perimetre}
-{strip}
-<option value="{$type_perimetre[lst].type_perimetre_id}"
-{if $type_perimetre[lst].type_perimetre_id == $data.type_perimetre_id} selected{/if}
->
-{$type_perimetre[lst].type_perimetre_libelle}
-</option>{/strip}
-{/section}
-</select>
-</dd>
-</dl>
+
 
 <dl>
 <dt>Echelle :</dt>
