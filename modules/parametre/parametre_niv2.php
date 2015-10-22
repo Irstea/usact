@@ -51,6 +51,17 @@ switch ($t_module["param"]) {
 		 */
 		dataDelete($dataClass, $id);
 		break;
+
+	case "getFromParentAjax":
+		/*
+		 * Retourne la liste des enregistrements pour une cle complementaire
+		 * tableSuperParent : table de recherche complementaire
+		 * value : cle a rechercher dans la table superParente
+		 */
+		$data = $dataClass->getListe(0, $t_module["tableSuperParent"], $_REQUEST["value"]);
+		$data = $dataClass -> generalise($data, true);
+		echo json_encode($data);
+		break;
 }
 
 ?>

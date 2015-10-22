@@ -134,6 +134,9 @@ class Parametre_niv2 extends ObjetBDD {
 	function getListe($order = 0, $parentTable = "", $parentId = 0) {
 		$sql = "select * from " . $this->table . "
 				natural join " . $this->nomTableParent;
+		/*
+		 * Ajout de la recherche par table super parente
+		 */
 		$where = "";
 		if (strlen($parentTable) > 0 && $parentId > 0 && is_numeric($parentId)) {
 			$sql .= " natural join ".$parentTable;

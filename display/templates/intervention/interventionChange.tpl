@@ -1,5 +1,35 @@
 <script>
 $(document).ready(function() {
+	
+	function searchFromPositionUsage ( typePer ) {
+		// Recherche des nouvelles valeurs pour les objets
+		var options = "";
+		var url = "index.php";
+		var oldValue = $("#usage_activite_niv2_id").val();
+		$.getJSON ( url, { "module":"usageActiviteGetFromPosition", "value":typePer}, function( data ) {			
+			 for (var i = 0; i < data.length; i++) {
+			        options += '<option value="' + data[i].id + '"';
+			        if (oldValue == data[i].id) {
+			        	options += "selected";
+			        }
+			        options += '>' + data[i].parent_libelle + " - " + data[i].libelle +  '</option>';
+			      };
+			$("#usage_activite_niv2_id").html(options);
+		} ) ;	
+	};
+	
+	// Recherche le type de perimetre a l'ouverture
+	var tp = $('#position_usage_activite_id').val();
+	// Initialisation de la liste des objets
+	searchFromPositionUsage(tp);
+
+	
+	$("#position_usage_activite_id").change( function () { 
+		var tp = $(this).val();
+		searchFromPositionUsage(tp);
+	});
+
+	
 	$("#acteurSearch").keyup(function() {
 		/*
 		* Traitement de la recherche d'une espèce/type
@@ -91,10 +121,24 @@ $(document).ready(function() {
 </option>
 </select>
 </dl>
+
+<dl>
+<dt>Position<span class="red">*</span> : </dt>
+<dd>
+<select id="position_usage_activite_id" name="position_usage_activite_id">
+{section name=lst loop=$position_usage_activite}
+<option value="{$position_usage_activite[lst].position_usage_activite_id}" {if $position_usage_activite[lst].position_usage_activite_id == $data.position_usage_activite_id}selected{/if}>
+{$position_usage_activite[lst].position_usage_activite_libelle}
+</option>
+{/section}
+</select>
+</dd>
+</dl>
+
 <dl>
 <dt>Activité d'usage :</dt>
 <dd>
-<select name="usage_activite_niv2_id">
+<select id="usage_activite_niv2_id" name="usage_activite_niv2_id">
 <option value="" {if $data.usage_activite_niv2_id == ""}selected{/if}>
 </option>
 {section name=lst loop=$usage_activite_niv2}
@@ -106,18 +150,7 @@ $(document).ready(function() {
 </dd>
 </dl>
 
-<dl>
-<dt>Position<span class="red">*</span> : </dt>
-<dd>
-<select name="position_usage_activite_id">
-{section name=lst loop=$position_usage_activite}
-<option value="{$position_usage_activite[lst].position_usage_activite_id}" {if $position_usage_activite[lst].position_usage_activite_id == $data.position_usage_activite_id}selected{/if}>
-{$position_usage_activite[lst].position_usage_activite_libelle}
-</option>
-{/section}
-</select>
-</dd>
-</dl>
+
 
 <dl>
 <dt>Rôle :</dt>

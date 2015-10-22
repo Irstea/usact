@@ -265,7 +265,8 @@
 	<objet_niv2Change action="modules/parametre/parametre_niv2.php" tableName="objet_niv2"  tableParent="objet_niv1" param="change" droits="param" />
 	<objet_niv2Write action="modules/parametre/parametre_niv2.php" tableName="objet_niv2"  tableParent="objet_niv1" param="write" droits="param" retourok="objet_niv2List" retourko="objet_niv2Change" modulebefore="objet_niv2Change" />
 	<objet_niv2Delete action="modules/parametre/parametre_niv2.php" tableName="objet_niv2"  tableParent="objet_niv1" param="delete" droits="param" retoursuppr="objet_niv2List" retourko="objet_niv2Change" />
-
+	<objetGetFromPerimetre action="modules/parametre/parametre_niv2.php" tableName="objet_niv2"  tableParent="objet_niv1" tableSuperParent="type_perimetre" param="getFromParentAjax" ajax="1" droits="consult"/>
+	
 	<registre_argument_niv2List action="modules/parametre/parametre_niv2.php" tableName="registre_argument_niv2" tableParent="registre_argument_niv1" param="list" retourlogin="1"  droits="consult"  />
 	<registre_argument_niv2Change action="modules/parametre/parametre_niv2.php" tableName="registre_argument_niv2"  tableParent="registre_argument_niv1" param="change" droits="param" />
 	<registre_argument_niv2Write action="modules/parametre/parametre_niv2.php" tableName="registre_argument_niv2"  tableParent="registre_argument_niv1" param="write" droits="param" retourok="registre_argument_niv2List" retourko="registre_argument_niv2Change" modulebefore="registre_argument_niv2Change" />
@@ -322,6 +323,7 @@
 	<usage_activite_niv2Change action="modules/parametre/parametre_niv2.php" tableName="usage_activite_niv2"  tableParent="usage_activite_niv1" param="change" droits="param" />
 	<usage_activite_niv2Write action="modules/parametre/parametre_niv2.php" tableName="usage_activite_niv2"  tableParent="usage_activite_niv1" param="write" droits="param" retourok="usage_activite_niv2List" retourko="usage_activite_niv2Change" modulebefore="usage_activite_niv2Change" />
 	<usage_activite_niv2Delete action="modules/parametre/parametre_niv2.php" tableName="usage_activite_niv2"  tableParent="usage_activite_niv1" param="delete" droits="param" retoursuppr="usage_activite_niv2List" retourko="usage_activite_niv2Change" />
+	<usageActiviteGetFromPosition action="modules/parametre/parametre_niv2.php" tableName="usage_activite_niv2"  tableParent="usage_activite_niv1" tableSuperParent="position_usage_activite" param="getFromParentAjax" ajax="1" droits="consult"/>
 
 	<position_usage_activiteList action="modules/parametre/parametre.php" tableName="position_usage_activite" tableParent="position_usage_activite_niv1" param="list" retourlogin="1"  droits="consult"  />
 	<position_usage_activiteChange action="modules/parametre/parametre.php" tableName="position_usage_activite"  tableParent="position_usage_activite_niv1" param="change" droits="param" />

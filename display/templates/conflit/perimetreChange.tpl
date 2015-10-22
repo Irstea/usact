@@ -1,6 +1,42 @@
 <script>
+
 $(document).ready(function() { 
 	
+	function searchFromPerimetre ( typePer ) {
+		// Recherche des nouvelles valeurs pour les objets
+		var options = "";
+		var url = "index.php";
+		var oldValue = $("#objet_niv2_id").val();
+		$.getJSON ( url, { "module":"objetGetFromPerimetre", "value":typePer}, function( data ) {			
+			 for (var i = 0; i < data.length; i++) {
+			        options += '<option value="' + data[i].id + '"';
+			        if (oldValue == data[i].id) {
+			        	options += "selected";
+			        }
+			        options += '>' + data[i].parent_libelle + " - " + data[i].libelle +  '</option>';
+			      };
+			$("#objet_niv2_id").html(options);
+		} ) ;	
+	};
+	
+	// Recherche le type de perimetre a l'ouverture
+	var tp = $('#type_perimetre_id').val();
+	if (tp == 1) {
+		$("#bienSupport").hide();		
+	}
+	// Initialisation de la liste des objets
+	searchFromPerimetre(tp);
+
+	
+	$("#type_perimetre_id").change( function () { 
+		var tp = $(this).val();
+		if (tp == 1) {
+			$("#bienSupport").hide();
+		} else {
+			$("#bienSupport").show();
+		}
+		searchFromPerimetre(tp);
+	});
 } ) ;
 </script>
 
@@ -36,7 +72,7 @@ Retour au détail du périmètre {$data.perimetre_id}</a>
 <dl>
 <dt>Objet niv2<span class="red">*</span> :</dt>
 <dd>
-<select name="objet_niv2_id">
+<select id="objet_niv2_id" name="objet_niv2_id">
 <option value = "" selected>Selectionner ...</option>
 {section name=lst loop=$objet_niv2}
 {strip}
