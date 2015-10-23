@@ -40,6 +40,10 @@ Nouveau conflit...</a>
 </table>
 <br>
 </fieldset>
+
+{include file="conflit/localisationList.tpl"}
 </td>
 </tr>
 </table>
+
+<br>

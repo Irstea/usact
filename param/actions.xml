@@ -38,7 +38,13 @@
 	<perimetreChange action="modules/conflit/perimetre.php" param="change" droits="gestion"/>
 	<perimetreWrite action="modules/conflit/perimetre.php" param="write" droits="gestion" retourok="perimetreDisplay" retourko="perimetreChange" modulebefore="perimetreChange" />
 	<perimetreDelete action="modules/conflit/perimetre.php" param="delete" droits="gestion" retoursuppr="perimetreList" retourko="perimetreChange" modulebefore="perimetreChange" />
-
+	<communeSearch action="modules/conflit/commune.php" param="search" droits="consult" ajax="1"/>
+	<localisationSearch action="modules/conflit/localisation.php" param="search" droits="consult" ajax="1"/>
+	<localisationChange action="modules/conflit/localisation.php" param="change" droits="gestion"/>
+	<localisationWrite action="modules/conflit/localisation.php" param="write" droits="gestion" retourok="perimetreDisplay" retourko="localisationChange" modulebefore="localisationChange" />
+	<localisationDelete action="modules/conflit/localisation.php" param="delete" droits="gestion" retoursuppr="perimetreDisplay" retourko="localisationChange" modulebefore="localisationChange" />
+	
+	
 	<conflitList action="modules/conflit/conflit.php" param="list" droits="consult" retourlogin='1' />
 	<conflitDisplay action="modules/conflit/conflit.php" param="display" droits="consult"/>
 	<conflitChange action="modules/conflit/conflit.php" param="change" droits="gestion"/>

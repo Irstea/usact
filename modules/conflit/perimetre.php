@@ -56,6 +56,9 @@ switch ($t_module ["param"]) {
 		require_once 'modules/classes/conflit.class.php';
 		$conflit = new Conflit($bdd, $ObjetBDDParam);
 		$smarty->assign("conflit", $conflit->getListFromParent($id,3));
+		require_once 'modules/classes/localisation.class.php';
+		$localisation = new Localisation($bdd, $ObjetBDDParam);
+		$smarty->assign("localisation", $localisation->getListFromPerimetre($id));
 		break;
 		
 	/*
