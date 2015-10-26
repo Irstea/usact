@@ -19,6 +19,11 @@
 {include file="juridique/interventionJuridiqueList.tpl"}
 </fieldset>
 <br>
+<fieldset>
+<legend>Documents associés</legend>
+{include file="document/documentList.tpl"}
+</fieldset>
+<br>
 </td>
 </tr>
 </table>

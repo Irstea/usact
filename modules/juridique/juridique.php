@@ -43,6 +43,17 @@ switch ($t_module ["param"]) {
 		$smarty->assign ( "conflit", $conflit->getListFromJuridique ( $id ) );
 		$interventionJuridique = new InterventionJuridique ( $bdd, $ObjetBDDParam );
 		$smarty->assign ( "intervention_juridique", $interventionJuridique->getListFromJuridique ( $id ) );
+		/*
+		 * Gestion des documents
+		 */
+		require_once 'modules/classes/document.class.php';
+		$document = new DocumentLie($bdd, $ObjetBDDParam,"juridique");
+		$smarty->assign("dataDoc", $document->getListeDocument($id));
+		$smarty->assign("moduleParent", "juridiqueDisplay");
+		$smarty->assign("parentIdName", "juridique_id");
+		$smarty->assign("parent_id", $id);
+		$smarty->assign("parentType", "juridique");
+		
 		break;
 	case "change":
 				/*

@@ -179,7 +179,7 @@ class Document extends ObjetBDD {
 	 */
 	function __construct($bdd, $param = null) {
 		global $APPLI_nomDossierStockagePhotoTemp;
-		if (strlen ($APPLI_nomDossierStockagePhotoTemp) > 0)
+		if (strlen ( $APPLI_nomDossierStockagePhotoTemp ) > 0)
 			$this->temp = $APPLI_nomDossierStockagePhotoTemp;
 		$this->paramori = $param;
 		$this->param = $param;
@@ -239,18 +239,17 @@ class Document extends ObjetBDD {
 		}
 	}
 	
-
-
 	/**
 	 * Fonction permettant de retourner la liste des documents en fonction de la commande
 	 * sql passee en parametre.
 	 * Elle stocke les documents ou les photos et vignettes dans le dossier temporaire,
 	 * et retourne les chemins d'acces a ces documents
-	 * @param string $sql
+	 * 
+	 * @param string $sql        	
 	 * @return array
 	 */
 	function documentSearch($sql) {
-		if (strlen ($sql ) > 0) {
+		if (strlen ( $sql ) > 0) {
 			$data = $this->getListeParam ( $sql );
 			foreach ( $data as $key => $value ) {
 				$data [$key] ["photo_name"] = $this->writeFileImage ( $value ["document_id"], 0 );
@@ -259,15 +258,15 @@ class Document extends ObjetBDD {
 						4,
 						5,
 						6,
-						7
+						7 
 				) ))
 					$data [$key] ["thumbnail_name"] = $this->writeFileImage ( $value ["document_id"], 2 );
-			
+				
 				if (in_array ( $value ["mime_type_id"], array (
 						4,
 						5,
 						6,
-						7
+						7 
 				) ))
 					$data [$key] ["photo800_name"] = $this->writeFileImage ( $value ["document_id"], 1 );
 			}
@@ -288,7 +287,7 @@ class Document extends ObjetBDD {
 	 * @return int
 	 */
 	function ecrire($file, $description = NULL) {
-		if ($file ["error"] == 0 && $file ["size"] > 0 ) {
+		if ($file ["error"] == 0 && $file ["size"] > 0) {
 			/*
 			 * Recuperation de l'extension
 			 */
@@ -302,7 +301,7 @@ class Document extends ObjetBDD {
 				$data ["mime_type_id"] = $mime_type_id;
 				$data ["document_description"] = $description;
 				$data ["document_date_import"] = date ( "d/m/Y" );
-				$data ["document_id"] = $file["document_id"];
+				$data ["document_id"] = $file ["document_id"];
 				$dataDoc = array ();
 				
 				/*
@@ -355,30 +354,40 @@ class Document extends ObjetBDD {
 		if ($id > 0 && is_numeric ( $id )) {
 			$data = $this->getData ( $id );
 			$resolution = 800;
+			$filename = "";
+			$ok = true;
 			/*
 			 * Preparation du nom de la photo
 			 */
 			switch ($type) {
 				case 1 :
 					$colonne = "data";
-					//$filename = $this->temp . '/' . $id . "x" . $resolution . "." . $data ["extension"];
-					$filename = $APPLI_code."-".$id. "x" . $resolution .".".$data["extension"];
+					$a = array ('4', '5', '6', '7');
+					if ( ! in_array ( $data ["mime_type_id"], $a )) {
+						$ok = false;
+					} else {
+						$filename = $APPLI_code . "-" . $id . "x" . $resolution . "." . $data ["extension"];
+						
+					}
 					break;
 				case 2 :
 					$colonne = "thumbnail";
-					//$filename = $this->temp . '/' . $id . '_vignette.png';
-					$filename = $APPLI_code."-".$id. '_vignette.png';
+					$a = array ('1', '4', '5', '6', '7');
+					if ( ! in_array ( $data ["mime_type_id"], $a ) ) {
+						$ok = false;
+					} else {
+						$filename = $APPLI_code . "-" . $id . '_vignette.png';
+					}
 					break;
 				default :
 					$colonne = "data";
-					$filename = $this->temp . '/' . $id . "-" . $data ["document_nom"];
-					$filename = $APPLI_code."-".$id. "-".$data ["document_nom"];
+					$filename = $APPLI_code . "-" . $id . "-" . $data ["document_nom"];
 			}
 			
 			/*
 			 * Traitement des photos
 			 */
-			if (! file_exists ( $filename )) {
+			if (! file_exists ( $filename ) && $ok == true) {
 				$docRef = $this->getBlobReference ( $id, $colonne );
 				if (($data ["mime_type_id"] == 4 || $data ["mime_type_id"] == 5 || $data ["mime_type_id"] == 6)) {
 					$image = new Imagick ();
@@ -411,15 +420,15 @@ class Document extends ObjetBDD {
 					/*
 					 * Autres types de documents : ecriture directe du contenu
 					 */
-					rewind($docRef);
-					$document = stream_get_contents($docRef);
+					rewind ( $docRef );
+					$document = stream_get_contents ( $docRef );
 					if ($document == false)
-						printr("erreur de lecture ".$docRef);
+						printr ( "erreur de lecture " . $docRef );
 				}
 				/*
 				 * Ecriture du document dans le dossier temporaire
 				 */
-				$handle = fopen ( $this->temp."/".$filename, 'wb' );
+				$handle = fopen ( $this->temp . "/" . $filename, 'wb' );
 				fwrite ( $handle, $document );
 				fclose ( $handle );
 			}
@@ -429,46 +438,54 @@ class Document extends ObjetBDD {
 	
 	/**
 	 * Envoie un fichier au navigateur, pour affichage
-	 * @param string $nomfile : nom du fichier stocke dans le dossier temporaire
-	 * @param int $id : cle du document, necessaire pour recuperer le type mime
+	 * 
+	 * @param string $nomfile
+	 *        	: nom du fichier stocke dans le dossier temporaire
+	 * @param int $id
+	 *        	: cle du document, necessaire pour recuperer le type mime
 	 */
-	function documentSent($nomfile, $id) {
-		$id = $this->encodeData($id);
-		$nomfile = $this->encodeData($nomfile);
-		if(strlen($nomfile) > 0 && is_numeric($id) && $id > 0) {
-			$filename = $this->temp."/".$nomfile;
-			if (file_exists($filename)) {
+	function documentSent($nomfile, $id, $attached = false) {
+		$id = $this->encodeData ( $id );
+		$nomfile = $this->encodeData ( $nomfile );
+		if (strlen ( $nomfile ) > 0 && is_numeric ( $id ) && $id > 0) {
+			$filename = $this->temp . "/" . $nomfile;
+			if (file_exists ( $filename )) {
 				/*
 				 * Lecture du type mime
 				 */
-				$data = $this->getData($id);
-				if (strlen($data["content_type"]) > 0) {
-					header("content-type: ".$data["content_type"]);
-					header('Content-Transfer-Encoding: binary');
-					ob_clean();
-					flush();
-					readfile($filename);
+				$data = $this->getData ( $id );
+				if (strlen ( $data ["content_type"] ) > 0) {
+					header ( "content-type: " . $data ["content_type"] );
+					header ( 'Content-Transfer-Encoding: binary' );
+					if ($attached == true) 
+						header('Content-Disposition: attachment; filename="'.$data["document_nom"].'"');
+						 
+					ob_clean ();
+					flush ();
+					readfile ( $filename );
 				}
 			}
-			
 		}
 	}
 }
-
-
 class DocumentUsact extends Document {
-	public $resolution=800;
-	public $modules=array("entretien", "juridique", "article");
-
+	public $resolution = 800;
+	public $modules = array (
+			"entretien",
+			"juridique",
+			"article" 
+	);
+	
 	/**
 	 * Retourne la liste des documents associes au type (evenement, poisson, bassin) et à la clé correspondante
-	 * @param string $type
-	 * @param int $id
+	 * 
+	 * @param string $type        	
+	 * @param int $id        	
 	 * @return array
 	 */
 	function getListeDocument($type, $id) {
-		if ( in_array($type, $this->modules) && $id > 0 && is_numeric($id)) {
-				$sql = "select " . $type . "_id, document_id, document_date_import,
+		if (in_array ( $type, $this->modules ) && $id > 0 && is_numeric ( $id )) {
+			$sql = "select " . $type . "_id, document_id, document_date_import,
 					document_nom, document_description, size, mime_type_id
 					from document
 					join " . $type . "_document using (document_id)
@@ -477,48 +494,48 @@ class DocumentUsact extends Document {
 			$liste = $this->getListeParam ( $sql );
 			/*
 			 * Stockage des photos dans le dossier temporaire
-			*/
+			 */
 			foreach ( $liste as $key => $value ) {
-				$filenames = $this->writeFileImage($value["document_id"], $this->resolution);
-				$liste[$key]["photo_name"] = $this->writeFileImage($value["document_id"], 0);
-				$liste[$key]["photo_preview"] = $this->writeFileImage($value["document_id"], 1);
-				$liste[$key]["thumbnail_name"] = $this->writeFileImage($value["document_id"], 2);
+				$filenames = $this->writeFileImage ( $value ["document_id"], $this->resolution );
+				$liste [$key] ["photo_name"] = $this->writeFileImage ( $value ["document_id"], 0 );
+				$liste [$key] ["photo_preview"] = $this->writeFileImage ( $value ["document_id"], 1 );
+				$liste [$key] ["thumbnail_name"] = $this->writeFileImage ( $value ["document_id"], 2 );
 			}
 			return ($liste);
 		}
 	}
-	
 }
 /**
  * ORM permettant de gérer toutes les tables de liaison avec la table Document
+ * 
  * @author quinton
- *
+ *        
  */
 class DocumentLie extends ObjetBDD {
 	public $tableOrigine;
 	/**
 	 * Constructeur de la classe
 	 *
-	 * @param Adodb_instance $bdd
-	 * @param array $param
+	 * @param Adodb_instance $bdd        	
+	 * @param array $param        	
 	 */
-	function __construct($bdd, $param = null, $nomTable="") {
+	function __construct($bdd, $param = null, $nomTable = "") {
 		$this->param = $param;
 		$this->paramori = $this->param;
 		$this->tableOrigine = $nomTable;
-		$this->table = $nomTable."_document";
+		$this->table = $nomTable . "_document";
 		$this->id_auto = 0;
 		$this->colonnes = array (
-				$nomTable."_id" => array (
+				$nomTable . "_id" => array (
 						"type" => 1,
 						"requis" => 1,
-						"key" => 1
+						"key" => 1 
 				),
 				"document_id" => array (
 						"type" => 1,
 						"requis" => 1,
-						"key" => 1
-				)
+						"key" => 1 
+				) 
 		);
 		if (! is_array ( $param ))
 			$param == array ();
@@ -528,44 +545,47 @@ class DocumentLie extends ObjetBDD {
 	/**
 	 * Reecriture de la fonction ecrire($data)
 	 * (non-PHPdoc)
+	 * 
 	 * @see ObjetBDD::ecrire()
 	 */
-	function ecrire ($data) {
-		$nomChamp = $this->tableOrigine."_id";
-		if ($data["document_id"] > 0 && $data[$nomChamp] > 0) {
-			$sql = "insert into ".$this->table."
- 					(document_id, ".$nomChamp.")
+	function ecrire($data) {
+		$nomChamp = $this->tableOrigine . "_id";
+		if ($data ["document_id"] > 0 && $data [$nomChamp] > 0) {
+			$sql = "insert into " . $this->table . "
+ 					(document_id, " . $nomChamp . ")
  					values
- 					(".$data["document_id"].",".$data[$nomChamp].")";
-			$rs = $this->executeSQL($sql);
-
-			if (count($rs) > 0) {
+ 					(" . $data ["document_id"] . "," . $data [$nomChamp] . ")";
+			$rs = $this->executeSQL ( $sql );
+			
+			if (count ( $rs ) > 0) {
 				return 1;
 			} else {
-				return -1;
+				return - 1;
 			}
 		}
 	}
-
+	
 	/**
 	 * Supprime la reference au document dans la table liee
 	 * (non-PHPdoc)
+	 * 
 	 * @see ObjetBDD::supprimer()
 	 */
 	function supprimer($id) {
-		if (is_numeric ($id) && $id > 0) {
-			$this->supprimerChamp($id, "document_id");
+		if (is_numeric ( $id ) && $id > 0) {
+			$this->supprimerChamp ( $id, "document_id" );
 		}
 	}
 	
 	/**
 	 * Retourne la liste des documents associes
-	 * @param int $id
+	 * 
+	 * @param int $id        	
 	 * @return array
 	 */
-	function getListeDocument ($id) {
-		$documentUsact = new DocumentUsact($this->connection, $this->paramori);
-		return $documentUsact->getListeDocument($this->tableOrigine, $id);
+	function getListeDocument($id) {
+		$documentUsact = new DocumentUsact ( $this->connection, $this->paramori );
+		return $documentUsact->getListeDocument ( $this->tableOrigine, $id );
 	}
 }
 

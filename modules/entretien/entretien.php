@@ -30,6 +30,16 @@ switch ($t_module["param"]) {
 		require_once 'modules/classes/intervention.class.php';
 		$intervention = new Intervention($bdd, $ObjetBDDParam);
 		$smarty->assign("intervention", $intervention->getListFromEntretien($id));
+		/*
+		 * Gestion des documents
+		 */
+		require_once 'modules/classes/document.class.php';
+		$document = new DocumentLie($bdd, $ObjetBDDParam,"entretien");
+		$smarty->assign("dataDoc", $document->getListeDocument($id));
+		$smarty->assign("moduleParent", "entretienDisplay");
+		$smarty->assign("parentIdName", "entretien_id");
+		$smarty->assign("parent_id", $id);
+		$smarty->assign("parentType", "entretien");
 		
 		break;
 	

@@ -45,6 +45,9 @@ switch ($t_module["param"]) {
 		require_once 'modules/classes/intervention.class.php';
 		$intervention = new Intervention($bdd, $ObjetBDDParam);
 		$smarty->assign("intervention", $intervention->getListFromArticle($id));
+		/*
+		 * Gestion des documents
+		 */
 		require_once 'modules/classes/document.class.php';
 		$document = new DocumentLie($bdd, $ObjetBDDParam,"article");
 		$smarty->assign("dataDoc", $document->getListeDocument($id));

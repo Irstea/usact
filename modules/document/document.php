@@ -95,7 +95,8 @@ switch ($t_module ["param"]) {
 		/*
 		 * Envoie vers le navigateur le document
 		 */
-		$dataClass->documentSent($_REQUEST["filename"],$id);
+		
+		$dataClass->documentSent($_REQUEST["filename"],$id, $_REQUEST["attached"]);
 		break;
 }
 
