@@ -1,4 +1,4 @@
-<h1><img src="display/images/logo.png" width="40">{$LANG.message.1} - {$appliTitre}
+<h1><img src="favicon.png" width="40">{$LANG.message.1} - {$appliTitre}
 <div class="header_right">
 <a href='index.php?module=setlanguage&langue=fr'>
 <img src='display/images/drapeau_francais.png' height='20' border='0'>

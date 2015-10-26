@@ -5,8 +5,8 @@
 * 
 * Parametres par defaut de l'application
 */
-$APPLI_version = "0.3";
-$APPLI_versiondate = "27/08/2015";
+$APPLI_version = "0.4";
+$APPLI_versiondate = "26/10/2015";
 $language = "fr";
 $DEFAULT_formatdate = "fr";
 /*
@@ -75,7 +75,7 @@ $SMARTY_cache = FALSE;
 $SMARTY_entete = "entete.tpl";
 $SMARTY_enpied = "enpied.tpl";
 $SMARTY_principal = "main.htm";
-$SMARTY_corps = "clear.tpl";
+$SMARTY_corps = "main.tpl";
 /*
  * Variables de base de l'application
  */ 
