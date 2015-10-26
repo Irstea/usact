@@ -189,11 +189,6 @@ class Document extends ObjetBDD {
 						"requis" => 1,
 						"defaultValue" => 0 
 				),
-				"individu_id" => array (
-						"type" => 1,
-						"requis" => 1,
-						"parentAttrib" => 1 
-				),
 				"mime_type_id" => array (
 						"type" => 1,
 						"requis" => 1 
@@ -335,8 +330,8 @@ class Document extends ObjetBDD {
 	 *        	string description : description du contenu du document
 	 * @return int
 	 */
-	function ecrire($file, $individu_id, $description = NULL) {
-		if ($file ["error"] == 0 && $file ["size"] > 0 && $individu_id > 0 && is_numeric ( $individu_id )) {
+	function ecrire($file, $description = NULL) {
+		if ($file ["error"] == 0 && $file ["size"] > 0 ) {
 			/*
 			 * Recuperation de l'extension
 			 */
@@ -350,7 +345,7 @@ class Document extends ObjetBDD {
 				$data ["mime_type_id"] = $mime_type_id;
 				$data ["document_description"] = $description;
 				$data ["document_date_import"] = date ( "d/m/Y" );
-				$data ["individu_id"] = $individu_id;
+				$data ["document_id"] = $file["document_id"];
 				$dataDoc = array ();
 				
 				/*
@@ -378,6 +373,7 @@ class Document extends ObjetBDD {
 				/*
 				 * Ecriture dans la base de données
 				 */
+				printr($data);
 				$id = parent::ecrire ( $data );
 				if ($id > 0) {
 					$sql = "update " . $this->table . " set data = '" . $dataDoc ["data"] . "', thumbnail = '" . $dataDoc ["thumbnail"] . "' where document_id = " . $id;

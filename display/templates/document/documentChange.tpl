@@ -6,9 +6,6 @@
 <input type="hidden" name="parentIdName" value="{$parentIdName}">
 <input type="hidden" name="moduleParent" value="{$moduleParent}">
 <input type="hidden" name="parentType" value="{$parentType}">
-<input type="hidden" name="poisson_id" value="{$dataPoisson.poisson_id}">
-<input type="hidden" name="bassin_id" value="{$dataBassin.bassin_id}">
-<input type="hidden" name="echographie_id" value="{$dataEcho.echographie_id}">
 <dl>
 <dt>Fichier(s) à importer :
 <br>(doc, jpg, png, pdf, xls, xlsx, docx, odt, ods, csv)

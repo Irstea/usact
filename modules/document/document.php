@@ -9,6 +9,7 @@ include_once 'modules/classes/document.class.php';
 $dataClass = new DocumentUsact( $bdd, $ObjetBDDParam );
 $keyName = "document_id";
 $id = $_REQUEST [$keyName];
+printr($_REQUEST);
 
 switch ($t_module ["param"]) {
 	case "list" :
@@ -44,12 +45,14 @@ switch ($t_module ["param"]) {
 							'type'  => $fdata['type'][$i],
 							'tmp_name'=>$fdata['tmp_name'][$i],
 							'error' => $fdata['error'][$i],
-							'size'  => $fdata['size'][$i]
+							'size'  => $fdata['size'][$i],
+							"document_id"=>$id
 					);
 				}
 			}else $files[]=$fdata;
 			foreach ( $files as $file ) {
 				$id = $dataClass->ecrire ( $file, $_REQUEST ["document_description"] );
+				printr($id);
 				if ($id > 0) {
 					$_REQUEST [$keyName] = $id;
 					/*

@@ -23,6 +23,7 @@ $(document).ready(function() {
 		if (documentChangeShow == 0) {
 			$('#documentChange').show("");
 			documentChangeShow = 1 ;
+			 $("html, body").animate({ scrollTop: $(document).height() }, 1000);
 		} else {
 			$('#documentChange').hide("");
 			documentChangeShow = 0 ;
@@ -30,7 +31,7 @@ $(document).ready(function() {
 	});
 } ) ;
 </script>
-{if $droits["bassinGestion"] == 1 || $droits["poissonGestion"] == 1 || $droits["reproGestion"] == 1} 
+{if $droits["gestion"] == 1 } 
 <a href="#" id="documentChangeActivate">Saisir un nouveau document...</a>
 <div id="documentChange">
 {include file="document/documentChange.tpl"}
@@ -44,7 +45,7 @@ $(document).ready(function() {
 <th>Description</th>
 <th>Taille</th>
 <th>Date<br>d'import</th>
-{if $droits["bassinAdmin"] == 1 || $droits["poissonAdmin"] == 1 || $droits["reproAdmin"]}
+{if $droits["gestion"] == 1}
 <th>Supprimer</th>
 {/if}
 </tr>
@@ -55,7 +56,7 @@ $(document).ready(function() {
 <td style="text-align:center;">
 {if strlen($dataDoc[lst].photo_preview) > 0 }
 <a class="image-popup-no-margins" href="{$dataDoc[lst].photo_preview}" title="aperçu de la photo : {substr($dataDoc[lst].photo_name, strrpos($dataDoc[lst].photo_name, '/') + 1)}">
-<img src="{$dataDoc[lst].thumbnail_name}" height="30">
+<img src="index.php?module=documentSent&document_id={$dataDoc[lst].document_id}&filename={$dataDoc[lst].thumbnail_name}" height="30">
 </a>
 {elseif strlen($dataDoc[lst].thumbnail_name) > 0 }
 <a class="image-popup-no-margins" href="{$dataDoc[lst].thumbnail_name}" title="aperçu du document : {substr($dataDoc[lst].thumbnail_name, strrpos($dataDoc[lst].thumbnail_name, '/') + 1)}">
@@ -63,14 +64,14 @@ $(document).ready(function() {
 </a>
 {/if}
 <td>
-<a href="{$dataDoc[lst].photo_name}" title="document original">
+<a href="index.php?module=documentSent&document_id={$dataDoc[lst].document_id}&filename={$dataDoc[lst].photo_name}" title="document original">
 {$dataDoc[lst].document_nom}
 </a>
 </td>
 <td>{$dataDoc[lst].document_description}</td>
 <td>{$dataDoc[lst].size}</td>
 <td>{$dataDoc[lst].document_date_import}</td>
-{if $droits["bassinAdmin"] == 1 || $droits["poissonAdmin"] == 1}
+{if $droits["gestion"] == 1}
 <td>
 <div class="center">
 <a href="index.php?module=documentDelete&document_id={$dataDoc[lst].document_id}&moduleParent={$moduleParent}&parentIdName={$parentIdName}&parent_id={$parent_id}&parentType={$parentType}" onclick="return confirm('Confirmez-vous la suppression ?');">
