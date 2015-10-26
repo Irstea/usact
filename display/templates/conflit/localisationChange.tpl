@@ -51,6 +51,16 @@ $(document).ready(function() {
 		}
 	});
 
+	$("#localisationForm").submit(function () { 
+		if ( $("#insee").val().length == 0 ) {
+			$("#inseeDisplay").css("border-color", "red");
+			$("#searchCommune").css("border-color", "red");
+			$("#selectCommune").css("border-color", "red");
+			return false;
+		} else {
+			$("#inseeDisplay").css("border-color", "");
+		}
+	});
 	
 } ) ;
 </script>
@@ -60,7 +70,7 @@ $(document).ready(function() {
 <div class="formSaisie">
 <fieldset>
 <legend>Localisation du périmètre n° <a href="index.php?module=perimetreDisplay&perimetre_id={$data.perimetre_id}">{$data.perimetre_id}</a></legend>
-<form method="post" action="index.php">
+<form id="localisationForm" method="post" action="index.php">
 <input type="hidden" name="perimetre_id" value="{$data.perimetre_id}">
 <input type="hidden" name="module" value="localisationWrite">
 <input type="hidden" id="localisation_id" name="localisation_id" value="{$data.localisation_id}">
@@ -80,7 +90,7 @@ $(document).ready(function() {
 <dl>
 <dt>Commune :
 </dt>
-<dd><input id="inseeDisplay" readonly value="{$data.insee} {$data.commune_nom}">
+<dd><input id="inseeDisplay" readonly value="{$data.insee} {$data.commune_nom}" >
 </dl>
 <dl>
 <dt>Description :</dt>
