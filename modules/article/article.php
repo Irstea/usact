@@ -47,7 +47,7 @@ switch ($t_module["param"]) {
 		$smarty->assign("intervention", $intervention->getListFromArticle($id));
 		require_once 'modules/classes/document.class.php';
 		$document = new DocumentLie($bdd, $ObjetBDDParam,"article");
-		$smarty->assign($dataDoc, $document->getListeDocument($id));
+		$smarty->assign("dataDoc", $document->getListeDocument($id));
 		$smarty->assign("moduleParent", "articleDisplay");
 		$smarty->assign("parentIdName", "article_id");
 		$smarty->assign("parent_id", $id);

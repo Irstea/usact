@@ -9,7 +9,6 @@ include_once 'modules/classes/document.class.php';
 $dataClass = new DocumentUsact( $bdd, $ObjetBDDParam );
 $keyName = "document_id";
 $id = $_REQUEST [$keyName];
-printr($_REQUEST);
 
 switch ($t_module ["param"]) {
 	case "list" :
@@ -52,7 +51,6 @@ switch ($t_module ["param"]) {
 			}else $files[]=$fdata;
 			foreach ( $files as $file ) {
 				$id = $dataClass->ecrire ( $file, $_REQUEST ["document_description"] );
-				printr($id);
 				if ($id > 0) {
 					$_REQUEST [$keyName] = $id;
 					/*
@@ -76,6 +74,11 @@ switch ($t_module ["param"]) {
 		$_REQUEST[$_REQUEST["parentIdName"]] = $_REQUEST["parent_id"];
 		break;
 	case "delete":
+		/*
+		 * Supprime la reference dans la table de lien
+		 */
+		$documentLie = new DocumentLie($bdd, $ObjetBDDParam, $_REQUEST["parentType"]);
+		$documentLie->supprimer($id);
 		/*
 		 * delete record
 		 */

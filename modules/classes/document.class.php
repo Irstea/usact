@@ -178,6 +178,9 @@ class Document extends ObjetBDD {
 	 * @param array $param        	
 	 */
 	function __construct($bdd, $param = null) {
+		global $APPLI_nomDossierStockagePhotoTemp;
+		if (strlen ($APPLI_nomDossierStockagePhotoTemp) > 0)
+			$this->temp = $APPLI_nomDossierStockagePhotoTemp;
 		$this->paramori = $param;
 		$this->param = $param;
 		$this->table = "document";
@@ -228,7 +231,7 @@ class Document extends ObjetBDD {
 	 */
 	function getData($id) {
 		if ($id > 0 && is_numeric ( $id )) {
-			$sql = "select document_id, individu_id, document_nom,  content_type, mime_type_id, extension
+			$sql = "select document_id, document_nom,  content_type, mime_type_id, extension
 				from " . $this->table . "
 				join mime_type using (mime_type_id)
 				where document_id = " . $id;
@@ -237,52 +240,6 @@ class Document extends ObjetBDD {
 	}
 	
 
-	/**
-	 * Retourne la liste des documents associes a un poisson
-	 * @param int $id
-	 * @return array
-	 */
-	function getListFromIndividu($id) {
-		if ($id > 0 && is_numeric ( $id )) {
-			$sql = "select document_id, individu_id, document_nom, document_description, size, document_date_import, content_type, mime_type_id
-				from " . $this->table . "
-				join mime_type using (mime_type_id)
-				where individu_id = " . $id . " order by document_id";
-			return $this->documentSearch($sql);
-		}
-	}
-
-	/**
-	 * Retourne le nombre de documents associes a une declaration
-	 * @param int $declaration_id
-	 * @return array
-	 */
-	function getNbFromDeclaration($declaration_id) {
-		if (is_numeric($declaration_id) && $declaration_id > 0) {
-			$sql = "select count(*) as document_nb
-					from ".$this->table."
-					natural join individu
-					where declaration_id = ".$declaration_id;
-			return $this->lireParam($sql);
-		}
-	}
-
-	/**
-	 * Retourne la liste des documents associes a une declaration
-	 * @param int $declaration_id
-	 * @return array
-	 */
-	function getListFromDeclaration($declaration_id) {
-		if ($declaration_id > 0 && is_numeric($declaration_id)) {
-			$sql = "select document_id, individu_id, document_nom, document_description, size, document_date_import, content_type, mime_type_id
-				from " . $this->table . "
-				join mime_type using (mime_type_id)
-				join individu using (individu_id)
-				where declaration_id = ".$declaration_id."
-				order by individu_id, document_id";
-			return $this->documentSearch($sql);
-		}
-	}
 
 	/**
 	 * Fonction permettant de retourner la liste des documents en fonction de la commande
@@ -373,7 +330,6 @@ class Document extends ObjetBDD {
 				/*
 				 * Ecriture dans la base de données
 				 */
-				printr($data);
 				$id = parent::ecrire ( $data );
 				if ($id > 0) {
 					$sql = "update " . $this->table . " set data = '" . $dataDoc ["data"] . "', thumbnail = '" . $dataDoc ["thumbnail"] . "' where document_id = " . $id;
@@ -395,6 +351,7 @@ class Document extends ObjetBDD {
 	 * @return string
 	 */
 	function writeFileImage($id, $type = 0) {
+		global $APPLI_code;
 		if ($id > 0 && is_numeric ( $id )) {
 			$data = $this->getData ( $id );
 			$resolution = 800;
@@ -404,15 +361,18 @@ class Document extends ObjetBDD {
 			switch ($type) {
 				case 1 :
 					$colonne = "data";
-					$filename = $this->temp . '/' . $id . "x" . $resolution . "." . $data ["extension"];
+					//$filename = $this->temp . '/' . $id . "x" . $resolution . "." . $data ["extension"];
+					$filename = $APPLI_code."-".$id. "x" . $resolution .".".$data["extension"];
 					break;
 				case 2 :
 					$colonne = "thumbnail";
-					$filename = $this->temp . '/' . $id . '_vignette.png';
+					//$filename = $this->temp . '/' . $id . '_vignette.png';
+					$filename = $APPLI_code."-".$id. '_vignette.png';
 					break;
 				default :
 					$colonne = "data";
 					$filename = $this->temp . '/' . $id . "-" . $data ["document_nom"];
+					$filename = $APPLI_code."-".$id. "-".$data ["document_nom"];
 			}
 			
 			/*
@@ -459,7 +419,7 @@ class Document extends ObjetBDD {
 				/*
 				 * Ecriture du document dans le dossier temporaire
 				 */
-				$handle = fopen ( $filename, 'wb' );
+				$handle = fopen ( $this->temp."/".$filename, 'wb' );
 				fwrite ( $handle, $document );
 				fclose ( $handle );
 			}
@@ -475,19 +435,19 @@ class Document extends ObjetBDD {
 	function documentSent($nomfile, $id) {
 		$id = $this->encodeData($id);
 		$nomfile = $this->encodeData($nomfile);
-		if(strlen($nomFile) > 0 && is_numeric($id) && $id > 0) {
+		if(strlen($nomfile) > 0 && is_numeric($id) && $id > 0) {
 			$filename = $this->temp."/".$nomfile;
 			if (file_exists($filename)) {
-				$fp = fopen($filename, "rb");
-				$doc = fread($fp, filesize($filename));
-				fclose($fp);
 				/*
 				 * Lecture du type mime
 				 */
 				$data = $this->getData($id);
 				if (strlen($data["content_type"]) > 0) {
 					header("content-type: ".$data["content_type"]);
-					print($doc);
+					header('Content-Transfer-Encoding: binary');
+					ob_clean();
+					flush();
+					readfile($filename);
 				}
 			}
 			
@@ -527,6 +487,7 @@ class DocumentUsact extends Document {
 			return ($liste);
 		}
 	}
+	
 }
 /**
  * ORM permettant de gérer toutes les tables de liaison avec la table Document
@@ -585,6 +546,18 @@ class DocumentLie extends ObjetBDD {
 			}
 		}
 	}
+
+	/**
+	 * Supprime la reference au document dans la table liee
+	 * (non-PHPdoc)
+	 * @see ObjetBDD::supprimer()
+	 */
+	function supprimer($id) {
+		if (is_numeric ($id) && $id > 0) {
+			$this->supprimerChamp($id, "document_id");
+		}
+	}
+	
 	/**
 	 * Retourne la liste des documents associes
 	 * @param int $id

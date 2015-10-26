@@ -33,7 +33,7 @@ $(document).ready(function() {
 </script>
 {if $droits["gestion"] == 1 } 
 <a href="#" id="documentChangeActivate">Saisir un nouveau document...</a>
-<div id="documentChange">
+<div id="documentChange" hidden="true">
 {include file="document/documentChange.tpl"}
 </div>
 {/if}
@@ -53,14 +53,14 @@ $(document).ready(function() {
 <tdata>
 {section name=lst loop=$dataDoc}
 <tr>
-<td style="text-align:center;">
+<td class="center">
 {if strlen($dataDoc[lst].photo_preview) > 0 }
-<a class="image-popup-no-margins" href="{$dataDoc[lst].photo_preview}" title="aperçu de la photo : {substr($dataDoc[lst].photo_name, strrpos($dataDoc[lst].photo_name, '/') + 1)}">
+<a class="image-popup-no-margins" href="index.php?module=documentSent&document_id={$dataDoc[lst].document_id}&filename={$dataDoc[lst].photo_preview}" title="aperçu de la photo : {$dataDoc[lst].photo_name}">
 <img src="index.php?module=documentSent&document_id={$dataDoc[lst].document_id}&filename={$dataDoc[lst].thumbnail_name}" height="30">
 </a>
 {elseif strlen($dataDoc[lst].thumbnail_name) > 0 }
-<a class="image-popup-no-margins" href="{$dataDoc[lst].thumbnail_name}" title="aperçu du document : {substr($dataDoc[lst].thumbnail_name, strrpos($dataDoc[lst].thumbnail_name, '/') + 1)}">
-<img src="{$dataDoc[lst].thumbnail_name}" height="30">
+<a class="image-popup-no-margins" href="index.php?module=documentSent&document_id={$dataDoc[lst].document_id}&filename={$dataDoc[lst].thumbnail_name}" title="aperçu du document : {$dataDoc[lst].thumbnail_name}">
+<img src="index.php?module=documentSent&document_id={$dataDoc[lst].document_id}&filename={$dataDoc[lst].thumbnail_name}" height="30">
 </a>
 {/if}
 <td>
