@@ -1,5 +1,16 @@
 News
 ===========
+Version 0.5 du 2 novembre 2015
+--------------
+Correction d'anomalies :
+- les tables de référence "modes de résolution" ont été basculées dans le menu des paramètres de périmètres et conflits
+- en saisie des localisations, si le complément d'adresse n'était pas renseigné, il était positionné à null
+- un coquille dans le détail d'un expert a été corrigée
+
+Évolutions :
+- dans le détail d'un conflit, la liste des résolutions a été repositionnée, et les libellés des boites ont été corrigés
+
+
 Version 0.4 du 26 octobre 2015
 --------------
 Correction d'anomalies :
