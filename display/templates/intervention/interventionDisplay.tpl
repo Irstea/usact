@@ -38,22 +38,22 @@ Nouvelle solution...
 <br>
 </fieldset>
 <fieldset>
-<legend>Interventions juridiques</legend>
+<legend>Affaires juridiques impliquant cette intervention</legend>
 {if $droits.gestion == 1}
 <a href="index.php?module=intervention_juridiqueChange&intervention_juridique_id=0&intervention_id={$intervention.intervention_id}">
-Nouvelle intervention juridique...
+Nouvelle affaire juridique...
 </a>
 {/if}
 {include file="juridique/interventionJuridiqueList.tpl"}
 <br>
 </fieldset>
 <fieldset>
-<legend>Liste des articles correspondants</legend>
+<legend>Articles citant cette intervention</legend>
 {include file="article/articleList.tpl"}
 <br>
 </fieldset>
 <fieldset>
-<legend>Liste des entretiens</legend>
+<legend>Entretiens évoquant cette intervention</legend>
 {include file="entretien/entretienList.tpl"}
 <br>
 </fieldset>
