@@ -27,8 +27,9 @@ $(document).ready(function() {
 			var options = '<option></option>';
 			$.getJSON ( url, { "module":"localisationSearch", "value":search}, function( data ) {			
 				 for (var i = 0; i < data.length; i++) {
+					 var precision_adresse = data[i].precision_adresse == null ? "" : data[i].precision_adresse;
 				        options += '<option value="' + data[i].localisation_id + '"';
-					        options += '>' + data[i].insee + " " + data[i].commune_nom +"/" + data[i].precision_adresse +  '</option>';
+					        options += '>' + data[i].insee + " " + data[i].commune_nom +"/" + precision_adresse +  '</option>';
 				      };
 				$("#selectLocalisation").html(options);
 			} ) ;	

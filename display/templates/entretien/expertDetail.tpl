@@ -16,7 +16,7 @@
 <dd>{$expert.commune_residence}</dd>
 </dl>
 <dl>
-<dt> Len avec le territoire :</dt>
+<dt> Lien avec le territoire :</dt>
 <dd><span class="textareaDisplay">{$expert.lien_territoire}</span></dd>
 </dl>
 <dl>

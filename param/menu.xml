@@ -12,7 +12,6 @@
 	<item module="resolutionList"  value="62" title="63" />
 </item>
 
-
 <item module="parametrePerimetre" value="94" title="95">
 	<item module="echelleList" droits="consult" value="102" title="103" />
 	<item module="recurrenceList" droits="consult" value="104" title="105" />
@@ -21,7 +20,8 @@
 	<item module="bien_support_niv2List" droits="consult" value="156" title="157" />
 	<item module="objet_niv1List" droits="consult" value="110" title="111" />
 	<item module="objet_niv2List" droits="consult" value="150" title="151" />
-
+	<item module="resolution_mode_niv1List" droits="consult" value="170" title="171" />
+	<item module="resolution_mode_niv2List" droits="consult" value="172" title="173" />	
 </item>
 
 <item module="parametreRevendication" value="96" title="97">
@@ -59,8 +59,6 @@
 	<item module="acteur_niv2List" droits="consult" value="166" title="167" />
 	<item module="acteur_niv3List" droits="consult" value="168" title="169" />
 	<item module="particulier_resident_typeList" droits="consult" value="176" title="177" />
-	<item module="resolution_mode_niv1List" droits="consult" value="170" title="171" />
-	<item module="resolution_mode_niv2List" droits="consult" value="172" title="173" />	
 	<item module="position_usage_activiteList" droits="consult" value="182" title="183" />	
 	
 </item>

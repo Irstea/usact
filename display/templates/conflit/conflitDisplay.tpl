@@ -20,14 +20,18 @@ Nouvelle intervention...
 </fieldset>
 <br>
 <fieldset>
-<legend>Entretiens traitant de ce conflit</legend>
+<legend>Entretiens relatant ce conflit</legend>
 {include file="entretien/entretienList.tpl"}
 </fieldset>
 <br>
 <fieldset>
-<legend>Liste des articles correspondants</legend>
+<legend>Articles citant ce conflit</legend>
 {include file="article/articleList.tpl"}
 <br>
+</fieldset>
+<fieldset>
+<legend>Affaires jurdiques traitant ce conflit</legend>
+{include file="juridique/juridiqueList.tpl"}
 </fieldset>
 <fieldset>
 <legend>Liste des résolutions</legend>
@@ -39,10 +43,7 @@ Nouvelle résolution...
 {include file="resolution/resolutionListe.tpl"}
 <br>
 </fieldset>
-<fieldset>
-<legend>Liste des décisions juridiques</legend>
-{include file="juridique/juridiqueList.tpl"}
-</fieldset>
+
 </td>
 </tr>
 </table>

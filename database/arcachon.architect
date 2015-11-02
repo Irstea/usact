@@ -3130,7 +3130,7 @@
   <table id="TAB917" populated="true" UUID="cb9421ad-582f-43af-93c6-f82a2d0ed555" name="document" objectType="TABLE" physicalName="document" >
    <remarks>Table des documents</remarks>
    <folder id="FOLTAB9171" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL918" populated="true" UUID="2a0923d1-01e8-4376-8f6b-614da9dad95f" autoIncrement="false" autoIncrementSequenceName="document_document_id_seq" defaultValue="" name="document_id" nullable="0" physicalName="document_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL918" populated="true" UUID="2a0923d1-01e8-4376-8f6b-614da9dad95f" autoIncrement="true" autoIncrementSequenceName="document_document_id_seq" defaultValue="" name="document_id" nullable="0" physicalName="document_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL919" populated="true" UUID="35d7d750-3979-4d6e-b820-cb5d186d7929" autoIncrement="false" autoIncrementSequenceName="mime_type_mime_type_id_seq" defaultValue="" name="mime_type_id" nullable="0" physicalName="mime_type_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
@@ -3482,7 +3482,7 @@
   <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  </compare-dm-settings>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="0.6194624525812278" viewportX="65" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="0.6194624525812278" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB451" x="680" y="1772" bgColor="0xbfd6ff" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB467" x="680" y="2579" bgColor="0xbfd6ff" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB474" x="680" y="2454" bgColor="0xbfd6ff" fgColor="0x000000" rounded="false" dashed="false"/>
@@ -3633,7 +3633,7 @@
   <table-link relationship-ref="REL1102" pkConnection="0.7303921568627451" fkConnection="0.1282051282051282" rLineColor="0x484848" pkLabelText="" fkLabelText="" orientation="33"/>
   <table-link relationship-ref="REL1040" pkConnection="0.9392857142857143" fkConnection="0.5512820512820513" rLineColor="0x484848" pkLabelText="" fkLabelText="" orientation="24"/>
   <table-link relationship-ref="REL1104" pkConnection="0.5661016949152542" fkConnection="0.46638655462184875" rLineColor="0x484848" pkLabelText="" fkLabelText="" orientation="132"/>
-  <table-link relationship-ref="REL1066" pkConnection="0.4238921001926782" fkConnection="0.8245614035087719" rLineColor="0x484848" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL1066" pkConnection="0.4508670520231214" fkConnection="0.7903225806451613" rLineColor="0x484848" pkLabelText="" fkLabelText="" orientation="66"/>
   <table-link relationship-ref="REL1106" pkConnection="0.9355932203389831" fkConnection="0.28991596638655465" rLineColor="0x484848" pkLabelText="" fkLabelText="" orientation="72"/>
  </play-pen>
  <critic-manager>
