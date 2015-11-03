@@ -15,7 +15,18 @@ $(document).ready(function() {
 <tr>
 <td>
 Texte ou numéro à rechercher : 
-<input name="libelle" class="commentaire" value="{$dataSearch.libelle}">
+<input name="libelle" value="{$dataSearch.libelle}">
+Commune :
+<select class="selection" id="insee" name="insee">
+<option value="" {if $dataSearch.insee == ""}selected{/if}></option>
+{section name=lst loop=$commune}
+{strip}
+<option value="{$commune[lst].insee}" {if $commune[lst].insee == $dataSearch.insee}selected{/if}>
+{$commune[lst].insee} {$commune[lst].commune_nom}
+</option>
+{/strip}
+{/section}
+</select>
 <br>
 Objets :
 

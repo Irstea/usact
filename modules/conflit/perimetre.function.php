@@ -5,6 +5,7 @@
  * @license http://www.cecill.info/licences/Licence_CeCILL-C_V1-fr.html LICENCE DE LOGICIEL LIBRE CeCILL-C
  *  Creation 17 août 2015
  */
+require_once 'modules/classes/localisation.class.php';
 function setSmartyPerimetreParam() {
 	global $smarty, $ObjetBDDParam, $bdd;
 	$objet_niv2 = new Parametre_niv2( $bdd,"objet_niv2", "objet_niv1", $ObjetBDDParam );
@@ -17,6 +18,8 @@ function setSmartyPerimetreParam() {
 	$smarty->assign("echelle", $echelle->getListe());
 	$recurrence = new Parametre($bdd, "recurrence", $ObjetBDDParam);
 	$smarty->assign("recurrence", $recurrence->getListe());
+	$commune = new Commune($bdd, $ObjetBDDParam);
+	$smarty->assign("commune", $commune->getListe(1));
 }
 
 ?>

@@ -137,6 +137,12 @@ class Perimetre extends ObjetBDD {
 			$wb == true ? $where .= " and " : $wb = true;
 			$where .= "recurrence_id = " . $param ["recurrence_id"];
 		}
+		if ($param["insee"] > 0 && is_numeric($param["insee"])) {
+			$wb == true ? $where .= " and " : $wb = true;
+			$sql .= " left outer join perimetre_localisation using (perimetre_id)
+					 left outer join localisation using (localisation_id)";
+			$where .= "insee = ".$param["insee"];
+		}
 		
 		if ($wb == false)
 			$where = "";

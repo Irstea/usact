@@ -98,7 +98,8 @@ class SearchPerimetre extends SearchParam {
 				"libelle" => "",
 				"type_perimetre_id" => "",
 				"echelle_id" => "",
-				"recurrence_id" => "" /*,
+				"recurrence_id" => "",
+				"insee" => "" /*,
 				"objet_niv1_id"=>"",
 				"bien_support_niv1_id"=>""	*/			
 		);
