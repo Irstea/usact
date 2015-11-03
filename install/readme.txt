@@ -1,5 +1,12 @@
 News
 ===========
+Version 0.6/1.0 du 3 novembre 2015
+--------------
+Dernière version de test, correspondant à la première version de production.
+Évolutions :
+- il est possible de rechercher un périmètre à partir de la commune de localisation
+- les libellés ont été modifiés dans le détail d'une intervention
+
 Version 0.5 du 2 novembre 2015
 --------------
 Correction d'anomalies :
