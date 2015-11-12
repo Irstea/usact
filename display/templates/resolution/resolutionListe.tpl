@@ -1,6 +1,7 @@
 <script>
 $(document).ready(function() { 
-	setDataTables("idListe");
+	var table = setDataTables("idListe", true , true);
+	table.fnSort( [ [1,'asc'] ] );
 } );
 </script>
 <table id="idListe" class="tableListe">

@@ -1,6 +1,7 @@
 <script>
 $(document).ready(function() { 
-	setDataTables("idListe");
+	var table = setDataTables("idListe", true , true);
+	table.fnSort( [ [1,'asc'], [2,'asc'], [3, 'asc'] ] );
 } );
 </script>
 <h2>Liste des périmètres :</h2>
