@@ -61,6 +61,12 @@ Retour au détail de l'article {$data.article_id}</a>
 </dd>
 </dl>
 <dl>
+<dt>Entête :</dt>
+<dd>
+<textarea name="entete">{$data.entete}</textarea>
+</dd>
+</dl>
+<dl>
 <dt>Pièce jointe :</dt>
 <dd>
 <input class="commentaire" name="piecejointe" value="{$data.piecejointe}">

@@ -38,7 +38,7 @@ table.fnSort( [ [2,'asc'], [3,'asc'] ] );
 	<td>{$article[lst].edition}</td>
 	<td>{$article[lst].rubrique}</td>
 	<td>{$article[lst].page}</td>
-	<td>{$article[lst].entete}</td>
+	<td class="textareaDisplay">{$article[lst].entete}</td>
 	<td>{$article[lst].piecejointe}</td>	
 	</tr>
 	{/section}

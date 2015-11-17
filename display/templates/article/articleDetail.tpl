@@ -24,19 +24,16 @@
 <dd>{$article.edition}</dd>
 </dl>
 <dl>
-<dl>
 <dt>Rubrique :</dt>
 <dd>{$article.rubrique}</dd>
 </dl>
-<dl>
 <dl>
 <dt>Page :</dt>
 <dd>{$article.page}</dd>
 </dl>
 <dl>
-<dl>
 <dt>En-tête :</dt>
-<dd>{$article.entete}</dd>
+<dd><div class="textareaDisplay">{$article.entete}</div></dd>
 </dl>
 <dl>
 
