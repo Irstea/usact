@@ -98,23 +98,23 @@ class Intervention extends ObjetBDD {
 		
 		if ($param ["usage_activite_niv2_id"] > 0 && is_numeric ( $param ["usage_activite_niv2_id"] )) {
 			$wb == true ? $where .= " and " : $wb = true;
-			$where .= "usage_activite_niv2_id = " . $param ["usage_activite_niv2_id"];
+			$where .= "intervention.usage_activite_niv2_id = " . $param ["usage_activite_niv2_id"];
 		}
 		if ($param ["role_id"] > 0 && is_numeric ( $param ["role_id"] )) {
 			$wb == true ? $where .= " and " : $wb = true;
-			$where .= "role_id = " . $param ["role_id"];
+			$where .= "intervention.role_id = " . $param ["role_id"];
 		}
 		if ($param ["position_usage_activite_id"] > 0 && is_numeric ( $param ["position_usage_activite_id"] )) {
 			$wb == true ? $where .= " and " : $wb = true;
-			$where .= "position_usage_activite_id = " . $param ["position_usage_activite_id"];
+			$where .= "intervention.position_usage_activite_id = " . $param ["position_usage_activite_id"];
 		}
 		if ($param ["objet_niv2_id"] > 0 && is_numeric ( $param ["objet_niv2_id"] )) {
 			$wb == true ? $where .= " and " : $wb = true;
-			$where .= "objet_niv2_id = " . $param ["objet_niv2_id"];
+			$where .= "perimetre.objet_niv2_id = " . $param ["objet_niv2_id"];
 		}
 		if ($param ["bien_support_niv2_id"] > 0 && is_numeric ( $param ["bien_support_niv2_id"] )) {
 			$wb == true ? $where .= " and " : $wb = true;
-			$where .= "bien_support_niv2_id = " . $param ["bien_support_niv2_id"];
+			$where .= "perimetre.bien_support_niv2_id = " . $param ["bien_support_niv2_id"];
 		}
 		
 		if ($wb == false)
