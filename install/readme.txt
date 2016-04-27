@@ -1,5 +1,11 @@
 News
 ===========
+Version 1.0.2 du 27 avril 2016
+--------------
+Correction d'anomalies :
+- la création d'un article n'aboutissait pas, le login de connexion n'était pas renseigné
+- les opérations de suppression qui n'aboutissaient pas déclenchaient une erreur de l'application, qui se traduisait par l'affichage d'une page blanche
+
 Version 0.6/1.0 du 3 novembre 2015
 --------------
 Dernière version de test, correspondant à la première version de production.
