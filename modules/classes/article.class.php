@@ -31,7 +31,7 @@ class Article extends ObjetBDD {
 				"page"=>array("type"=>1),
 				"entete"=>array("type"=>0),
 				"piecejointe"=>array("type"=>0),
-				"article_login"=>array("requis"=>1),				
+				"article_login"=>array("requis"=>1, "defaultValue"=>"getLogin"),				
 				"article_date_saisie"=>array("type"=>2, "requis"=>1, "defaultValue"=>"getDateJour")
 		);
 		if(!is_array($param)) $param==array();
