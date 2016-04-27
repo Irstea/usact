@@ -1,0 +1,3842 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.8.1" last-position="0,0" last-zoom="1.1"
+	 default-schema="public" default-owner="postgres">
+<role name="eric.quinton"
+      superuser="true"
+      encrypted="true"
+      validity="2050-12-31 00:00:00"
+      password="********">
+</role>
+
+<role name="sandrine.lyser"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      validity="2050-12-31 00:00:00"
+      password="********">
+</role>
+
+<database name="usact" encoding="UTF8" lc-collate="fr_FR" lc-ctype="fr_FR">
+	<role name="&quot;eric.quinton&quot;"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" protected="true" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="arcachon" rect-visible="true" fill-color="#ffffff">
+	<role name="&quot;eric.quinton&quot;"/>
+</schema>
+
+<sequence name="acte_contentieux_acte_contentieux_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="acte_contentieux">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des types d'actes contentieux]]></comment>
+	<position x="2338.74" y="867.42"/>
+	<column name="acte_contentieux_id" not-null="true" default-value="nextval('arcachon.acte_contentieux_acte_contentieux_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="acte_contentieux_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="acte_contentieux_pk" type="pk-constr" table="arcachon.acte_contentieux">
+		<columns names="acte_contentieux_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="acteur_acteur_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="acteur">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<position x="775.664" y="2498.19"/>
+	<column name="acteur_id" not-null="true" default-value="nextval('arcachon.acteur_acteur_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="acteur_niv3_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="acteur_physique_nom">
+		<type name="character varying"/>
+	</column>
+	<column name="commune_physique">
+		<type name="character varying"/>
+		<comment><![CDATA[Commune de résidence de la personne physique]]></comment>
+	</column>
+	<column name="cp_physique">
+		<type name="character varying"/>
+		<comment><![CDATA[Code postal associé à la commune de la personne physique]]></comment>
+	</column>
+	<column name="acteur_moral_nom">
+		<type name="character varying"/>
+	</column>
+	<column name="commune_morale">
+		<type name="character varying"/>
+		<comment><![CDATA[Commune de siège de la personne morale]]></comment>
+	</column>
+	<column name="cp_morale">
+		<type name="character varying"/>
+		<comment><![CDATA[code postal associé à la commune de la personne morale]]></comment>
+	</column>
+	<column name="acteur_statut">
+		<type name="character varying"/>
+		<comment><![CDATA[Statut de l'acteur]]></comment>
+	</column>
+	<column name="acteur_statut_detail">
+		<type name="character varying"/>
+		<comment><![CDATA[Détail du statut de l'acteur]]></comment>
+	</column>
+	<column name="acteur_date_saisie">
+		<type name="timestamp"/>
+		<comment><![CDATA[Date de création de l'acteur]]></comment>
+	</column>
+	<column name="acteur_login">
+		<type name="character varying"/>
+	</column>
+	<column name="particulier_resident_type_id">
+		<type name="integer"/>
+	</column>
+	<constraint name="acteur_pk" type="pk-constr" table="arcachon.acteur">
+		<columns names="acteur_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="acteur_mandat_acteur_mandat_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="acteur_mandat">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Mandats détenus par un acteur]]></comment>
+	<position x="384.895" y="2605.88"/>
+	<column name="acteur_mandat_id" not-null="true" default-value="nextval('arcachon.acteur_mandat_acteur_mandat_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="acteur_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="mandat_type_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="mandat_detail">
+		<type name="character varying"/>
+	</column>
+	<constraint name="acteur_mandat_pk" type="pk-constr" table="arcachon.acteur_mandat">
+		<columns names="acteur_mandat_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="acteur_niv1_acteur_niv1_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="acteur_niv1">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<position x="35.6643" y="2824.34"/>
+	<column name="acteur_niv1_id" not-null="true" default-value="nextval('arcachon.acteur_niv1_acteur_niv1_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="acteur_niv1_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="acteur_niv1_pk" type="pk-constr" table="arcachon.acteur_niv1">
+		<columns names="acteur_niv1_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="acteur_niv2_acteur_niv2_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="acteur_niv2">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<position x="38.7413" y="2702.8"/>
+	<column name="acteur_niv2_id" not-null="true" default-value="nextval('arcachon.acteur_niv2_acteur_niv2_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="acteur_niv1_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="acteur_niv2_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="acteur_niv2_pk" type="pk-constr" table="arcachon.acteur_niv2">
+		<columns names="acteur_niv2_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="acteur_niv3_acteur_niv3_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="acteur_niv3">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<position x="392.587" y="2710.5"/>
+	<column name="acteur_niv3_id" not-null="true" default-value="nextval('arcachon.acteur_niv3_acteur_niv3_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="acteur_niv2_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="acteur_niv3_libelle">
+		<type name="character varying"/>
+	</column>
+	<constraint name="acteur_niv3_pk" type="pk-constr" table="arcachon.acteur_niv3">
+		<columns names="acteur_niv3_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="acteur_structure_acteur_structure_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="acteur_structure">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des relations entre un acteur et les structures]]></comment>
+	<position x="366.434" y="2448.96"/>
+	<column name="acteur_structure_id" not-null="true" default-value="nextval('arcachon.acteur_structure_acteur_structure_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="acteur_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="structure_type_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="structure_statut">
+		<type name="character varying"/>
+	</column>
+	<column name="structure_statut_detail">
+		<type name="character varying"/>
+	</column>
+	<constraint name="acteur_structure_pk" type="pk-constr" table="arcachon.acteur_structure">
+		<columns names="acteur_structure_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="action_action_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="action">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des actions entreprises lors des interventions]]></comment>
+	<position x="1411.05" y="461.266"/>
+	<column name="action_id" not-null="true" default-value="nextval('arcachon.action_action_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="intervention_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="action_type_id">
+		<type name="integer"/>
+	</column>
+	<column name="action_mode_id">
+		<type name="integer"/>
+	</column>
+	<column name="action_echelle_id">
+		<type name="integer"/>
+	</column>
+	<column name="action_date">
+		<type name="timestamp"/>
+		<comment><![CDATA[Date de l'action]]></comment>
+	</column>
+	<column name="action_date_complement">
+		<type name="character varying"/>
+		<comment><![CDATA[Complément à la date d'action, si intervalle ou non connue avec précision]]></comment>
+	</column>
+	<column name="action_detail">
+		<type name="character varying"/>
+		<comment><![CDATA[Détail de l'action menée]]></comment>
+	</column>
+	<constraint name="action_pk" type="pk-constr" table="arcachon.action">
+		<columns names="action_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="action_echelle_action_echelle_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="action_echelle">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des échelles des actions]]></comment>
+	<position x="1101.82" y="362.804"/>
+	<column name="action_echelle_id" not-null="true" default-value="nextval('arcachon.action_echelle_action_echelle_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="action_echelle_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="action_echelle_pk" type="pk-constr" table="arcachon.action_echelle">
+		<columns names="action_echelle_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="action_mode_action_mode_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="action_mode">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des modes d'action]]></comment>
+	<position x="1441.82" y="362.804"/>
+	<column name="action_mode_id" not-null="true" default-value="nextval('arcachon.action_mode_action_mode_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="action_mode_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="action_mode_pk" type="pk-constr" table="arcachon.action_mode">
+		<columns names="action_mode_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="action_type_action_type_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="action_type">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des types de modes d'action]]></comment>
+	<position x="827.972" y="479.727"/>
+	<column name="action_type_id" not-null="true" default-value="nextval('arcachon.action_type_action_type_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="action_type_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="action_type_pk" type="pk-constr" table="arcachon.action_type">
+		<columns names="action_type_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="article_article_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="article">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des articles]]></comment>
+	<position x="1806.43" y="555.112"/>
+	<column name="article_id" not-null="true" default-value="nextval('arcachon.article_article_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="journal_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="date_parution" not-null="true">
+		<type name="timestamp"/>
+		<comment><![CDATA[Date de parution de l'article]]></comment>
+	</column>
+	<column name="titre" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Titre de l'article]]></comment>
+	</column>
+	<column name="auteur" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Auteur de l'article]]></comment>
+	</column>
+	<column name="edition">
+		<type name="character varying"/>
+		<comment><![CDATA[Édition du journal]]></comment>
+	</column>
+	<column name="rubrique">
+		<type name="character varying"/>
+		<comment><![CDATA[Rubrique de l'article]]></comment>
+	</column>
+	<column name="page">
+		<type name="smallint"/>
+		<comment><![CDATA[Page de l'article dans le journal]]></comment>
+	</column>
+	<column name="entete">
+		<type name="character varying"/>
+		<comment><![CDATA[Entête de l'article]]></comment>
+	</column>
+	<column name="piecejointe">
+		<type name="character varying"/>
+		<comment><![CDATA[Nom de la pièce jointe]]></comment>
+	</column>
+	<column name="article_login">
+		<type name="character varying"/>
+		<comment><![CDATA[Login de la personne ayant enregistré l'article]]></comment>
+	</column>
+	<column name="article_date_saisie" not-null="true">
+		<type name="timestamp"/>
+		<comment><![CDATA[Date de saisie de l'article]]></comment>
+	</column>
+	<constraint name="article_pk" type="pk-constr" table="arcachon.article">
+		<columns names="article_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="article_conflit">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des conflits abordés dans un article]]></comment>
+	<position x="1137.2" y="756.65"/>
+	<column name="article_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="conflit_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="action_type_id">
+		<type name="integer"/>
+	</column>
+	<constraint name="article_conflit_pk" type="pk-constr" table="arcachon.article_conflit">
+		<columns names="article_id,conflit_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="article_document">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table de rattachement d'un document a un article]]></comment>
+	<position x="901.818" y="562.804"/>
+	<column name="article_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="document_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="article_document_pk" type="pk-constr" table="arcachon.article_document">
+		<columns names="article_id,document_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="article_intervention">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des articles cités lors d'une intervention]]></comment>
+	<position x="1526.43" y="707.42"/>
+	<column name="article_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="intervention_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="article_intervention_pk" type="pk-constr" table="arcachon.article_intervention">
+		<columns names="article_id,intervention_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="bien_support_niv1_bien_support_niv1_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="bien_support_niv1">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<position x="464.545" y="359.531"/>
+	<column name="bien_support_niv1_id" not-null="true" default-value="nextval('arcachon.bien_support_niv1_bien_support_niv1_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="bien_support_niv1_libelle" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Libelle du type de bien étant à l'origine du conflit]]></comment>
+	</column>
+	<constraint name="bien_support_niv1_pk" type="pk-constr" table="arcachon.bien_support_niv1">
+		<columns names="bien_support_niv1_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="bien_support_niv2_bien_support_niv2_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="bien_support_niv2">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<position x="450.909" y="268.259"/>
+	<column name="bien_support_niv2_id" not-null="true" default-value="nextval('arcachon.bien_support_niv2_bien_support_niv2_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="bien_support_niv1_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="bien_support_niv2_libelle" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Libelle du type de bien support touché par le conflit]]></comment>
+	</column>
+	<constraint name="bien_support_niv2_pk" type="pk-constr" table="arcachon.bien_support_niv2">
+		<columns names="bien_support_niv2_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="commune">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des communes]]></comment>
+	<position x="1485.59" y="75.1888"/>
+	<column name="insee" not-null="true">
+		<type name="integer"/>
+		<comment><![CDATA[N° Insee de la commune]]></comment>
+	</column>
+	<column name="commune_nom" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Nom de la commune]]></comment>
+	</column>
+	<column name="departement" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Nom du département]]></comment>
+	</column>
+	<constraint name="commune_pk" type="pk-constr" table="arcachon.commune">
+		<columns names="insee" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="conflit_conflit_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="conflit">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table de description d'un conflit]]></comment>
+	<position x="714.126" y="853.573"/>
+	<column name="conflit_id" not-null="true" default-value="nextval('arcachon.conflit_conflit_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="perimetre_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="conflit_date_debut">
+		<type name="timestamp"/>
+		<comment><![CDATA[Date de début du conflit]]></comment>
+	</column>
+	<column name="conflit_date_debut_txt">
+		<type name="character varying"/>
+		<comment><![CDATA[Date de début du conflit, sous forme de texte]]></comment>
+	</column>
+	<column name="conflit_date_fin">
+		<type name="timestamp"/>
+		<comment><![CDATA[Date de fin du conflit]]></comment>
+	</column>
+	<column name="conflit_date_fin_txt">
+		<type name="character varying"/>
+		<comment><![CDATA[Date de fin du conflit, au format texte]]></comment>
+	</column>
+	<column name="conflit_date_saisie">
+		<type name="timestamp"/>
+		<comment><![CDATA[Date où le conflit a été saisie]]></comment>
+	</column>
+	<column name="conflit_detail">
+		<type name="character varying"/>
+		<comment><![CDATA[Informations complémentaires sur le conflit]]></comment>
+	</column>
+	<column name="conflit_login">
+		<type name="character varying"/>
+	</column>
+	<constraint name="conflit_pk" type="pk-constr" table="arcachon.conflit">
+		<columns names="conflit_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="decision_appel_decision_appel_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="decision_appel">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des types de décision en appel]]></comment>
+	<position x="1401.82" y="802.804"/>
+	<column name="decision_appel_id" not-null="true" default-value="nextval('arcachon.decision_appel_decision_appel_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="decision_appel_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="decision_appel_pk" type="pk-constr" table="arcachon.decision_appel">
+		<columns names="decision_appel_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="decision_cassation_decision_cassation_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="decision_cassation">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des sens de décision de cassation]]></comment>
+	<position x="2307.97" y="1292.03"/>
+	<column name="decision_cassation_id" not-null="true" default-value="nextval('arcachon.decision_cassation_decision_cassation_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="decision_cassation_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="decision_cassation_pk" type="pk-constr" table="arcachon.decision_cassation">
+		<columns names="decision_cassation_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="document_document_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="document">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des documents]]></comment>
+	<position x="1877.2" y="967.42"/>
+	<column name="document_id" not-null="true" default-value="nextval('arcachon.document_document_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="mime_type_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="document_date_import" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<column name="document_nom" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Nom du document tel qu'il a été stocké]]></comment>
+	</column>
+	<column name="document_description">
+		<type name="character varying"/>
+		<comment><![CDATA[Description du document]]></comment>
+	</column>
+	<column name="data">
+		<type name="bytea"/>
+		<comment><![CDATA[Contenu du document]]></comment>
+	</column>
+	<column name="size">
+		<type name="integer"/>
+		<comment><![CDATA[Taille du document]]></comment>
+	</column>
+	<column name="thumbnail">
+		<type name="bytea"/>
+		<comment><![CDATA[Vignette]]></comment>
+	</column>
+	<constraint name="document_pk" type="pk-constr" table="arcachon.document">
+		<columns names="document_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="echelle_echelle_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="echelle">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Echelle du perimetre]]></comment>
+	<position x="838.741" y="164.895"/>
+	<column name="echelle_id" not-null="true" default-value="nextval('arcachon.echelle_echelle_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="echelle_libelle" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Indique le type d'échelle]]></comment>
+	</column>
+	<constraint name="echelle_pk" type="pk-constr" table="arcachon.echelle">
+		<columns names="echelle_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="entretien_entretien_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="entretien">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des entretiens menés]]></comment>
+	<position x="960.28" y="1182.8"/>
+	<column name="entretien_id" not-null="true" default-value="nextval('arcachon.entretien_entretien_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="expert_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="entretien_date" not-null="true">
+		<type name="timestamp"/>
+		<comment><![CDATA[Date de l'entretien]]></comment>
+	</column>
+	<column name="institution" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Institution représentée]]></comment>
+	</column>
+	<column name="statut" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Statut de l'interviewé]]></comment>
+	</column>
+	<column name="localisation" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Lieu de l'entretien]]></comment>
+	</column>
+	<column name="binome" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Binome ayant mené l'entretien]]></comment>
+	</column>
+	<column name="entretien_login">
+		<type name="character varying"/>
+		<comment><![CDATA[Login de la personne ayant saisi l'entretien]]></comment>
+	</column>
+	<column name="entretien_date_saisie">
+		<type name="timestamp"/>
+		<comment><![CDATA[Date de création de l'entretien dans la base]]></comment>
+	</column>
+	<column name="piece_jointe">
+		<type name="character varying"/>
+		<comment><![CDATA[Nom de la pièce jointe fournie]]></comment>
+	</column>
+	<constraint name="entretien_pk" type="pk-constr" table="arcachon.entretien">
+		<columns names="entretien_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="entretien_conflit">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des conflits relatés par les entretiens]]></comment>
+	<position x="1381.82" y="1022.8"/>
+	<column name="entretien_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="conflit_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="entretien_conflit_pk" type="pk-constr" table="arcachon.entretien_conflit">
+		<columns names="entretien_id,conflit_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="entretien_document">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table de rattachement d'un document à un entretien]]></comment>
+	<position x="1426.43" y="1207.42"/>
+	<column name="entretien_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="document_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="entretien_document_pk" type="pk-constr" table="arcachon.entretien_document">
+		<columns names="entretien_id,document_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="entretien_intervention">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des interventions évoquées lors des entretiens]]></comment>
+	<position x="404.895" y="1225.88"/>
+	<column name="entretien_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="intervention_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="entretien_intervention_pk" type="pk-constr" table="arcachon.entretien_intervention">
+		<columns names="entretien_id,intervention_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="expert_expert_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="expert">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des experts entendus en entretien]]></comment>
+	<position x="851.049" y="1695.11"/>
+	<column name="expert_id" not-null="true" default-value="nextval('arcachon.expert_expert_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="acteur_id">
+		<type name="integer"/>
+	</column>
+	<column name="expert_nom" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Nom de l'expert]]></comment>
+	</column>
+	<column name="expert_prenom" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Prénom de l'expert]]></comment>
+	</column>
+	<column name="sexe" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Sexe (H/F)]]></comment>
+	</column>
+	<column name="commune_residence">
+		<type name="character varying"/>
+		<comment><![CDATA[Commune de résidence, précision pour les experts]]></comment>
+	</column>
+	<column name="lien_territoire" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Lien avec le territoire (expert)]]></comment>
+	</column>
+	<column name="activite_assoc">
+		<type name="character varying"/>
+		<comment><![CDATA[Activité associative (expert)]]></comment>
+	</column>
+	<column name="activite_prof" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Activité professionnelle (expert)]]></comment>
+	</column>
+	<column name="annee_naissance">
+		<type name="integer"/>
+		<comment><![CDATA[Année de naissance de l'expert]]></comment>
+	</column>
+	<constraint name="expert_pk" type="pk-constr" table="arcachon.expert">
+		<columns names="expert_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="intervention_intervention_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="intervention">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<position x="849.51" y="1398.19"/>
+	<column name="intervention_id" not-null="true" default-value="nextval('arcachon.intervention_intervention_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="conflit_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="acteur_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="role_id">
+		<type name="integer"/>
+	</column>
+	<column name="usage_activite_niv2_id">
+		<type name="integer"/>
+	</column>
+	<column name="position_usage_activite_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="intervention_date_entree">
+		<type name="timestamp"/>
+	</column>
+	<column name="intervention_date_entree_txt">
+		<type name="character varying"/>
+		<comment><![CDATA[Date d'entrée dans l'intervention, au format texte]]></comment>
+	</column>
+	<column name="intervention_date_sortie">
+		<type name="timestamp"/>
+	</column>
+	<column name="intervention_date_sortie_txt">
+		<type name="character varying"/>
+		<comment><![CDATA[Date de sortie de l'intervention, au format texte]]></comment>
+	</column>
+	<column name="intervention_detail_usage">
+		<type name="character varying"/>
+	</column>
+	<constraint name="intervention_pk" type="pk-constr" table="arcachon.intervention">
+		<columns names="intervention_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="intervention_juridique_intervention_juridique_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="intervention_juridique">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des implications juridiques des interventions]]></comment>
+	<position x="1334.13" y="1935.11"/>
+	<column name="intervention_juridique_id" not-null="true" default-value="nextval('arcachon.intervention_juridique_intervention_juridique_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="intervention_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="juridique_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="position_acteur_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="qualite_appel_id">
+		<type name="integer"/>
+	</column>
+	<column name="qualite_pourvoi_id">
+		<type name="integer"/>
+	</column>
+	<column name="petitionnaire">
+		<type name="smallint"/>
+		<comment><![CDATA[0 : non, 1 : oui]]></comment>
+	</column>
+	<constraint name="intervention_juridique_pk" type="pk-constr" table="arcachon.intervention_juridique">
+		<columns names="intervention_juridique_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="journal_journal_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="journal">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Liste des journaux]]></comment>
+	<position x="2201.82" y="561.266"/>
+	<column name="journal_id" not-null="true" default-value="nextval('arcachon.journal_journal_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="journal_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="journal_pk" type="pk-constr" table="arcachon.journal">
+		<columns names="journal_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="juridiction_juridiction_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="juridiction">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des juridictions]]></comment>
+	<position x="2298.74" y="1172.03"/>
+	<column name="juridiction_id" not-null="true" default-value="nextval('arcachon.juridiction_juridiction_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="juridiction_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="juridiction_pk" type="pk-constr" table="arcachon.juridiction">
+		<columns names="juridiction_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="juridique_juridique_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="juridique">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des données juridiques]]></comment>
+	<position x="2306.43" y="1419.73"/>
+	<column name="juridique_id" not-null="true" default-value="nextval('arcachon.juridique_juridique_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="juridiction_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="arret_num" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Numéro de l'arrêt]]></comment>
+	</column>
+	<column name="arret_date" not-null="true">
+		<type name="timestamp"/>
+		<comment><![CDATA[Date de l'arrêt]]></comment>
+	</column>
+	<column name="acte_date" not-null="true">
+		<type name="timestamp"/>
+		<comment><![CDATA[Date de l'acte juridique]]></comment>
+	</column>
+	<column name="juridique_sous_domaine_id">
+		<type name="integer"/>
+	</column>
+	<column name="nature_requete_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="type_ouvrage_perm_constr_id">
+		<type name="integer"/>
+	</column>
+	<column name="nature_travaux_id">
+		<type name="integer"/>
+	</column>
+	<column name="decision_cassation_id">
+		<type name="integer"/>
+	</column>
+	<column name="decision_appel_id">
+		<type name="integer"/>
+	</column>
+	<column name="acte_contentieux_id">
+		<type name="integer"/>
+	</column>
+	<column name="juridique_libelle">
+		<type name="character varying"/>
+		<comment><![CDATA[Libellé de la décision juridique]]></comment>
+	</column>
+	<column name="objet_precision">
+		<type name="character varying"/>
+		<comment><![CDATA[Précisions concernant l'objet]]></comment>
+	</column>
+	<column name="article1">
+		<type name="character varying"/>
+	</column>
+	<column name="article2">
+		<type name="character varying"/>
+	</column>
+	<column name="article3">
+		<type name="character varying"/>
+	</column>
+	<column name="article4">
+		<type name="character varying"/>
+	</column>
+	<column name="article5">
+		<type name="character varying"/>
+	</column>
+	<column name="jugement_date_degre1">
+		<type name="timestamp"/>
+		<comment><![CDATA[Date du jugement de degré 1]]></comment>
+	</column>
+	<column name="jugement_date_degre2">
+		<type name="timestamp"/>
+		<comment><![CDATA[Date de jugement de degré 2]]></comment>
+	</column>
+	<column name="juridique_login" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Login de la personne ayant saisi la fiche]]></comment>
+	</column>
+	<column name="juridique_date_saisie" not-null="true">
+		<type name="timestamp"/>
+		<comment><![CDATA[Date de saisie de la fiche]]></comment>
+	</column>
+	<constraint name="juridique_pk" type="pk-constr" table="arcachon.juridique">
+		<columns names="juridique_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="juridique_conflit">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des conflits traités par les décisions juridiques]]></comment>
+	<position x="1843.36" y="1296.65"/>
+	<column name="juridique_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="conflit_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="juridique_conflit_pk" type="pk-constr" table="arcachon.juridique_conflit">
+		<columns names="juridique_id,conflit_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="juridique_document">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table de rattachement d'un document à une décision juridique]]></comment>
+	<position x="2315.66" y="973.573"/>
+	<column name="juridique_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="document_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="juridique_document_pk" type="pk-constr" table="arcachon.juridique_document">
+		<columns names="juridique_id,document_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="juridique_domaine_juridique_domaine_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="juridique_domaine">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des domaines des décisions juridiques]]></comment>
+	<position x="2298.74" y="2065.88"/>
+	<column name="juridique_domaine_id" not-null="true" default-value="nextval('arcachon.juridique_domaine_juridique_domaine_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="juridique_domaine_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="juridique_domaine_pk" type="pk-constr" table="arcachon.juridique_domaine">
+		<columns names="juridique_domaine_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="juridique_sous_domaine_juridique_sous_domaine_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="juridique_sous_domaine">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des sous-domaines des décisions juridiques]]></comment>
+	<position x="2297.2" y="1904.34"/>
+	<column name="juridique_sous_domaine_id" not-null="true" default-value="nextval('arcachon.juridique_sous_domaine_juridique_sous_domaine_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="juridique_domaine_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="juridique_sous_domaine_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="juridique_sous_domaine_pk" type="pk-constr" table="arcachon.juridique_sous_domaine">
+		<columns names="juridique_sous_domaine_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="localisation_localisation_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="localisation">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des localisations des périmètres des conflits]]></comment>
+	<position x="1143.9" y="76.8042"/>
+	<column name="localisation_id" not-null="true" default-value="nextval('arcachon.localisation_localisation_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="insee" not-null="true">
+		<type name="integer"/>
+		<comment><![CDATA[N° Insee de la commune]]></comment>
+	</column>
+	<column name="precision_adresse">
+		<type name="character varying"/>
+		<comment><![CDATA[Complément pour préciser la localisation]]></comment>
+	</column>
+	<constraint name="localisation_pk" type="pk-constr" table="arcachon.localisation">
+		<columns names="localisation_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="mandat_type_mandat_type_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="mandat_type">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des types de mandats]]></comment>
+	<position x="34.1259" y="2578.19"/>
+	<column name="mandat_type_id" not-null="true" default-value="nextval('arcachon.mandat_type_mandat_type_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="mandat_type_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="mandat_type_pk" type="pk-constr" table="arcachon.mandat_type">
+		<columns names="mandat_type_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="mime_type_mime_type_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="mime_type">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des types mime]]></comment>
+	<position x="1600.28" y="979.727"/>
+	<column name="mime_type_id" not-null="true" default-value="nextval('arcachon.mime_type_mime_type_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="content_type" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<column name="extension" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="mime_type_pk" type="pk-constr" table="arcachon.mime_type">
+		<columns names="mime_type_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="nature_requete_nature_requete_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="nature_requete">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des natures de requêtes]]></comment>
+	<position x="2295.66" y="2258.19"/>
+	<column name="nature_requete_id" not-null="true" default-value="nextval('arcachon.nature_requete_nature_requete_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="nature_requete_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="nature_requete_pk" type="pk-constr" table="arcachon.nature_requete">
+		<columns names="nature_requete_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="nature_travaux_nature_travaux_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="nature_travaux">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des natures de travaux]]></comment>
+	<position x="2297.2" y="2168.96"/>
+	<column name="nature_travaux_id" not-null="true" default-value="nextval('arcachon.nature_travaux_nature_travaux_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="nature_travaux_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="nature_travaux_pk" type="pk-constr" table="arcachon.nature_travaux">
+		<columns names="nature_travaux_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="objet_niv1_objet_niv1_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="objet_niv1">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<position x="20.9091" y="273.636"/>
+	<column name="objet_niv1_id" not-null="true" default-value="nextval('arcachon.objet_niv1_objet_niv1_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="objet_niv1_libelle" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Libelle du type de secteur touché]]></comment>
+	</column>
+	<column name="type_perimetre_id" not-null="true" default-value="2">
+		<type name="integer"/>
+	</column>
+	<constraint name="objet_niv1_pk" type="pk-constr" table="arcachon.objet_niv1">
+		<columns names="objet_niv1_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="objet_niv2_objet_niv2_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="objet_niv2">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<position x="20.4196" y="184.483"/>
+	<column name="objet_niv2_id" not-null="true" default-value="nextval('arcachon.objet_niv2_objet_niv2_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="objet_niv1_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="objet_niv2_libelle" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Libelle correspondant au type d'objet étant à la base du conflit]]></comment>
+	</column>
+	<constraint name="objet_niv2_pk" type="pk-constr" table="arcachon.objet_niv2">
+		<columns names="objet_niv2_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="particulier_resident_type_particulier_resident_type_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="particulier_resident_type">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des types de résidence des acteurs particuliers]]></comment>
+	<position x="774.126" y="2752.03"/>
+	<column name="particulier_resident_type_id" not-null="true" default-value="nextval('arcachon.particulier_resident_type_particulier_resident_type_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="particulier_resident_type_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="particulier_resident_type_pk" type="pk-constr" table="arcachon.particulier_resident_type">
+		<columns names="particulier_resident_type_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="perimetre_perimetre_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="perimetre">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table de localisation d'un conflit]]></comment>
+	<position x="440.049" y="83.7832"/>
+	<column name="perimetre_id" not-null="true" default-value="nextval('arcachon.perimetre_perimetre_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="type_perimetre_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="echelle_id">
+		<type name="integer"/>
+	</column>
+	<column name="bien_support_niv2_id">
+		<type name="integer"/>
+	</column>
+	<column name="objet_niv2_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="recurrence_id">
+		<type name="integer"/>
+	</column>
+	<column name="perimetre_date_saisie">
+		<type name="timestamp"/>
+		<comment><![CDATA[Date de saisie du perimetre]]></comment>
+	</column>
+	<column name="perimetre_detail">
+		<type name="character varying"/>
+		<comment><![CDATA[Informations complémentaires sur le perimetre]]></comment>
+	</column>
+	<column name="perimetre_login">
+		<type name="character varying"/>
+	</column>
+	<constraint name="perimetre_pk" type="pk-constr" table="arcachon.perimetre">
+		<columns names="perimetre_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="perimetre_localisation">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table de correspondance entre les périmètres et les localisations]]></comment>
+	<position x="837.434" y="75.7273"/>
+	<column name="perimetre_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="localisation_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="perimetre_localisation_pk" type="pk-constr" table="arcachon.perimetre_localisation">
+		<columns names="perimetre_id,localisation_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="position_acteur_position_acteur_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="position_acteur">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des positions des acteurs]]></comment>
+	<position x="621.818" y="2142.8"/>
+	<column name="position_acteur_id" not-null="true" default-value="nextval('arcachon.position_acteur_position_acteur_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="position_acteur_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="position_acteur_pk" type="pk-constr" table="arcachon.position_acteur">
+		<columns names="position_acteur_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="position_usage_activite_position_usage_activite_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="position_usage_activite">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<position x="961.818" y="2142.8"/>
+	<column name="position_usage_activite_id" not-null="true" default-value="nextval('arcachon.position_usage_activite_position_usage_activite_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="position_usage_activite_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="position_usage_activite_pk" type="pk-constr" table="arcachon.position_usage_activite">
+		<columns names="position_usage_activite_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="qualite_appel_qualite_appel_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="qualite_appel">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des qualités d'appel (demandeur, défendeur)]]></comment>
+	<position x="1341.82" y="2142.8"/>
+	<column name="qualite_appel_id" not-null="true" default-value="nextval('arcachon.qualite_appel_qualite_appel_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="qualite_appel_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="qualite_appel_pk" type="pk-constr" table="arcachon.qualite_appel">
+		<columns names="qualite_appel_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="recurrence_recurrence_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="recurrence">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Recurrence d'apparition du conflit]]></comment>
+	<position x="832.056" y="249.476"/>
+	<column name="recurrence_id" not-null="true" default-value="nextval('arcachon.recurrence_recurrence_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="recurrence_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="recurrence_pk" type="pk-constr" table="arcachon.recurrence">
+		<columns names="recurrence_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="registre_argument_niv1_registre_argument_niv1_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="registre_argument_niv1">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des registres d'argument - niveau 1]]></comment>
+	<position x="127.972" y="2241.27"/>
+	<column name="registre_argument_niv1_id" not-null="true" default-value="nextval('arcachon.registre_argument_niv1_registre_argument_niv1_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="registre_argument_niv1_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="registre_argument_niv1_pk" type="pk-constr" table="arcachon.registre_argument_niv1">
+		<columns names="registre_argument_niv1_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="registre_argument_niv2_registre_argument_niv2_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="registre_argument_niv2">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des registres d'argument - niveau 2]]></comment>
+	<position x="526.434" y="2235.11"/>
+	<column name="registre_argument_niv2_id" not-null="true" default-value="nextval('arcachon.registre_argument_niv2_registre_argument_niv2_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="registre_argument_niv1_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="registre_argument_niv2_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="registre_argument_niv2_pk" type="pk-constr" table="arcachon.registre_argument_niv2">
+		<columns names="registre_argument_niv2_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="resolution_resolution_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="resolution">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des résolutions des conflits]]></comment>
+	<position x="2347.97" y="641.266"/>
+	<column name="resolution_id" not-null="true" default-value="nextval('arcachon.resolution_resolution_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="conflit_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="solution_proposee_id">
+		<type name="integer"/>
+	</column>
+	<column name="resolution_echelle_id">
+		<type name="integer"/>
+	</column>
+	<column name="resolution_nature_id">
+		<type name="integer"/>
+	</column>
+	<column name="resolution_acteur_id">
+		<type name="integer"/>
+	</column>
+	<column name="resolution_mode_niv2_id">
+		<type name="integer"/>
+	</column>
+	<column name="resolution_detail">
+		<type name="character varying"/>
+	</column>
+	<constraint name="resolution_pk" type="pk-constr" table="arcachon.resolution">
+		<columns names="resolution_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="resolution_acteur_resolution_acteur_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="resolution_acteur">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des actions entreprises au niveau des acteurs]]></comment>
+	<position x="1461.82" y="2342.8"/>
+	<column name="resolution_acteur_id" not-null="true" default-value="nextval('arcachon.resolution_acteur_resolution_acteur_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="resolution_acteur_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="resolution_acteur_pk" type="pk-constr" table="arcachon.resolution_acteur">
+		<columns names="resolution_acteur_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="resolution_echelle_resolution_echelle_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="resolution_echelle">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des échelles géographiques des résolutions]]></comment>
+	<position x="1885.9" y="827.42"/>
+	<column name="resolution_echelle_id" not-null="true" default-value="nextval('arcachon.resolution_echelle_resolution_echelle_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="resolution_echelle_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="resolution_echelle_pk" type="pk-constr" table="arcachon.resolution_echelle">
+		<columns names="resolution_echelle_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="resolution_mode_niv1_resolution_mode_niv1_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="resolution_mode_niv1">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des modes de résolution - niveau 1]]></comment>
+	<position x="1849.51" y="1648.96"/>
+	<column name="resolution_mode_niv1_id" not-null="true" default-value="nextval('arcachon.resolution_mode_niv1_resolution_mode_niv1_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="resolution_mode_niv1_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="resolution_mode_niv1_pk" type="pk-constr" table="arcachon.resolution_mode_niv1">
+		<columns names="resolution_mode_niv1_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="resolution_mode_niv2_resolution_mode_niv2_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="resolution_mode_niv2">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des modes de résolution - niveau 2]]></comment>
+	<position x="1831.05" y="1521.27"/>
+	<column name="resolution_mode_niv2_id" not-null="true" default-value="nextval('arcachon.resolution_mode_niv2_resolution_mode_niv2_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="resolution_mode_niv2_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<column name="resolution_mode_niv1_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="resolution_mode_niv2_pk" type="pk-constr" table="arcachon.resolution_mode_niv2">
+		<columns names="resolution_mode_niv2_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="resolution_nature_resolution_nature_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="resolution_nature">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des natures de résolution]]></comment>
+	<position x="2337.2" y="361.266"/>
+	<column name="resolution_nature_id" not-null="true" default-value="nextval('arcachon.resolution_nature_resolution_nature_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="resolution_nature_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="resolution_nature_pk" type="pk-constr" table="arcachon.resolution_nature">
+		<columns names="resolution_nature_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="revend_support_niv1_revend_support_niv1_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="revend_support_niv1">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des supports de revendication niveau 1]]></comment>
+	<position x="1481.82" y="2542.8"/>
+	<column name="revend_support_niv1_id" not-null="true" default-value="nextval('arcachon.revend_support_niv1_revend_support_niv1_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="revend_support_niv1_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="revend_support_niv1_pk" type="pk-constr" table="arcachon.revend_support_niv1">
+		<columns names="revend_support_niv1_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="revend_support_niv2_revend_support_niv2_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="revend_support_niv2">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des supports de revendication niveau 2]]></comment>
+	<position x="1460.28" y="2425.88"/>
+	<column name="revend_support_niv2_id" not-null="true" default-value="nextval('arcachon.revend_support_niv2_revend_support_niv2_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="revend_support_niv1_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="revend_support_niv2_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="revend_support_niv2_pk" type="pk-constr" table="arcachon.revend_support_niv2">
+		<columns names="revend_support_niv2_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="revendication_revendication_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="revendication">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des revendications portées par les interventions]]></comment>
+	<position x="1015.66" y="2310.5"/>
+	<column name="revendication_id" not-null="true" default-value="nextval('arcachon.revendication_revendication_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="intervention_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="revendication_niv2_id">
+		<type name="integer"/>
+	</column>
+	<column name="revend_support_niv2_id">
+		<type name="integer"/>
+	</column>
+	<column name="registre_argument_niv2_id">
+		<type name="integer"/>
+	</column>
+	<column name="revendication_detail">
+		<type name="character varying"/>
+		<comment><![CDATA[Détail de la revendication]]></comment>
+	</column>
+	<column name="argument_detail">
+		<type name="character varying"/>
+		<comment><![CDATA[Détail des arguments présentés]]></comment>
+	</column>
+	<constraint name="revendication_pk" type="pk-constr" table="arcachon.revendication">
+		<columns names="revendication_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="revendication_niv1_revendication_niv1_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="revendication_niv1">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des niveaux 1 de revendication]]></comment>
+	<position x="1775.66" y="2755.11"/>
+	<column name="revendication_niv1_id" not-null="true" default-value="nextval('arcachon.revendication_niv1_revendication_niv1_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="revendication_niv1_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="revendication_niv1_pk" type="pk-constr" table="arcachon.revendication_niv1">
+		<columns names="revendication_niv1_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="revendication_niv2_revendication_niv2_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="revendication_niv2">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des revendications de niveau 2]]></comment>
+	<position x="1195.66" y="2770.5"/>
+	<column name="revendication_niv2_id" not-null="true" default-value="nextval('arcachon.revendication_niv2_revendication_niv2_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="revendication_niv1_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="revendication_niv2_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="revendication_niv2_pk" type="pk-constr" table="arcachon.revendication_niv2">
+		<columns names="revendication_niv2_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="role_role_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="role">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<position x="431.049" y="1455.11"/>
+	<column name="role_id" not-null="true" default-value="nextval('arcachon.role_role_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="role_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="role_pk" type="pk-constr" table="arcachon.role">
+		<columns names="role_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="solution_proposee_solution_proposee_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="solution_proposee">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des solutions proposées]]></comment>
+	<position x="1355.66" y="1402.8"/>
+	<column name="solution_proposee_id" not-null="true" default-value="nextval('arcachon.solution_proposee_solution_proposee_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="intervention_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="solution_proposee_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="solution_proposee_pk" type="pk-constr" table="arcachon.solution_proposee">
+		<columns names="solution_proposee_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="structure_type_structure_type_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="structure_type">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Type de structure]]></comment>
+	<position x="26.4336" y="2479.73"/>
+	<column name="structure_type_id" not-null="true" default-value="nextval('arcachon.structure_type_structure_type_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="structure_type_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="structure_type_pk" type="pk-constr" table="arcachon.structure_type">
+		<columns names="structure_type_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="type_ouvrage_perm_constr_type_ouvrage_perm_constr_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="type_ouvrage_perm_constr">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Table des types d'ouvrage utilisés dans les permis de construire]]></comment>
+	<position x="2294.13" y="1092.03"/>
+	<column name="type_ouvrage_perm_constr_id" not-null="true" default-value="nextval('arcachon.type_ouvrage_perm_constr_type_ouvrage_perm_constr_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="type_ouvrage_perm_constr_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="type_ouvrage_perm_constr_pk" type="pk-constr" table="arcachon.type_ouvrage_perm_constr">
+		<columns names="type_ouvrage_perm_constr_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="type_perimetre_type_perimetre_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="type_perimetre">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<comment><![CDATA[Type de perimetre du conflit]]></comment>
+	<position x="21.6923" y="117.273"/>
+	<column name="type_perimetre_id" not-null="true" default-value="nextval('arcachon.type_perimetre_type_perimetre_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="type_perimetre_libelle" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Libelle du type de perimetre]]></comment>
+	</column>
+	<constraint name="type_perimetre_pk" type="pk-constr" table="arcachon.type_perimetre">
+		<columns names="type_perimetre_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="usage_activite_niv1_usage_activite_niv1_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="usage_activite_niv1">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<position x="1003.36" y="2222.8"/>
+	<column name="usage_activite_niv1_id" not-null="true" default-value="nextval('arcachon.usage_activite_niv1_usage_activite_niv1_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="usage_activite_niv1_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<column name="position_usage_activite_id" not-null="true" default-value="1">
+		<type name="integer"/>
+	</column>
+	<constraint name="usage_activite_niv1_pk" type="pk-constr" table="arcachon.usage_activite_niv1">
+		<columns names="usage_activite_niv1_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="usage_activite_niv2_usage_activite_niv2_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+</sequence>
+
+<table name="usage_activite_niv2">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<position x="1446.43" y="2233.57"/>
+	<column name="usage_activite_niv2_id" not-null="true" default-value="nextval('arcachon.usage_activite_niv2_usage_activite_niv2_id_seq'::regclass)">
+		<type name="integer"/>
+	</column>
+	<column name="usage_activite_niv1_id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="usage_activite_niv2_libelle" not-null="true">
+		<type name="character varying"/>
+	</column>
+	<constraint name="usage_activite_niv2_pk" type="pk-constr" table="arcachon.usage_activite_niv2">
+		<columns names="usage_activite_niv2_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<function name="suppr_accent"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<language name="sql" protected="true" sql-disabled="true"/>
+	<return-type>
+	<type name="character varying"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="character varying"/>
+	</parameter>
+	<definition><![CDATA[
+select translate($1, 'àéèêëïîôöùûüÿç«»', 'aeeeeiioouuuyc""');
+]]></definition>
+</function>
+
+<function name="correct_points"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<language name="sql" protected="true" sql-disabled="true"/>
+	<return-type>
+	<type name="character varying"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="character varying"/>
+	</parameter>
+	<definition><![CDATA[
+select translate($1, '…', '.');
+]]></definition>
+</function>
+
+<function name="change_guillemet"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		execution-cost="100"
+		row-amount="0">
+	<schema name="arcachon"/>
+	<role name="&quot;eric.quinton&quot;"/>
+	<language name="sql" protected="true" sql-disabled="true"/>
+	<return-type>
+	<type name="character varying"/>
+	</return-type>
+	<parameter name="_param1">
+		<type name="character varying"/>
+	</parameter>
+	<definition><![CDATA[
+select translate($1, '«»', '""');
+]]></definition>
+</function>
+
+<view name="v_infos_conflit">
+	<schema name="arcachon"/>
+	<role name="&quot;sandrine.lyser&quot;"/>
+	<position x="361.818" y="2962.8"/>
+	<reference>
+		<expression><![CDATA[ WITH vt_nbart_confl AS (
+         SELECT article_conflit.conflit_id,
+            count(DISTINCT article_conflit.article_id) AS nbart_confl
+           FROM arcachon.article_conflit
+          GROUP BY article_conflit.conflit_id
+          ORDER BY article_conflit.conflit_id
+        ), vt_nbentr_confl AS (
+         SELECT entretien_conflit.conflit_id,
+            count(DISTINCT entretien_conflit.entretien_id) AS nbentr_confl
+           FROM arcachon.entretien_conflit
+          GROUP BY entretien_conflit.conflit_id
+          ORDER BY entretien_conflit.conflit_id
+        ), vt_nbjur_confl AS (
+         SELECT juridique_conflit.conflit_id,
+            count(DISTINCT juridique_conflit.juridique_id) AS nbjur_confl
+           FROM arcachon.juridique_conflit
+          GROUP BY juridique_conflit.conflit_id
+          ORDER BY juridique_conflit.conflit_id
+        ), vt_nbinterv_confl AS (
+         SELECT intervention.conflit_id,
+            count(DISTINCT intervention.intervention_id) AS nbinterv_confl
+           FROM arcachon.intervention
+          GROUP BY intervention.conflit_id
+          ORDER BY intervention.conflit_id
+        )
+ SELECT conflit.conflit_id,
+    conflit.perimetre_id,
+    conflit.conflit_date_debut,
+    conflit.conflit_date_debut_txt,
+    conflit.conflit_date_fin,
+    conflit.conflit_date_fin_txt,
+    conflit.conflit_date_saisie,
+    conflit.conflit_detail,
+    conflit.conflit_login,
+    vt_nbart_confl.nbart_confl,
+    vt_nbentr_confl.nbentr_confl,
+    vt_nbjur_confl.nbjur_confl,
+    vt_nbinterv_confl.nbinterv_confl,
+    concat(date_part('year'::text, conflit.conflit_date_debut), to_number(substr((conflit.conflit_date_debut_txt)::text, 7, 10), '9999'::text)) AS conflit_annee_debut,
+    concat(date_part('year'::text, conflit.conflit_date_fin), to_number(substr((conflit.conflit_date_fin_txt)::text, 7, 10), '9999'::text)) AS conflit_annee_fin
+   FROM ((((arcachon.conflit
+     LEFT JOIN vt_nbart_confl USING (conflit_id))
+     LEFT JOIN vt_nbentr_confl USING (conflit_id))
+     LEFT JOIN vt_nbjur_confl USING (conflit_id))
+     LEFT JOIN vt_nbinterv_confl USING (conflit_id))
+  ORDER BY conflit.perimetre_id, conflit.conflit_id;]]></expression>
+	</reference>
+</view>
+
+<view name="v_resolution">
+	<schema name="arcachon"/>
+	<role name="&quot;sandrine.lyser&quot;"/>
+	<position x="581.818" y="2962.8"/>
+	<reference>
+		<expression><![CDATA[ SELECT resolution.resolution_id,
+    resolution.conflit_id,
+    resolution.solution_proposee_id,
+    resolution.resolution_echelle_id,
+    resolution.resolution_nature_id,
+    resolution.resolution_acteur_id,
+    resolution.resolution_mode_niv2_id,
+    resolution.resolution_detail,
+    resolution_echelle.resolution_echelle_libelle,
+    resolution_nature.resolution_nature_libelle,
+    resolution_acteur.resolution_acteur_libelle,
+    resolution_mode_niv1.resolution_mode_niv1_id,
+    resolution_mode_niv1.resolution_mode_niv1_libelle,
+    resolution_mode_niv2.resolution_mode_niv2_libelle,
+    solution_proposee.solution_proposee_libelle,
+    solution_proposee.intervention_id
+   FROM ((((((arcachon.resolution
+     LEFT JOIN arcachon.resolution_mode_niv2 USING (resolution_mode_niv2_id))
+     LEFT JOIN arcachon.resolution_mode_niv1 USING (resolution_mode_niv1_id))
+     LEFT JOIN arcachon.resolution_acteur USING (resolution_acteur_id))
+     LEFT JOIN arcachon.resolution_echelle USING (resolution_echelle_id))
+     LEFT JOIN arcachon.resolution_nature USING (resolution_nature_id))
+     LEFT JOIN arcachon.solution_proposee USING (solution_proposee_id))
+  ORDER BY resolution.conflit_id, resolution.resolution_id;]]></expression>
+	</reference>
+</view>
+
+<view name="v_infos_article">
+	<schema name="arcachon"/>
+	<role name="&quot;sandrine.lyser&quot;"/>
+	<position x="801.818" y="2962.8"/>
+	<reference>
+		<expression><![CDATA[ WITH vt_conflict_art AS (
+         SELECT article_conflit.article_id,
+            count(DISTINCT article_conflit.conflit_id) AS nbconfl_art,
+            count(DISTINCT perimetre.perimetre_id) AS nbperim_art
+           FROM ((arcachon.article_conflit
+             JOIN arcachon.conflit ON ((article_conflit.conflit_id = conflit.conflit_id)))
+             JOIN arcachon.perimetre ON ((conflit.perimetre_id = perimetre.perimetre_id)))
+          GROUP BY article_conflit.article_id
+        ), vt_nbinterv_art AS (
+         SELECT article_intervention.article_id,
+            count(article_intervention.intervention_id) AS nbinterv_art
+           FROM arcachon.article_intervention
+          GROUP BY article_intervention.article_id
+        ), vt_nbactr_art AS (
+         SELECT article_intervention.article_id,
+            count(DISTINCT intervention.acteur_id) AS nbacteur_art
+           FROM (arcachon.article_intervention
+             JOIN arcachon.intervention ON ((article_intervention.intervention_id = intervention.intervention_id)))
+          GROUP BY article_intervention.article_id
+        )
+ SELECT article.article_id,
+    article.journal_id,
+    article.date_parution,
+    article.titre,
+    article.auteur,
+    article.edition,
+    article.rubrique,
+    article.page,
+    article.entete,
+    article.piecejointe,
+    article.article_login,
+    article.article_date_saisie,
+    journal.journal_libelle,
+    vt_conflict_art.nbconfl_art,
+    vt_conflict_art.nbperim_art,
+    vt_nbinterv_art.nbinterv_art,
+    vt_nbactr_art.nbacteur_art
+   FROM ((((arcachon.article
+     JOIN arcachon.journal USING (journal_id))
+     LEFT JOIN vt_conflict_art USING (article_id))
+     LEFT JOIN vt_nbinterv_art USING (article_id))
+     LEFT JOIN vt_nbactr_art USING (article_id))
+  ORDER BY article.article_id;]]></expression>
+	</reference>
+</view>
+
+<view name="v_infos_perimetre">
+	<schema name="arcachon"/>
+	<role name="&quot;sandrine.lyser&quot;"/>
+	<position x="1021.82" y="2962.8"/>
+	<reference>
+		<expression><![CDATA[ WITH vt_loc_perim AS (
+         SELECT perimetre_1.perimetre_id,
+            localisation.localisation_id,
+            localisation.precision_adresse,
+            commune.insee,
+            commune.commune_nom,
+            commune.departement
+           FROM (((arcachon.perimetre perimetre_1
+             LEFT JOIN arcachon.perimetre_localisation ON ((perimetre_1.perimetre_id = perimetre_localisation.perimetre_id)))
+             LEFT JOIN arcachon.localisation ON ((perimetre_localisation.localisation_id = localisation.localisation_id)))
+             LEFT JOIN arcachon.commune ON ((localisation.insee = commune.insee)))
+        ), vt_nbconfl_debut_fin AS (
+         SELECT v_infos_conflit.perimetre_id,
+            min(v_infos_conflit.conflit_annee_debut) AS annee_debut,
+            max(v_infos_conflit.conflit_annee_fin) AS annee_fin,
+            count(v_infos_conflit.conflit_id) AS nbexpr
+           FROM arcachon.v_infos_conflit
+          GROUP BY v_infos_conflit.perimetre_id
+        ), vt_nbactr_perim AS (
+         SELECT perimetre_1.perimetre_id,
+            count(DISTINCT acteur.acteur_id) AS nbacteur
+           FROM (((arcachon.acteur
+             JOIN arcachon.intervention ON ((acteur.acteur_id = intervention.acteur_id)))
+             LEFT JOIN arcachon.conflit ON ((intervention.conflit_id = conflit.conflit_id)))
+             LEFT JOIN arcachon.perimetre perimetre_1 ON ((conflit.perimetre_id = perimetre_1.perimetre_id)))
+          GROUP BY perimetre_1.perimetre_id
+        ), vt_nbresol_perim AS (
+         SELECT perimetre_1.perimetre_id,
+            count(resolution.resolution_id) AS nbresol
+           FROM ((arcachon.resolution
+             RIGHT JOIN arcachon.conflit ON ((resolution.conflit_id = conflit.conflit_id)))
+             JOIN arcachon.perimetre perimetre_1 ON ((conflit.perimetre_id = perimetre_1.perimetre_id)))
+          GROUP BY perimetre_1.perimetre_id
+        ), vt_nbart_perim AS (
+         SELECT perimetre_1.perimetre_id,
+            count(DISTINCT article_conflit.article_id) AS nbart
+           FROM ((arcachon.article_conflit
+             RIGHT JOIN arcachon.conflit ON ((article_conflit.conflit_id = conflit.conflit_id)))
+             JOIN arcachon.perimetre perimetre_1 ON ((conflit.perimetre_id = perimetre_1.perimetre_id)))
+          GROUP BY perimetre_1.perimetre_id
+        ), vt_nbentr_perim AS (
+         SELECT perimetre_1.perimetre_id,
+            count(DISTINCT entretien_conflit.entretien_id) AS nbentr
+           FROM ((arcachon.entretien_conflit
+             RIGHT JOIN arcachon.conflit ON ((entretien_conflit.conflit_id = conflit.conflit_id)))
+             JOIN arcachon.perimetre perimetre_1 ON ((conflit.perimetre_id = perimetre_1.perimetre_id)))
+          GROUP BY perimetre_1.perimetre_id
+        ), vt_nbjur_perim AS (
+         SELECT perimetre_1.perimetre_id,
+            count(DISTINCT juridique_conflit.juridique_id) AS nbjurid
+           FROM ((arcachon.juridique_conflit
+             RIGHT JOIN arcachon.conflit ON ((juridique_conflit.conflit_id = conflit.conflit_id)))
+             JOIN arcachon.perimetre perimetre_1 ON ((conflit.perimetre_id = perimetre_1.perimetre_id)))
+          GROUP BY perimetre_1.perimetre_id
+        )
+ SELECT perimetre.perimetre_id,
+    perimetre.echelle_id,
+    perimetre.recurrence_id,
+    bien_support_niv2.bien_support_niv1_id,
+    perimetre.bien_support_niv2_id,
+    perimetre.objet_niv2_id,
+    objet_niv1.objet_niv1_id,
+    perimetre.type_perimetre_id,
+    perimetre.perimetre_date_saisie,
+    perimetre.perimetre_detail,
+    perimetre.perimetre_login,
+    type_perimetre.type_perimetre_libelle,
+    objet_niv1.objet_niv1_libelle,
+    objet_niv2.objet_niv2_libelle,
+    bien_support_niv2.bien_support_niv2_libelle,
+    bien_support_niv1.bien_support_niv1_libelle,
+    recurrence.recurrence_libelle,
+    echelle.echelle_libelle,
+    vt_loc_perim.localisation_id,
+    vt_loc_perim.precision_adresse,
+    vt_loc_perim.insee,
+    vt_loc_perim.commune_nom,
+    vt_loc_perim.departement,
+    vt_nbconfl_debut_fin.annee_debut,
+    vt_nbconfl_debut_fin.annee_fin,
+    vt_nbconfl_debut_fin.nbexpr,
+    vt_nbactr_perim.nbacteur,
+    vt_nbresol_perim.nbresol,
+    vt_nbart_perim.nbart,
+    vt_nbentr_perim.nbentr,
+    vt_nbjur_perim.nbjurid
+   FROM ((((((((((((((arcachon.perimetre
+     JOIN arcachon.type_perimetre USING (type_perimetre_id))
+     JOIN arcachon.objet_niv1 USING (type_perimetre_id))
+     JOIN arcachon.objet_niv2 USING (objet_niv2_id, objet_niv1_id))
+     LEFT JOIN arcachon.bien_support_niv2 USING (bien_support_niv2_id))
+     LEFT JOIN arcachon.bien_support_niv1 USING (bien_support_niv1_id))
+     LEFT JOIN arcachon.recurrence USING (recurrence_id))
+     LEFT JOIN arcachon.echelle USING (echelle_id))
+     LEFT JOIN vt_loc_perim USING (perimetre_id))
+     LEFT JOIN vt_nbconfl_debut_fin USING (perimetre_id))
+     LEFT JOIN vt_nbactr_perim USING (perimetre_id))
+     LEFT JOIN vt_nbresol_perim USING (perimetre_id))
+     LEFT JOIN vt_nbart_perim USING (perimetre_id))
+     LEFT JOIN vt_nbentr_perim USING (perimetre_id))
+     LEFT JOIN vt_nbjur_perim USING (perimetre_id))
+  ORDER BY perimetre.perimetre_id;]]></expression>
+	</reference>
+</view>
+
+<view name="v_infos_entretien">
+	<schema name="arcachon"/>
+	<role name="&quot;sandrine.lyser&quot;"/>
+	<position x="1.81818" y="3082.8"/>
+	<reference>
+		<expression><![CDATA[ WITH vt_conflict_entr AS (
+         SELECT entretien_conflit.entretien_id,
+            count(DISTINCT entretien_conflit.conflit_id) AS nbconfl_entr,
+            count(DISTINCT perimetre.perimetre_id) AS nbperim_entr
+           FROM ((arcachon.entretien_conflit
+             JOIN arcachon.conflit ON ((entretien_conflit.conflit_id = conflit.conflit_id)))
+             JOIN arcachon.perimetre ON ((conflit.perimetre_id = perimetre.perimetre_id)))
+          GROUP BY entretien_conflit.entretien_id
+        ), vt_nbinterv_entr AS (
+         SELECT entretien_intervention.entretien_id,
+            count(entretien_intervention.intervention_id) AS nbinterv_entr
+           FROM arcachon.entretien_intervention
+          GROUP BY entretien_intervention.entretien_id
+        ), vt_nbactr_entr AS (
+         SELECT entretien_intervention.entretien_id,
+            count(DISTINCT intervention.acteur_id) AS nbacteur_entr
+           FROM (arcachon.entretien_intervention
+             JOIN arcachon.intervention ON ((entretien_intervention.intervention_id = intervention.intervention_id)))
+          GROUP BY entretien_intervention.entretien_id
+        )
+ SELECT entretien.entretien_id,
+    entretien.expert_id,
+    entretien.entretien_date,
+    entretien.institution,
+    entretien.statut,
+    entretien.localisation,
+    entretien.binome,
+    entretien.entretien_login,
+    entretien.entretien_date_saisie,
+    entretien.piece_jointe,
+    expert.acteur_id,
+    expert.expert_nom,
+    expert.expert_prenom,
+    expert.sexe,
+    expert.commune_residence,
+    expert.lien_territoire,
+    expert.activite_assoc,
+    expert.activite_prof,
+    expert.annee_naissance,
+    vt_conflict_entr.nbconfl_entr,
+    vt_conflict_entr.nbperim_entr,
+    vt_nbinterv_entr.nbinterv_entr,
+    vt_nbactr_entr.nbacteur_entr
+   FROM ((((arcachon.entretien
+     JOIN arcachon.expert USING (expert_id))
+     LEFT JOIN vt_conflict_entr USING (entretien_id))
+     LEFT JOIN vt_nbinterv_entr USING (entretien_id))
+     LEFT JOIN vt_nbactr_entr USING (entretien_id))
+  ORDER BY entretien.entretien_id;]]></expression>
+	</reference>
+</view>
+
+<view name="v_infos_juridique">
+	<schema name="arcachon"/>
+	<role name="&quot;sandrine.lyser&quot;"/>
+	<position x="201.818" y="3082.8"/>
+	<reference>
+		<expression><![CDATA[ WITH vt_conflict_jur AS (
+         SELECT juridique_conflit.juridique_id,
+            count(DISTINCT juridique_conflit.conflit_id) AS nbconfl_jur,
+            count(DISTINCT perimetre.perimetre_id) AS nbperim_jur
+           FROM ((arcachon.juridique_conflit
+             JOIN arcachon.conflit ON ((juridique_conflit.conflit_id = conflit.conflit_id)))
+             JOIN arcachon.perimetre ON ((conflit.perimetre_id = perimetre.perimetre_id)))
+          GROUP BY juridique_conflit.juridique_id
+        ), vt_nbinterv_jur AS (
+         SELECT intervention_juridique.juridique_id,
+            count(intervention_juridique.intervention_id) AS nbinterv_jur
+           FROM arcachon.intervention_juridique
+          GROUP BY intervention_juridique.juridique_id
+        ), vt_nbactr_jur AS (
+         SELECT intervention_juridique.juridique_id,
+            count(DISTINCT intervention.acteur_id) AS nbacteur_jur
+           FROM (arcachon.intervention_juridique
+             JOIN arcachon.intervention ON ((intervention_juridique.intervention_id = intervention.intervention_id)))
+          GROUP BY intervention_juridique.juridique_id
+        )
+ SELECT juridique.juridique_id,
+    juridique.juridiction_id,
+    juridique.arret_num,
+    juridique.arret_date,
+    juridique.acte_date,
+    juridique.juridique_sous_domaine_id,
+    juridique.nature_requete_id,
+    juridique.type_ouvrage_perm_constr_id,
+    juridique.nature_travaux_id,
+    juridique.decision_cassation_id,
+    juridique.decision_appel_id,
+    juridique.acte_contentieux_id,
+    juridique.juridique_libelle,
+    juridique.objet_precision,
+    juridique.article1,
+    juridique.article2,
+    juridique.article3,
+    juridique.article4,
+    juridique.article5,
+    juridique.jugement_date_degre1,
+    juridique.jugement_date_degre2,
+    juridique.juridique_login,
+    juridique.juridique_date_saisie,
+    juridiction.juridiction_libelle,
+    juridique_sous_domaine.juridique_sous_domaine_libelle,
+    juridique_domaine.juridique_domaine_id,
+    juridique_domaine.juridique_domaine_libelle,
+    nature_requete.nature_requete_libelle,
+    type_ouvrage_perm_constr.type_ouvrage_perm_constr_libelle,
+    nature_travaux.nature_travaux_libelle,
+    decision_cassation.decision_cassation_libelle,
+    decision_appel.decision_appel_libelle,
+    acte_contentieux.acte_contentieux_libelle,
+    vt_conflict_jur.nbconfl_jur,
+    vt_conflict_jur.nbperim_jur,
+    vt_nbinterv_jur.nbinterv_jur,
+    vt_nbactr_jur.nbacteur_jur
+   FROM ((((((((((((arcachon.juridique
+     JOIN arcachon.juridiction USING (juridiction_id))
+     JOIN arcachon.juridique_sous_domaine USING (juridique_sous_domaine_id))
+     JOIN arcachon.juridique_domaine USING (juridique_domaine_id))
+     JOIN arcachon.nature_requete USING (nature_requete_id))
+     LEFT JOIN arcachon.type_ouvrage_perm_constr USING (type_ouvrage_perm_constr_id))
+     LEFT JOIN arcachon.nature_travaux USING (nature_travaux_id))
+     LEFT JOIN arcachon.decision_cassation USING (decision_cassation_id))
+     LEFT JOIN arcachon.decision_appel USING (decision_appel_id))
+     LEFT JOIN arcachon.acte_contentieux USING (acte_contentieux_id))
+     LEFT JOIN vt_conflict_jur USING (juridique_id))
+     LEFT JOIN vt_nbinterv_jur USING (juridique_id))
+     LEFT JOIN vt_nbactr_jur USING (juridique_id))
+  ORDER BY juridique.juridique_id;]]></expression>
+	</reference>
+</view>
+
+<view name="v_article_conflit">
+	<schema name="arcachon"/>
+	<role name="&quot;sandrine.lyser&quot;"/>
+	<position x="421.818" y="3082.8"/>
+	<reference>
+		<expression><![CDATA[ SELECT article_conflit.article_id,
+    article_conflit.conflit_id,
+    article_conflit.action_type_id,
+    action_type.action_type_libelle
+   FROM (arcachon.article_conflit
+     LEFT JOIN arcachon.action_type USING (action_type_id))
+  ORDER BY article_conflit.article_id;]]></expression>
+	</reference>
+</view>
+
+<view name="v_intervention_juridique">
+	<schema name="arcachon"/>
+	<role name="&quot;sandrine.lyser&quot;"/>
+	<position x="641.818" y="3082.8"/>
+	<reference>
+		<expression><![CDATA[ SELECT intervention_juridique.intervention_juridique_id,
+    intervention_juridique.intervention_id,
+    intervention_juridique.juridique_id,
+    intervention_juridique.position_acteur_id,
+    intervention_juridique.qualite_appel_id,
+    intervention_juridique.qualite_pourvoi_id,
+    intervention_juridique.petitionnaire,
+    position_acteur.position_acteur_libelle,
+    appel.qualite_appel_libelle,
+    pourvoi.qualite_appel_libelle AS qualite_pourvoi_libelle
+   FROM (((arcachon.intervention_juridique
+     JOIN arcachon.position_acteur USING (position_acteur_id))
+     LEFT JOIN arcachon.qualite_appel appel ON ((intervention_juridique.qualite_appel_id = appel.qualite_appel_id)))
+     LEFT JOIN arcachon.qualite_appel pourvoi ON ((intervention_juridique.qualite_pourvoi_id = pourvoi.qualite_appel_id)))
+  ORDER BY intervention_juridique.intervention_juridique_id;]]></expression>
+	</reference>
+</view>
+
+<view name="v_infos_intervention">
+	<schema name="arcachon"/>
+	<role name="&quot;sandrine.lyser&quot;"/>
+	<position x="901.818" y="3082.8"/>
+	<reference>
+		<expression><![CDATA[ WITH v_nbaction_interv AS (
+         SELECT action.intervention_id,
+            count(action.action_id) AS nb_action_interv
+           FROM arcachon.action
+          GROUP BY action.intervention_id
+        ), v_nbrevend_interv AS (
+         SELECT revendication.intervention_id,
+            count(revendication.revendication_id) AS nb_revend_interv
+           FROM arcachon.revendication
+          GROUP BY revendication.intervention_id
+        ), v_solution_interv AS (
+         SELECT solution_proposee.intervention_id,
+            count(solution_proposee.solution_proposee_id) AS nb_solution_interv
+           FROM arcachon.solution_proposee
+          GROUP BY solution_proposee.intervention_id
+        )
+ SELECT conflit.perimetre_id,
+    intervention.intervention_id,
+    intervention.conflit_id,
+    intervention.acteur_id,
+    intervention.role_id,
+    intervention.usage_activite_niv2_id,
+    intervention.position_usage_activite_id,
+    intervention.intervention_date_entree,
+    intervention.intervention_date_entree_txt,
+    intervention.intervention_date_sortie,
+    intervention.intervention_date_sortie_txt,
+    intervention.intervention_detail_usage,
+    position_usage_activite.position_usage_activite_libelle,
+    usage_activite_niv1.usage_activite_niv1_libelle,
+    usage_activite_niv2.usage_activite_niv2_libelle,
+    role.role_libelle,
+    v_nbaction_interv.nb_action_interv,
+    v_nbrevend_interv.nb_revend_interv,
+    v_solution_interv.nb_solution_interv
+   FROM ((((((((arcachon.intervention
+     LEFT JOIN arcachon.conflit USING (conflit_id))
+     LEFT JOIN arcachon.position_usage_activite USING (position_usage_activite_id))
+     LEFT JOIN arcachon.usage_activite_niv2 USING (usage_activite_niv2_id))
+     LEFT JOIN arcachon.usage_activite_niv1 USING (usage_activite_niv1_id))
+     LEFT JOIN arcachon.role USING (role_id))
+     LEFT JOIN v_nbaction_interv USING (intervention_id))
+     LEFT JOIN v_nbrevend_interv USING (intervention_id))
+     LEFT JOIN v_solution_interv USING (intervention_id))
+  ORDER BY intervention.intervention_id;]]></expression>
+	</reference>
+</view>
+
+<view name="v_infos_acteur">
+	<schema name="arcachon"/>
+	<role name="&quot;sandrine.lyser&quot;"/>
+	<position x="1.81818" y="3182.8"/>
+	<reference>
+		<expression><![CDATA[ WITH v_nbinterv_actr AS (
+         SELECT acteur_1.acteur_id,
+            count(intervention.intervention_id) AS nbinterv_actr
+           FROM (arcachon.acteur acteur_1
+             LEFT JOIN arcachon.intervention USING (acteur_id))
+          GROUP BY acteur_1.acteur_id
+        ), v_nbstruct_actr AS (
+         SELECT acteur_1.acteur_id,
+            count(acteur_structure.acteur_structure_id) AS nbstruct_actr
+           FROM (arcachon.acteur_structure
+             RIGHT JOIN arcachon.acteur acteur_1 USING (acteur_id))
+          GROUP BY acteur_1.acteur_id
+        ), v_nbmandat_actr AS (
+         SELECT acteur_1.acteur_id,
+            count(acteur_mandat.acteur_mandat_id) AS nbmandat_actr
+           FROM (arcachon.acteur_mandat
+             RIGHT JOIN arcachon.acteur acteur_1 USING (acteur_id))
+          GROUP BY acteur_1.acteur_id
+        ), v_nbart_actr AS (
+         SELECT acteur_1.acteur_id,
+            count(DISTINCT article_intervention.article_id) AS nbart_actr
+           FROM ((arcachon.acteur acteur_1
+             LEFT JOIN arcachon.intervention ON ((acteur_1.acteur_id = intervention.acteur_id)))
+             JOIN arcachon.article_intervention ON ((intervention.intervention_id = article_intervention.intervention_id)))
+          GROUP BY acteur_1.acteur_id
+        ), v_nbentr_actr AS (
+         SELECT acteur_1.acteur_id,
+            count(DISTINCT entretien_intervention.entretien_id) AS nbentr_actr
+           FROM ((arcachon.acteur acteur_1
+             LEFT JOIN arcachon.intervention ON ((acteur_1.acteur_id = intervention.acteur_id)))
+             JOIN arcachon.entretien_intervention ON ((intervention.intervention_id = entretien_intervention.intervention_id)))
+          GROUP BY acteur_1.acteur_id
+        ), v_nbjur_actr AS (
+         SELECT acteur_1.acteur_id,
+            count(DISTINCT intervention_juridique.intervention_juridique_id) AS nbjur_actr
+           FROM ((arcachon.acteur acteur_1
+             LEFT JOIN arcachon.intervention ON ((acteur_1.acteur_id = intervention.acteur_id)))
+             JOIN arcachon.intervention_juridique ON ((intervention.intervention_id = intervention_juridique.intervention_id)))
+          GROUP BY acteur_1.acteur_id
+        )
+ SELECT acteur.acteur_id,
+    acteur.acteur_niv3_id,
+    acteur.acteur_physique_nom,
+    acteur.commune_physique,
+    acteur.cp_physique,
+    acteur.acteur_moral_nom,
+    acteur.commune_morale,
+    acteur.cp_morale,
+    acteur.acteur_statut,
+    acteur.acteur_statut_detail,
+    acteur.acteur_date_saisie,
+    acteur.acteur_login,
+    acteur.particulier_resident_type_id,
+    acteur_niv3.acteur_niv3_libelle,
+    acteur_niv2.acteur_niv2_libelle,
+    acteur_niv1.acteur_niv1_libelle,
+    particulier_resident_type.particulier_resident_type_libelle,
+    v_nbinterv_actr.nbinterv_actr,
+    v_nbstruct_actr.nbstruct_actr,
+    v_nbmandat_actr.nbmandat_actr,
+    v_nbart_actr.nbart_actr,
+    v_nbentr_actr.nbentr_actr,
+    v_nbjur_actr.nbjur_actr
+   FROM ((((((((((arcachon.acteur
+     LEFT JOIN arcachon.acteur_niv3 USING (acteur_niv3_id))
+     LEFT JOIN arcachon.acteur_niv2 USING (acteur_niv2_id))
+     LEFT JOIN arcachon.acteur_niv1 USING (acteur_niv1_id))
+     LEFT JOIN arcachon.particulier_resident_type USING (particulier_resident_type_id))
+     LEFT JOIN v_nbinterv_actr USING (acteur_id))
+     LEFT JOIN v_nbstruct_actr USING (acteur_id))
+     LEFT JOIN v_nbmandat_actr USING (acteur_id))
+     LEFT JOIN v_nbart_actr USING (acteur_id))
+     LEFT JOIN v_nbentr_actr USING (acteur_id))
+     LEFT JOIN v_nbjur_actr USING (acteur_id))
+  ORDER BY acteur.acteur_id;]]></expression>
+	</reference>
+</view>
+
+<view name="v_revendication">
+	<schema name="arcachon"/>
+	<role name="&quot;sandrine.lyser&quot;"/>
+	<position x="221.818" y="3182.8"/>
+	<reference>
+		<expression><![CDATA[ SELECT revendication.revendication_id,
+    revendication.intervention_id,
+    revendication.revendication_niv2_id,
+    revendication.revend_support_niv2_id,
+    revendication.registre_argument_niv2_id,
+    revendication.revendication_detail,
+    revendication.argument_detail,
+    revendication_niv2.revendication_niv1_id,
+    revendication_niv1.revendication_niv1_libelle,
+    revendication_niv2.revendication_niv2_libelle,
+    revend_support_niv2.revend_support_niv1_id,
+    revend_support_niv1.revend_support_niv1_libelle,
+    revend_support_niv2.revend_support_niv2_libelle,
+    registre_argument_niv2.registre_argument_niv1_id,
+    registre_argument_niv1.registre_argument_niv1_libelle,
+    registre_argument_niv2.registre_argument_niv2_libelle
+   FROM ((((((arcachon.revendication
+     LEFT JOIN arcachon.revend_support_niv2 USING (revend_support_niv2_id))
+     LEFT JOIN arcachon.revend_support_niv1 USING (revend_support_niv1_id))
+     LEFT JOIN arcachon.registre_argument_niv2 USING (registre_argument_niv2_id))
+     LEFT JOIN arcachon.registre_argument_niv1 USING (registre_argument_niv1_id))
+     LEFT JOIN arcachon.revendication_niv2 USING (revendication_niv2_id))
+     LEFT JOIN arcachon.revendication_niv1 USING (revendication_niv1_id))
+  ORDER BY revendication.intervention_id, revendication.revendication_id;]]></expression>
+	</reference>
+</view>
+
+<view name="v_solution">
+	<schema name="arcachon"/>
+	<role name="&quot;sandrine.lyser&quot;"/>
+	<position x="441.818" y="3182.8"/>
+	<reference>
+		<expression><![CDATA[ SELECT solution_proposee.intervention_id,
+    intervention.acteur_id,
+    solution_proposee.solution_proposee_id,
+    solution_proposee.solution_proposee_libelle
+   FROM (arcachon.solution_proposee
+     LEFT JOIN arcachon.intervention USING (intervention_id))
+  ORDER BY solution_proposee.intervention_id, solution_proposee.solution_proposee_id;]]></expression>
+	</reference>
+</view>
+
+<view name="v_modesaction">
+	<schema name="arcachon"/>
+	<role name="&quot;sandrine.lyser&quot;"/>
+	<position x="661.818" y="3182.8"/>
+	<reference>
+		<expression><![CDATA[ SELECT intervention.acteur_id,
+    action.action_id,
+    action.intervention_id,
+    action.action_type_id,
+    action.action_mode_id,
+    action.action_echelle_id,
+    concat(to_char(action.action_date, 'FMDD FMmonth FMYYYY'::text), action.action_date_complement) AS action_date_txt,
+    action.action_detail,
+    action_type.action_type_libelle,
+    action_mode.action_mode_libelle,
+    action_echelle.action_echelle_libelle
+   FROM ((((arcachon.action
+     LEFT JOIN arcachon.action_type USING (action_type_id))
+     LEFT JOIN arcachon.action_mode USING (action_mode_id))
+     LEFT JOIN arcachon.action_echelle USING (action_echelle_id))
+     LEFT JOIN arcachon.intervention USING (intervention_id))
+  ORDER BY action.intervention_id, action.action_id;]]></expression>
+	</reference>
+</view>
+
+<view name="v_mandat_acteur">
+	<schema name="arcachon"/>
+	<role name="&quot;sandrine.lyser&quot;"/>
+	<position x="881.818" y="3182.8"/>
+	<reference>
+		<expression><![CDATA[ SELECT acteur_mandat.mandat_type_id,
+    acteur_mandat.acteur_mandat_id,
+    acteur_mandat.acteur_id,
+    acteur_mandat.mandat_detail,
+    mandat_type.mandat_type_libelle
+   FROM (arcachon.acteur_mandat
+     LEFT JOIN arcachon.mandat_type USING (mandat_type_id))
+  ORDER BY acteur_mandat.acteur_id;]]></expression>
+	</reference>
+</view>
+
+<view name="v_structure_acteur">
+	<schema name="arcachon"/>
+	<role name="&quot;sandrine.lyser&quot;"/>
+	<position x="1.81818" y="3262.8"/>
+	<reference>
+		<expression><![CDATA[ SELECT acteur_structure.structure_type_id,
+    acteur_structure.acteur_structure_id,
+    acteur_structure.acteur_id,
+    acteur_structure.structure_statut,
+    acteur_structure.structure_statut_detail,
+    structure_type.structure_type_libelle
+   FROM (arcachon.acteur_structure
+     LEFT JOIN arcachon.structure_type USING (structure_type_id))
+  ORDER BY acteur_structure.acteur_id;]]></expression>
+	</reference>
+</view>
+
+<sequence name="test_test_id_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="arcachon"/>
+	<role name="postgres"/>
+</sequence>
+
+<constraint name="acteur_niv3_acteur_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.acteur_niv3" table="arcachon.acteur">
+	<columns names="acteur_niv3_id" ref-type="src-columns"/>
+	<columns names="acteur_niv3_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="particulier_resident_type_acteur_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.particulier_resident_type" table="arcachon.acteur">
+	<columns names="particulier_resident_type_id" ref-type="src-columns"/>
+	<columns names="particulier_resident_type_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="acteur_acteur_mandat_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.acteur" table="arcachon.acteur_mandat">
+	<columns names="acteur_id" ref-type="src-columns"/>
+	<columns names="acteur_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="mandat_type_acteur_mandat_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.mandat_type" table="arcachon.acteur_mandat">
+	<columns names="mandat_type_id" ref-type="src-columns"/>
+	<columns names="mandat_type_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="acteur_niv1_acteur_niv2_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.acteur_niv1" table="arcachon.acteur_niv2">
+	<columns names="acteur_niv1_id" ref-type="src-columns"/>
+	<columns names="acteur_niv1_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="acteur_niv2_acteur_niv3_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.acteur_niv2" table="arcachon.acteur_niv3">
+	<columns names="acteur_niv2_id" ref-type="src-columns"/>
+	<columns names="acteur_niv2_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="acteur_acteur_structure_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.acteur" table="arcachon.acteur_structure">
+	<columns names="acteur_id" ref-type="src-columns"/>
+	<columns names="acteur_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="structure_type_acteur_structure_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.structure_type" table="arcachon.acteur_structure">
+	<columns names="structure_type_id" ref-type="src-columns"/>
+	<columns names="structure_type_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="action_echelle_action_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.action_echelle" table="arcachon.action">
+	<columns names="action_echelle_id" ref-type="src-columns"/>
+	<columns names="action_echelle_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="action_mode_action_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.action_mode" table="arcachon.action">
+	<columns names="action_mode_id" ref-type="src-columns"/>
+	<columns names="action_mode_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="action_type_action_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.action_type" table="arcachon.action">
+	<columns names="action_type_id" ref-type="src-columns"/>
+	<columns names="action_type_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="intervention_action_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.intervention" table="arcachon.action">
+	<columns names="intervention_id" ref-type="src-columns"/>
+	<columns names="intervention_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="journal_article_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.journal" table="arcachon.article">
+	<columns names="journal_id" ref-type="src-columns"/>
+	<columns names="journal_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="action_type_article_conflit_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.action_type" table="arcachon.article_conflit">
+	<columns names="action_type_id" ref-type="src-columns"/>
+	<columns names="action_type_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="article_article_conflit_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.article" table="arcachon.article_conflit">
+	<columns names="article_id" ref-type="src-columns"/>
+	<columns names="article_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="conflit_article_conflit_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.conflit" table="arcachon.article_conflit">
+	<columns names="conflit_id" ref-type="src-columns"/>
+	<columns names="conflit_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="article_article_document_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.article" table="arcachon.article_document">
+	<columns names="article_id" ref-type="src-columns"/>
+	<columns names="article_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="document_article_document_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.document" table="arcachon.article_document">
+	<columns names="document_id" ref-type="src-columns"/>
+	<columns names="document_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="article_article_intervention_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.article" table="arcachon.article_intervention">
+	<columns names="article_id" ref-type="src-columns"/>
+	<columns names="article_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="intervention_article_intervention_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.intervention" table="arcachon.article_intervention">
+	<columns names="intervention_id" ref-type="src-columns"/>
+	<columns names="intervention_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="bien_support_niv1_bien_support_niv2_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.bien_support_niv1" table="arcachon.bien_support_niv2">
+	<columns names="bien_support_niv1_id" ref-type="src-columns"/>
+	<columns names="bien_support_niv1_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="perimetre_conflit_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.perimetre" table="arcachon.conflit">
+	<columns names="perimetre_id" ref-type="src-columns"/>
+	<columns names="perimetre_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="mime_type_document_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.mime_type" table="arcachon.document">
+	<columns names="mime_type_id" ref-type="src-columns"/>
+	<columns names="mime_type_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="expert_entretien_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.expert" table="arcachon.entretien">
+	<columns names="expert_id" ref-type="src-columns"/>
+	<columns names="expert_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="conflit_entretien_conflit_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.conflit" table="arcachon.entretien_conflit">
+	<columns names="conflit_id" ref-type="src-columns"/>
+	<columns names="conflit_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="entretien_entretien_conflit_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.entretien" table="arcachon.entretien_conflit">
+	<columns names="entretien_id" ref-type="src-columns"/>
+	<columns names="entretien_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="document_entretien_document_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.document" table="arcachon.entretien_document">
+	<columns names="document_id" ref-type="src-columns"/>
+	<columns names="document_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="entretien_entretien_document_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.entretien" table="arcachon.entretien_document">
+	<columns names="entretien_id" ref-type="src-columns"/>
+	<columns names="entretien_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="entretien_entretien_intervention_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.entretien" table="arcachon.entretien_intervention">
+	<columns names="entretien_id" ref-type="src-columns"/>
+	<columns names="entretien_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="intervention_entretien_intervention_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.intervention" table="arcachon.entretien_intervention">
+	<columns names="intervention_id" ref-type="src-columns"/>
+	<columns names="intervention_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="acteur_expert_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.acteur" table="arcachon.expert">
+	<columns names="acteur_id" ref-type="src-columns"/>
+	<columns names="acteur_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="acteur_intervention_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.acteur" table="arcachon.intervention">
+	<columns names="acteur_id" ref-type="src-columns"/>
+	<columns names="acteur_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="conflit_intervention_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.conflit" table="arcachon.intervention">
+	<columns names="conflit_id" ref-type="src-columns"/>
+	<columns names="conflit_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="position_usage_activite_intervention_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.position_usage_activite" table="arcachon.intervention">
+	<columns names="position_usage_activite_id" ref-type="src-columns"/>
+	<columns names="position_usage_activite_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="role_intervention_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.role" table="arcachon.intervention">
+	<columns names="role_id" ref-type="src-columns"/>
+	<columns names="role_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="usage_activite_niv2_intervention_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.usage_activite_niv2" table="arcachon.intervention">
+	<columns names="usage_activite_niv2_id" ref-type="src-columns"/>
+	<columns names="usage_activite_niv2_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="intervention_intervention_juridique_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.intervention" table="arcachon.intervention_juridique">
+	<columns names="intervention_id" ref-type="src-columns"/>
+	<columns names="intervention_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="juridique_intervention_juridique_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.juridique" table="arcachon.intervention_juridique">
+	<columns names="juridique_id" ref-type="src-columns"/>
+	<columns names="juridique_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="position_acteur_intervention_juridique_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.position_acteur" table="arcachon.intervention_juridique">
+	<columns names="position_acteur_id" ref-type="src-columns"/>
+	<columns names="position_acteur_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="qualite_appel_intervention_juridique_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.qualite_appel" table="arcachon.intervention_juridique">
+	<columns names="qualite_appel_id" ref-type="src-columns"/>
+	<columns names="qualite_appel_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="qualite_appel_intervention_juridique_fk1" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.qualite_appel" table="arcachon.intervention_juridique">
+	<columns names="qualite_pourvoi_id" ref-type="src-columns"/>
+	<columns names="qualite_appel_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="acte_contentieux_juridique_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.acte_contentieux" table="arcachon.juridique">
+	<columns names="acte_contentieux_id" ref-type="src-columns"/>
+	<columns names="acte_contentieux_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="decision_appel_juridique_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.decision_appel" table="arcachon.juridique">
+	<columns names="decision_appel_id" ref-type="src-columns"/>
+	<columns names="decision_appel_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="decision_cassation_sens_juridique_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.decision_cassation" table="arcachon.juridique">
+	<columns names="decision_cassation_id" ref-type="src-columns"/>
+	<columns names="decision_cassation_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="juridiction_juridique_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.juridiction" table="arcachon.juridique">
+	<columns names="juridiction_id" ref-type="src-columns"/>
+	<columns names="juridiction_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="juridique_sous_domaine_juridique_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.juridique_sous_domaine" table="arcachon.juridique">
+	<columns names="juridique_sous_domaine_id" ref-type="src-columns"/>
+	<columns names="juridique_sous_domaine_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="nature_requete_juridique_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.nature_requete" table="arcachon.juridique">
+	<columns names="nature_requete_id" ref-type="src-columns"/>
+	<columns names="nature_requete_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="nature_travaux_juridique_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.nature_travaux" table="arcachon.juridique">
+	<columns names="nature_travaux_id" ref-type="src-columns"/>
+	<columns names="nature_travaux_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="type_ouvrage_perm_constr_juridique_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.type_ouvrage_perm_constr" table="arcachon.juridique">
+	<columns names="type_ouvrage_perm_constr_id" ref-type="src-columns"/>
+	<columns names="type_ouvrage_perm_constr_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="conflit_juridique_conflit_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.conflit" table="arcachon.juridique_conflit">
+	<columns names="conflit_id" ref-type="src-columns"/>
+	<columns names="conflit_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="juridique_juridique_conflit_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.juridique" table="arcachon.juridique_conflit">
+	<columns names="juridique_id" ref-type="src-columns"/>
+	<columns names="juridique_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="document_juridique_document_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.document" table="arcachon.juridique_document">
+	<columns names="document_id" ref-type="src-columns"/>
+	<columns names="document_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="juridique_juridique_document_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.juridique" table="arcachon.juridique_document">
+	<columns names="juridique_id" ref-type="src-columns"/>
+	<columns names="juridique_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="juridique_domaine_juridique_sous_domaine_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.juridique_domaine" table="arcachon.juridique_sous_domaine">
+	<columns names="juridique_domaine_id" ref-type="src-columns"/>
+	<columns names="juridique_domaine_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="commune_localisation_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.commune" table="arcachon.localisation">
+	<columns names="insee" ref-type="src-columns"/>
+	<columns names="insee" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="type_perimetre_objet_niv1_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.type_perimetre" table="arcachon.objet_niv1">
+	<columns names="type_perimetre_id" ref-type="src-columns"/>
+	<columns names="type_perimetre_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="objet_niv1_objet_niv2_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.objet_niv1" table="arcachon.objet_niv2">
+	<columns names="objet_niv1_id" ref-type="src-columns"/>
+	<columns names="objet_niv1_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="bien_support_niv2_perimetre_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.bien_support_niv2" table="arcachon.perimetre">
+	<columns names="bien_support_niv2_id" ref-type="src-columns"/>
+	<columns names="bien_support_niv2_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="echelle_perimetre_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.echelle" table="arcachon.perimetre">
+	<columns names="echelle_id" ref-type="src-columns"/>
+	<columns names="echelle_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="objet_niv2_perimetre_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.objet_niv2" table="arcachon.perimetre">
+	<columns names="objet_niv2_id" ref-type="src-columns"/>
+	<columns names="objet_niv2_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="recurrence_perimetre_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.recurrence" table="arcachon.perimetre">
+	<columns names="recurrence_id" ref-type="src-columns"/>
+	<columns names="recurrence_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="type_perimetre_perimetre_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.type_perimetre" table="arcachon.perimetre">
+	<columns names="type_perimetre_id" ref-type="src-columns"/>
+	<columns names="type_perimetre_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="localisation_perimetre_localisation_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.localisation" table="arcachon.perimetre_localisation">
+	<columns names="localisation_id" ref-type="src-columns"/>
+	<columns names="localisation_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="perimetre_perimetre_localisation_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.perimetre" table="arcachon.perimetre_localisation">
+	<columns names="perimetre_id" ref-type="src-columns"/>
+	<columns names="perimetre_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="registre_argument_niv1_registre_argument_niv2_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.registre_argument_niv1" table="arcachon.registre_argument_niv2">
+	<columns names="registre_argument_niv1_id" ref-type="src-columns"/>
+	<columns names="registre_argument_niv1_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="conflit_resolution_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.conflit" table="arcachon.resolution">
+	<columns names="conflit_id" ref-type="src-columns"/>
+	<columns names="conflit_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="resolution_acteur_resolution_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.resolution_acteur" table="arcachon.resolution">
+	<columns names="resolution_acteur_id" ref-type="src-columns"/>
+	<columns names="resolution_acteur_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="resolution_echelle_resolution_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.resolution_echelle" table="arcachon.resolution">
+	<columns names="resolution_echelle_id" ref-type="src-columns"/>
+	<columns names="resolution_echelle_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="resolution_mode_niv2_resolution_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.resolution_mode_niv2" table="arcachon.resolution">
+	<columns names="resolution_mode_niv2_id" ref-type="src-columns"/>
+	<columns names="resolution_mode_niv2_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="resolution_nature_resolution_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.resolution_nature" table="arcachon.resolution">
+	<columns names="resolution_nature_id" ref-type="src-columns"/>
+	<columns names="resolution_nature_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="solution_proposee_resolution_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.solution_proposee" table="arcachon.resolution">
+	<columns names="solution_proposee_id" ref-type="src-columns"/>
+	<columns names="solution_proposee_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="resolution_mode_niv1_resolution_mode_niv2_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.resolution_mode_niv1" table="arcachon.resolution_mode_niv2">
+	<columns names="resolution_mode_niv1_id" ref-type="src-columns"/>
+	<columns names="resolution_mode_niv1_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="revend_support_niv1_revend_support_niv2_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.revend_support_niv1" table="arcachon.revend_support_niv2">
+	<columns names="revend_support_niv1_id" ref-type="src-columns"/>
+	<columns names="revend_support_niv1_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="intervention_revendication_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.intervention" table="arcachon.revendication">
+	<columns names="intervention_id" ref-type="src-columns"/>
+	<columns names="intervention_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="registre_argument_niv2_revendication_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.registre_argument_niv2" table="arcachon.revendication">
+	<columns names="registre_argument_niv2_id" ref-type="src-columns"/>
+	<columns names="registre_argument_niv2_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="revend_support_niv2_revendication_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.revend_support_niv2" table="arcachon.revendication">
+	<columns names="revend_support_niv2_id" ref-type="src-columns"/>
+	<columns names="revend_support_niv2_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="revendication_niv2_revendication_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.revendication_niv2" table="arcachon.revendication">
+	<columns names="revendication_niv2_id" ref-type="src-columns"/>
+	<columns names="revendication_niv2_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="revendication_niv1_revendication_niv2_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.revendication_niv1" table="arcachon.revendication_niv2">
+	<columns names="revendication_niv1_id" ref-type="src-columns"/>
+	<columns names="revendication_niv1_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="intervention_solution_proposee_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.intervention" table="arcachon.solution_proposee">
+	<columns names="intervention_id" ref-type="src-columns"/>
+	<columns names="intervention_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="position_usage_activite_usage_activite_niv1_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.position_usage_activite" table="arcachon.usage_activite_niv1">
+	<columns names="position_usage_activite_id" ref-type="src-columns"/>
+	<columns names="position_usage_activite_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="usage_activite_niv1_usage_activite_niv2_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="arcachon.usage_activite_niv1" table="arcachon.usage_activite_niv2">
+	<columns names="usage_activite_niv1_id" ref-type="src-columns"/>
+	<columns names="usage_activite_niv1_id" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_acteur_acteur_niv3" type="relfk"
+	 custom-color="#253e47"
+	 src-table="arcachon.acteur"
+	 dst-table="arcachon.acteur_niv3"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_acteur_particulier_resident_type" type="relfk"
+	 custom-color="#5a03b3"
+	 src-table="arcachon.acteur"
+	 dst-table="arcachon.particulier_resident_type"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_acteur_mandat_acteur" type="relfk"
+	 custom-color="#215d02"
+	 src-table="arcachon.acteur_mandat"
+	 dst-table="arcachon.acteur"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_acteur_mandat_mandat_type" type="relfk"
+	 custom-color="#844aab"
+	 src-table="arcachon.acteur_mandat"
+	 dst-table="arcachon.mandat_type"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_acteur_niv2_acteur_niv1" type="relfk"
+	 custom-color="#72ca07"
+	 src-table="arcachon.acteur_niv2"
+	 dst-table="arcachon.acteur_niv1"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_acteur_niv3_acteur_niv2" type="relfk"
+	 custom-color="#c1b038"
+	 src-table="arcachon.acteur_niv3"
+	 dst-table="arcachon.acteur_niv2"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_acteur_structure_acteur" type="relfk"
+	 custom-color="#37915b"
+	 src-table="arcachon.acteur_structure"
+	 dst-table="arcachon.acteur"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_acteur_structure_structure_type" type="relfk"
+	 custom-color="#182e41"
+	 src-table="arcachon.acteur_structure"
+	 dst-table="arcachon.structure_type"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_action_action_echelle" type="relfk"
+	 custom-color="#8eda96"
+	 src-table="arcachon.action"
+	 dst-table="arcachon.action_echelle"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_action_action_mode" type="relfk"
+	 custom-color="#10c3e9"
+	 src-table="arcachon.action"
+	 dst-table="arcachon.action_mode"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_action_action_type" type="relfk"
+	 custom-color="#e40eef"
+	 src-table="arcachon.action"
+	 dst-table="arcachon.action_type"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_action_intervention" type="relfk"
+	 custom-color="#0259f2"
+	 src-table="arcachon.action"
+	 dst-table="arcachon.intervention"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_article_journal" type="relfk"
+	 custom-color="#8393ad"
+	 src-table="arcachon.article"
+	 dst-table="arcachon.journal"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_article_conflit_action_type" type="relfk"
+	 custom-color="#4c1b58"
+	 src-table="arcachon.article_conflit"
+	 dst-table="arcachon.action_type"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_article_conflit_article" type="relfk"
+	 custom-color="#e2abe5"
+	 src-table="arcachon.article_conflit"
+	 dst-table="arcachon.article"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_article_conflit_conflit" type="relfk"
+	 custom-color="#24a1f2"
+	 src-table="arcachon.article_conflit"
+	 dst-table="arcachon.conflit"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_article_document_article" type="relfk"
+	 custom-color="#7dad4c"
+	 src-table="arcachon.article_document"
+	 dst-table="arcachon.article"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_article_document_document" type="relfk"
+	 custom-color="#8a88df"
+	 src-table="arcachon.article_document"
+	 dst-table="arcachon.document"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_article_intervention_article" type="relfk"
+	 custom-color="#965e20"
+	 src-table="arcachon.article_intervention"
+	 dst-table="arcachon.article"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_article_intervention_intervention" type="relfk"
+	 custom-color="#dba319"
+	 src-table="arcachon.article_intervention"
+	 dst-table="arcachon.intervention"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_bien_support_niv2_bien_support_niv1" type="relfk"
+	 custom-color="#f352ce"
+	 src-table="arcachon.bien_support_niv2"
+	 dst-table="arcachon.bien_support_niv1"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_conflit_perimetre" type="relfk"
+	 custom-color="#55eab1"
+	 src-table="arcachon.conflit"
+	 dst-table="arcachon.perimetre"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_document_mime_type" type="relfk"
+	 custom-color="#a69eee"
+	 src-table="arcachon.document"
+	 dst-table="arcachon.mime_type"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_entretien_expert" type="relfk"
+	 custom-color="#7a3c81"
+	 src-table="arcachon.entretien"
+	 dst-table="arcachon.expert"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_entretien_conflit_conflit" type="relfk"
+	 custom-color="#9677f3"
+	 src-table="arcachon.entretien_conflit"
+	 dst-table="arcachon.conflit"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_entretien_conflit_entretien" type="relfk"
+	 custom-color="#f4a5a0"
+	 src-table="arcachon.entretien_conflit"
+	 dst-table="arcachon.entretien"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_entretien_document_document" type="relfk"
+	 custom-color="#b66b60"
+	 src-table="arcachon.entretien_document"
+	 dst-table="arcachon.document"
+	 src-required="false" dst-required="false">
+	<label ref-type="dst-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="rel_entretien_document_entretien" type="relfk"
+	 custom-color="#b4bd9a"
+	 src-table="arcachon.entretien_document"
+	 dst-table="arcachon.entretien"
+	 src-required="false" dst-required="false">
+	<label ref-type="src-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="rel_entretien_intervention_entretien" type="relfk"
+	 custom-color="#4d57e2"
+	 src-table="arcachon.entretien_intervention"
+	 dst-table="arcachon.entretien"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_entretien_intervention_intervention" type="relfk"
+	 custom-color="#a2b2db"
+	 src-table="arcachon.entretien_intervention"
+	 dst-table="arcachon.intervention"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_expert_acteur" type="relfk"
+	 custom-color="#9e4d47"
+	 src-table="arcachon.expert"
+	 dst-table="arcachon.acteur"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_intervention_acteur" type="relfk"
+	 custom-color="#0ea87c"
+	 src-table="arcachon.intervention"
+	 dst-table="arcachon.acteur"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_intervention_conflit" type="relfk"
+	 custom-color="#357491"
+	 src-table="arcachon.intervention"
+	 dst-table="arcachon.conflit"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_intervention_position_usage_activite" type="relfk"
+	 custom-color="#352a95"
+	 src-table="arcachon.intervention"
+	 dst-table="arcachon.position_usage_activite"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_intervention_role" type="relfk"
+	 custom-color="#4c5cd9"
+	 src-table="arcachon.intervention"
+	 dst-table="arcachon.role"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_intervention_usage_activite_niv2" type="relfk"
+	 custom-color="#dff7e3"
+	 src-table="arcachon.intervention"
+	 dst-table="arcachon.usage_activite_niv2"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_intervention_juridique_intervention" type="relfk"
+	 custom-color="#020217"
+	 src-table="arcachon.intervention_juridique"
+	 dst-table="arcachon.intervention"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_intervention_juridique_juridique" type="relfk"
+	 custom-color="#4f94b8"
+	 src-table="arcachon.intervention_juridique"
+	 dst-table="arcachon.juridique"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_intervention_juridique_position_acteur" type="relfk"
+	 custom-color="#04494d"
+	 src-table="arcachon.intervention_juridique"
+	 dst-table="arcachon.position_acteur"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_intervention_juridique_qualite_appel" type="relfk"
+	 custom-color="#414f9a"
+	 src-table="arcachon.intervention_juridique"
+	 dst-table="arcachon.qualite_appel"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_juridique_acte_contentieux" type="relfk"
+	 custom-color="#27eb4d"
+	 src-table="arcachon.juridique"
+	 dst-table="arcachon.acte_contentieux"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_juridique_decision_appel" type="relfk"
+	 custom-color="#ed3e76"
+	 src-table="arcachon.juridique"
+	 dst-table="arcachon.decision_appel"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_juridique_decision_cassation" type="relfk"
+	 custom-color="#e44443"
+	 src-table="arcachon.juridique"
+	 dst-table="arcachon.decision_cassation"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_juridique_juridiction" type="relfk"
+	 custom-color="#dcf233"
+	 src-table="arcachon.juridique"
+	 dst-table="arcachon.juridiction"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_juridique_juridique_sous_domaine" type="relfk"
+	 custom-color="#1960c9"
+	 src-table="arcachon.juridique"
+	 dst-table="arcachon.juridique_sous_domaine"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_juridique_nature_requete" type="relfk"
+	 custom-color="#88148a"
+	 src-table="arcachon.juridique"
+	 dst-table="arcachon.nature_requete"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_juridique_nature_travaux" type="relfk"
+	 custom-color="#2dbecc"
+	 src-table="arcachon.juridique"
+	 dst-table="arcachon.nature_travaux"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_juridique_type_ouvrage_perm_constr" type="relfk"
+	 custom-color="#3c0c12"
+	 src-table="arcachon.juridique"
+	 dst-table="arcachon.type_ouvrage_perm_constr"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_juridique_conflit_conflit" type="relfk"
+	 custom-color="#6aab92"
+	 src-table="arcachon.juridique_conflit"
+	 dst-table="arcachon.conflit"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_juridique_conflit_juridique" type="relfk"
+	 custom-color="#ae1e84"
+	 src-table="arcachon.juridique_conflit"
+	 dst-table="arcachon.juridique"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_juridique_document_document" type="relfk"
+	 custom-color="#b7285f"
+	 src-table="arcachon.juridique_document"
+	 dst-table="arcachon.document"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_juridique_document_juridique" type="relfk"
+	 custom-color="#5d6cee"
+	 src-table="arcachon.juridique_document"
+	 dst-table="arcachon.juridique"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_juridique_sous_domaine_juridique_domaine" type="relfk"
+	 custom-color="#bf986b"
+	 src-table="arcachon.juridique_sous_domaine"
+	 dst-table="arcachon.juridique_domaine"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_localisation_commune" type="relfk"
+	 custom-color="#99a131"
+	 src-table="arcachon.localisation"
+	 dst-table="arcachon.commune"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_objet_niv1_type_perimetre" type="relfk"
+	 custom-color="#681edf"
+	 src-table="arcachon.objet_niv1"
+	 dst-table="arcachon.type_perimetre"
+	 src-required="false" dst-required="false">
+	<label ref-type="src-label">
+		<position x="2.64199" y="-3.92727"/>
+	</label>
+	<label ref-type="name-label">
+		<position x="112.137" y="17.3463"/>
+	</label>
+</relationship>
+
+<relationship name="rel_objet_niv2_objet_niv1" type="relfk"
+	 custom-color="#6fd6f8"
+	 src-table="arcachon.objet_niv2"
+	 dst-table="arcachon.objet_niv1"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_perimetre_bien_support_niv2" type="relfk"
+	 custom-color="#32f208"
+	 src-table="arcachon.perimetre"
+	 dst-table="arcachon.bien_support_niv2"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="65.7864" y="57.1365"/>
+	</label>
+</relationship>
+
+<relationship name="rel_perimetre_echelle" type="relfk"
+	 custom-color="#ad089b"
+	 src-table="arcachon.perimetre"
+	 dst-table="arcachon.echelle"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_perimetre_objet_niv2" type="relfk"
+	 custom-color="#41fab4"
+	 src-table="arcachon.perimetre"
+	 dst-table="arcachon.objet_niv2"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-72.0172" y="12.8883"/>
+	</label>
+</relationship>
+
+<relationship name="rel_perimetre_recurrence" type="relfk"
+	 custom-color="#0762a9"
+	 src-table="arcachon.perimetre"
+	 dst-table="arcachon.recurrence"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_perimetre_type_perimetre" type="relfk"
+	 custom-color="#de2ed7"
+	 src-table="arcachon.perimetre"
+	 dst-table="arcachon.type_perimetre"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="90.7847" y="21.1365"/>
+	</label>
+</relationship>
+
+<relationship name="rel_perimetre_localisation_localisation" type="relfk"
+	 custom-color="#c08668"
+	 src-table="arcachon.perimetre_localisation"
+	 dst-table="arcachon.localisation"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_perimetre_localisation_perimetre" type="relfk"
+	 custom-color="#378556"
+	 src-table="arcachon.perimetre_localisation"
+	 dst-table="arcachon.perimetre"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_registre_argument_niv2_registre_argument_niv1" type="relfk"
+	 custom-color="#1944bd"
+	 src-table="arcachon.registre_argument_niv2"
+	 dst-table="arcachon.registre_argument_niv1"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_resolution_conflit" type="relfk"
+	 custom-color="#4812d2"
+	 src-table="arcachon.resolution"
+	 dst-table="arcachon.conflit"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_resolution_resolution_acteur" type="relfk"
+	 custom-color="#d8af1b"
+	 src-table="arcachon.resolution"
+	 dst-table="arcachon.resolution_acteur"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_resolution_resolution_echelle" type="relfk"
+	 custom-color="#f91ef8"
+	 src-table="arcachon.resolution"
+	 dst-table="arcachon.resolution_echelle"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_resolution_resolution_mode_niv2" type="relfk"
+	 custom-color="#f91840"
+	 src-table="arcachon.resolution"
+	 dst-table="arcachon.resolution_mode_niv2"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_resolution_resolution_nature" type="relfk"
+	 custom-color="#54e960"
+	 src-table="arcachon.resolution"
+	 dst-table="arcachon.resolution_nature"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_resolution_solution_proposee" type="relfk"
+	 custom-color="#887591"
+	 src-table="arcachon.resolution"
+	 dst-table="arcachon.solution_proposee"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_resolution_mode_niv2_resolution_mode_niv1" type="relfk"
+	 custom-color="#471df0"
+	 src-table="arcachon.resolution_mode_niv2"
+	 dst-table="arcachon.resolution_mode_niv1"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_revend_support_niv2_revend_support_niv1" type="relfk"
+	 custom-color="#09db86"
+	 src-table="arcachon.revend_support_niv2"
+	 dst-table="arcachon.revend_support_niv1"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_revendication_intervention" type="relfk"
+	 custom-color="#ca2567"
+	 src-table="arcachon.revendication"
+	 dst-table="arcachon.intervention"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_revendication_registre_argument_niv2" type="relfk"
+	 custom-color="#b3cc0a"
+	 src-table="arcachon.revendication"
+	 dst-table="arcachon.registre_argument_niv2"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_revendication_revend_support_niv2" type="relfk"
+	 custom-color="#23d089"
+	 src-table="arcachon.revendication"
+	 dst-table="arcachon.revend_support_niv2"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_revendication_revendication_niv2" type="relfk"
+	 custom-color="#5f04a0"
+	 src-table="arcachon.revendication"
+	 dst-table="arcachon.revendication_niv2"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_revendication_niv2_revendication_niv1" type="relfk"
+	 custom-color="#5df353"
+	 src-table="arcachon.revendication_niv2"
+	 dst-table="arcachon.revendication_niv1"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_solution_proposee_intervention" type="relfk"
+	 custom-color="#158be6"
+	 src-table="arcachon.solution_proposee"
+	 dst-table="arcachon.intervention"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_usage_activite_niv1_position_usage_activite" type="relfk"
+	 custom-color="#be17a5"
+	 src-table="arcachon.usage_activite_niv1"
+	 dst-table="arcachon.position_usage_activite"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_usage_activite_niv2_usage_activite_niv1" type="relfk"
+	 custom-color="#0addc9"
+	 src-table="arcachon.usage_activite_niv2"
+	 dst-table="arcachon.usage_activite_niv1"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>
