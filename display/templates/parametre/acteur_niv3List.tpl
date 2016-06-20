@@ -6,10 +6,10 @@ Nouveau...
 {/if}
 <script>
 $(document).ready(function() { 
-setDataTables("parametre_niv3");
+setDataTables("parametre_niv3", true, true);
 } );
 </script>
-<table id="parametre_niv3" class="tableaffichage">
+<table id="parametre_niv3" class="tableliste">
 <thead>
 <tr>
 <th>Clé</th>

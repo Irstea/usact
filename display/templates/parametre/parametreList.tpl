@@ -9,7 +9,7 @@ $(document).ready(function() {
 setDataTables("parametre", true, true);
 } );
 </script>
-<table id="parametre" class="tableaffichage">
+<table id="parametre" class="tableliste">
 <thead>
 <tr>
 <th>Clé</th>
