@@ -37,7 +37,8 @@ class Perimetre extends ObjetBDD {
 						"defaultValue" => 0 
 				),
 				"type_perimetre_id" => array (
-						"type" => 1 
+						"type" => 1,
+						"defaultValue" => 2
 				),
 				"echelle_id" => array (
 						"type" => 1 
