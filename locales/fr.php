@@ -131,10 +131,11 @@ $LANG["menu"][179] = "Table des juridictions";
 $LANG["menu"][180] = "Param. sources";
 $LANG["menu"][181] = "Liste des paramètres concernant les sources";
 $LANG["menu"][182] = "Positions d'activité d'usage";
-$LANG["menu"][183] = "TAble des positions d'activité d'usage";
-
-
-
+$LANG["menu"][183] = "Table des positions d'activité d'usage";
+$LANG["menu"][184] = "Statut des acteurs";
+$LANG["menu"][185] = "Table des statuts des acteurs";
+$LANG["menu"][186] = "Rôle dans la structure";
+$LANG["menu"][187] = "Table des rôles dans la structure";
 
 /*
  * Gestion des droits nouvelle formule

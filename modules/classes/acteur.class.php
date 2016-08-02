@@ -20,6 +20,7 @@ class Acteur extends ObjetBDD {
 			natural join acteur_niv2
 			natural join acteur_niv1
 			left outer join particulier_resident_type using (particulier_resident_type_id)
+			left outer join acteur_statut using (acteur_statut_id)
 			";
 	private $sqlSearch = "
 			select distinct acteur.*, acteur_niv3_libelle, acteur_niv2_libelle, acteur_niv1_libelle,
@@ -81,6 +82,9 @@ class Acteur extends ObjetBDD {
 						"defaultValue" => "getLogin" 
 				),
 				"particulier_resident_type_id" => array (
+						"type" => 1 
+				),
+				"acteur_statut_id" => array (
 						"type" => 1 
 				) 
 		);
@@ -150,7 +154,8 @@ class Acteur extends ObjetBDD {
 	/**
 	 * Retourne la liste des acteurs dont le nom contient le libelle fourni
 	 * ou dont l'identifiant est egal au libelle fourni
-	 * @param string $libelle
+	 *
+	 * @param string $libelle        	
 	 * @return tableau
 	 */
 	function getListByName($libelle) {
@@ -170,7 +175,7 @@ class Acteur extends ObjetBDD {
 				$where .= ")";
 			}
 			$order = " order by acteur_moral_nom, acteur_physique_nom";
-			return $this->getListeParam($sql.$where.$order);
+			return $this->getListeParam ( $sql . $where . $order );
 		}
 	}
 }
@@ -261,6 +266,9 @@ class ActeurStructure extends ObjetBDD {
 				),
 				"structure_statut" => array (
 						"type" => 0 
+				),
+				"structure_statut_id" => array (
+						"type" => 1 
 				) 
 		);
 		if (! is_array ( $param ))
@@ -279,6 +287,7 @@ class ActeurStructure extends ObjetBDD {
 		if (is_numeric ( $acteur_id ) && $acteur_id > 0) {
 			$sql = "select * from acteur_structure
 					natural join structure_type
+					left outer join structure_statut using (structure_statut_id)
 					where acteur_id = " . $acteur_id . "
 					order by structure_type_libelle";
 			return $this->getListeParam ( $sql );

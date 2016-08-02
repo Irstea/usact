@@ -195,6 +195,16 @@
 	<acteur_niv1Write action="modules/parametre/parametre.php" tableName="acteur_niv1" param="write" droits="param" retourok="acteur_niv1List" retourko="acteur_niv1Change" modulebefore="acteur_niv1Change" />
 	<acteur_niv1Delete action="modules/parametre/parametre.php" tableName="acteur_niv1" param="delete" droits="param" retoursuppr="acteur_niv1List" retourko="acteur_niv1Change" />
 
+	<acteur_statutList action="modules/parametre/parametre.php" tableName="acteur_statut" param="list"  retourlogin="1" droits="consult"  />
+	<acteur_statutChange action="modules/parametre/parametre.php" tableName="acteur_statut" param="change" droits="param" />
+	<acteur_statutWrite action="modules/parametre/parametre.php" tableName="acteur_statut" param="write" droits="param" retourok="acteur_statutList" retourko="acteur_statutChange" modulebefore="acteur_statutChange" />
+	<acteur_statutDelete action="modules/parametre/parametre.php" tableName="acteur_statut" param="delete" droits="param" retoursuppr="acteur_statutList" retourko="acteur_statutChange" />
+
+	<structure_statutList action="modules/parametre/parametre.php" tableName="structure_statut" param="list"  retourlogin="1" droits="consult"  />
+	<structure_statutChange action="modules/parametre/parametre.php" tableName="structure_statut" param="change" droits="param" />
+	<structure_statutWrite action="modules/parametre/parametre.php" tableName="structure_statut" param="write" droits="param" retourok="structure_statutList" retourko="structure_statutChange" modulebefore="structure_statutChange" />
+	<structure_statutDelete action="modules/parametre/parametre.php" tableName="structure_statut" param="delete" droits="param" retoursuppr="structure_statutList" retourko="structure_statutChange" />
+
 	<registre_argument_niv1List action="modules/parametre/parametre.php" tableName="registre_argument_niv1"  retourlogin="1" param="list" droits="consult"  />
 	<registre_argument_niv1Change action="modules/parametre/parametre.php" tableName="registre_argument_niv1" param="change" droits="param" />
 	<registre_argument_niv1Write action="modules/parametre/parametre.php" tableName="registre_argument_niv1" param="write" droits="param" retourok="registre_argument_niv1List" retourko="registre_argument_niv1Change" modulebefore="registre_argument_niv1Change" />

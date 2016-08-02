@@ -12,7 +12,7 @@
 
 <dl>
 <dt>Libellé <span class="red">*</span> :</dt>
-<dd><input class="commentaire" id="{$tableName}_libelle" name="{$tableName}_libelle" value="{$data.libelle}" required> </dd>
+<dd><input class="commentaire" id="{$tableName}_libelle" name="{$tableName}_libelle" value="{$data.libelle}" required autofocus> </dd>
 </dl>
 
 {if strlen($colonneSupp) > 0}

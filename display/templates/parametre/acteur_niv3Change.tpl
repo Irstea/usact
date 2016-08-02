@@ -24,7 +24,7 @@
 
 <dl>
 <dt>Libellé <span class="red">*</span> :</dt>
-<dd><input class="commentaire" id="acteur_niv3_libelle" name="acteur_niv3_libelle" value="{$data.acteur_niv3_libelle}" required> </dd>
+<dd><input class="commentaire" id="acteur_niv3_libelle" name="acteur_niv3_libelle" value="{$data.acteur_niv3_libelle}" required autofocus> </dd>
 </dl>
 <dl>
 <div class="formBouton">

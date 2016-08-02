@@ -60,6 +60,9 @@
 	<item module="acteur_niv3List" droits="consult" value="168" title="169" />
 	<item module="particulier_resident_typeList" droits="consult" value="176" title="177" />
 	<item module="position_usage_activiteList" droits="consult" value="182" title="183" />	
+	<item module="acteur_statutList" droits="consult" value="184" title="185" />
+	<item module="structure_statutList" droits="consult" value="186" title="187" />
+	
 	
 </item>
 
