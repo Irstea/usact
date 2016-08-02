@@ -64,7 +64,7 @@ Retour au détail de l'article {$article.article_id}</a>
 <form method="post" action="index.php" onSubmit='return confirmSuppression("Confirmez-vous la suppression ?")'>
 <input type="hidden" name="article_id" value="{$article.article_id}">
 <input type="hidden" name="module" value="articleInterventionDelete">
-<dl><dt>Conflit à enlever :</dt>
+<dl><dt>Intervention à enlever :</dt>
 <dd>
 <select name="intervention_id">
 <option value="">Sélectionnez l'intervention à enlever...</option>
