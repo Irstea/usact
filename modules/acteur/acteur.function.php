@@ -22,6 +22,8 @@ function setSmartyActeurParam() {
 	$smarty->assign("structure_type", $structure_type->getListe());
 	$particulier_resident_type = new Parametre($bdd, "particulier_resident_type", $ObjetBDDParam);
 	$smarty->assign("particulier_resident_type", $particulier_resident_type->getListe());
+	$acteur_statut = new Parametre($bdd, "acteur_statut");
+	$smarty->assign("acteur_statut", $acteur_statut->getListe());
 }
 
 ?>

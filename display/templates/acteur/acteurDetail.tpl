@@ -28,7 +28,10 @@
 </dl>
 <dl>
 <dt> Statut :</dt>
-<dd>{$acteur.acteur_statut}</dd>
+<dd>
+{$acteur.acteur_statut_libelle}
+{$acteur.acteur_statut}
+</dd>
 </dl>
 <dl>
 <dt>Détail du statut :</dt>

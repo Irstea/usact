@@ -22,6 +22,8 @@ switch ($t_module["param"]) {
 		require_once 'modules/classes/parametre.class.php';
 		$structureType = new Parametre($bdd, "structure_type", $ObjetBDDParam);
 		$smarty->assign("structure_type", $structureType->getListe(1));
+		$structure_statut = new Parametre($bdd, "structure_statut");
+		$smarty->assign("structure_statut", $structure_statut->getListe());
 		break;
 	case "write":
 		/*

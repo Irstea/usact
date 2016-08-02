@@ -43,6 +43,7 @@ table.fnSort( [ [2,'asc'], [1,'asc'] ] );
 		{$data[lst].acteur_niv3_libelle}
 		</td>
 		<td>
+		{$data[lst].acteur_statut_libelle}
 		{$data[lst].acteur_statut}
 		</td>
 		<td>

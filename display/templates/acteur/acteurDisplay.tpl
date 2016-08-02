@@ -63,7 +63,10 @@ Nouveau rôle...</a>
 {$acteur_structure[lst].structure_type_libelle}
 {/if}
 </td>
-<td>{$acteur_structure[lst].structure_statut}</td>
+<td>
+{$acteur_structure[lst].structure_statut_libelle}
+{$acteur_structure[lst].structure_statut}
+</td>
 <td><span class="textareaDisplay">{$acteur_structure[lst].structure_statut_detail}</span></td>
 </tr>
 {/section}

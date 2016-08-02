@@ -52,6 +52,20 @@ Retour au détail de l'acteur {$data.acteur_id}</a>
 <dl>
 <dt>Statut :</dt>
 <dd>
+<select name="acteur_statut_id" >
+<option value="" {if $data.acteur_statut_id == ""}selected{/if}>Choisissez...</option>
+{section name=lst loop=$acteur_statut}
+<option value="{$acteur_statut[lst].acteur_statut_id}" {if $data.acteur_statut_id == $acteur_statut[lst].acteur_statut_id}selected{/if}>
+{$acteur_statut[lst].acteur_statut_libelle}
+</option>
+{/section}
+</select>
+</dd>
+</dl>
+
+<dl>
+<dt>Statut textuel (obsolète) :</dt>
+<dd>
 <input name="acteur_statut" value="{$data.acteur_statut}" >
 </dd>
 </dl>

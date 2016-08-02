@@ -26,7 +26,21 @@ Retour au détail de l'acteur {$data.acteur_id}</a>
 </dl>
 
 <dl>
-<dt>Statut dans la structure :</dt>
+<dt>Rôle dans la structure :</dt>
+<dd>
+<select name="structure_statut_id" >
+<option value="" {if $data.structure_statut_id == ""}selected{/if}>
+{section name=lst loop=$structure_statut}
+<option value="{$structure_statut[lst].structure_statut_id}" {if $data.structure_statut_id == $structure_statut[lst].structure_statut_id}selected{/if}>
+{$structure_statut[lst].structure_statut_libelle}
+</option>
+{/section}
+</select>
+</dd>
+</dl>
+
+<dl>
+<dt>Statut dans la structure (obsolète) :</dt>
 <dd>
 <input name="structure_statut" value="{$data.structure_statut}" class="commentaire">
 </dd>
