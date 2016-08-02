@@ -27,7 +27,8 @@ class Commune extends ObjetBDD {
 		$this->colonnes = array (
 				"insee"=>array("ley"=>1,"type"=>1, "requis"=>1),
 				"commune_nom"=>array("requis"=>1),
-				"departement"=>array("type"=>0)
+				"departement"=>array("type"=>0),
+				"commune_insee"=>array("type"=>0)
 		);
 		if (! is_array ( $param ))
 			$param == array ();
@@ -48,11 +49,9 @@ class Commune extends ObjetBDD {
 		$lSearch = $this->encodeData($lSearch);
 		$long = strlen($lSearch);
 		if ($long > 0) {
-			if (is_numeric($lSearch) && $long == 5) {
-				$where = " where insee = ".$lSearch; 
-			} else {
-				$where = " where upper(commune_nom) like upper('%".$lSearch."%')";
-			}
+			$where = " where upper(commune_nom) like upper('%".$lSearch."%')
+					or commune_insee = upper($lSearch)";
+			
 		}
 		return $this->getListeParam($sql.$where.$order);
 	}
@@ -60,7 +59,7 @@ class Commune extends ObjetBDD {
 
 class Localisation extends ObjetBDD {
 	private $sql = "select * from localisation natural join commune";
-	private $order = " order by insee, precision_adresse";
+	private $order = " order by commune_insee, precision_adresse";
 	
 
 	/**
@@ -96,12 +95,8 @@ class Localisation extends ObjetBDD {
 		$lSearch = $this->encodeData($lSearch);
 		$long = strlen($lSearch);
 		if ($long > 0) {
-			if (is_numeric($lSearch) && $long == 5) {
-				$where = " where insee = ".$lSearch;
-			} else {
-				$where = " where upper(commune_nom) like upper('%".$lSearch."%')
-						 or upper(precision_adresse) like upper('%".$lSearch."%')";
-			}
+			$where = " where upper(commune_nom) like upper('%".$lSearch."%')
+			or commune_insee = upper($lSearch)";
 		}
 		return $this->getListeParam($this->sql.$where.$this->order);
 	}
