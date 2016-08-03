@@ -18,10 +18,10 @@ Rattacher une nouvelle localisation...
 	<td>
 	{if $droits.gestion == 1}
 	<a href="index.php?module=localisationChange&localisation_id={$localisation[lst].localisation_id}&perimetre_id={$perimetre.perimetre_id}">
-	{$localisation[lst].insee} {$localisation[lst].commune_nom}
+	{$localisation[lst].commune_insee} {$localisation[lst].commune_nom}
 	</a>
 	{else}
-	{$localisation[lst].insee} {$localisation[lst].commune_nom}
+	{$localisation[lst].commune_insee} {$localisation[lst].commune_nom}
 	{/if}
 	</td>
 	<td class="textareaDisplay">{$localisation[lst].precision_adresse}</td>

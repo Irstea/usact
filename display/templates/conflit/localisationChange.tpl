@@ -29,7 +29,7 @@ $(document).ready(function() {
 				 for (var i = 0; i < data.length; i++) {
 					 var precision_adresse = data[i].precision_adresse == null ? "" : data[i].precision_adresse;
 				        options += '<option value="' + data[i].localisation_id + '"';
-					        options += '>' + data[i].insee + " " + data[i].commune_nom +"/" + precision_adresse +  '</option>';
+					        options += '>' + data[i].commune_insee + " " + data[i].commune_nom +"/" + precision_adresse +  '</option>';
 				      };
 				$("#selectLocalisation").html(options);
 			} ) ;	
@@ -45,7 +45,7 @@ $(document).ready(function() {
 			$.getJSON ( url, { "module":"communeSearch", "value":search}, function( data ) {			
 				 for (var i = 0; i < data.length; i++) {
 				        options += '<option value="' + data[i].insee + '"';
-					        options += '>' + data[i].insee +" "+ data[i].commune_nom  +  '</option>';
+					        options += '>' + data[i].commune_insee +" "+ data[i].commune_nom  +  '</option>';
 				      };
 				$("#selectCommune").html(options);
 			} ) ;	
@@ -91,7 +91,7 @@ $(document).ready(function() {
 <dl>
 <dt>Commune :
 </dt>
-<dd><input id="inseeDisplay" readonly value="{$data.insee} {$data.commune_nom}" >
+<dd><input id="inseeDisplay" readonly value="{$data.commune_insee} {$data.commune_nom}" >
 </dl>
 <dl>
 <dt>Description :</dt>

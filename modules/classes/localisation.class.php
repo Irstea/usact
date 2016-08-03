@@ -50,7 +50,7 @@ class Commune extends ObjetBDD {
 		$long = strlen($lSearch);
 		if ($long > 0) {
 			$where = " where upper(commune_nom) like upper('%".$lSearch."%')
-					or commune_insee = upper($lSearch)";
+					or commune_insee = upper('$lSearch')";
 			
 		}
 		return $this->getListeParam($sql.$where.$order);
@@ -96,7 +96,7 @@ class Localisation extends ObjetBDD {
 		$long = strlen($lSearch);
 		if ($long > 0) {
 			$where = " where upper(commune_nom) like upper('%".$lSearch."%')
-			or commune_insee = upper($lSearch)";
+			or commune_insee = upper('$lSearch')";
 		}
 		return $this->getListeParam($this->sql.$where.$this->order);
 	}
@@ -113,6 +113,21 @@ class Localisation extends ObjetBDD {
 			return $this->getListeParam($sql.$where.$this->order);
 		}
 			
+	}
+	/**
+	 * Surcharge pour integrer la lecture de la commune
+	 * {@inheritDoc}
+	 * @see ObjetBDD::lire()
+	 */
+	function lire($id, $getDefault=false, $parentValue=0) {
+		$data = array();
+		if (is_numeric($id) && $id > 0) {
+			$where = " where localisation_id = $id";
+			$data = $this->lireParam($this->sql.$where);
+		} elseif ($getDefault) {
+			$data = $this->getDefaultValue($parentValue);
+		}
+		return $data;
 	}
 	
 
