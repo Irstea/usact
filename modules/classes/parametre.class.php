@@ -142,7 +142,8 @@ class Parametre_niv2 extends ObjetBDD {
 			$sql .= " natural join ".$parentTable;
 			$where = " where ".$parentTable."_id = ".$parentId;
 		}
-		$order != 0 ? $order = " order by " . $order : $order = " order by 2,3";
+		$order != 0 ? $order = " order by " . $order : $order = " order by ".$this->nomTableParent."_libelle,
+				".$this->table."_libelle";
 		return $this->getListeParam ( $sql.$where.$order );
 	}
 	
@@ -207,7 +208,7 @@ class Acteur_niv3 extends ObjetBDD {
 				natural join acteur_niv2
 				natural join acteur_niv1
 				order by ";
-		$order != 0 ? $sql .= $order : $sql .= " 2,3,4";
+		$order != 0 ? $sql .= $order : $sql .= " acteur_niv1_libelle, acteur_niv2_libelle, acteur_niv3_libelle";
 		return $this->getListeParam ( $sql );
 	}
 }
