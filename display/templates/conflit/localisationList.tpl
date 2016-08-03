@@ -5,11 +5,15 @@
 Rattacher une nouvelle localisation...
 </a>
 {/if}
+<table class="tablemulticolonne">
+<tr>
+<td>
 <table  class="tableListe">
 	<thead>
 		<tr>
 		<th>Commune</th>
 		<th>Adresse</th>
+		<th>Coordonnées<br>GPS</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -25,9 +29,20 @@ Rattacher une nouvelle localisation...
 	{/if}
 	</td>
 	<td class="textareaDisplay">{$localisation[lst].precision_adresse}</td>
+	<td>{$localisation[lst].wgs84x}
+	{if strlen($localisation[lst].wgs84y) > 0}
+	<br>
+	{$localisation[lst].wgs84y}
+	{/if}
+	</td>
 	</tr>
 	{/section}
 	</tbody>
 </table>
-		
+</td>
+<td>
+{include file="conflit/localisationMap.tpl"}
+</td>
+</tr>
+	</table>	
 </fieldset>

@@ -62,6 +62,10 @@ switch ($t_module ["param"]) {
 		 * Recherche d'une commune, en mode ajax
 		 */
 		echo json_encode ( $dataClass->search ( $_REQUEST ["value"] ) );
+		break;
+	case "get":
+		echo json_encode($dataClass->lire($_REQUEST["value"]));
+		break;
 }
 
 ?>

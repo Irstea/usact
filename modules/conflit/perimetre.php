@@ -58,7 +58,24 @@ switch ($t_module ["param"]) {
 		$smarty->assign("conflit", $conflit->getListFromParent($id,3));
 		require_once 'modules/classes/localisation.class.php';
 		$localisation = new Localisation($bdd, $ObjetBDDParam);
-		$smarty->assign("localisation", $localisation->getListFromPerimetre($id));
+		$dataLocalisation = $localisation->getListFromPerimetre($id);
+		$smarty->assign("localisation", $dataLocalisation);
+		/*
+		 * Recherche s'il existe une localisation gps, pour afficher la carte
+		 */
+		$gps = false;
+		foreach ($dataLocalisation as $value) {
+			if (strlen($value["wgs84x"]) > 0 && strlen($value["wgs84y"]) > 0) {
+				$gps = true;
+				$x = $value["wgs84x"];
+				$y = $value["wgs84y"];
+				break;
+			}		
+		}
+		if ($gps)
+			$smarty->assign("mapDisplay", 1);
+			$smarty->assign("centreX", $x);
+			$smarty->assign("centreY", $y);
 		break;
 		
 	/*

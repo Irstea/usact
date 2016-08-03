@@ -170,6 +170,12 @@ dd.image {
 	height: 30px;
 }
 
+.mapDisplay {
+	/*Affichage des cartes OSM*/
+	width: 400px;
+	height: 400px;
+}
+
 input.date {
 	background-image: url("images/calendar-small.gif");
 	background-size: 1em;

@@ -1,15 +1,30 @@
 <script>
 $(document).ready(function() { 
-	
+	var url = "index.php";
 	// Attribution de la localisation au changement dans la selection
 	$("#selectLocalisation").change( function () {
-		$("#localisation_id").val($(this).val());
+		var id = $(this).val();
+		$("#localisation_id").val(id);
+		/*
+		 * Recherche des donnees de la localisation selectionnee
+		 */
+		 
+		 $.getJSON ( url, { "module":"localisationGet", "value": id}, function (data ) { 
+			$("#inseeDisplay").val(data.commune_insee+" "+data.commune_nom);
+			$("#insee").val(data.insee);
+			$("#precision_adresse").val(data.precision_adresse);
+			$("#wgs84x").val(data.wgs84x);
+			$("#wgs84y").val(data.wgs84y);
+		 });
+		 /*
 		var texte = $("#selectLocalisation option:selected").text();
 		var champs = texte.split("/");
 		var insee = champs[0].split(" ");
 		$("#inseeDisplay").val(champs[0]);
 		$("#insee").val(insee[0]);
 		$("#precision_adresse").val(champs[1]);
+		$("#wgs84x").val(champs[1]);
+		$("#wgs84y").val(champs[2]);*/
 	});
 	
 	// Attribution de la commune au changement dans la selection
@@ -23,13 +38,12 @@ $(document).ready(function() {
 	$("#search").keyup( function () {
 		var search = $(this).val();
 		if (search.length > 2) {
-			var url = "index.php";
 			var options = '<option></option>';
 			$.getJSON ( url, { "module":"localisationSearch", "value":search}, function( data ) {			
 				 for (var i = 0; i < data.length; i++) {
 					 var precision_adresse = data[i].precision_adresse == null ? "" : data[i].precision_adresse;
 				        options += '<option value="' + data[i].localisation_id + '"';
-					        options += '>' + data[i].commune_insee + " " + data[i].commune_nom +"/" + precision_adresse +  '</option>';
+					        options += '>' + data[i].commune_insee +  " "+ data[i].commune_nom +"/" + precision_adresse +  '</option>';
 				      };
 				$("#selectLocalisation").html(options);
 			} ) ;	
@@ -96,6 +110,14 @@ $(document).ready(function() {
 <dl>
 <dt>Description :</dt>
 <dd><textarea id="precision_adresse" name="precision_adresse">{$data.precision_adresse}</textarea></dd>
+</dl>
+<dl>
+<dt>Coordonnées GPS :</dt>
+<dd>
+<input class="taux" id="wgs84x" name="wgs84x" value="{$data.wgs84x}" autocomplete="off" placeholder="longitude">
+<br>
+<input class="taux" id="wgs84y" name="wgs84y" value="{$data.wgs84y}" autocomplete="off" placeholder="latitude">
+
 </dl>
 
 <div class="formBouton">

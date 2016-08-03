@@ -43,6 +43,7 @@
 	<localisationChange action="modules/conflit/localisation.php" param="change" droits="gestion"/>
 	<localisationWrite action="modules/conflit/localisation.php" param="write" droits="gestion" retourok="perimetreDisplay" retourko="localisationChange" modulebefore="localisationChange" />
 	<localisationDelete action="modules/conflit/localisation.php" param="delete" droits="gestion" retoursuppr="perimetreDisplay" retourko="localisationChange" modulebefore="localisationChange" />
+	<localisationGet action="modules/conflit/localisation.php" param="get" droits="consult" ajax="1" />
 	
 	
 	<conflitList action="modules/conflit/conflit.php" param="list" droits="consult" retourlogin='1' />

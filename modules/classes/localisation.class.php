@@ -77,7 +77,9 @@ class Localisation extends ObjetBDD {
 		$this->colonnes = array (
 				"localisation_id"=>array("key"=>1, "type"=>1, "requis"=>1, "defaultValue"=>0),
 				"insee"=>array("type"=>1, "requis"=>1),
-				"precision_adresse"=>array("type"=>0)
+				"precision_adresse"=>array("type"=>0),
+				"wgs84x"=>array("type"=>1),
+				"wgs84y"=>array("type"=>1)
 		);
 		if (! is_array ( $param ))
 			$param == array ();
