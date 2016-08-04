@@ -5,7 +5,7 @@ var earth_radius = 6389125.541;
 var zoom = 11;
 function getStyle(libelle) {
 	libelle = libelle.toString();
-	console.log("libelle : "+libelle);
+	//console.log("libelle : "+libelle);
 	var styleRed = new ol.style.Style( { 
 		image: new ol.style.Circle({
 		    radius: 6,
