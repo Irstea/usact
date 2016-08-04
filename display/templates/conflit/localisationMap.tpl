@@ -3,18 +3,33 @@
 <script>
 var earth_radius = 6389125.541;
 var zoom = 11;
-var styleRed = new ol.style.Style( { 
-	image: new ol.style.Circle({
-	      radius: 6,
-	      fill: new ol.style.Fill({
-	          color: [255, 0, 0, 1]
-	        }),
-	stroke: new ol.style.Stroke( { 
-		color: [255 , 0 , 0 , 1],
-		width: 2
-	})
-})
-});
+function getStyle(libelle) {
+	libelle = libelle.toString();
+	console.log("libelle : "+libelle);
+	var styleRed = new ol.style.Style( { 
+		image: new ol.style.Circle({
+		    radius: 6,
+		    fill: new ol.style.Fill({
+		          color: [255, 0, 0, 0.5]
+		 	}),
+			stroke: new ol.style.Stroke( { 
+				color: [255 , 0 , 0 , 1],
+				width: 1
+			})
+		}),
+		text: new ol.style.Text( {
+			textAlign: 'Left',
+			text: libelle,
+			textBaseline: 'middle',
+			offsetX: 7,
+			offsetY: 0,
+			font: 'bold 12px Arial',
+			/*fill: new ol.style.Fill({ color: 'rgba(255, 0, 0, 0.1)' }),
+			stroke : new ol.style.Stroke({ color : 'rgba(255, 0, 0, 1)' })*/
+		})
+	});
+return styleRed;
+}
 
 
 var attribution = new ol.control.Attribution({
@@ -58,7 +73,7 @@ coordinates = [{$localisation[lst].wgs84x}, {$localisation[lst].wgs84y}];
  point_feature = new ol.Feature ( {
 	geometry: point
 });
-point_feature.setStyle(styleRed);
+point_feature.setStyle(getStyle({$localisation[lst].localisation_id}));
 //console.log("point_feature : " +point_feature);
 features.push ( point_feature) ;
 //console.log("features : "+features);

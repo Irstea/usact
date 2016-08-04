@@ -11,6 +11,7 @@ Rattacher une nouvelle localisation...
 <table  class="tableListe">
 	<thead>
 		<tr>
+		<th>id</th>
 		<th>Commune</th>
 		<th>Adresse</th>
 		<th>Coordonnées<br>GPS</th>
@@ -19,6 +20,15 @@ Rattacher une nouvelle localisation...
 	<tbody>
 	{section name=lst loop=$localisation}
 	<tr>
+	<td>
+	{if $droits.gestion == 1}
+	<a href="index.php?module=localisationChange&localisation_id={$localisation[lst].localisation_id}&perimetre_id={$perimetre.perimetre_id}">
+	{$localisation[lst].localisation_id}
+	</a>
+	{else}
+	{$localisation[lst].localisation_id}
+	{/if}
+	</td>
 	<td>
 	{if $droits.gestion == 1}
 	<a href="index.php?module=localisationChange&localisation_id={$localisation[lst].localisation_id}&perimetre_id={$perimetre.perimetre_id}">
