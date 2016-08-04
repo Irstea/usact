@@ -1,5 +1,17 @@
 News
 ===========
+Version 1.1 du 4 août 2016
+-------------
+Correction d'anomalies :
+- les listes déroulantes n'étaient pas correctement triées
+- depuis le détail d'un article, il n'était pas possible de gérer les interventions citées
+
+Améliorations :
+- les statuts des acteurs et leur rôle dans les organisations sont maintenant sélectionnables sous forme de liste déroulante
+- les numéros INSEE des communes sont maintenant stockés dans un champ séparé (indispensable pour les départements commençant inférieurs à 10 ou comprenant des lettres)
+- il est possible de saisir les coordonnées gps d'une localisation. Les localisations géo-référencées d'un périmètre sont maintenant affichées sur une carte
+
+
 Version 1.0.2 du 27 avril 2016
 --------------
 Correction d'anomalies :
