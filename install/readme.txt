@@ -1,5 +1,11 @@
 News
 ===========
+Version 1.1.1 du 24 novembre 2016
+-------------
+Corrections d'anomalies :
+- le nom du journal n'apparaissait pas dans le détail d'un article
+- si le nom d'une pièce jointe contenait une apostrophe, il n'était pas possible de la télécharger depuis l'application
+
 Version 1.1 du 4 août 2016
 -------------
 Correction d'anomalies :
