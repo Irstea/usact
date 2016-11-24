@@ -408,7 +408,9 @@ class Document extends ObjetBDD {
 					break;
 				default :
 					$colonne = "data";
-					$filename = $APPLI_code . "-" . $id . "-" . $data ["document_nom"];
+					//$filename = $APPLI_code . "-" . $id . "-" . $data ["document_nom"];
+					$extension = substr ( $data["document_nom"], strrpos ( $data["document_nom"], "." ) + 1 );
+					$filename = $APPLI_code . "-" . $id . "." . $extension;
 			}
 			
 			/*
