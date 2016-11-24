@@ -93,6 +93,21 @@ class Article extends ObjetBDD {
 			return $this->getListeParam($sql.$where.$this->order);
 		}
 	}
+	/**
+	 * Surcharge de la fonction lire pour associer le journal
+	 * {@inheritDoc}
+	 * @see ObjetBDD::lire()
+	 */
+	function lire($id, $getDefault=false, $parentValue=0) {
+		$data = array();
+		if (is_numeric($id) && $id > 0) {
+			$where = " where article_id = ".$id;
+			$data = parent::lireParam($this->sql.$where);
+		} elseif ($getDefault) {
+			$data = parent::getDefaultValue($parentValue);
+		}
+		return $data;
+	}
 	
 }
 /**
