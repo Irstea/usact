@@ -1,5 +1,9 @@
 News
 ===========
+Version 1.1.2 du 10 décembre 2018
+Correction d'anomalie :
+- l'ajout d'une nouvelle décision juridique était impossible
+
 Version 1.1.1 du 24 novembre 2016
 -------------
 Corrections d'anomalies :
