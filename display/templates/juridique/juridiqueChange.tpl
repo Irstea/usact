@@ -33,9 +33,9 @@ Retour au détail de l'acte juridique {$data.juridique_id}</a>
 </dd>
 </dl>
 <dl>
-<dt>Date de l'acte :</dt>
+<dt>Date de l'acte<span class="red">*</span> :</dt>
 <dd>
-<input class="date" name="acte_date" value="{$data.acte_date}">
+<input class="date" name="acte_date" value="{$data.acte_date}" required>
 </dd>
 </dl>
 <dl>
@@ -52,10 +52,9 @@ Retour au détail de l'acte juridique {$data.juridique_id}</a>
 </dd>
 </dl>
 <dl>
-<dt>Nature de la requête :</dt>
+<dt>Nature de la requête<span class="red">*</span> :</dt>
 <dd>
 <select name="nature_requete_id">
-<option value="" {if $data.nature_requete_id == ""}selected{/if}></option>
 {section name=lst loop=$nature_requete}
 <option value="{$nature_requete[lst].nature_requete_id}" {if $nature_requete[lst].nature_requete_id == $data.nature_requete_id}selected{/if}>
 {$nature_requete[lst].nature_requete_libelle}
