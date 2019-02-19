@@ -25,7 +25,7 @@ class Aclappli extends ObjetBDD {
 				) 
 		);
 		if (! is_array ( $param ))
-			$param == array ();
+			$param = array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}
@@ -52,7 +52,7 @@ class Aclaco extends ObjetBDD {
 				) 
 		);
 		if (! is_array ( $param ))
-			$param == array ();
+			$param = array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}
@@ -115,7 +115,7 @@ class Acllogin extends ObjetBDD {
 				) 
 		);
 		if (! is_array ( $param ))
-			$param == array ();
+			$param = array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}
@@ -252,7 +252,7 @@ class Aclgroup extends ObjetBDD {
 				) 
 		);
 		if (! is_array ( $param ))
-			$param == array ();
+			$param = array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}
@@ -318,6 +318,7 @@ class Aclgroup extends ObjetBDD {
 		/*
 		 * Selection des groupes "racine"
 		 */
+		$level = 0;
 		$sql = "select aclgroup_id, groupe from " . $this->table . " where aclgroup_id_parent is null
 				order by groupe ";
 		$group0 = $this->getListeParam ( $sql );

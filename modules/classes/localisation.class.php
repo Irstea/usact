@@ -31,7 +31,7 @@ class Commune extends ObjetBDD {
 				"commune_insee"=>array("type"=>0)
 		);
 		if (! is_array ( $param ))
-			$param == array ();
+			$param = array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}
@@ -82,7 +82,7 @@ class Localisation extends ObjetBDD {
 				"wgs84y"=>array("type"=>1)
 		);
 		if (! is_array ( $param ))
-			$param == array ();
+			$param = array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}

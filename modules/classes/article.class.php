@@ -34,7 +34,7 @@ class Article extends ObjetBDD {
 				"article_login"=>array("requis"=>1, "defaultValue"=>"getLogin"),				
 				"article_date_saisie"=>array("type"=>2, "requis"=>1, "defaultValue"=>"getDateJour")
 		);
-		if(!is_array($param)) $param==array();
+		if(!is_array($param)) $param = array();
 		$param["fullDescription"]=1;
 		parent::__construct($bdd,$param);
 	}
@@ -127,7 +127,7 @@ class ArticleConflit extends ObjetBDD {
 				"action_type_id"=>array("type"=>1)
 		);
 		if (! is_array ( $param ))
-			$param == array ();
+			$param = array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}
@@ -149,7 +149,7 @@ class ArticleIntervention extends ObjetBDD {
 				"article_id"=>array("type"=>1,"key"=>1, "requis"=>1),
 				"intervention_id"=>array("type"=>1, "key"=>1, "requis"=>1));
 		if (! is_array ( $param ))
-			$param == array ();
+			$param = array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}

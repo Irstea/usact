@@ -55,7 +55,7 @@ class Juridique extends ObjetBDD {
             "juridique_login"=>array("type"=>0,"requis"=>1, "defaultValue"=>"getLogin"),
             "juridique_date_saisie"=>array("type"=>2,"requis"=>1,"defaultValue"=>"getDateJour" )
         );
-        if(!is_array($param)) $param==array();
+        if(!is_array($param)) $param = array();
         $param["fullDescription"]=1;
         parent::__construct($bdd, $param);
     }
@@ -116,7 +116,7 @@ class Juridique extends ObjetBDD {
     function getListFromConflit($conflit_id) {
         if ($conflit_id > 0 && is_numeric($conflit_id)) {
             $sql = $this->sql ." natural join juridique_conflit where conflit_id = ".$conflit_id;
-            return $this->getListeParam($sql.$where.$this->order);
+            return $this->getListeParam($sql.$this->order);
         }
     }
     
@@ -149,7 +149,7 @@ class JuridiqueConflit extends ObjetBDD {
             "conflit_id"=>array("type"=>1, "key"=>1, "requis"=>1)
         );
         if (! is_array ( $param ))
-        $param == array ();
+        $param = array ();
         $param ["fullDescription"] = 1;
         parent::__construct ( $bdd, $param );
     }
@@ -190,7 +190,7 @@ class InterventionJuridique extends ObjetBDD {
             "petitionnaire"=>array("type"=>1)
         );
         if (! is_array ( $param ))
-        $param == array ();
+        $param = array ();
         $param ["fullDescription"] = 1;
         parent::__construct ( $bdd, $param );
     }

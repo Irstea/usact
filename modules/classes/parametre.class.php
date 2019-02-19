@@ -34,7 +34,7 @@ class Parametre extends ObjetBDD {
 				"requis" => 1 
 		);
 		if (! is_array ( $param ))
-			$param == array ();
+			$param = array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}
@@ -117,7 +117,7 @@ class Parametre_niv2 extends ObjetBDD {
 				) 
 		);
 		if (! is_array ( $param ))
-			$param == array ();
+			$param = array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}
@@ -192,7 +192,7 @@ class Acteur_niv3 extends ObjetBDD {
 				) 
 		);
 		if (! is_array ( $param ))
-			$param == array ();
+			$param = array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}
@@ -242,7 +242,7 @@ class Objet_niv1 extends ObjetBDD {
 				) 
 		);
 		if (! is_array ( $param ))
-			$param == array ();
+			$param = array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}
@@ -331,7 +331,7 @@ class Usage_activite_niv1 extends ObjetBDD {
 				) 
 		);
 		if (! is_array ( $param ))
-			$param == array ();
+			$param = array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}

@@ -43,7 +43,7 @@ class Resolution extends ObjetBDD {
 				"resolution_mode_niv2_id"=>array("type"=>1),
 				"resolution_detail"=>array("type"=>0)
 		);
-		if(!is_array($param)) $param==array();
+		if(!is_array($param)) $param = array();
 		$param["fullDescription"]=1;
 		parent::__construct($bdd,$param);
 	}
@@ -111,7 +111,7 @@ class Resolution extends ObjetBDD {
 	function getListFromConflit($conflit_id) {
 		if ($conflit_id > 0 && is_numeric($conflit_id)) {
 			$sql = $this->sql ." where conflit_id = ".$conflit_id;
-			return $this->getListeParam($sql.$where.$this->order);
+			return $this->getListeParam($sql.$this->order);
 		}
 	}
 	
@@ -123,7 +123,7 @@ class Resolution extends ObjetBDD {
 	function getListFromSolutionProposee($solution_proposee_id) {
 		if ($solution_proposee_id > 0 && is_numeric($solution_proposee_id)) {
 			$sql = $this->sql ." where solution_proposee_id = ".$solution_proposee_id;
-			return $this->getListeParam($sql.$where.$this->order);
+			return $this->getListeParam($sql.$this->order);
 		}
 	}
 }
@@ -150,7 +150,7 @@ class Solution extends ObjetBDD {
 				"intervention_id"=>array("type"=>1, "requis"=>1, "parentAttrib"=>1),
 				"solution_proposee_libelle"=>array("type"=>0)
 		);
-		if(!is_array($param)) $param==array();
+		if(!is_array($param)) $param = array();
 		$param["fullDescription"]=1;
 		parent::__construct($bdd,$param);
 	}

@@ -32,7 +32,7 @@ class Expert extends ObjetBDD
             "annee_naissance" => array("type" => 1),
         );
         if (!is_array($param)) {
-            $param == array();
+            $param = array();
         }
 
         $param["fullDescription"] = 1;
@@ -102,7 +102,7 @@ class Entretien extends ObjetBDD
             "piece_jointe" => array("type" => 0),
         );
         if (!is_array($param)) {
-            $param == array();
+            $param = array();
         }
 
         $param["fullDescription"] = 1;
@@ -157,7 +157,7 @@ class EntretienConflit extends ObjetBDD
             "entretien_id" => array("type" => 1, "key" => 1, "requis" => 1),
             "conflit_id" => array("type" => 1, "key" => 1, "requis" => 1));
         if (!is_array($param)) {
-            $param == array();
+            $param = array();
         }
 
         $param["fullDescription"] = 1;
@@ -183,7 +183,7 @@ class EntretienIntervention extends ObjetBDD
             "entretien_id" => array("type" => 1, "key" => 1, "requis" => 1),
             "intervention_id" => array("type" => 1, "key" => 1, "requis" => 1));
         if (!is_array($param)) {
-            $param == array();
+            $param = array();
         }
 
         $param["fullDescription"] = 1;

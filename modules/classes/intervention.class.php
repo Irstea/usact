@@ -80,7 +80,7 @@ class Intervention extends ObjetBDD {
 				) 
 		);
 		if (! is_array ( $param ))
-			$param == array ();
+			$param = array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}
@@ -177,9 +177,8 @@ class Intervention extends ObjetBDD {
 	function getSearchFromActeur($libelle) {
 		$libelle = $this->encodeData ( $libelle );
 		if (strlen ( $libelle ) > 0) {
-			$where .= " where (upper(acteur_physique_nom) like upper('%" .$libelle  . "%')";
-			$where .= " or upper(acteur_moral_nom) like upper('%" . $libelle . "%')";
-			$where .= ")";
+			$where = " where (upper(acteur_physique_nom) like upper('%" .$libelle  . "%')
+			 		or upper(acteur_moral_nom) like upper('%" . $libelle . "%'))";
 			$order = " order by acteur_moral_nom, acteur_physique_nom";
 			return $this->getListeParam($this->sqlActeur.$where.$order);
 		}
@@ -264,7 +263,7 @@ class Action extends ObjetBDD {
 				) 
 		);
 		if (! is_array ( $param ))
-			$param == array ();
+			$param = array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}
@@ -333,7 +332,7 @@ class Revendication extends ObjetBDD {
 				) 
 		);
 		if (! is_array ( $param ))
-			$param == array ();
+			$param = array ();
 		$param ["fullDescription"] = 1;
 		parent::__construct ( $bdd, $param );
 	}

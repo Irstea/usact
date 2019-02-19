@@ -1,6 +1,11 @@
 News
 ===========
+Version 1.1.3 du 19 février 2019
+------------
+Version technique intégrant les scripts de diffusion de l'application
+
 Version 1.1.2 du 10 décembre 2018
+-------------
 Correction d'anomalie :
 - l'ajout d'une nouvelle décision juridique était impossible
 
