@@ -1,0 +1,47 @@
+<?php
+/** Fichier cree le 4 mai 07 par quinton
+*
+*UTF-8
+*/
+
+$APPLI_modeDeveloppement = false;
+$APPLI_modeDeveloppement == true ? $ERROR_display=1 : $_ERROR_display = 0;
+$ERROR_level = E_ERROR ;
+$ADODB_debugmode = 0;
+$OBJETBDD_debugmode = 1;
+$APPLI_utf8 = true;
+
+$ident_type = "LDAP-BDD";
+/*
+ * Parametres concernant la base de donnees
+ */
+$BDD_login = "usact";
+$BDD_passwd = "usactPassword";
+$BDD_dsn = "pgsq:host=localhost;dbname=usact";
+$BDD_schema = "usact";
+
+/*
+ * Rights management, logins and logs records database
+ */
+$GACL_dblogin = "usact";
+$GACL_dbpasswd = "usactPassword";
+$GACL_aco = "usact";
+$GACL_dsn = "pgsql:host=localhost;dbname=usact";
+$GACL_schema = "gacl";
+
+$APPLI_address = "http://localhost/usact";
+$APPLI_mail = "usact@societe.fr";
+$APPLI_nom = "Usact";
+$APPLI_code = 'usact';
+
+
+$LDAPGROUP_address = "ldaps://ldap.societe.fr";
+$LDAPGROUP_attributnomgroupe = "cn";
+$LDAPGROUP_attributnomlogin = "memberuid";
+$LDAPGROUP_basedngroup = "dc=societe,dc=fr";
+$LDAP_address = "ldaps://ldap.societe.fr";
+$LDAP_port = 636;
+$LDAP_basedn = "ou=people,dc=societe,dc=fr";
+
+$paramIniFile = "./param.ini";
+?>

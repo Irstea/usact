@@ -27,7 +27,7 @@
 	<apropos action="framework/apropos.php" ></apropos>
 	<testcalendrier action="test/testcalendrier.php"></testcalendrier>
 	<phpinfo action="framework/phpinfo.php" droits="admin" />
-	<quoideneuf action="doc/quoideneuf.php" ></quoideneuf>
+	<quoideneuf action="doc/quoideneuf.php" />
 	<setlanguage action='framework/setlanguage.php'  retourlogin="1" />
 	
 <!-- Modules -->

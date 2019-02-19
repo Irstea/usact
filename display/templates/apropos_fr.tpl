@@ -7,5 +7,6 @@ Le logiciel USACT permet de décrire les conflits d'usage dans un secteur géogr
 <br>
 Pour plus d'informations, consultez le wiki de l'application : 
 <a href="https://gitlab.irstea.fr/eric.quinton/usact/wikis/home">https://gitlab.irstea.fr/eric.quinton/usact/wikis/home</a>
+<br>Pour les versions déployées depuis Github, consultez le wiki : https://github.com/Irstea/usact/wiki
 <br>
-Réalisation : Éric Quinton pour IRSTEA Bordeaux - © 2015-2018 - Tous droits réservés
+Réalisation : Éric Quinton pour IRSTEA Bordeaux - © 2015-2019 - Tous droits réservés

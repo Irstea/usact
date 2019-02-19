@@ -98,3 +98,6 @@ _minted*
 # WinEdt
 *.bak
 *.sav
+/sonar-scanner.sh
+/.scannerwork/.sonar_lock
+/.scannerwork/report-task.txt
