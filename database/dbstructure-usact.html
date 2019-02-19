@@ -1,0 +1,1970 @@
+<html>
+            <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+            <title>usact</title>
+            <style type="text/css">
+                /* Affichage de la structure de la base de donnees */
+.tablename {
+	background: #003A80;
+	font-size: large;
+    color: white;
+    font-weight:bold;
+    margin-top: 1em;
+}
+.tablecomment {
+	color:#009EE0;
+}
+h1 {
+    color: #003A80;
+}
+h2 {
+    color: #009EE0;
+    padding-top: 1em;
+}
+h3 {
+    color: #003A80;
+    font-weight:normal;
+}
+.datatable {
+    padding-bottom: 1em;
+}
+.center {
+    text-align: center;
+}
+            </style>
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+            <script type="text/javascript" charset="utf-8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+            <script type="text/javascript" charset="utf-8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+            </head>
+            <body>
+            <script>
+            $(document).ready( function () {
+                $(".datatable").DataTable( {
+                    "paging": false,
+                    "searching": false,
+                    "ordering": false,
+                    "info": false
+                });
+            } );
+            </script>
+            <h1>Structure of usact database</h1><p>Date generation: 19/02/2019 13:02:54</p><h2>Schema arcachon</h2><div id="arcachonacte_contentieux" class="tablename">acte_contentieux</div><br><div class="tablecomment">Table des types d'actes contentieux</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>acte_contentieux_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>acte_contentieux_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>acte_contentieux_id: arcachon.<a href="#arcachonjuridique">juridique</a> (acte_contentieux_id)<br><div id="arcachonacteur_mandat" class="tablename">acteur_mandat</div><br><div class="tablecomment">Mandats détenus par un acteur</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>acteur_mandat_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>acteur_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>mandat_type_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>mandat_detail</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>acteur_id: arcachon.<a href="#arcachonacteur">acteur</a> (acteur_id)<br>mandat_type_id: arcachon.<a href="#arcachonmandat_type">mandat_type</a> (mandat_type_id)<br><div id="arcachonacteur_statut" class="tablename">acteur_statut</div><br><div class="tablecomment">Table des statuts des acteurs</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>acteur_statut_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>acteur_statut_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>acteur_statut_id: arcachon.<a href="#arcachonacteur">acteur</a> (acteur_statut_id)<br><div id="arcachonacteur_structure" class="tablename">acteur_structure</div><br><div class="tablecomment">Table des relations entre un acteur et les structures</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>acteur_structure_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>acteur_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>structure_type_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>structure_statut</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>structure_statut_detail</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>structure_statut_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>acteur_id: arcachon.<a href="#arcachonacteur">acteur</a> (acteur_id)<br>structure_statut_id: arcachon.<a href="#arcachonstructure_statut">structure_statut</a> (structure_statut_id)<br>structure_type_id: arcachon.<a href="#arcachonstructure_type">structure_type</a> (structure_type_id)<br><div id="arcachonaction" class="tablename">action</div><br><div class="tablecomment">Table des actions entreprises lors des interventions</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>action_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>intervention_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>action_type_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>action_mode_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>action_echelle_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>action_date</td>
+                <td>timestamp without time zone</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Date de l'action</td>
+                </tr><tr>
+                <td>action_date_complement</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Complément à la date d'action, si intervalle ou non connue avec précision</td>
+                </tr><tr>
+                <td>action_detail</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Détail de l'action menée</td>
+                </tr></tbody></table><h3>References</h3>action_echelle_id: arcachon.<a href="#arcachonaction_echelle">action_echelle</a> (action_echelle_id)<br>action_mode_id: arcachon.<a href="#arcachonaction_mode">action_mode</a> (action_mode_id)<br>action_type_id: arcachon.<a href="#arcachonaction_type">action_type</a> (action_type_id)<br>intervention_id: arcachon.<a href="#arcachonintervention">intervention</a> (intervention_id)<br><div id="arcachonaction_echelle" class="tablename">action_echelle</div><br><div class="tablecomment">Table des échelles des actions</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>action_echelle_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>action_echelle_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>action_echelle_id: arcachon.<a href="#arcachonaction">action</a> (action_echelle_id)<br><div id="arcachonaction_mode" class="tablename">action_mode</div><br><div class="tablecomment">Table des modes d'action</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>action_mode_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>action_mode_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>action_mode_id: arcachon.<a href="#arcachonaction">action</a> (action_mode_id)<br><div id="arcachonaction_type" class="tablename">action_type</div><br><div class="tablecomment">Table des types de modes d'action</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>action_type_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>action_type_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>action_type_id: arcachon.<a href="#arcachonaction">action</a> (action_type_id)<br>action_type_id: arcachon.<a href="#arcachonarticle_conflit">article_conflit</a> (action_type_id)<br><div id="arcachonarticle" class="tablename">article</div><br><div class="tablecomment">Table des articles</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>article_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>journal_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>date_parution</td>
+                <td>timestamp without time zone</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Date de parution de l'article</td>
+                </tr><tr>
+                <td>titre</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Titre de l'article</td>
+                </tr><tr>
+                <td>auteur</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Auteur de l'article</td>
+                </tr><tr>
+                <td>edition</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Édition du journal</td>
+                </tr><tr>
+                <td>rubrique</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Rubrique de l'article</td>
+                </tr><tr>
+                <td>page</td>
+                <td>smallint</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Page de l'article dans le journal</td>
+                </tr><tr>
+                <td>entete</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Entête de l'article</td>
+                </tr><tr>
+                <td>piecejointe</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Nom de la pièce jointe</td>
+                </tr><tr>
+                <td>article_login</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Login de la personne ayant enregistré l'article</td>
+                </tr><tr>
+                <td>article_date_saisie</td>
+                <td>timestamp without time zone</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Date de saisie de l'article</td>
+                </tr></tbody></table><h3>References</h3>journal_id: arcachon.<a href="#arcachonjournal">journal</a> (journal_id)<br><h3>Referenced by</h3>article_id: arcachon.<a href="#arcachonarticle_conflit">article_conflit</a> (article_id)<br>article_id: arcachon.<a href="#arcachonarticle_document">article_document</a> (article_id)<br>article_id: arcachon.<a href="#arcachonarticle_intervention">article_intervention</a> (article_id)<br><div id="arcachonarticle_conflit" class="tablename">article_conflit</div><br><div class="tablecomment">Table des conflits abordés dans un article</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>article_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>conflit_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>action_type_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>action_type_id: arcachon.<a href="#arcachonaction_type">action_type</a> (action_type_id)<br>article_id: arcachon.<a href="#arcachonarticle">article</a> (article_id)<br>conflit_id: arcachon.<a href="#arcachonconflit">conflit</a> (conflit_id)<br><div id="arcachonarticle_document" class="tablename">article_document</div><br><div class="tablecomment">Table de rattachement d'un document a un article</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>article_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>document_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>article_id: arcachon.<a href="#arcachonarticle">article</a> (article_id)<br>document_id: arcachon.<a href="#arcachondocument">document</a> (document_id)<br><div id="arcachonarticle_intervention" class="tablename">article_intervention</div><br><div class="tablecomment">Table des articles cités lors d'une intervention</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>article_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>intervention_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>article_id: arcachon.<a href="#arcachonarticle">article</a> (article_id)<br>intervention_id: arcachon.<a href="#arcachonintervention">intervention</a> (intervention_id)<br><div id="arcachoncommune" class="tablename">commune</div><br><div class="tablecomment">Table des communes</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>insee</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td>N° Insee de la commune</td>
+                </tr><tr>
+                <td>commune_nom</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Nom de la commune</td>
+                </tr><tr>
+                <td>departement</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Nom du département</td>
+                </tr><tr>
+                <td>commune_insee</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>insee: arcachon.<a href="#arcachonlocalisation">localisation</a> (insee)<br><div id="arcachonconflit" class="tablename">conflit</div><br><div class="tablecomment">Table de description d'un conflit</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>conflit_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>perimetre_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>conflit_date_debut</td>
+                <td>timestamp without time zone</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Date de début du conflit</td>
+                </tr><tr>
+                <td>conflit_date_debut_txt</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Date de début du conflit, sous forme de texte</td>
+                </tr><tr>
+                <td>conflit_date_fin</td>
+                <td>timestamp without time zone</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Date de fin du conflit</td>
+                </tr><tr>
+                <td>conflit_date_fin_txt</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Date de fin du conflit, au format texte</td>
+                </tr><tr>
+                <td>conflit_date_saisie</td>
+                <td>timestamp without time zone</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Date où le conflit a été saisie</td>
+                </tr><tr>
+                <td>conflit_detail</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Informations complémentaires sur le conflit</td>
+                </tr><tr>
+                <td>conflit_login</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>perimetre_id: arcachon.<a href="#arcachonperimetre">perimetre</a> (perimetre_id)<br><h3>Referenced by</h3>conflit_id: arcachon.<a href="#arcachonarticle_conflit">article_conflit</a> (conflit_id)<br>conflit_id: arcachon.<a href="#arcachonentretien_conflit">entretien_conflit</a> (conflit_id)<br>conflit_id: arcachon.<a href="#arcachonintervention">intervention</a> (conflit_id)<br>conflit_id: arcachon.<a href="#arcachonjuridique_conflit">juridique_conflit</a> (conflit_id)<br>conflit_id: arcachon.<a href="#arcachonresolution">resolution</a> (conflit_id)<br><div id="arcachondecision_appel" class="tablename">decision_appel</div><br><div class="tablecomment">Table des types de décision en appel</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>decision_appel_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>decision_appel_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>decision_appel_id: arcachon.<a href="#arcachonjuridique">juridique</a> (decision_appel_id)<br><div id="arcachondecision_cassation" class="tablename">decision_cassation</div><br><div class="tablecomment">Table des sens de décision de cassation</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>decision_cassation_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>decision_cassation_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>decision_cassation_id: arcachon.<a href="#arcachonjuridique">juridique</a> (decision_cassation_id)<br><div id="arcachondocument" class="tablename">document</div><br><div class="tablecomment">Table des documents</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>document_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>mime_type_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>document_date_import</td>
+                <td>timestamp without time zone</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>document_nom</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Nom du document tel qu'il a été stocké</td>
+                </tr><tr>
+                <td>document_description</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Description du document</td>
+                </tr><tr>
+                <td>data</td>
+                <td>bytea</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Contenu du document</td>
+                </tr><tr>
+                <td>size</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Taille du document</td>
+                </tr><tr>
+                <td>thumbnail</td>
+                <td>bytea</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Vignette</td>
+                </tr></tbody></table><h3>References</h3>mime_type_id: arcachon.<a href="#arcachonmime_type">mime_type</a> (mime_type_id)<br><h3>Referenced by</h3>document_id: arcachon.<a href="#arcachonarticle_document">article_document</a> (document_id)<br>document_id: arcachon.<a href="#arcachonentretien_document">entretien_document</a> (document_id)<br>document_id: arcachon.<a href="#arcachonjuridique_document">juridique_document</a> (document_id)<br><div id="arcachonechelle" class="tablename">echelle</div><br><div class="tablecomment">Echelle du perimetre</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>echelle_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>echelle_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Indique le type d'échelle</td>
+                </tr></tbody></table><h3>Referenced by</h3>echelle_id: arcachon.<a href="#arcachonperimetre">perimetre</a> (echelle_id)<br><div id="arcachonentretien" class="tablename">entretien</div><br><div class="tablecomment">Table des entretiens menés</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>entretien_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>expert_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>entretien_date</td>
+                <td>timestamp without time zone</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Date de l'entretien</td>
+                </tr><tr>
+                <td>institution</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Institution représentée</td>
+                </tr><tr>
+                <td>statut</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Statut de l'interviewé</td>
+                </tr><tr>
+                <td>localisation</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Lieu de l'entretien</td>
+                </tr><tr>
+                <td>binome</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Binome ayant mené l'entretien</td>
+                </tr><tr>
+                <td>entretien_login</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Login de la personne ayant saisi l'entretien</td>
+                </tr><tr>
+                <td>entretien_date_saisie</td>
+                <td>timestamp without time zone</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Date de création de l'entretien dans la base</td>
+                </tr><tr>
+                <td>piece_jointe</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Nom de la pièce jointe fournie</td>
+                </tr></tbody></table><h3>References</h3>expert_id: arcachon.<a href="#arcachonexpert">expert</a> (expert_id)<br><h3>Referenced by</h3>entretien_id: arcachon.<a href="#arcachonentretien_conflit">entretien_conflit</a> (entretien_id)<br>entretien_id: arcachon.<a href="#arcachonentretien_document">entretien_document</a> (entretien_id)<br>entretien_id: arcachon.<a href="#arcachonentretien_intervention">entretien_intervention</a> (entretien_id)<br><div id="arcachonentretien_conflit" class="tablename">entretien_conflit</div><br><div class="tablecomment">Table des conflits relatés par les entretiens</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>entretien_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>conflit_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>conflit_id: arcachon.<a href="#arcachonconflit">conflit</a> (conflit_id)<br>entretien_id: arcachon.<a href="#arcachonentretien">entretien</a> (entretien_id)<br><div id="arcachonentretien_document" class="tablename">entretien_document</div><br><div class="tablecomment">Table de rattachement d'un document à un entretien</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>entretien_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>document_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>document_id: arcachon.<a href="#arcachondocument">document</a> (document_id)<br>entretien_id: arcachon.<a href="#arcachonentretien">entretien</a> (entretien_id)<br><div id="arcachonentretien_intervention" class="tablename">entretien_intervention</div><br><div class="tablecomment">Table des interventions évoquées lors des entretiens</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>entretien_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>intervention_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>entretien_id: arcachon.<a href="#arcachonentretien">entretien</a> (entretien_id)<br>intervention_id: arcachon.<a href="#arcachonintervention">intervention</a> (intervention_id)<br><div id="arcachonexpert" class="tablename">expert</div><br><div class="tablecomment">Table des experts entendus en entretien</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>expert_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>acteur_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>expert_nom</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Nom de l'expert</td>
+                </tr><tr>
+                <td>expert_prenom</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Prénom de l'expert</td>
+                </tr><tr>
+                <td>sexe</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Sexe (H/F)</td>
+                </tr><tr>
+                <td>commune_residence</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Commune de résidence, précision pour les experts</td>
+                </tr><tr>
+                <td>lien_territoire</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Lien avec le territoire (expert)</td>
+                </tr><tr>
+                <td>activite_assoc</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Activité associative (expert)</td>
+                </tr><tr>
+                <td>activite_prof</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Activité professionnelle (expert)</td>
+                </tr><tr>
+                <td>annee_naissance</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Année de naissance de l'expert</td>
+                </tr></tbody></table><h3>References</h3>acteur_id: arcachon.<a href="#arcachonacteur">acteur</a> (acteur_id)<br><h3>Referenced by</h3>expert_id: arcachon.<a href="#arcachonentretien">entretien</a> (expert_id)<br><div id="arcachonintervention_juridique" class="tablename">intervention_juridique</div><br><div class="tablecomment">Table des implications juridiques des interventions</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>intervention_juridique_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>intervention_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>juridique_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>position_acteur_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>qualite_appel_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>qualite_pourvoi_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>petitionnaire</td>
+                <td>smallint</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>0 : non, 1 : oui</td>
+                </tr></tbody></table><h3>References</h3>intervention_id: arcachon.<a href="#arcachonintervention">intervention</a> (intervention_id)<br>juridique_id: arcachon.<a href="#arcachonjuridique">juridique</a> (juridique_id)<br>position_acteur_id: arcachon.<a href="#arcachonposition_acteur">position_acteur</a> (position_acteur_id)<br>qualite_appel_id: arcachon.<a href="#arcachonqualite_appel">qualite_appel</a> (qualite_appel_id)<br>qualite_pourvoi_id: arcachon.<a href="#arcachonqualite_appel">qualite_appel</a> (qualite_appel_id)<br><div id="arcachonjournal" class="tablename">journal</div><br><div class="tablecomment">Liste des journaux</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>journal_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>journal_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>journal_id: arcachon.<a href="#arcachonarticle">article</a> (journal_id)<br><div id="arcachonjuridiction" class="tablename">juridiction</div><br><div class="tablecomment">Table des juridictions</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>juridiction_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>juridiction_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>juridiction_id: arcachon.<a href="#arcachonjuridique">juridique</a> (juridiction_id)<br><div id="arcachonjuridique" class="tablename">juridique</div><br><div class="tablecomment">Table des données juridiques</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>juridique_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>juridiction_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>arret_num</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Numéro de l'arrêt</td>
+                </tr><tr>
+                <td>arret_date</td>
+                <td>timestamp without time zone</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Date de l'arrêt</td>
+                </tr><tr>
+                <td>acte_date</td>
+                <td>timestamp without time zone</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Date de l'acte juridique</td>
+                </tr><tr>
+                <td>juridique_sous_domaine_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>nature_requete_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>type_ouvrage_perm_constr_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>nature_travaux_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>decision_cassation_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>decision_appel_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>acte_contentieux_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>juridique_libelle</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Libellé de la décision juridique</td>
+                </tr><tr>
+                <td>objet_precision</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Précisions concernant l'objet</td>
+                </tr><tr>
+                <td>article1</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>article2</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>article3</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>article4</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>article5</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>jugement_date_degre1</td>
+                <td>timestamp without time zone</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Date du jugement de degré 1</td>
+                </tr><tr>
+                <td>jugement_date_degre2</td>
+                <td>timestamp without time zone</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Date de jugement de degré 2</td>
+                </tr><tr>
+                <td>juridique_login</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Login de la personne ayant saisi la fiche</td>
+                </tr><tr>
+                <td>juridique_date_saisie</td>
+                <td>timestamp without time zone</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Date de saisie de la fiche</td>
+                </tr></tbody></table><h3>References</h3>acte_contentieux_id: arcachon.<a href="#arcachonacte_contentieux">acte_contentieux</a> (acte_contentieux_id)<br>decision_appel_id: arcachon.<a href="#arcachondecision_appel">decision_appel</a> (decision_appel_id)<br>decision_cassation_id: arcachon.<a href="#arcachondecision_cassation">decision_cassation</a> (decision_cassation_id)<br>juridiction_id: arcachon.<a href="#arcachonjuridiction">juridiction</a> (juridiction_id)<br>juridique_sous_domaine_id: arcachon.<a href="#arcachonjuridique_sous_domaine">juridique_sous_domaine</a> (juridique_sous_domaine_id)<br>nature_requete_id: arcachon.<a href="#arcachonnature_requete">nature_requete</a> (nature_requete_id)<br>nature_travaux_id: arcachon.<a href="#arcachonnature_travaux">nature_travaux</a> (nature_travaux_id)<br>type_ouvrage_perm_constr_id: arcachon.<a href="#arcachontype_ouvrage_perm_constr">type_ouvrage_perm_constr</a> (type_ouvrage_perm_constr_id)<br><h3>Referenced by</h3>juridique_id: arcachon.<a href="#arcachonintervention_juridique">intervention_juridique</a> (juridique_id)<br>juridique_id: arcachon.<a href="#arcachonjuridique_conflit">juridique_conflit</a> (juridique_id)<br>juridique_id: arcachon.<a href="#arcachonjuridique_document">juridique_document</a> (juridique_id)<br><div id="arcachonjuridique_conflit" class="tablename">juridique_conflit</div><br><div class="tablecomment">Table des conflits traités par les décisions juridiques</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>juridique_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>conflit_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>conflit_id: arcachon.<a href="#arcachonconflit">conflit</a> (conflit_id)<br>juridique_id: arcachon.<a href="#arcachonjuridique">juridique</a> (juridique_id)<br><div id="arcachonjuridique_document" class="tablename">juridique_document</div><br><div class="tablecomment">Table de rattachement d'un document à une décision juridique</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>juridique_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>document_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>document_id: arcachon.<a href="#arcachondocument">document</a> (document_id)<br>juridique_id: arcachon.<a href="#arcachonjuridique">juridique</a> (juridique_id)<br><div id="arcachonjuridique_domaine" class="tablename">juridique_domaine</div><br><div class="tablecomment">Table des domaines des décisions juridiques</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>juridique_domaine_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>juridique_domaine_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>juridique_domaine_id: arcachon.<a href="#arcachonjuridique_sous_domaine">juridique_sous_domaine</a> (juridique_domaine_id)<br><div id="arcachonjuridique_sous_domaine" class="tablename">juridique_sous_domaine</div><br><div class="tablecomment">Table des sous-domaines des décisions juridiques</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>juridique_sous_domaine_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>juridique_domaine_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>juridique_sous_domaine_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>juridique_domaine_id: arcachon.<a href="#arcachonjuridique_domaine">juridique_domaine</a> (juridique_domaine_id)<br><h3>Referenced by</h3>juridique_sous_domaine_id: arcachon.<a href="#arcachonjuridique">juridique</a> (juridique_sous_domaine_id)<br><div id="arcachonlocalisation" class="tablename">localisation</div><br><div class="tablecomment">Table des localisations des périmètres des conflits</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>localisation_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>insee</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>N° Insee de la commune</td>
+                </tr><tr>
+                <td>precision_adresse</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Complément pour préciser la localisation</td>
+                </tr><tr>
+                <td>wgs84x</td>
+                <td>double precision</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Longitude de la localisation, en WGS84 numérique</td>
+                </tr><tr>
+                <td>wgs84y</td>
+                <td>double precision</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Latitude de la localisation, en WGS84 numérique</td>
+                </tr></tbody></table><h3>References</h3>insee: arcachon.<a href="#arcachoncommune">commune</a> (insee)<br><h3>Referenced by</h3>localisation_id: arcachon.<a href="#arcachonperimetre_localisation">perimetre_localisation</a> (localisation_id)<br><div id="arcachonmandat_type" class="tablename">mandat_type</div><br><div class="tablecomment">Table des types de mandats</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>mandat_type_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>mandat_type_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>mandat_type_id: arcachon.<a href="#arcachonacteur_mandat">acteur_mandat</a> (mandat_type_id)<br><div id="arcachonmime_type" class="tablename">mime_type</div><br><div class="tablecomment">Table des types mime</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>mime_type_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>content_type</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>extension</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>mime_type_id: arcachon.<a href="#arcachondocument">document</a> (mime_type_id)<br><div id="arcachonnature_requete" class="tablename">nature_requete</div><br><div class="tablecomment">Table des natures de requêtes</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>nature_requete_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>nature_requete_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>nature_requete_id: arcachon.<a href="#arcachonjuridique">juridique</a> (nature_requete_id)<br><div id="arcachonnature_travaux" class="tablename">nature_travaux</div><br><div class="tablecomment">Table des natures de travaux</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>nature_travaux_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>nature_travaux_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>nature_travaux_id: arcachon.<a href="#arcachonjuridique">juridique</a> (nature_travaux_id)<br><div id="arcachonparticulier_resident_type" class="tablename">particulier_resident_type</div><br><div class="tablecomment">Table des types de résidence des acteurs particuliers</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>particulier_resident_type_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>particulier_resident_type_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>particulier_resident_type_id: arcachon.<a href="#arcachonacteur">acteur</a> (particulier_resident_type_id)<br><div id="arcachonperimetre" class="tablename">perimetre</div><br><div class="tablecomment">Table de localisation d'un conflit</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>perimetre_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>type_perimetre_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>echelle_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>bien_support_niv2_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>objet_niv2_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>recurrence_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>perimetre_date_saisie</td>
+                <td>timestamp without time zone</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Date de saisie du perimetre</td>
+                </tr><tr>
+                <td>perimetre_detail</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Informations complémentaires sur le perimetre</td>
+                </tr><tr>
+                <td>perimetre_login</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>bien_support_niv2_id: arcachon.<a href="#arcachonbien_support_niv2">bien_support_niv2</a> (bien_support_niv2_id)<br>echelle_id: arcachon.<a href="#arcachonechelle">echelle</a> (echelle_id)<br>objet_niv2_id: arcachon.<a href="#arcachonobjet_niv2">objet_niv2</a> (objet_niv2_id)<br>recurrence_id: arcachon.<a href="#arcachonrecurrence">recurrence</a> (recurrence_id)<br>type_perimetre_id: arcachon.<a href="#arcachontype_perimetre">type_perimetre</a> (type_perimetre_id)<br><h3>Referenced by</h3>perimetre_id: arcachon.<a href="#arcachonconflit">conflit</a> (perimetre_id)<br>perimetre_id: arcachon.<a href="#arcachonperimetre_localisation">perimetre_localisation</a> (perimetre_id)<br><div id="arcachonperimetre_localisation" class="tablename">perimetre_localisation</div><br><div class="tablecomment">Table de correspondance entre les périmètres et les localisations</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>perimetre_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>localisation_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>localisation_id: arcachon.<a href="#arcachonlocalisation">localisation</a> (localisation_id)<br>perimetre_id: arcachon.<a href="#arcachonperimetre">perimetre</a> (perimetre_id)<br><div id="arcachonposition_acteur" class="tablename">position_acteur</div><br><div class="tablecomment">Table des positions des acteurs</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>position_acteur_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>position_acteur_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>position_acteur_id: arcachon.<a href="#arcachonintervention_juridique">intervention_juridique</a> (position_acteur_id)<br><div id="arcachonqualite_appel" class="tablename">qualite_appel</div><br><div class="tablecomment">Table des qualités d'appel (demandeur, défendeur)</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>qualite_appel_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>qualite_appel_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>qualite_appel_id: arcachon.<a href="#arcachonintervention_juridique">intervention_juridique</a> (qualite_appel_id)<br>qualite_appel_id: arcachon.<a href="#arcachonintervention_juridique">intervention_juridique</a> (qualite_pourvoi_id)<br><div id="arcachonrecurrence" class="tablename">recurrence</div><br><div class="tablecomment">Recurrence d'apparition du conflit</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>recurrence_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>recurrence_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>recurrence_id: arcachon.<a href="#arcachonperimetre">perimetre</a> (recurrence_id)<br><div id="arcachonregistre_argument_niv1" class="tablename">registre_argument_niv1</div><br><div class="tablecomment">Table des registres d'argument - niveau 1</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>registre_argument_niv1_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>registre_argument_niv1_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>registre_argument_niv1_id: arcachon.<a href="#arcachonregistre_argument_niv2">registre_argument_niv2</a> (registre_argument_niv1_id)<br><div id="arcachonregistre_argument_niv2" class="tablename">registre_argument_niv2</div><br><div class="tablecomment">Table des registres d'argument - niveau 2</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>registre_argument_niv2_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>registre_argument_niv1_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>registre_argument_niv2_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>registre_argument_niv1_id: arcachon.<a href="#arcachonregistre_argument_niv1">registre_argument_niv1</a> (registre_argument_niv1_id)<br><h3>Referenced by</h3>registre_argument_niv2_id: arcachon.<a href="#arcachonrevendication">revendication</a> (registre_argument_niv2_id)<br><div id="arcachonresolution" class="tablename">resolution</div><br><div class="tablecomment">Table des résolutions des conflits</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>resolution_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>conflit_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>solution_proposee_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>resolution_echelle_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>resolution_nature_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>resolution_acteur_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>resolution_mode_niv2_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>resolution_detail</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>conflit_id: arcachon.<a href="#arcachonconflit">conflit</a> (conflit_id)<br>resolution_acteur_id: arcachon.<a href="#arcachonresolution_acteur">resolution_acteur</a> (resolution_acteur_id)<br>resolution_echelle_id: arcachon.<a href="#arcachonresolution_echelle">resolution_echelle</a> (resolution_echelle_id)<br>resolution_mode_niv2_id: arcachon.<a href="#arcachonresolution_mode_niv2">resolution_mode_niv2</a> (resolution_mode_niv2_id)<br>resolution_nature_id: arcachon.<a href="#arcachonresolution_nature">resolution_nature</a> (resolution_nature_id)<br>solution_proposee_id: arcachon.<a href="#arcachonsolution_proposee">solution_proposee</a> (solution_proposee_id)<br><div id="arcachonresolution_acteur" class="tablename">resolution_acteur</div><br><div class="tablecomment">Table des actions entreprises au niveau des acteurs</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>resolution_acteur_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>resolution_acteur_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>resolution_acteur_id: arcachon.<a href="#arcachonresolution">resolution</a> (resolution_acteur_id)<br><div id="arcachonresolution_echelle" class="tablename">resolution_echelle</div><br><div class="tablecomment">Table des échelles géographiques des résolutions</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>resolution_echelle_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>resolution_echelle_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>resolution_echelle_id: arcachon.<a href="#arcachonresolution">resolution</a> (resolution_echelle_id)<br><div id="arcachonresolution_mode_niv1" class="tablename">resolution_mode_niv1</div><br><div class="tablecomment">Table des modes de résolution - niveau 1</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>resolution_mode_niv1_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>resolution_mode_niv1_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>resolution_mode_niv1_id: arcachon.<a href="#arcachonresolution_mode_niv2">resolution_mode_niv2</a> (resolution_mode_niv1_id)<br><div id="arcachonresolution_mode_niv2" class="tablename">resolution_mode_niv2</div><br><div class="tablecomment">Table des modes de résolution - niveau 2</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>resolution_mode_niv2_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>resolution_mode_niv2_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>resolution_mode_niv1_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>resolution_mode_niv1_id: arcachon.<a href="#arcachonresolution_mode_niv1">resolution_mode_niv1</a> (resolution_mode_niv1_id)<br><h3>Referenced by</h3>resolution_mode_niv2_id: arcachon.<a href="#arcachonresolution">resolution</a> (resolution_mode_niv2_id)<br><div id="arcachonresolution_nature" class="tablename">resolution_nature</div><br><div class="tablecomment">Table des natures de résolution</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>resolution_nature_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>resolution_nature_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>resolution_nature_id: arcachon.<a href="#arcachonresolution">resolution</a> (resolution_nature_id)<br><div id="arcachonrevend_support_niv1" class="tablename">revend_support_niv1</div><br><div class="tablecomment">Table des supports de revendication niveau 1</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>revend_support_niv1_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>revend_support_niv1_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>revend_support_niv1_id: arcachon.<a href="#arcachonrevend_support_niv2">revend_support_niv2</a> (revend_support_niv1_id)<br><div id="arcachonrevend_support_niv2" class="tablename">revend_support_niv2</div><br><div class="tablecomment">Table des supports de revendication niveau 2</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>revend_support_niv2_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>revend_support_niv1_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>revend_support_niv2_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>revend_support_niv1_id: arcachon.<a href="#arcachonrevend_support_niv1">revend_support_niv1</a> (revend_support_niv1_id)<br><h3>Referenced by</h3>revend_support_niv2_id: arcachon.<a href="#arcachonrevendication">revendication</a> (revend_support_niv2_id)<br><div id="arcachonrevendication" class="tablename">revendication</div><br><div class="tablecomment">Table des revendications portées par les interventions</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>revendication_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>intervention_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>revendication_niv2_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>revend_support_niv2_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>registre_argument_niv2_id</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>revendication_detail</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Détail de la revendication</td>
+                </tr><tr>
+                <td>argument_detail</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Détail des arguments présentés</td>
+                </tr></tbody></table><h3>References</h3>intervention_id: arcachon.<a href="#arcachonintervention">intervention</a> (intervention_id)<br>registre_argument_niv2_id: arcachon.<a href="#arcachonregistre_argument_niv2">registre_argument_niv2</a> (registre_argument_niv2_id)<br>revendication_niv2_id: arcachon.<a href="#arcachonrevendication_niv2">revendication_niv2</a> (revendication_niv2_id)<br>revend_support_niv2_id: arcachon.<a href="#arcachonrevend_support_niv2">revend_support_niv2</a> (revend_support_niv2_id)<br><div id="arcachonrevendication_niv1" class="tablename">revendication_niv1</div><br><div class="tablecomment">Table des niveaux 1 de revendication</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>revendication_niv1_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>revendication_niv1_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>revendication_niv1_id: arcachon.<a href="#arcachonrevendication_niv2">revendication_niv2</a> (revendication_niv1_id)<br><div id="arcachonrevendication_niv2" class="tablename">revendication_niv2</div><br><div class="tablecomment">Table des revendications de niveau 2</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>revendication_niv2_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>revendication_niv1_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>revendication_niv2_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>revendication_niv1_id: arcachon.<a href="#arcachonrevendication_niv1">revendication_niv1</a> (revendication_niv1_id)<br><h3>Referenced by</h3>revendication_niv2_id: arcachon.<a href="#arcachonrevendication">revendication</a> (revendication_niv2_id)<br><div id="arcachonsolution_proposee" class="tablename">solution_proposee</div><br><div class="tablecomment">Table des solutions proposées</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>solution_proposee_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>intervention_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>solution_proposee_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>intervention_id: arcachon.<a href="#arcachonintervention">intervention</a> (intervention_id)<br><h3>Referenced by</h3>solution_proposee_id: arcachon.<a href="#arcachonresolution">resolution</a> (solution_proposee_id)<br><div id="arcachonstructure_statut" class="tablename">structure_statut</div><br><div class="tablecomment">Table des statuts des acteurs au sein d'une structure</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>structure_statut_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>structure_statut_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>structure_statut_id: arcachon.<a href="#arcachonacteur_structure">acteur_structure</a> (structure_statut_id)<br><div id="arcachonstructure_type" class="tablename">structure_type</div><br><div class="tablecomment">Type de structure</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>structure_type_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>structure_type_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>structure_type_id: arcachon.<a href="#arcachonacteur_structure">acteur_structure</a> (structure_type_id)<br><div id="arcachontype_ouvrage_perm_constr" class="tablename">type_ouvrage_perm_constr</div><br><div class="tablecomment">Table des types d'ouvrage utilisés dans les permis de construire</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>type_ouvrage_perm_constr_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>type_ouvrage_perm_constr_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>Referenced by</h3>type_ouvrage_perm_constr_id: arcachon.<a href="#arcachonjuridique">juridique</a> (type_ouvrage_perm_constr_id)<br><div id="arcachontype_perimetre" class="tablename">type_perimetre</div><br><div class="tablecomment">Type de perimetre du conflit</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>type_perimetre_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>type_perimetre_libelle</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Libelle du type de perimetre</td>
+                </tr></tbody></table><h3>Referenced by</h3>type_perimetre_id: arcachon.<a href="#arcachonobjet_niv1">objet_niv1</a> (type_perimetre_id)<br>type_perimetre_id: arcachon.<a href="#arcachonperimetre">perimetre</a> (type_perimetre_id)<br><h2>Schema gacl</h2><div id="gaclaclacl" class="tablename">aclacl</div><br><div class="tablecomment">Table des droits attribués</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>aclaco_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>aclgroup_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>aclaco_id: gacl.<a href="#gaclaclaco">aclaco</a> (aclaco_id)<br>aclgroup_id: gacl.<a href="#gaclaclgroup">aclgroup</a> (aclgroup_id)<br><div id="gaclaclaco" class="tablename">aclaco</div><br><div class="tablecomment">Table des droits gérés</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>aclaco_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>aclappli_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>aco</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>aclappli_id: gacl.<a href="#gaclaclappli">aclappli</a> (aclappli_id)<br><h3>Referenced by</h3>aclaco_id: gacl.<a href="#gaclaclacl">aclacl</a> (aclaco_id)<br><div id="gaclaclappli" class="tablename">aclappli</div><br><div class="tablecomment">Table des applications gérées</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>aclappli_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>appli</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Nom de l'application pour la gestion des droits</td>
+                </tr><tr>
+                <td>applidetail</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Description de l'application</td>
+                </tr></tbody></table><h3>Referenced by</h3>aclappli_id: gacl.<a href="#gaclaclaco">aclaco</a> (aclappli_id)<br><div id="gaclaclgroup" class="tablename">aclgroup</div><br><div class="tablecomment">Groupes des logins</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>aclgroup_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>groupe</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>aclgroup_id_parent</td>
+                <td>integer</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>aclgroup_id_parent: gacl.<a href="#gaclaclgroup">aclgroup</a> (aclgroup_id)<br><h3>Referenced by</h3>aclgroup_id: gacl.<a href="#gaclaclacl">aclacl</a> (aclgroup_id)<br>aclgroup_id: gacl.<a href="#gaclaclgroup">aclgroup</a> (aclgroup_id_parent)<br>aclgroup_id: gacl.<a href="#gaclacllogingroup">acllogingroup</a> (aclgroup_id)<br><div id="gaclacllogin" class="tablename">acllogin</div><br><div class="tablecomment">Table des logins des utilisateurs autorisés</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>acllogin_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>login</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>logindetail</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Nom affiché</td>
+                </tr></tbody></table><h3>Referenced by</h3>acllogin_id: gacl.<a href="#gaclacllogingroup">acllogingroup</a> (acllogin_id)<br><div id="gaclacllogingroup" class="tablename">acllogingroup</div><br><div class="tablecomment">Table des relations entre les logins et les groupes</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>acllogin_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>aclgroup_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>aclgroup_id: gacl.<a href="#gaclaclgroup">aclgroup</a> (aclgroup_id)<br>acllogin_id: gacl.<a href="#gaclacllogin">acllogin</a> (acllogin_id)<br><div id="gacllog" class="tablename">log</div><br><div class="tablecomment">Liste des connexions ou des actions enregistrées</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>log_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>login</td>
+                <td>character varying</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>nom_module</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>log_date</td>
+                <td>timestamp without time zone</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td>Heure de connexion</td>
+                </tr><tr>
+                <td>commentaire</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td>Donnees complementaires enregistrees</td>
+                </tr></tbody></table><div id="gacllogin_oldpassword" class="tablename">login_oldpassword</div><br><div class="tablecomment">Table contenant les anciens mots de passe</div>.<br><table class="datatable row-border display"><thead><tr>
+                    <th>Column name</th>
+                    <th>Type</th>
+                    <th>Not null</th>
+                    <th>key</th>
+                    <th>Comment</th>
+                    </tr></thead><tbody><tr>
+                <td>login_oldpassword_id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center">X</td>
+                <td></td>
+                </tr><tr>
+                <td>id</td>
+                <td>integer</td>
+                <td class="center">X</td>
+                <td class="center"></td>
+                <td></td>
+                </tr><tr>
+                <td>password</td>
+                <td>character varying</td>
+                <td class="center"></td>
+                <td class="center"></td>
+                <td></td>
+                </tr></tbody></table><h3>References</h3>id: gacl.<a href="#gacllogingestion">logingestion</a> (id)<br></body></html>
